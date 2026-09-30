@@ -659,6 +659,11 @@
 
                 <ui:NavigationView.FooterMenuItems>
                     <ui:NavigationViewItemSeparator />
+                    <ui:NavigationViewItem Content="{x:Static res:Strings.Nav_RestartSteam}" Click="RestartSteam_Click">
+                        <ui:NavigationViewItem.Icon>
+                            <ui:SymbolIcon Symbol="ArrowClockwise24" />
+                        </ui:NavigationViewItem.Icon>
+                    </ui:NavigationViewItem>
                     <ui:NavigationViewItem Content="{x:Static res:Strings.Nav_Settings}" TargetPageType="{x:Type views:SettingsView}">
                         <ui:NavigationViewItem.Icon>
                             <ui:SymbolIcon Symbol="Settings24" />

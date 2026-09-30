@@ -172,6 +172,10 @@ public partial class MainWindow : Wpf.Ui.Controls.FluentWindow
     // "Restart Steam" is an action, not a page: run the command, don't leave it selected.
     private void RestartSteam_Click(object sender, RoutedEventArgs e)
     {
+        if (sender is Wpf.Ui.Controls.NavigationViewItem item)
+        {
+            item.IsActive = false;
+        }
         if (DataContext is MainViewModel vm) vm.RestartSteamCommand.Execute(null);
     }
 }
