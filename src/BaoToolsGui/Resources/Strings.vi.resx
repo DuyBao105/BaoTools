@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:schema id="root">
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -66,7 +66,7 @@
   <data name="Nav_Mode" xml:space="preserve"><value>Modes</value></data>
   <data name="Nav_Fixes" xml:space="preserve"><value>Bản sửa lỗi</value></data>
   <data name="Nav_Section_Tools" xml:space="preserve"><value>TOOLS</value></data>
-  <data name="Nav_Section_System" xml:space="preserve"><value>SYSTEM</value></data>
+  <data name="Nav_Section_System" xml:space="preserve"><value>HỆ THỐNG</value></data>
   <data name="Nav_RestartSteam" xml:space="preserve"><value>Khởi động lại Steam</value></data>
   <data name="Nav_Settings" xml:space="preserve"><value>Cài đặt</value></data>
   <data name="Nav_SignInDiscord" xml:space="preserve"><value>Đăng nhập bằng Discord</value></data>

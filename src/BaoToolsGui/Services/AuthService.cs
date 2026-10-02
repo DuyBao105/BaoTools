@@ -55,7 +55,7 @@ public class AuthService
         _expiresAt = stored.ExpiresAt;
         DisplayName = stored.DisplayName;
         Email = stored.Email;
-        AvatarUrl = stored.AvatarUrl;
+        AvatarUrl = AvatarLoader.NormalizeDiscordAvatarUrl(stored.AvatarUrl);
 
         // Token still comfortably valid, or refresh succeeds → keep the session
         if (_expiresAt > DateTimeOffset.UtcNow.AddMinutes(2))
@@ -94,8 +94,16 @@ public class AuthService
             $"&code_challenge={challenge}&code_challenge_method=s256";
 
         using var listener = new HttpListener();
-        listener.Prefixes.Add($"http://localhost:{AppConfig.OAuthCallbackPort}/");
-        listener.Start();
+        try
+        {
+            listener.Prefixes.Add($"http://localhost:{AppConfig.OAuthCallbackPort}/");
+            listener.Start();
+        }
+        catch (HttpListenerException hex)
+        {
+            throw new AuthException(
+                $"Cổng kết nối ({AppConfig.OAuthCallbackPort}) đang bị một tiến trình khác chiếm dụng. Vui lòng thử bấm 'Khởi động lại Steam' rồi thử đăng nhập lại! ({hex.Message})");
+        }
 
         Process.Start(new ProcessStartInfo(authorizeUrl) { UseShellExecute = true });
 
@@ -293,7 +301,7 @@ public class AuthService
             var meta = session.User.Metadata;
             DisplayName = meta?.CustomClaims?.GlobalName ?? meta?.FullName ?? meta?.Name ?? session.User.Email;
             Email = session.User.Email;
-            AvatarUrl = meta?.AvatarUrl;
+            AvatarUrl = AvatarLoader.NormalizeDiscordAvatarUrl(meta?.AvatarUrl ?? meta?.Picture);
         }
 
         SaveStored(new StoredAuth
@@ -313,6 +321,7 @@ public class AuthService
         _refreshToken = null;
         _expiresAt = default;
         DisplayName = Email = AvatarUrl = null;
+        AvatarLoader.ClearCache();
         try { File.Delete(AuthFile); } catch { /* best effort */ }
     }
 

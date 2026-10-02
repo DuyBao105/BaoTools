@@ -241,6 +241,7 @@ public class ThemeService
         dict["AppSecondaryForegroundBrush"] = secTextBrush;
         dict["AppAccentBrush"] = accentBrush;
         dict["SystemAccentColorPrimaryBrush"] = accentBrush;
+        dict["SystemAccentColor"] = theme.AccentColor;
 
         // Distinct control fill for buttons, inputs, headers inside cards (+16 luminance)
         byte ctrlR = (byte)Math.Clamp(theme.CardColor.R + 16, 0, 255);

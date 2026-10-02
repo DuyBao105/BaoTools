@@ -28,6 +28,19 @@ public partial class MainWindow : Wpf.Ui.Controls.FluentWindow
 
         // NavigationView resolves page instances (DownloadView/SettingsView) from DI.
         RootNavigation.SetServiceProvider(services);
+        viewModel.RequestOpenSettings = () => RootNavigation.Navigate(typeof(SettingsView));
+
+        // Profile flyout placement: snug to the right of the profile card, bottom-aligned with the card
+        ProfileFlyout.CustomPopupPlacementCallback = (popupSize, targetSize, offset) =>
+        {
+            // The popup has an outer margin of 14px to allow DropShadowEffect to render cleanly without clipping
+            double x = targetSize.Width + 6 - 14;
+            double y = targetSize.Height - popupSize.Height + 14;
+            return new[]
+            {
+                new System.Windows.Controls.Primitives.CustomPopupPlacement(new Point(x, y), System.Windows.Controls.Primitives.PopupPrimaryAxis.Horizontal)
+            };
+        };
 
         InitializeTrayIcon();
         Closing += OnWindowClosing;

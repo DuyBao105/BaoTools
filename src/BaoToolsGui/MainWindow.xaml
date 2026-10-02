@@ -595,7 +595,7 @@
                 x:Name="RootNavigation"
                 IsBackButtonVisible="Collapsed"
                 IsPaneToggleVisible="False"
-                OpenPaneLength="190"
+                OpenPaneLength="200"
                 PaneDisplayMode="Left">
                 <ui:NavigationView.MenuItems>
                     <ui:NavigationViewItem Content="{x:Static res:Strings.Nav_Home}" TargetPageType="{x:Type views:HomeView}">
@@ -659,6 +659,7 @@
 
                 <ui:NavigationView.FooterMenuItems>
                     <ui:NavigationViewItemSeparator />
+                    <ui:NavigationViewItemHeader Text="{x:Static res:Strings.Nav_Section_System}" />
                     <ui:NavigationViewItem Content="{x:Static res:Strings.Nav_RestartSteam}" Click="RestartSteam_Click">
                         <ui:NavigationViewItem.Icon>
                             <ui:SymbolIcon Symbol="ArrowClockwise24" />
@@ -671,52 +672,564 @@
                     </ui:NavigationViewItem>
                 </ui:NavigationView.FooterMenuItems>
 
-                <!-- Guest sign-in CTA + always-visible version tag at the very bottom of the pane -->
+                <!-- Profile Card + Flyout Menu at the bottom of the navigation pane -->
                 <ui:NavigationView.PaneFooter>
-                  <StackPanel>
-                    <StackPanel
-                        Margin="10,4,10,8"
-                        Visibility="{Binding IsGuest, Converter={StaticResource BoolToVis}}">
-                        <ui:Button
+                    <Grid Margin="8,4,8,8">
+                        <!-- Profile Card Button -->
+                        <Button
+                            x:Name="ProfileCardButton"
                             HorizontalAlignment="Stretch"
-                            Appearance="Primary"
-                            Command="{Binding SignInCommand}"
-                            Content="{x:Static res:Strings.Nav_SignInDiscord}"
-                            Icon="{ui:SymbolIcon Person24}"
-                            Visibility="{Binding IsSigningIn, Converter={StaticResource InverseBoolToVis}}" />
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Visibility="{Binding IsSigningIn, Converter={StaticResource BoolToVis}}">
-                            <ui:ProgressRing
-                                Width="16"
-                                Height="16"
-                                IsIndeterminate="True" />
-                            <TextBlock
-                                Margin="8,0,0,0"
-                                VerticalAlignment="Center"
-                                FontSize="11.5"
-                                Foreground="#9ca3af"
-                                Text="{x:Static res:Strings.Nav_WaitingForBrowser}" />
-                        </StackPanel>
-                        <TextBlock
-                            Margin="2,8,0,0"
-                            FontSize="11.5"
-                            Foreground="#f87171"
-                            Text="{Binding SignInError}"
-                            TextWrapping="Wrap"
-                            Visibility="{Binding SignInError, Converter={StaticResource NullToCollapsed}}" />
-                    </StackPanel>
+                            Height="54"
+                            Padding="8,6"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
+                            Cursor="Hand"
+                            Command="{Binding ToggleProfileCommand}"
+                            ToolTip="{Binding SignInError, Converter={StaticResource NullToCollapsed}}">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border
+                                        x:Name="CardBorder"
+                                        Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                        BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="10"
+                                        Padding="{TemplateBinding Padding}"
+                                        SnapsToDevicePixels="True">
+                                        <Grid VerticalAlignment="Center">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
 
-                    <!-- Bottom line: "Signed in as …" when logged in, else the version tag. -->
-                    <TextBlock
-                        Margin="12,0,10,8"
-                        FontSize="11"
-                        Foreground="#6b7280"
-                        Text="{Binding FooterStatus}"
-                        TextTrimming="CharacterEllipsis"
-                        ToolTip="{Binding FooterStatus}" />
-                  </StackPanel>
+                                            <!-- Avatar with Neon Glowing Ring & Online Indicator -->
+                                            <Grid Grid.Column="0" Width="38" Height="38" VerticalAlignment="Center">
+                                                <!-- Fallback Cat Icon -->
+                                                <Border
+                                                    Width="36"
+                                                    Height="36"
+                                                    CornerRadius="18"
+                                                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                                                    BorderBrush="{DynamicResource SystemAccentColorPrimaryBrush}"
+                                                    BorderThickness="1.5"
+                                                    Visibility="{Binding HasAvatar, Converter={StaticResource InverseBoolToVis}}">
+                                                    <Image
+                                                        Width="22"
+                                                        Height="22"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        Source="pack://application:,,,/icon.ico" />
+                                                </Border>
+
+                                                <!-- Discord Avatar with Accent Stroke directly on the Ellipse (No dark gap!) -->
+                                                <Ellipse
+                                                    Width="36"
+                                                    Height="36"
+                                                    Stroke="{DynamicResource SystemAccentColorPrimaryBrush}"
+                                                    StrokeThickness="1.5"
+                                                    Visibility="{Binding HasAvatar, Converter={StaticResource BoolToVis}}">
+                                                    <Ellipse.Fill>
+                                                        <ImageBrush ImageSource="{Binding AvatarSource}" Stretch="UniformToFill" />
+                                                    </Ellipse.Fill>
+                                                    <Ellipse.Effect>
+                                                        <DropShadowEffect BlurRadius="6" ShadowDepth="0" Color="{DynamicResource SystemAccentColor}" Opacity="0.55" />
+                                                    </Ellipse.Effect>
+                                                </Ellipse>
+
+                                                <!-- Online Status Green Dot (Border matches CardBorder Background so no black ring!) -->
+                                                <Border
+                                                    x:Name="OnlineDot"
+                                                    Width="10"
+                                                    Height="10"
+                                                    CornerRadius="5"
+                                                    Background="#10b981"
+                                                    BorderBrush="{DynamicResource ControlFillColorDefaultBrush}"
+                                                    BorderThickness="1.5"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Bottom"
+                                                    Margin="0,0,-1,-1">
+                                                    <Border.Effect>
+                                                        <DropShadowEffect BlurRadius="4" ShadowDepth="0" Color="#10b981" Opacity="0.9" />
+                                                    </Border.Effect>
+                                                </Border>
+                                            </Grid>
+
+                                            <!-- User Name & Version/Subtitle -->
+                                            <StackPanel Grid.Column="1" Margin="9,0,4,0" VerticalAlignment="Center">
+                                                <TextBlock
+                                                    Text="{Binding DisplayName}"
+                                                    FontWeight="SemiBold"
+                                                    FontSize="12.5"
+                                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                                    TextTrimming="CharacterEllipsis"
+                                                    ToolTip="{Binding DisplayName}" />
+                                                <TextBlock
+                                                    Margin="0,2,0,0"
+                                                    Text="{Binding UserSubtitle}"
+                                                    FontSize="11"
+                                                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                                    TextTrimming="CharacterEllipsis"
+                                                    Opacity="0.8" />
+                                            </StackPanel>
+
+                                            <!-- Right Indicator: ProgressRing if signing in, else Chevron icon -->
+                                            <Grid Grid.Column="2" VerticalAlignment="Center" Margin="0,0,2,0">
+                                                <ui:ProgressRing
+                                                    Width="14"
+                                                    Height="14"
+                                                    IsIndeterminate="True"
+                                                    Visibility="{Binding IsSigningIn, Converter={StaticResource BoolToVis}}" />
+                                                <ui:SymbolIcon
+                                                    x:Name="ChevronIcon"
+                                                    Symbol="ChevronRight16"
+                                                    FontSize="13"
+                                                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                                    Visibility="{Binding IsSigningIn, Converter={StaticResource InverseBoolToVis}}" />
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="CardBorder" Property="Background" Value="{DynamicResource ControlFillColorSecondaryBrush}" />
+                                            <Setter TargetName="CardBorder" Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultBrush}" />
+                                            <Setter TargetName="OnlineDot" Property="BorderBrush" Value="{DynamicResource ControlFillColorSecondaryBrush}" />
+                                            <Setter TargetName="ChevronIcon" Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="CardBorder" Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}" />
+                                            <Setter TargetName="CardBorder" Property="Opacity" Value="0.85" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <!-- Profile Flyout / Quick Menu -->
+                        <Popup
+                            x:Name="ProfileFlyout"
+                            IsOpen="{Binding IsProfilePopupOpen, Mode=TwoWay}"
+                            PlacementTarget="{Binding ElementName=ProfileCardButton}"
+                            Placement="Custom"
+                            AllowsTransparency="True"
+                            StaysOpen="False">
+                            <!-- Outer Grid gives 14px padding so DropShadowEffect blurs completely without black border clipping -->
+                            <Grid Margin="14">
+                                <Border
+                                    Width="270"
+                                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="14"
+                                    Padding="16">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="16" ShadowDepth="4" Opacity="0.55" Color="#000000" />
+                                    </Border.Effect>
+                                    <StackPanel>
+                                        <!-- Header: Banner Gradient + Avatar + Display Name + Role Badge -->
+                                        <Border
+                                            Margin="-16,-16,-16,12"
+                                            Padding="16,14,16,12"
+                                            CornerRadius="13,13,0,0"
+                                            BorderThickness="0,0,0,1"
+                                            BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                    <GradientStop Color="#285865F2" Offset="0" />
+                                                    <GradientStop Color="#0A5865F2" Offset="0.8" />
+                                                    <GradientStop Color="Transparent" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <!-- Large Avatar with Accent Ring directly on it -->
+                                                <Grid Width="46" Height="46">
+                                                    <Border
+                                                        Width="44"
+                                                        Height="44"
+                                                        CornerRadius="22"
+                                                        Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                                        BorderBrush="{DynamicResource SystemAccentColorPrimaryBrush}"
+                                                        BorderThickness="2"
+                                                        Visibility="{Binding HasAvatar, Converter={StaticResource InverseBoolToVis}}">
+                                                        <Image Width="26" Height="26" Source="pack://application:,,,/icon.ico" />
+                                                    </Border>
+                                                    <Ellipse
+                                                        Width="44"
+                                                        Height="44"
+                                                        Stroke="{DynamicResource SystemAccentColorPrimaryBrush}"
+                                                        StrokeThickness="2"
+                                                        Visibility="{Binding HasAvatar, Converter={StaticResource BoolToVis}}">
+                                                        <Ellipse.Fill>
+                                                            <ImageBrush ImageSource="{Binding AvatarSource}" Stretch="UniformToFill" />
+                                                        </Ellipse.Fill>
+                                                        <Ellipse.Effect>
+                                                            <DropShadowEffect BlurRadius="8" ShadowDepth="0" Color="{DynamicResource SystemAccentColor}" Opacity="0.55" />
+                                                        </Ellipse.Effect>
+                                                    </Ellipse>
+
+                                                    <!-- Online Dot with Card-Matching Border (No black outline!) -->
+                                                    <Border
+                                                        Width="12"
+                                                        Height="12"
+                                                        CornerRadius="6"
+                                                        Background="#10b981"
+                                                        BorderBrush="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                                                        BorderThickness="2"
+                                                        HorizontalAlignment="Right"
+                                                        VerticalAlignment="Bottom">
+                                                        <Border.Effect>
+                                                            <DropShadowEffect BlurRadius="4" ShadowDepth="0" Color="#10b981" Opacity="0.9" />
+                                                        </Border.Effect>
+                                                    </Border>
+                                                </Grid>
+
+                                                <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock
+                                                            Text="{Binding DisplayName}"
+                                                            FontWeight="Bold"
+                                                            FontSize="14"
+                                                            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                                            TextTrimming="CharacterEllipsis"
+                                                            MaxWidth="120" />
+                                                        <Border
+                                                            Background="#255865F2"
+                                                            BorderBrush="#505865F2"
+                                                            BorderThickness="1"
+                                                            CornerRadius="4"
+                                                            Padding="5,1"
+                                                            Margin="6,0,0,0"
+                                                            VerticalAlignment="Center"
+                                                            Visibility="{Binding IsRealUser, Converter={StaticResource BoolToVis}}">
+                                                            <TextBlock Text="Discord" FontSize="9.5" FontWeight="Bold" Foreground="#818cf8" />
+                                                        </Border>
+                                                    </StackPanel>
+                                                    <TextBlock
+                                                        Margin="0,3,0,0"
+                                                        Text="{Binding Email}"
+                                                        FontSize="11.5"
+                                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                                        TextTrimming="CharacterEllipsis"
+                                                        Visibility="{Binding Email, Converter={StaticResource NullToCollapsed}}" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </Border>
+
+                                        <!-- Daily Download Quota Card -->
+                                        <Border
+                                            Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                            BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                            BorderThickness="1"
+                                            CornerRadius="8"
+                                            Padding="10,8"
+                                            Margin="0,0,0,10"
+                                            Visibility="{Binding HasQuotaInfo, Converter={StaticResource BoolToVis}}">
+                                            <StackPanel>
+                                                <Grid Margin="0,0,0,4">
+                                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                                        <ui:SymbolIcon Symbol="ArrowDownload16" FontSize="12" Foreground="{DynamicResource SystemAccentColorPrimaryBrush}" Margin="0,0,6,0" VerticalAlignment="Center" />
+                                                        <TextBlock Text="{x:Static res:Strings.Download_DailyQuota_Label}" FontSize="11" FontWeight="SemiBold" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                                                    </StackPanel>
+                                                    <Border
+                                                        Background="#25eab308"
+                                                        BorderBrush="#50eab308"
+                                                        BorderThickness="1"
+                                                        CornerRadius="4"
+                                                        Padding="6,1.5"
+                                                        HorizontalAlignment="Right"
+                                                        Visibility="{Binding IsSupporter, Converter={StaticResource BoolToVis}}">
+                                                        <TextBlock Text="Supporter" FontSize="9.5" FontWeight="Bold" Foreground="#fbbf24" />
+                                                    </Border>
+                                                </Grid>
+                                                <TextBlock
+                                                    Text="{Binding DailyQuotaText}"
+                                                    FontSize="11.5"
+                                                    FontWeight="SemiBold"
+                                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                                    Margin="0,0,0,6"
+                                                    TextWrapping="Wrap" />
+                                                <!-- Progress bar with accent brush -->
+                                                <ProgressBar
+                                                    Value="{Binding QuotaProgress}"
+                                                    Height="5"
+                                                    Foreground="{DynamicResource SystemAccentColorPrimaryBrush}"
+                                                    Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                                                    BorderThickness="0"
+                                                    Visibility="{Binding IsRealUser, Converter={StaticResource BoolToVis}}">
+                                                    <ProgressBar.Style>
+                                                        <Style TargetType="ProgressBar">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding IsSupporter}" Value="True">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </ProgressBar.Style>
+                                                </ProgressBar>
+                                            </StackPanel>
+                                        </Border>
+
+                                        <!-- Live System Status Strip (Steam & Plugin with dynamic colored pill badges) -->
+                                        <Grid Margin="0,0,0,10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <!-- Steam Status Badge -->
+                                            <Border Grid.Column="0" CornerRadius="6" Padding="6,5" Margin="0,0,4,0" BorderThickness="1">
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="Background" Value="#14ef4444" />
+                                                        <Setter Property="BorderBrush" Value="#35ef4444" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding IsSteamOnline}" Value="True">
+                                                                <Setter Property="Background" Value="#1410b981" />
+                                                                <Setter Property="BorderBrush" Value="#3510b981" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Border.Style>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                    <Ellipse Width="7" Height="7" Margin="0,0,6,0" VerticalAlignment="Center">
+                                                        <Ellipse.Style>
+                                                            <Style TargetType="Ellipse">
+                                                                <Setter Property="Fill" Value="#ef4444" />
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsSteamOnline}" Value="True">
+                                                                        <Setter Property="Fill" Value="#10b981" />
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Ellipse.Style>
+                                                    </Ellipse>
+                                                    <TextBlock Text="{Binding SteamStatusText}" FontSize="10.5" FontWeight="SemiBold">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Foreground" Value="#f87171" />
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsSteamOnline}" Value="True">
+                                                                        <Setter Property="Foreground" Value="#34d399" />
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </StackPanel>
+                                            </Border>
+                                            <!-- Plugin Status Badge -->
+                                            <Border Grid.Column="1" CornerRadius="6" Padding="6,5" Margin="4,0,0,0" BorderThickness="1">
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="Background" Value="#14f59e0b" />
+                                                        <Setter Property="BorderBrush" Value="#35f59e0b" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding IsPluginOnline}" Value="True">
+                                                                <Setter Property="Background" Value="#1410b981" />
+                                                                <Setter Property="BorderBrush" Value="#3510b981" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Border.Style>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                    <Ellipse Width="7" Height="7" Margin="0,0,6,0" VerticalAlignment="Center">
+                                                        <Ellipse.Style>
+                                                            <Style TargetType="Ellipse">
+                                                                <Setter Property="Fill" Value="#f59e0b" />
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsPluginOnline}" Value="True">
+                                                                        <Setter Property="Fill" Value="#10b981" />
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Ellipse.Style>
+                                                    </Ellipse>
+                                                    <TextBlock Text="{Binding PluginStatusText}" FontSize="10.5" FontWeight="SemiBold">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Foreground" Value="#fbbf24" />
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsPluginOnline}" Value="True">
+                                                                        <Setter Property="Foreground" Value="#34d399" />
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </StackPanel>
+                                            </Border>
+                                        </Grid>
+
+                                        <!-- Guest State Actions -->
+                                        <StackPanel Visibility="{Binding IsGuest, Converter={StaticResource BoolToVis}}">
+                                            <ui:Button
+                                                HorizontalAlignment="Stretch"
+                                                Appearance="Primary"
+                                                Margin="0,0,0,6"
+                                                Command="{Binding SignInCommand}"
+                                                Content="{x:Static res:Strings.Nav_SignInDiscord}"
+                                                Icon="{ui:SymbolIcon Person24}"
+                                                Visibility="{Binding IsSigningIn, Converter={StaticResource InverseBoolToVis}}" />
+
+                                            <!-- Waiting indicator when browser opened -->
+                                            <StackPanel
+                                                Orientation="Horizontal"
+                                                HorizontalAlignment="Center"
+                                                Margin="0,4,0,8"
+                                                Visibility="{Binding IsSigningIn, Converter={StaticResource BoolToVis}}">
+                                                <ui:ProgressRing Width="16" Height="16" IsIndeterminate="True" />
+                                                <TextBlock
+                                                    Margin="8,0,0,0"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="12"
+                                                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                                    Text="{x:Static res:Strings.Nav_WaitingForBrowser}" />
+                                            </StackPanel>
+
+                                            <!-- Error message if sign in failed -->
+                                            <TextBlock
+                                                Margin="0,0,0,8"
+                                                FontSize="11.5"
+                                                Foreground="#f87171"
+                                                TextWrapping="Wrap"
+                                                Text="{Binding SignInError}"
+                                                Visibility="{Binding SignInError, Converter={StaticResource NullToCollapsed}}" />
+
+                                            <ui:Button
+                                                HorizontalAlignment="Stretch"
+                                                Appearance="Secondary"
+                                                Margin="0,0,0,6"
+                                                Command="{Binding OpenSettingsFromProfileCommand}"
+                                                Content="{x:Static res:Strings.Nav_Settings}"
+                                                Icon="{ui:SymbolIcon Settings24}" />
+
+                                            <!-- Discord Community Button styled with Discord Blurple -->
+                                            <Button
+                                                HorizontalAlignment="Stretch"
+                                                Height="36"
+                                                Command="{Binding OpenDiscordCommunityCommand}"
+                                                Cursor="Hand">
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border
+                                                            x:Name="DiscordBtnBorder"
+                                                            Background="#185865F2"
+                                                            BorderBrush="#405865F2"
+                                                            BorderThickness="1"
+                                                            CornerRadius="8"
+                                                            SnapsToDevicePixels="True">
+                                                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <ui:SymbolIcon Symbol="Globe24" FontSize="15" Foreground="#5865F2" Margin="0,0,8,0" VerticalAlignment="Center" />
+                                                                    <TextBlock Text="{x:Static res:Strings.Home_Discord_Join}" FontSize="12" FontWeight="SemiBold" Foreground="#818cf8" VerticalAlignment="Center" />
+                                                                </StackPanel>
+                                                            </Grid>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="DiscordBtnBorder" Property="Background" Value="#305865F2" />
+                                                                <Setter TargetName="DiscordBtnBorder" Property="BorderBrush" Value="#805865F2" />
+                                                            </Trigger>
+                                                            <Trigger Property="IsPressed" Value="True">
+                                                                <Setter TargetName="DiscordBtnBorder" Property="Background" Value="#5865F2" />
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+
+                                        <!-- Signed-In State Actions -->
+                                        <StackPanel Visibility="{Binding IsGuest, Converter={StaticResource InverseBoolToVis}}">
+                                            <ui:Button
+                                                HorizontalAlignment="Stretch"
+                                                Appearance="Secondary"
+                                                Margin="0,0,0,6"
+                                                Command="{Binding OpenSettingsFromProfileCommand}"
+                                                Content="{x:Static res:Strings.Nav_Settings}"
+                                                Icon="{ui:SymbolIcon Settings24}" />
+
+                                            <!-- Discord Community Button styled with Discord Blurple -->
+                                            <Button
+                                                HorizontalAlignment="Stretch"
+                                                Height="36"
+                                                Margin="0,0,0,6"
+                                                Command="{Binding OpenDiscordCommunityCommand}"
+                                                Cursor="Hand">
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border
+                                                            x:Name="DiscordBtnBorder"
+                                                            Background="#185865F2"
+                                                            BorderBrush="#405865F2"
+                                                            BorderThickness="1"
+                                                            CornerRadius="8"
+                                                            SnapsToDevicePixels="True">
+                                                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <ui:SymbolIcon Symbol="Globe24" FontSize="15" Foreground="#5865F2" Margin="0,0,8,0" VerticalAlignment="Center" />
+                                                                    <TextBlock Text="{x:Static res:Strings.Home_Discord_Join}" FontSize="12" FontWeight="SemiBold" Foreground="#818cf8" VerticalAlignment="Center" />
+                                                                </StackPanel>
+                                                            </Grid>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="DiscordBtnBorder" Property="Background" Value="#305865F2" />
+                                                                <Setter TargetName="DiscordBtnBorder" Property="BorderBrush" Value="#805865F2" />
+                                                            </Trigger>
+                                                            <Trigger Property="IsPressed" Value="True">
+                                                                <Setter TargetName="DiscordBtnBorder" Property="Background" Value="#5865F2" />
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+
+                                            <!-- Sign Out Button -->
+                                            <Button
+                                                HorizontalAlignment="Stretch"
+                                                Height="36"
+                                                Command="{Binding SignOutFromProfileCommand}"
+                                                Cursor="Hand">
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border
+                                                            x:Name="SignOutBorder"
+                                                            Background="Transparent"
+                                                            BorderBrush="Transparent"
+                                                            BorderThickness="1"
+                                                            CornerRadius="8"
+                                                            SnapsToDevicePixels="True">
+                                                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <ui:SymbolIcon Symbol="SignOut24" FontSize="15" Foreground="#f87171" Margin="0,0,8,0" VerticalAlignment="Center" />
+                                                                    <TextBlock Text="{x:Static res:Strings.Settings_SignOut}" FontSize="12" FontWeight="SemiBold" Foreground="#f87171" VerticalAlignment="Center" />
+                                                                </StackPanel>
+                                                            </Grid>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="SignOutBorder" Property="Background" Value="#15ef4444" />
+                                                                <Setter TargetName="SignOutBorder" Property="BorderBrush" Value="#35ef4444" />
+                                                            </Trigger>
+                                                            <Trigger Property="IsPressed" Value="True">
+                                                                <Setter TargetName="SignOutBorder" Property="Background" Value="#25ef4444" />
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </Popup>
+                    </Grid>
                 </ui:NavigationView.PaneFooter>
             </ui:NavigationView>
 

@@ -297,63 +297,12 @@ public partial class HomeViewModel : ObservableObject
 
     private async Task LoadAvatarAsync(string? url)
     {
-        if (string.IsNullOrWhiteSpace(url))
+        var src = await AvatarLoader.LoadAvatarAsync(url);
+        OnUi(() =>
         {
-            OnUi(() =>
-            {
-                AvatarSource = null;
-                HasAvatar = false;
-            });
-            return;
-        }
-
-        try
-        {
-            var client = AppHttp.Create(TimeSpan.FromSeconds(10));
-            using var req = new HttpRequestMessage(HttpMethod.Get, url);
-            req.Headers.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
-            using var resp = await client.SendAsync(req);
-            if (!resp.IsSuccessStatusCode)
-            {
-                OnUi(() =>
-                {
-                    AvatarSource = null;
-                    HasAvatar = false;
-                });
-                return;
-            }
-            byte[] bytes = await resp.Content.ReadAsByteArrayAsync();
-            if (bytes is null || bytes.Length == 0)
-            {
-                OnUi(() =>
-                {
-                    AvatarSource = null;
-                    HasAvatar = false;
-                });
-                return;
-            }
-
-            var bmp = new BitmapImage();
-            bmp.BeginInit();
-            bmp.CacheOption = BitmapCacheOption.OnLoad;
-            bmp.StreamSource = new MemoryStream(bytes);
-            bmp.EndInit();
-            bmp.Freeze();
-
-            OnUi(() =>
-            {
-                AvatarSource = bmp;
-                HasAvatar = true;
-            });
-        }
-        catch
-        {
-            OnUi(() =>
-            {
-                AvatarSource = null;
-                HasAvatar = false;
-            });
-        }
+            AvatarSource = src;
+            HasAvatar = src != null;
+        });
     }
 
     public async Task RefreshQuotaAsync()
