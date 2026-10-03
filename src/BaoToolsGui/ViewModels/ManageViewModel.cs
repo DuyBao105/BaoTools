@@ -6,6 +6,7 @@ using System.Windows.Media.Imaging;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using BaoToolsGui.Services;
+using BaoToolsGui.Services.Downloads;
 
 namespace BaoToolsGui.ViewModels;
 
@@ -102,6 +103,11 @@ public partial class LuaTileViewModel : ObservableObject
 
     [ObservableProperty] private bool _isInstalled = true;
     [ObservableProperty] private bool _isMissingFiles;
+    [ObservableProperty] private bool _isDepotGame;
+    [ObservableProperty] private string? _installDir;
+    [ObservableProperty] private bool _canPlay;
+    [ObservableProperty] private bool _hasOnlineFix;
+    [ObservableProperty] private bool _hasDenuvoFix;
 
     /// <summary>Clean single metadata row for card: "App ID: 123456 • Added Sep 18, '26"</summary>
     public string MetadataLine => $"App ID: {AppId}  •  {AddedLabel}";
@@ -275,6 +281,8 @@ public partial class ManageViewModel : PagedListViewModel<LuaTileViewModel>
     private readonly SteamlessService _steamless;
     private readonly SteamTicketService _tickets;
     private readonly SteamLibraryService _library;
+    private readonly CacheService _cache;
+    private readonly GameLauncherService _launcher;
 
     private List<LuaTileViewModel> _all = [];
     private CancellationTokenSource? _prefetchCts;
@@ -323,20 +331,28 @@ public partial class ManageViewModel : PagedListViewModel<LuaTileViewModel>
     public void UpdateQuickPills()
     {
         int total = _all.Count;
+        int depotCount = _all.Count(t => t.IsDepotGame);
+        int steamCount = total - depotCount;
         int action = _all.Count(t => TileMatchesGenre(t, "Action"));
         int rpg = _all.Count(t => TileMatchesGenre(t, "RPG"));
         int strategy = _all.Count(t => TileMatchesGenre(t, "Strategy"));
         int survival = _all.Count(t => TileMatchesGenre(t, "Survival"));
 
-        QuickPillItems =
-        [
+        var pills = new List<QuickPill>
+        {
             new(AnyOption, $"{Resources.Strings.Manage_PageSize_All} ({total})"),
-            new("Steam", $"Steam ({total})"),
-            new("RPG", $"RPG ({rpg})"),
-            new("Action", $"Action ({action})"),
-            new("Strategy", $"Strategy ({strategy})"),
-            new("Survival", $"Survival ({survival})")
-        ];
+            new("Steam", $"Steam ({steamCount})")
+        };
+        if (depotCount > 0)
+        {
+            pills.Add(new("Depot", $"Raw Depot ({depotCount})"));
+        }
+        pills.Add(new("RPG", $"RPG ({rpg})"));
+        pills.Add(new("Action", $"Action ({action})"));
+        pills.Add(new("Strategy", $"Strategy ({strategy})"));
+        pills.Add(new("Survival", $"Survival ({survival})"));
+
+        QuickPillItems = new ObservableCollection<QuickPill>(pills);
     }
 
     [RelayCommand]
@@ -507,7 +523,8 @@ public partial class ManageViewModel : PagedListViewModel<LuaTileViewModel>
 
     public ManageViewModel(SteamService steam, SteamAppListCache appList, SteamAppInfoCache appInfo,
         CoverCache covers, ToastService toast, SettingsService settings,
-        SteamlessService steamless, SteamTicketService tickets, SteamLibraryService library)
+        SteamlessService steamless, SteamTicketService tickets, SteamLibraryService library,
+        CacheService cache, GameLauncherService launcher)
     {
         _steam = steam;
         _appList = appList;
@@ -518,6 +535,8 @@ public partial class ManageViewModel : PagedListViewModel<LuaTileViewModel>
         _steamless = steamless;
         _tickets = tickets;
         _library = library;
+        _cache = cache;
+        _launcher = launcher;
         InitPageSize(settings.ManagePageSize);
         SettingsViewModel.LanguageChanged += OnLanguageChanged;
     }
@@ -934,33 +953,17 @@ public partial class ManageViewModel : PagedListViewModel<LuaTileViewModel>
         ApplyFilter(); // rebuild the (filtered) grid in one pass. Reliable virtualized refresh
     }
 
-    /// <summary>Scan config\stplug-in for &lt;appid&gt;.lua files. Called when the page is shown.</summary>
+    /// <summary>Scan config\stplug-in for &lt;appid&gt;.lua files and download history for Raw Depot games.</summary>
     public async Task LoadAsync()
     {
         if (IsLoading) return;
         IsLoading = true;
         try
         {
-            string? steamPath = _steam.EffectivePath;
-            if (steamPath is null)
-            {
-                _all = [];
-                ApplyFilter();
-                SetEmpty(Resources.Strings.Manage_Empty_NoSteam);
-                return;
-            }
-
-            string dir = Path.Combine(steamPath, "config", "stplug-in");
-            if (!Directory.Exists(dir))
-            {
-                _all = [];
-                ApplyFilter();
-                SetEmpty(Resources.Strings.Manage_Empty_NoLuas);
-                return;
-            }
-
-            // Bulk game-name list (downloaded once, cached). Gives every game a name with no rate limit.
             await _appList.EnsureLoadedAsync();
+
+            string? steamPath = _steam.EffectivePath;
+            string dir = steamPath is not null ? Path.Combine(steamPath, "config", "stplug-in") : "";
 
             HashSet<long> installedAppIds = [];
             HashSet<long> missingAppIds = [];
@@ -977,21 +980,100 @@ public partial class ManageViewModel : PagedListViewModel<LuaTileViewModel>
             catch { /* best-effort */ }
 
             var tiles = await Task.Run(() =>
-                LuaInstaller.EnumerateInstalled(dir) // shared scan rule (skips Steamtools.lua etc.)
-                    .Select(f =>
+            {
+                var list = new List<LuaTileViewModel>();
+
+                if (Directory.Exists(dir))
+                {
+                    list.AddRange(LuaInstaller.EnumerateInstalled(dir) // shared scan rule (skips Steamtools.lua etc.)
+                        .Select(f =>
+                        {
+                            var info = new FileInfo(f.Path);
+                            string? name = _appList.GetName(f.AppId) ?? ParseLuaName(f.Path) ?? _appInfo.GetCached(f.AppId)?.Name;
+                            bool placeholder = name is null;
+                            // Base = when added to the folder; if edited since (LastWrite later), use that. Newer is more relevant.
+                            var added = info.LastWriteTime > info.CreationTime ? info.LastWriteTime : info.CreationTime;
+                            var t = new LuaTileViewModel(f.AppId, f.Path, added, name ?? string.Format(Resources.Strings.Common_AppFallback, f.AppId), placeholder)
+                            {
+                                IsInstalled = installedAppIds.Contains(f.AppId),
+                                IsMissingFiles = missingAppIds.Contains(f.AppId)
+                            };
+                            return t;
+                        }));
+                }
+
+                // Check completed depot downloads from cache
+                try
+                {
+                    var depotHistory = _cache.GetDownloadHistory()
+                        .Where(r => r.Kind == nameof(DownloadKind.Depot)
+                                    && r.Status == nameof(DownloadStatus.Completed)
+                                    && !string.IsNullOrWhiteSpace(r.RevealPath)
+                                    && Directory.Exists(r.RevealPath))
+                        .GroupBy(r => r.AppId)
+                        .Select(g => g.First())
+                        .ToList();
+
+                    var tilesByAppId = list.ToDictionary(t => t.AppId);
+
+                    foreach (var depot in depotHistory)
                     {
-                        var info = new FileInfo(f.Path);
-                        string? name = _appList.GetName(f.AppId) ?? ParseLuaName(f.Path) ?? _appInfo.GetCached(f.AppId)?.Name;
-                        bool placeholder = name is null;
-                        // Base = when added to the folder; if edited since (LastWrite later), use that. Newer is more relevant.
-                        var added = info.LastWriteTime > info.CreationTime ? info.LastWriteTime : info.CreationTime;
-                        var t = new LuaTileViewModel(f.AppId, f.Path, added, name ?? string.Format(Resources.Strings.Common_AppFallback, f.AppId), placeholder);
-                        t.IsInstalled = installedAppIds.Contains(f.AppId);
-                        t.IsMissingFiles = missingAppIds.Contains(f.AppId);
-                        return t;
-                    })
-                    .OrderByDescending(t => t.AddedAt)
-                    .ToList());
+                        if (string.IsNullOrWhiteSpace(depot.RevealPath) || !Directory.Exists(depot.RevealPath))
+                            continue;
+
+                        if (tilesByAppId.TryGetValue(depot.AppId, out var existingTile))
+                        {
+                            existingTile.InstallDir = depot.RevealPath;
+                            existingTile.IsDepotGame = true;
+                            existingTile.IsInstalled = true;
+                            existingTile.IsMissingFiles = false;
+                            var info = _launcher.InspectFolder(depot.RevealPath, existingTile.Name);
+                            existingTile.CanPlay = info.ExeFound;
+                            existingTile.HasOnlineFix = info.HasOnlineFix;
+                            existingTile.HasDenuvoFix = info.HasDenuvoFix;
+                        }
+                        else
+                        {
+                            string? name = _appList.GetName(depot.AppId) ?? _appInfo.GetCached(depot.AppId)?.Name ?? depot.Title;
+                            var added = DateTimeOffset.FromUnixTimeMilliseconds(depot.CompletedAtMs).LocalDateTime;
+                            var depotTile = new LuaTileViewModel(depot.AppId, depot.RevealPath, added, name, name is null)
+                            {
+                                InstallDir = depot.RevealPath,
+                                IsDepotGame = true,
+                                IsInstalled = true,
+                                IsMissingFiles = false
+                            };
+                            var info = _launcher.InspectFolder(depot.RevealPath, name);
+                            depotTile.CanPlay = info.ExeFound;
+                            depotTile.HasOnlineFix = info.HasOnlineFix;
+                            depotTile.HasDenuvoFix = info.HasDenuvoFix;
+                            list.Add(depotTile);
+                            tilesByAppId[depot.AppId] = depotTile;
+                        }
+                    }
+
+                    // Inspect non-depot installed Steam games for playability
+                    foreach (var t in list)
+                    {
+                        if (t.CanPlay) continue;
+                        if (t.IsInstalled)
+                        {
+                            string? steamDir = _library.GetInstallDir(t.AppId);
+                            if (!string.IsNullOrWhiteSpace(steamDir) && Directory.Exists(steamDir))
+                            {
+                                t.InstallDir = steamDir;
+                                var info = _launcher.InspectFolder(steamDir, t.Name);
+                                t.CanPlay = info.ExeFound;
+                                t.HasOnlineFix = info.HasOnlineFix;
+                                t.HasDenuvoFix = info.HasDenuvoFix;
+                            }
+                        }
+                    }
+                }
+                catch { /* best effort */ }
+
+                return list.OrderByDescending(t => t.AddedAt).ToList();
+            });
 
             foreach (var t in tiles) t.SelectionChanged = RecountSelection;
             _all = tiles;
@@ -999,13 +1081,80 @@ public partial class ManageViewModel : PagedListViewModel<LuaTileViewModel>
             PopulateFilterOptions();
             UpdateQuickPills();
             ApplyFilter();
-            if (_all.Count == 0) SetEmpty(Resources.Strings.Manage_Empty_NoLuas);
+            if (_all.Count == 0)
+            {
+                SetEmpty(Directory.Exists(dir) ? Resources.Strings.Manage_Empty_NoLuas : Resources.Strings.Manage_Empty_NoSteam);
+            }
 
             StartCoverPrefetch(_all);
         }
         finally
         {
             IsLoading = false;
+        }
+    }
+
+    [RelayCommand]
+    private async Task PlayGame(LuaTileViewModel? tile)
+    {
+        tile ??= SelectedTile;
+        if (tile is null) return;
+
+        string? dir = tile.InstallDir;
+        if (string.IsNullOrWhiteSpace(dir) || !Directory.Exists(dir))
+        {
+            dir = _library.GetInstallDir(tile.AppId);
+        }
+
+        if (string.IsNullOrWhiteSpace(dir) || !Directory.Exists(dir))
+        {
+            _toast.Show(
+                Resources.Strings.Manage_Action_PlayGame,
+                string.Format(Resources.Strings.Launcher_ExeNotFound, tile.Name),
+                error: true);
+            return;
+        }
+
+        string gameRoot = SteamLibraryService.ResolveGameRootFolder(dir);
+
+        // Auto-apply Online Fix from server or Goldberg offline crack if game is not yet patched
+        await _launcher.EnsureFixOrCrackAppliedAsync(tile.AppId, tile.Name, gameRoot, _toast);
+
+        var info = _launcher.InspectFolder(gameRoot, tile.Name);
+        if (!info.ExeFound || info.ExecutablePath is null)
+        {
+            _toast.Show(
+                Resources.Strings.Manage_Action_PlayGame,
+                string.Format(Resources.Strings.Launcher_ExeNotFound, tile.Name),
+                error: true);
+            _ = SteamService.ShowInExplorer(gameRoot);
+            return;
+        }
+
+        if (info.RequiresSteam && !SteamService.IsSteamRunning())
+        {
+            _launcher.StartSteam();
+            _toast.Show(
+                Resources.Strings.Manage_Action_PlayGame,
+                Resources.Strings.Launcher_StartingSteam);
+            return;
+        }
+
+        var (success, error) = await _launcher.LaunchGameAsync(info.ExecutablePath);
+        if (success)
+        {
+            _toast.Show(
+                Resources.Strings.Manage_Action_PlayGame,
+                string.Format(Resources.Strings.Launcher_GameStarted, tile.Name));
+
+            await _launcher.HandlePostLaunchExitAsync(_toast);
+        }
+        else
+        {
+            _toast.Show(
+                Resources.Strings.Manage_Action_PlayGame,
+                string.Format(Resources.Strings.Launcher_LaunchFailed, error ?? ""),
+                error: true);
         }
     }
 
@@ -1105,10 +1254,9 @@ public partial class ManageViewModel : PagedListViewModel<LuaTileViewModel>
         if (!string.IsNullOrEmpty(q)) result = result.Where(t => t.Matches(q));
 
         // 2. Platform filter (Steam, Epic, Other)
-        // All installed .lua files in stplug-in belong to Steam.
         if (!FilterPlatformSteam)
         {
-            result = Enumerable.Empty<LuaTileViewModel>();
+            result = result.Where(t => t.IsDepotGame);
         }
 
         // 3. Status filter (Installed, Not Installed, Missing Files)
@@ -1121,10 +1269,18 @@ public partial class ManageViewModel : PagedListViewModel<LuaTileViewModel>
                 (FilterStatusMissingFiles && t.IsMissingFiles));
         }
 
-        // 4. Quick Pills filter (All, Steam, RPG, Action, Strategy, Survival)
+        // 4. Quick Pills filter (All, Steam, Depot, RPG, Action, Strategy, Survival)
         if (!string.IsNullOrEmpty(SelectedQuickPill) && SelectedQuickPill != AnyOption)
         {
-            if (SelectedQuickPill != "Steam")
+            if (SelectedQuickPill == "Depot")
+            {
+                result = result.Where(t => t.IsDepotGame);
+            }
+            else if (SelectedQuickPill == "Steam")
+            {
+                result = result.Where(t => !t.IsDepotGame);
+            }
+            else
             {
                 result = result.Where(t => TileMatchesGenre(t, SelectedQuickPill));
             }

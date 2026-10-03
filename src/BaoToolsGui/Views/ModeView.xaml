@@ -18,7 +18,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
-            <StackPanel MaxWidth="760" Margin="8,16,16,8">
+            <StackPanel MaxWidth="820" Margin="{StaticResource PageMargin}">
 
                 <!-- Header -->
                 <Grid>

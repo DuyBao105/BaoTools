@@ -141,7 +141,7 @@
 
     <Grid x:Name="Root">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <StackPanel MaxWidth="1140" Margin="16,16,16,24">
+        <StackPanel MaxWidth="1140" Margin="{StaticResource PageMargin}">
 
             <Grid Margin="0,0,0,16">
                 <Grid.ColumnDefinitions>
@@ -156,7 +156,7 @@
                     <TextBlock
                         Margin="0,4,0,0"
                         FontSize="13"
-                        Foreground="#9ca3af"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{x:Static res:Strings.Add_Subtitle}" />
                 </StackPanel>
 
@@ -179,13 +179,13 @@
                         <TextBlock
                             FontSize="12"
                             VerticalAlignment="Center"
-                            Foreground="#9ca3af"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                             Text="{x:Static res:Strings.Download_DailyQuota_Label}" />
                         <TextBlock
                             FontSize="12.5"
                             FontWeight="SemiBold"
                             VerticalAlignment="Center"
-                            Foreground="#f3f4f6"
+                            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                             Text="{Binding QuotaText}" />
                     </StackPanel>
                 </Border>
@@ -225,10 +225,10 @@
             <!-- Autocomplete results -->
             <Border
                 Margin="0,6,0,0"
-                Background="#14141c"
-                BorderBrush="#14FFFFFF"
+                Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                 BorderThickness="1"
-                CornerRadius="10"
+                CornerRadius="{StaticResource RadiusMD}"
                 Visibility="{Binding IsResultsOpen, Converter={StaticResource BoolToVis}}">
                 <ItemsControl ItemsSource="{Binding SearchResults}">
                     <ItemsControl.ItemTemplate>

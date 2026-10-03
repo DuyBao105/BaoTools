@@ -65,25 +65,23 @@ public class CacheService
 {
     private static readonly string Dir =
         Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BaoToolsGui");
-    private static readonly string FilePath = Path.Combine(Dir, "cache.json");
-    private static readonly string TmpPath = FilePath + ".tmp";
+    private static readonly string DefaultFilePath = Path.Combine(Dir, "cache.json");
 
-    /// <summary>
-    /// Serializes every read-modify-write of the cache.
-    /// </summary>
-    /// <remarks>
-    /// Writers now come from several threads at once: the download queue persists history from the
-    /// dispatcher whenever an item finishes, while DepotDownloaderService and SteamlessService record
-    /// tool versions from background threads mid-download. Two unsynchronized writers could interleave
-    /// the file write or lose each other's field, and <see cref="Load"/> silently resets to an empty
-    /// cache on a parse failure — which would quietly wipe DonatedAppIds, a list that is permanent by
-    /// design because the backend accepts each depot only once per IP.
-    /// </remarks>
+    private readonly string _filePath;
+    private readonly string _tmpPath;
+    private readonly string _dir;
+
     private readonly object _gate = new();
 
     private CacheData _cache = new();
 
-    public CacheService() => Load();
+    public CacheService(string? customPath = null)
+    {
+        _filePath = customPath ?? DefaultFilePath;
+        _tmpPath = _filePath + ".tmp";
+        _dir = Path.GetDirectoryName(_filePath) ?? Dir;
+        Load();
+    }
 
     /// <summary>OpenSteamTools: the release tag last installed (for the up-to-date check).</summary>
     public string? OpenSteamToolsInstalledVersion
@@ -246,8 +244,8 @@ public class CacheService
     {
         try
         {
-            if (File.Exists(FilePath))
-                _cache = JsonSerializer.Deserialize<CacheData>(File.ReadAllText(FilePath)) ?? new CacheData();
+            if (File.Exists(_filePath))
+                _cache = JsonSerializer.Deserialize<CacheData>(File.ReadAllText(_filePath)) ?? new CacheData();
         }
         catch
         {
@@ -279,18 +277,18 @@ public class CacheService
             && _cache.SteamAutoCrackCheckedAtMs == 0;
         if (empty)
         {
-            try { if (File.Exists(FilePath)) File.Delete(FilePath); } catch { /* best effort */ }
+            try { if (File.Exists(_filePath)) File.Delete(_filePath); } catch { /* best effort */ }
             return;
         }
 
-        Directory.CreateDirectory(Dir);
+        Directory.CreateDirectory(_dir);
 
         // Write-then-move, the same shape SettingsService uses. A bare WriteAllText that is interrupted
         // (crash, power loss, or a second writer) leaves truncated JSON, and Load() answers that by
         // resetting to an empty cache — silently discarding everything, including the permanent
         // DonatedAppIds list. File.Move over an existing file is atomic on NTFS.
         string json = JsonSerializer.Serialize(_cache, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText(TmpPath, json);
-        File.Move(TmpPath, FilePath, overwrite: true);
+        File.WriteAllText(_tmpPath, json);
+        File.Move(_tmpPath, _filePath, overwrite: true);
     }
 }

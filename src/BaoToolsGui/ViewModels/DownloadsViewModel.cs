@@ -17,14 +17,16 @@ public partial class DownloadsViewModel : ObservableObject
 
     private readonly ManifestJobFactory _jobs;
     private readonly SteamAutoCrackService _sac;
+    private readonly GameLauncherService _launcher;
     private readonly ToastService _toast;
 
     public DownloadsViewModel(DownloadQueue queue, ManifestJobFactory jobs, SteamAutoCrackService sac,
-        ToastService toast)
+        GameLauncherService launcher, ToastService toast)
     {
         _queue = queue;
         _jobs = jobs;
         _sac = sac;
+        _launcher = launcher;
         _toast = toast;
 
         _queue.Items.CollectionChanged += (_, _) => RaiseCounts();
@@ -160,6 +162,65 @@ public partial class DownloadsViewModel : ObservableObject
 
     [RelayCommand]
     private void ShowHistoryInFolder(DownloadHistoryEntry entry) => Show(entry.Record.RevealPath);
+
+    [RelayCommand]
+    private async Task Play(DownloadItem item)
+    {
+        if (string.IsNullOrWhiteSpace(item.RevealPath)) return;
+        await PlayGameFromFolderAsync(item.RevealPath, item.Title, item.AppId);
+    }
+
+    [RelayCommand]
+    private async Task PlayHistory(DownloadHistoryEntry entry)
+    {
+        if (string.IsNullOrWhiteSpace(entry.Record.RevealPath)) return;
+        await PlayGameFromFolderAsync(entry.Record.RevealPath, entry.Title, entry.AppId);
+    }
+
+    private async Task PlayGameFromFolderAsync(string folderPath, string gameName, long appId)
+    {
+        string gameRoot = SteamLibraryService.ResolveGameRootFolder(folderPath);
+
+        // Auto-apply Online Fix from server or Goldberg offline crack if game is not yet patched
+        await _launcher.EnsureFixOrCrackAppliedAsync(appId, gameName, gameRoot, _toast);
+
+        var info = _launcher.InspectFolder(gameRoot, gameName);
+        if (!info.ExeFound || info.ExecutablePath is null)
+        {
+            _toast.Show(
+                Resources.Strings.Downloads_Action_Play,
+                string.Format(Resources.Strings.Launcher_ExeNotFound, gameName),
+                error: true);
+            _ = SteamService.ShowInExplorer(gameRoot);
+            return;
+        }
+
+        if (info.RequiresSteam && !SteamService.IsSteamRunning())
+        {
+            _launcher.StartSteam();
+            _toast.Show(
+                Resources.Strings.Downloads_Action_Play,
+                Resources.Strings.Launcher_StartingSteam);
+            return;
+        }
+
+        var (success, error) = await _launcher.LaunchGameAsync(info.ExecutablePath);
+        if (success)
+        {
+            _toast.Show(
+                Resources.Strings.Downloads_Action_Play,
+                string.Format(Resources.Strings.Launcher_GameStarted, gameName));
+
+            await _launcher.HandlePostLaunchExitAsync(_toast);
+        }
+        else
+        {
+            _toast.Show(
+                Resources.Strings.Downloads_Action_Play,
+                string.Format(Resources.Strings.Launcher_LaunchFailed, error ?? ""),
+                error: true);
+        }
+    }
 
     private void CopyId(long appId)
     {

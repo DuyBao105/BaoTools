@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace BaoToolsGui.Services.Downloads;
 
@@ -61,6 +61,11 @@ public partial class DownloadHistoryEntry : ObservableObject
     public bool CanCopyAppId => Record.AppId > 0;
 
     public bool CanShowInFolder => !string.IsNullOrWhiteSpace(Record.RevealPath);
+
+    public bool CanPlay => Status is DownloadStatus.Completed
+        && Record.Kind == nameof(DownloadKind.Depot)
+        && !string.IsNullOrWhiteSpace(Record.RevealPath)
+        && System.IO.Directory.Exists(Record.RevealPath);
 
     public string WhenLabel =>
         DateTimeOffset.FromUnixTimeMilliseconds(Record.CompletedAtMs).LocalDateTime.ToString("g");

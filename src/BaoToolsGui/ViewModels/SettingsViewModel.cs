@@ -220,6 +220,11 @@ public partial class SettingsViewModel : ObservableObject
     /// <summary>Set by App: restore the main window from the tray (used when Minimize-to-tray is turned off).</summary>
     public Action? RequestShowWindow { get; set; }
 
+    /// <summary>Close the app when launching a game (minimizes instead if downloads are active).</summary>
+    [ObservableProperty] private bool _exitOnPlay;
+
+    partial void OnExitOnPlayChanged(bool value) => _settings.ExitOnPlay = value;
+
     // ── Language ────────────────────────────────────────────────────
     /// <summary>Available UI languages (native endonyms, matching Steam's list). "System default"
     /// (null tag) follows Windows. Languages whose .resx isn't present fall back to English.</summary>
@@ -415,6 +420,7 @@ public partial class SettingsViewModel : ObservableObject
         _startWithWindows = settings.StartWithWindows; // default OFF. Init without triggering the registry write
         _startWithSteam = steamStartup.IsStartWithSteamActive;
         _minimizeToTray = settings.MinimizeToTray;
+        _exitOnPlay = settings.ExitOnPlay;
         _enableAiAssistant = settings.EnableAiAssistant;
         _hubcapIsKeyConfigured = !string.IsNullOrEmpty(settings.HubcapApiKey);
 

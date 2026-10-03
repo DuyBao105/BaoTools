@@ -27,7 +27,7 @@
                             Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
                             BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                             BorderThickness="1"
-                            CornerRadius="10">
+                            CornerRadius="{StaticResource RadiusMD}">
                             <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center" />
                         </Border>
                         <ControlTemplate.Triggers>
@@ -55,7 +55,7 @@
                             Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
                             BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                             BorderThickness="1"
-                            CornerRadius="10">
+                            CornerRadius="{StaticResource RadiusMD}">
                             <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center" />
                         </Border>
                         <ControlTemplate.Triggers>
@@ -267,10 +267,10 @@
             x:Name="Root"
             HorizontalScrollBarVisibility="Disabled"
             VerticalScrollBarVisibility="Auto">
-            <Grid Margin="18,14,18,24">
+            <Grid Margin="{StaticResource PageMargin}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" MinWidth="360" />
-                    <ColumnDefinition Width="18" />
+                    <ColumnDefinition Width="20" />
                     <ColumnDefinition Width="310" />
                 </Grid.ColumnDefinitions>
 
@@ -283,7 +283,7 @@
                         Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
                         BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                         BorderThickness="1"
-                        CornerRadius="12">
+                        CornerRadius="{StaticResource RadiusLG}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -717,7 +717,7 @@
                         Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
                         BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                         BorderThickness="1"
-                        CornerRadius="10">
+                        CornerRadius="{StaticResource RadiusMD}">
                         <StackPanel>
                             <Grid>
                                 <TextBlock
@@ -771,7 +771,7 @@
                         Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
                         BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                         BorderThickness="1"
-                        CornerRadius="10">
+                        CornerRadius="{StaticResource RadiusMD}">
                         <StackPanel>
                             <TextBlock
                                 FontSize="13"
@@ -795,10 +795,10 @@
                                         Symbol="Games24">
                                         <ui:SymbolIcon.Style>
                                             <Style TargetType="ui:SymbolIcon">
-                                                <Setter Property="Foreground" Value="#f87171" />
+                                                <Setter Property="Foreground" Value="{StaticResource StatusErrorBrush}" />
                                                 <Style.Triggers>
                                                     <DataTrigger Binding="{Binding SteamFound}" Value="True">
-                                                        <Setter Property="Foreground" Value="#34d399" />
+                                                        <Setter Property="Foreground" Value="{StaticResource StatusSuccessBrush}" />
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>

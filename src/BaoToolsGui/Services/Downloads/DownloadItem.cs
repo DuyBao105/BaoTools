@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace BaoToolsGui.Services.Downloads;
 
@@ -218,6 +218,12 @@ public partial class DownloadItem : ObservableObject
     public bool CanPause => Status is (DownloadStatus.Downloading or DownloadStatus.Verifying)
         && Job.Kind is DownloadKind.Depot;
     public bool CanResume => Status is DownloadStatus.Paused;
+
+    /// <summary>Raw depot downloads that completed and have an output folder on disk.</summary>
+    public bool CanPlay => Status is DownloadStatus.Completed
+        && Job.Kind is DownloadKind.Depot
+        && !string.IsNullOrWhiteSpace(RevealPath)
+        && System.IO.Directory.Exists(RevealPath);
 
     public string StatusLabel => Status switch
     {

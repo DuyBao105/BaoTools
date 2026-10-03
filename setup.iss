@@ -1,10 +1,10 @@
 [Setup]
 AppName=BaoTools
-AppVersion=v105.9
+AppVersion=v10.5
 DefaultDirName={autopf}\BaoTools
 DefaultGroupName=BaoTools
 OutputDir=out_setup
-OutputBaseFilename=BaoTools_Setup
+OutputBaseFilename=BaoTools_v10.5_Setup
 Compression=lzma2
 SolidCompression=yes
 ArchitecturesAllowed=x64

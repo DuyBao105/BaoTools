@@ -58,6 +58,7 @@ public partial class App : Application
                 services.AddSingleton<UnlockerService>();
                 services.AddSingleton<PluginInstallerService>();
                 services.AddSingleton<SteamStartupService>();
+                services.AddSingleton<GameLauncherService>();
                 services.AddSingleton<ThemeService>();
                 services.AddTransient<DropInstallViewModel>(); // one per page (Home, Add)
                 services.AddSingleton<AuthService>();

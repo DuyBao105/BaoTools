@@ -613,14 +613,52 @@ public class ManifestJobFactory(
             var plan = new List<(string RelPath, string Dest, string? BakRel, ZipArchiveEntry Entry)>();
             int failed = 0;
 
+            // Check if all files in the archive share a single top-level directory wrapper (e.g. "GameName/...")
+            string? commonPrefix = null;
+            var fileEntries = archive.Entries.Where(e => !string.IsNullOrEmpty(e.Name)).ToList();
+            if (fileEntries.Count > 0)
+            {
+                string firstNorm = fileEntries[0].FullName.Replace('\\', '/');
+                int firstSlash = firstNorm.IndexOf('/');
+                if (firstSlash > 0)
+                {
+                    string candidate = firstNorm.Substring(0, firstSlash + 1);
+                    if (fileEntries.All(e => e.FullName.Replace('\\', '/').StartsWith(candidate, StringComparison.OrdinalIgnoreCase)))
+                    {
+                        string candidateDirName = candidate.TrimEnd('/');
+                        string installDirName = Path.GetFileName(Path.TrimEndingDirectorySeparator(installDir));
+
+                        bool matchesInstallDir = string.Equals(candidateDirName, installDirName, StringComparison.OrdinalIgnoreCase) ||
+                                                 string.Equals(candidateDirName, gameName, StringComparison.OrdinalIgnoreCase);
+
+                        bool matchesExistingContent = fileEntries.Any(e =>
+                        {
+                            string stripped = e.FullName.Replace('\\', '/').Substring(candidate.Length);
+                            string firstPart = stripped.Split('/')[0];
+                            return Directory.Exists(Path.Combine(installDir, firstPart)) || File.Exists(Path.Combine(installDir, firstPart));
+                        });
+
+                        if (matchesInstallDir || matchesExistingContent)
+                        {
+                            commonPrefix = candidate;
+                        }
+                    }
+                }
+            }
+
             foreach (var entry in archive.Entries)
             {
                 if (string.IsNullOrEmpty(entry.Name)) continue;
-                string relPath = entry.FullName.Replace('\\', '/');
+                string entryFullNorm = entry.FullName.Replace('\\', '/');
+                string relPath = commonPrefix is not null && entryFullNorm.StartsWith(commonPrefix, StringComparison.OrdinalIgnoreCase)
+                    ? entryFullNorm.Substring(commonPrefix.Length)
+                    : entryFullNorm;
+
+                if (string.IsNullOrWhiteSpace(relPath)) continue;
 
                 // A zip entry naming its way out of the game folder is never legitimate; skip it and
                 // count it, rather than writing wherever it points.
-                if (ResolveInside(installDir, entry.FullName) is not { } dest) { failed++; continue; }
+                if (ResolveInside(installDir, relPath) is not { } dest) { failed++; continue; }
 
                 // Backups are keyed by the FULL relative path, not just the file name: fix archives
                 // routinely ship the same name in several folders (steam_api64.dll, config.ini), and

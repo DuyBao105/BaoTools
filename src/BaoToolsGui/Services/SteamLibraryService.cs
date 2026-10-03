@@ -9,7 +9,7 @@ namespace BaoToolsGui.Services;
 /// per-library steamapps\appmanifest_&lt;appid&gt;.acf (the game's installdir) → common\&lt;installdir&gt;.
 /// Best-effort: returns null if Steam/the game can't be located. Used to apply Denuvo "fix" zips.
 /// </summary>
-public partial class SteamLibraryService(SteamService steam)
+public partial class SteamLibraryService(SteamService steam, CacheService? cache = null)
 {
     // "path"        "D:\\SteamLibrary"     → the library root (libraryfolders.vdf)
     // "installdir"  "Elden Ring"           → folder under steamapps\common (appmanifest_*.acf)
@@ -41,40 +41,62 @@ public partial class SteamLibraryService(SteamService steam)
     public IEnumerable<InstalledGame> EnumerateInstalled()
     {
         string? steamRoot = steam.EffectivePath;
-        if (steamRoot is null) yield break;
+        var seenAppIds = new HashSet<long>();
 
-        foreach (string library in GetLibraryRoots(steamRoot))
+        if (steamRoot is not null)
         {
-            string steamapps = Path.Combine(library, "steamapps");
-            string[] acfs;
-            try
+            foreach (string library in GetLibraryRoots(steamRoot))
             {
-                if (!Directory.Exists(steamapps)) continue;
-                acfs = Directory.GetFiles(steamapps, "appmanifest_*.acf");
-            }
-            catch { continue; }
-
-            foreach (string acf in acfs)
-            {
-                InstalledGame? game = null;
+                string steamapps = Path.Combine(library, "steamapps");
+                string[] acfs;
                 try
                 {
-                    string text = File.ReadAllText(acf);
-
-                    var idm = AppIdRegex().Match(text);
-                    var dirm = InstallDirRegex().Match(text);
-                    if (!idm.Success || !dirm.Success) continue;
-                    if (!long.TryParse(idm.Groups[1].Value, out long appId)) continue;
-
-                    string full = Path.Combine(steamapps, "common", Unescape(dirm.Groups[1].Value));
-                    if (!Directory.Exists(full)) continue;
-
-                    var nm = NameRegex().Match(text);
-                    game = new InstalledGame(appId, nm.Success ? nm.Groups[1].Value : appId.ToString(), full);
+                    if (!Directory.Exists(steamapps)) continue;
+                    acfs = Directory.GetFiles(steamapps, "appmanifest_*.acf");
                 }
-                catch { /* unreadable or malformed acf: skip this one, not the whole library */ }
+                catch { continue; }
 
-                if (game is not null) yield return game;
+                foreach (string acf in acfs)
+                {
+                    InstalledGame? game = null;
+                    try
+                    {
+                        string text = File.ReadAllText(acf);
+
+                        var idm = AppIdRegex().Match(text);
+                        var dirm = InstallDirRegex().Match(text);
+                        if (!idm.Success || !dirm.Success) continue;
+                        if (!long.TryParse(idm.Groups[1].Value, out long appId)) continue;
+
+                        string full = Path.Combine(steamapps, "common", Unescape(dirm.Groups[1].Value));
+                        if (!Directory.Exists(full)) continue;
+
+                        var nm = NameRegex().Match(text);
+                        game = new InstalledGame(appId, nm.Success ? nm.Groups[1].Value : appId.ToString(), full);
+                    }
+                    catch { /* unreadable or malformed acf: skip this one, not the whole library */ }
+
+                    if (game is not null && seenAppIds.Add(game.AppId)) yield return game;
+                }
+            }
+        }
+
+        if (cache is not null)
+        {
+            List<Downloads.DownloadHistoryRecord> history;
+            try { history = cache.GetDownloadHistory().ToList(); } catch { history = []; }
+
+            foreach (var r in history)
+            {
+                if (seenAppIds.Contains(r.AppId)) continue;
+                if (IsDepotKind(r.Kind) && !string.IsNullOrWhiteSpace(r.RevealPath) && Directory.Exists(r.RevealPath))
+                {
+                    string root = ResolveGameRootFolder(r.RevealPath);
+                    if (Directory.Exists(root) && seenAppIds.Add(r.AppId))
+                    {
+                        yield return new InstalledGame(r.AppId, r.Title, root);
+                    }
+                }
             }
         }
     }
@@ -82,32 +104,57 @@ public partial class SteamLibraryService(SteamService steam)
     public IEnumerable<(long AppId, string Name, string InstallDir)> GetAllInstalledApps()
     {
         string? steamRoot = steam.EffectivePath;
-        if (steamRoot is null) yield break;
+        var seenAppIds = new HashSet<long>();
 
-        foreach (string library in GetLibraryRoots(steamRoot))
+        if (steamRoot is not null)
         {
-            string steamapps = Path.Combine(library, "steamapps");
-            if (!Directory.Exists(steamapps)) continue;
-
-            foreach (string acf in Directory.EnumerateFiles(steamapps, "appmanifest_*.acf"))
+            foreach (string library in GetLibraryRoots(steamRoot))
             {
-                string fileName = Path.GetFileNameWithoutExtension(acf);
-                string appIdStr = fileName.Substring("appmanifest_".Length);
-                if (!long.TryParse(appIdStr, out long appId)) continue;
+                string steamapps = Path.Combine(library, "steamapps");
+                if (!Directory.Exists(steamapps)) continue;
 
-                string text;
-                try { text = File.ReadAllText(acf); } catch { continue; }
+                foreach (string acf in Directory.EnumerateFiles(steamapps, "appmanifest_*.acf"))
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(acf);
+                    string appIdStr = fileName.Substring("appmanifest_".Length);
+                    if (!long.TryParse(appIdStr, out long appId)) continue;
 
-                var mDir = InstallDirRegex().Match(text);
-                if (!mDir.Success) continue;
-                string installDir = Unescape(mDir.Groups[1].Value);
-                string full = Path.Combine(steamapps, "common", installDir);
-                if (!Directory.Exists(full)) continue;
+                    string text;
+                    try { text = File.ReadAllText(acf); } catch { continue; }
 
-                var mName = NameRegex().Match(text);
-                string name = mName.Success ? Unescape(mName.Groups[1].Value) : $"Unknown App {appId}";
+                    var mDir = InstallDirRegex().Match(text);
+                    if (!mDir.Success) continue;
+                    string installDir = Unescape(mDir.Groups[1].Value);
+                    string full = Path.Combine(steamapps, "common", installDir);
+                    if (!Directory.Exists(full)) continue;
 
-                yield return (appId, name, full);
+                    var mName = NameRegex().Match(text);
+                    string name = mName.Success ? Unescape(mName.Groups[1].Value) : $"Unknown App {appId}";
+
+                    if (seenAppIds.Add(appId))
+                    {
+                        yield return (appId, name, full);
+                    }
+                }
+            }
+        }
+
+        if (cache is not null)
+        {
+            List<Downloads.DownloadHistoryRecord> history;
+            try { history = cache.GetDownloadHistory().ToList(); } catch { history = []; }
+
+            foreach (var r in history)
+            {
+                if (seenAppIds.Contains(r.AppId)) continue;
+                if (IsDepotKind(r.Kind) && !string.IsNullOrWhiteSpace(r.RevealPath) && Directory.Exists(r.RevealPath))
+                {
+                    string root = ResolveGameRootFolder(r.RevealPath);
+                    if (Directory.Exists(root) && seenAppIds.Add(r.AppId))
+                    {
+                        yield return (r.AppId, r.Title, root);
+                    }
+                }
             }
         }
     }
@@ -117,23 +164,132 @@ public partial class SteamLibraryService(SteamService steam)
         try
         {
             string? steamRoot = steam.EffectivePath;
-            if (steamRoot is null) return null;
-
-            foreach (string library in GetLibraryRoots(steamRoot))
+            if (steamRoot is not null)
             {
-                string acf = Path.Combine(library, "steamapps", $"appmanifest_{appId}.acf");
-                if (!File.Exists(acf)) continue;
+                foreach (string library in GetLibraryRoots(steamRoot))
+                {
+                    string acf = Path.Combine(library, "steamapps", $"appmanifest_{appId}.acf");
+                    if (!File.Exists(acf)) continue;
 
-                var m = InstallDirRegex().Match(File.ReadAllText(acf));
-                if (!m.Success) continue;
+                    var m = InstallDirRegex().Match(File.ReadAllText(acf));
+                    if (!m.Success) continue;
 
-                string installDir = Unescape(m.Groups[1].Value);
-                string full = Path.Combine(library, "steamapps", "common", installDir);
-                if (Directory.Exists(full)) return full;
+                    string installDir = Unescape(m.Groups[1].Value);
+                    string full = Path.Combine(library, "steamapps", "common", installDir);
+                    if (Directory.Exists(full)) return full;
+                }
             }
         }
         catch { /* unreadable VDF/ACF or odd path. Treat as not found */ }
+
+        // Fallback: check Raw Depot downloads from cache
+        if (cache is not null)
+        {
+            try
+            {
+                var history = cache.GetDownloadHistory();
+                var depot = history.FirstOrDefault(r =>
+                    r.AppId == appId &&
+                    IsDepotKind(r.Kind) &&
+                    !string.IsNullOrWhiteSpace(r.RevealPath) &&
+                    Directory.Exists(r.RevealPath));
+
+                if (depot is not null && !string.IsNullOrWhiteSpace(depot.RevealPath))
+                {
+                    string resolved = ResolveGameRootFolder(depot.RevealPath);
+                    if (Directory.Exists(resolved)) return resolved;
+                }
+            }
+            catch { /* best effort */ }
+        }
+
         return null;
+    }
+
+    /// <summary>
+    /// Checks whether a download record kind corresponds to raw depot content (handles "depot", "raw_depot", "Depot").
+    /// </summary>
+    public static bool IsDepotKind(string? kind) =>
+        string.Equals(kind, "depot", StringComparison.OrdinalIgnoreCase) ||
+        string.Equals(kind, "raw_depot", StringComparison.OrdinalIgnoreCase) ||
+        string.Equals(kind, nameof(Downloads.DownloadKind.Depot), StringComparison.OrdinalIgnoreCase);
+
+    /// <summary>
+    /// Resolves the actual game root directory within a depot download folder.
+    /// Handles both flat layout and nested game folder layout (e.g. outDir\GameName\Game.exe).
+    /// </summary>
+    public static string ResolveGameRootFolder(string folderPath)
+    {
+        if (string.IsNullOrWhiteSpace(folderPath) || !Directory.Exists(folderPath))
+            return folderPath;
+
+        try
+        {
+            // If the folder itself contains .exe files (excluding common redists/crash handlers)
+            var rootExes = Directory.EnumerateFiles(folderPath, "*.exe", SearchOption.TopDirectoryOnly)
+                .Where(f => !IsExcludedExe(Path.GetFileName(f)))
+                .ToList();
+            if (rootExes.Count > 0)
+            {
+                return folderPath;
+            }
+
+            // Check immediate subdirectories (skipping hidden / .DepotDownloader / redists)
+            var subDirs = Directory.EnumerateDirectories(folderPath)
+                .Where(d => !Path.GetFileName(d).StartsWith('.') &&
+                            !Path.GetFileName(d).Equals("_CommonRedist", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            foreach (var sub in subDirs)
+            {
+                var subExes = Directory.EnumerateFiles(sub, "*.exe", SearchOption.TopDirectoryOnly)
+                    .Where(f => !IsExcludedExe(Path.GetFileName(f)))
+                    .ToList();
+                if (subExes.Count > 0)
+                {
+                    return sub;
+                }
+            }
+
+            // If nested deeper (e.g. Binaries\Win64), find main executable and walk up
+            var allExes = Directory.EnumerateFiles(folderPath, "*.exe", SearchOption.AllDirectories)
+                .Where(f => !IsExcludedExe(Path.GetFileName(f)))
+                .ToList();
+
+            if (allExes.Count > 0)
+            {
+                string bestExe = allExes.OrderByDescending(f => {
+                    try { return new FileInfo(f).Length; } catch { return 0; }
+                }).First();
+
+                string exeDir = Path.GetDirectoryName(bestExe) ?? folderPath;
+                string? parent = Path.GetDirectoryName(exeDir);
+                if (Path.GetFileName(exeDir).Equals("Win64", StringComparison.OrdinalIgnoreCase) && parent is not null)
+                {
+                    string? grandParent = Path.GetDirectoryName(parent);
+                    if (Path.GetFileName(parent).Equals("Binaries", StringComparison.OrdinalIgnoreCase) && grandParent is not null)
+                    {
+                        return grandParent;
+                    }
+                }
+                return exeDir;
+            }
+        }
+        catch { /* best effort */ }
+
+        return folderPath;
+    }
+
+    private static bool IsExcludedExe(string fileName)
+    {
+        string[] excluded =
+        [
+            "unitycrashhandler", "crashreport", "crashreporter", "werfault",
+            "vcredist", "dxsetup", "ue4prereq", "ue5prereq", "prereqsetup",
+            "dotnetfx", "vc_redist", "oalinst", "uninstall", "unins000",
+            "depotdownloader"
+        ];
+        return excluded.Any(sub => fileName.Contains(sub, StringComparison.OrdinalIgnoreCase));
     }
 
     /// <summary>Every Steam library root (the main install plus any added libraries).</summary>

@@ -62,7 +62,7 @@
                                         Text="{Binding HeaderStatus}"
                                         FontSize="10.5"
                                         FontWeight="Medium"
-                                        Foreground="#34d399"
+                                        Foreground="{StaticResource StatusSuccessBrush}"
                                         Margin="0,1,0,0" />
                                 </StackPanel>
                             </StackPanel>
@@ -205,16 +205,16 @@
                                                                             HorizontalAlignment="Center">
                                                                             <TextBlock.Style>
                                                                                 <Style TargetType="TextBlock">
-                                                                                    <Setter Property="Foreground" Value="#34d399" />
+                                                                                    <Setter Property="Foreground" Value="{StaticResource StatusSuccessBrush}" />
                                                                                     <Style.Triggers>
                                                                                         <DataTrigger Binding="{Binding Status}" Value="Warning">
-                                                                                            <Setter Property="Foreground" Value="#fbbf24" />
+                                                                                            <Setter Property="Foreground" Value="{StaticResource StatusWarningBrush}" />
                                                                                         </DataTrigger>
                                                                                         <DataTrigger Binding="{Binding Status}" Value="Error">
-                                                                                            <Setter Property="Foreground" Value="#f87171" />
+                                                                                            <Setter Property="Foreground" Value="{StaticResource StatusErrorBrush}" />
                                                                                         </DataTrigger>
                                                                                         <DataTrigger Binding="{Binding Status}" Value="Info">
-                                                                                            <Setter Property="Foreground" Value="#60a5fa" />
+                                                                                            <Setter Property="Foreground" Value="{StaticResource StatusInfoBrush}" />
                                                                                         </DataTrigger>
                                                                                     </Style.Triggers>
                                                                                 </Style>
@@ -814,7 +814,7 @@
                                 Height="18"
                                 MinWidth="18"
                                 CornerRadius="9"
-                                Background="#EF4444"
+                                Background="{StaticResource StatusErrorBrush}"
                                 BorderBrush="{DynamicResource ControlFillColorDefaultBrush}"
                                 BorderThickness="2"
                                 Padding="4,0"

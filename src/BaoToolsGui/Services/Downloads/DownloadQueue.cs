@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Windows;
@@ -31,6 +31,8 @@ public class DownloadQueue : IHostedService
 {
     private readonly CacheService _cache;
     private readonly ILogger<DownloadQueue> _log;
+    private readonly ToastService? _toast;
+    private readonly GameLauncherService? _launcher;
 
     /// <summary>Signals the pump that the schedule may have changed.</summary>
     private readonly SemaphoreSlim _kick = new(0);
@@ -44,10 +46,13 @@ public class DownloadQueue : IHostedService
     private readonly CancellationTokenSource _shutdown = new();
     private Task? _pump;
 
-    public DownloadQueue(CacheService cache, ILogger<DownloadQueue> log)
+    public DownloadQueue(CacheService cache, ILogger<DownloadQueue> log,
+        ToastService? toast = null, GameLauncherService? launcher = null)
     {
         _cache = cache;
         _log = log;
+        _toast = toast;
+        _launcher = launcher;
     }
 
     private Dispatcher Dispatcher =>
@@ -416,6 +421,65 @@ public class DownloadQueue : IHostedService
         PersistHistory();
 
         item.SettleCompletion(result);
+
+        // Notify user if a Raw Depot download completed and is ready to play
+        if (status == DownloadStatus.Completed && item.Job.Kind == DownloadKind.Depot)
+        {
+            string? outDir = item.RevealPath;
+            if (!string.IsNullOrWhiteSpace(outDir) && Directory.Exists(outDir))
+            {
+                // Proactively auto-apply Online Fix or crack in background
+                if (_launcher is not null)
+                {
+                    _ = Task.Run(async () =>
+                    {
+                        await _launcher.EnsureFixOrCrackAppliedAsync(item.AppId, item.Title, outDir, _toast);
+                    });
+                }
+
+                if (_toast is not null)
+                {
+                    string title = Resources.Strings.Downloads_Toast_Depot_Done_Title;
+                    string body = string.Format(Resources.Strings.Downloads_Toast_Depot_Done_Body, item.Title);
+                    string playLabel = "▶ " + Resources.Strings.Downloads_Action_Play;
+                    _toast.ShowAction(title, body, playLabel, () =>
+                    {
+                        if (_launcher is not null)
+                        {
+                            _ = Task.Run(async () =>
+                            {
+                                await _launcher.EnsureFixOrCrackAppliedAsync(item.AppId, item.Title, outDir, _toast);
+                                string root = SteamLibraryService.ResolveGameRootFolder(outDir);
+                                var info = _launcher.InspectFolder(root, item.Title);
+                                if (info.ExeFound && info.ExecutablePath is not null)
+                                {
+                                    if (info.RequiresSteam && !SteamService.IsSteamRunning())
+                                    {
+                                        _launcher.StartSteam();
+                                        _toast.Show(
+                                            Resources.Strings.Downloads_Action_Play,
+                                            Resources.Strings.Launcher_StartingSteam);
+                                        return;
+                                    }
+
+                                    var (success, _) = await _launcher.LaunchGameAsync(info.ExecutablePath);
+                                    if (success)
+                                    {
+                                        await _launcher.HandlePostLaunchExitAsync(_toast);
+                                    }
+                                }
+                                else
+                                {
+                                    SteamService.ShowInExplorer(root);
+                                }
+                            });
+                            return;
+                        }
+                        SteamService.ShowInExplorer(outDir);
+                    });
+                }
+            }
+        }
 
         // Per-job continuation only. There is deliberately no queue-wide "finished" event: each entry
         // point already reports its own outcome, and a global subscriber double-notified all of them.

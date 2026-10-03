@@ -13,7 +13,7 @@
 
     <Grid x:Name="Root">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <StackPanel MaxWidth="760" Margin="8,16,16,24">
+            <StackPanel MaxWidth="820" Margin="{StaticResource PageMargin}">
 
                 <!-- Header -->
                 <TextBlock

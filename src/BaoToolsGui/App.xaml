@@ -10,6 +10,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ui:ThemesDictionary Theme="Dark" />
                 <ui:ControlsDictionary />
+                <ResourceDictionary Source="AppTokens.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <local:InverseBoolToVisibilityConverter x:Key="InverseBoolToVis" />
@@ -21,6 +22,11 @@
             <local:MinHeightToVisibilityConverter x:Key="MinHeightToVis" />
             <local:FilterOptionDisplayConverter x:Key="FilterOptionDisplay" />
             <BooleanToVisibilityConverter x:Key="BoolToVis" />
+
+            <!-- Global Fluent Focus Visual for Buttons -->
+            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="FocusVisualStyle" Value="{StaticResource FluentFocusVisual}" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

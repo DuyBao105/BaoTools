@@ -607,6 +607,22 @@ Thao tác này xóa các tệp .lua khỏi Steam\config\stplug-in.</value></data
   <data name="Downloads_Status_Verifying" xml:space="preserve"><value>Đang xác minh…</value></data>
   <data name="Downloads_Action_Pause" xml:space="preserve"><value>Tạm dừng</value></data>
   <data name="Downloads_Action_Resume" xml:space="preserve"><value>Tiếp tục</value></data>
+  <data name="Downloads_Action_Play" xml:space="preserve"><value>Chơi</value></data>
+  <data name="Launcher_ExeNotFound" xml:space="preserve"><value>Không tìm thấy file chạy game cho {0}. Đã mở thư mục để bạn kiểm tra.</value></data>
+  <data name="Launcher_StartingSteam" xml:space="preserve"><value>Game có Online Fix yêu cầu Steam. Đang mở Steam, bạn vui lòng đợi Steam đăng nhập xong rồi bấm Play lại nhé!</value></data>
+  <data name="Launcher_GameStarted" xml:space="preserve"><value>Đã khởi chạy {0}.</value></data>
+  <data name="Launcher_LaunchFailed" xml:space="preserve"><value>Không thể khởi chạy game: {0}</value></data>
+  <data name="Downloads_Toast_Depot_Done_Title" xml:space="preserve"><value>Tải xong Game</value></data>
+  <data name="Downloads_Toast_Depot_Done_Body" xml:space="preserve"><value>{0} đã tải xong và sẵn sàng để chơi.</value></data>
+  <data name="Manage_Action_PlayGame" xml:space="preserve"><value>Chơi Game</value></data>
+  <data name="Manage_Badge_Depot" xml:space="preserve"><value>Raw Depot</value></data>
+  <data name="Manage_Filter_Source" xml:space="preserve"><value>Nguồn tải</value></data>
+  <data name="Manage_Filter_Source_All" xml:space="preserve"><value>Tất cả nguồn</value></data>
+  <data name="Manage_Filter_Source_Steam" xml:space="preserve"><value>Steam Unlock</value></data>
+  <data name="Manage_Filter_Source_Depot" xml:space="preserve"><value>Raw Depot</value></data>
+  <data name="Settings_ExitOnPlay" xml:space="preserve"><value>Đóng ứng dụng khi mở game</value></data>
+  <data name="Settings_ExitOnPlay_Hint" xml:space="preserve"><value>Tự động thoát BaoTools khi khởi chạy game. Nếu đang có lượt tải chạy ngầm, ứng dụng sẽ tự động thu nhỏ để tiếp tục tải.</value></data>
+  <data name="Launcher_MinimizingDueToDownloads" xml:space="preserve"><value>Đang có lượt tải chạy ngầm. BaoTools đã tự động thu nhỏ để tiếp tục tải.</value></data>
   <data name="Downloads_Kind_Depot" xml:space="preserve"><value>Tệp depot</value></data>
   <data name="Downloads_Depots_Progress" xml:space="preserve"><value>Depot · {0} trên {1}</value></data>
   <data name="Depot_Err_Tool" xml:space="preserve"><value>Không lấy được trình tải depot.</value></data>

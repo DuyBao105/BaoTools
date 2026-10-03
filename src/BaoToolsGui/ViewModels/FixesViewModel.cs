@@ -118,11 +118,12 @@ public partial class FixesViewModel : PagedListViewModel<FixGameCardVm>
     private readonly ManifestJobFactory jobs;
     private readonly SteamLibraryService library;
     private readonly SteamService steam;
+    private readonly CacheService? cache;
 
     public FixesViewModel(
         BaoToolsApiClient api, AuthService auth, CoverCache covers, ToastService toast,
         SettingsService settings, DownloadQueue queue, ManifestJobFactory jobs,
-        SteamLibraryService library, SteamService steam)
+        SteamLibraryService library, SteamService steam, CacheService? cache = null)
     {
         this.api = api;
         this.auth = auth;
@@ -133,6 +134,7 @@ public partial class FixesViewModel : PagedListViewModel<FixGameCardVm>
         this.jobs = jobs;
         this.library = library;
         this.steam = steam;
+        this.cache = cache;
         InitPageSize(settings.FixesPageSize);
     }
 
@@ -248,11 +250,25 @@ public partial class FixesViewModel : PagedListViewModel<FixGameCardVm>
             Tags.Clear();
             foreach (var t in data.Tags) Tags.Add(new TagPillVm(t));
 
-            // "My games" filter source: the same stplug-in scan the Manage page uses, so the toggle
-            // shows only games the user actually added. Scanned once per listing load.
+            // "My games" filter source: the same stplug-in scan the Manage page uses, plus any Raw Depot downloads
             _installedAppIds = steam.StPlugInDir is { } dir
                 ? await Task.Run(() => LuaInstaller.EnumerateInstalled(dir).Select(i => i.AppId).ToHashSet())
                 : [];
+
+            if (cache is not null)
+            {
+                try
+                {
+                    foreach (var r in cache.GetDownloadHistory())
+                    {
+                        if (SteamLibraryService.IsDepotKind(r.Kind) && !string.IsNullOrWhiteSpace(r.RevealPath) && Directory.Exists(r.RevealPath))
+                        {
+                            _installedAppIds.Add(r.AppId);
+                        }
+                    }
+                }
+                catch { /* best effort */ }
+            }
             OnPropertyChanged(nameof(MyGamesHint));
 
             ApplyFilter();

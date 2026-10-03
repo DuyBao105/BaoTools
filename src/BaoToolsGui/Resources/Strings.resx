@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:schema id="root">
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -639,6 +639,22 @@ This deletes the .lua files from Steam\config\stplug-in.</value></data>
   <data name="Downloads_Status_Verifying" xml:space="preserve"><value>Verifying…</value></data>
   <data name="Downloads_Action_Pause" xml:space="preserve"><value>Pause</value></data>
   <data name="Downloads_Action_Resume" xml:space="preserve"><value>Resume</value></data>
+  <data name="Downloads_Action_Play" xml:space="preserve"><value>Play</value></data>
+  <data name="Launcher_ExeNotFound" xml:space="preserve"><value>Cannot find a runnable game executable for {0}. Opened folder for manual check.</value></data>
+  <data name="Launcher_StartingSteam" xml:space="preserve"><value>Game with Online Fix requires Steam. Opening Steam, please wait until signed in and press Play again!</value></data>
+  <data name="Launcher_GameStarted" xml:space="preserve"><value>Launched {0}.</value></data>
+  <data name="Launcher_LaunchFailed" xml:space="preserve"><value>Failed to launch game: {0}</value></data>
+  <data name="Downloads_Toast_Depot_Done_Title" xml:space="preserve"><value>Download Complete</value></data>
+  <data name="Downloads_Toast_Depot_Done_Body" xml:space="preserve"><value>{0} is downloaded and ready to play.</value></data>
+  <data name="Manage_Action_PlayGame" xml:space="preserve"><value>Play Game</value></data>
+  <data name="Manage_Badge_Depot" xml:space="preserve"><value>Raw Depot</value></data>
+  <data name="Manage_Filter_Source" xml:space="preserve"><value>Source</value></data>
+  <data name="Manage_Filter_Source_All" xml:space="preserve"><value>All sources</value></data>
+  <data name="Manage_Filter_Source_Steam" xml:space="preserve"><value>Steam Unlock</value></data>
+  <data name="Manage_Filter_Source_Depot" xml:space="preserve"><value>Raw Depot</value></data>
+  <data name="Settings_ExitOnPlay" xml:space="preserve"><value>Close app when launching game</value></data>
+  <data name="Settings_ExitOnPlay_Hint" xml:space="preserve"><value>Automatically exit BaoTools when launching a game. If downloads are active, BaoTools minimizes instead to keep downloading.</value></data>
+  <data name="Launcher_MinimizingDueToDownloads" xml:space="preserve"><value>Active downloads in progress. BaoTools minimized to keep downloading.</value></data>
   <data name="Downloads_Kind_Depot" xml:space="preserve"><value>Depot files</value></data>
   <data name="Downloads_Depots_Progress" xml:space="preserve"><value>Depots · {0} of {1}</value></data>
   <data name="Depot_Err_Tool" xml:space="preserve"><value>Couldn't get the depot downloader.</value></data>

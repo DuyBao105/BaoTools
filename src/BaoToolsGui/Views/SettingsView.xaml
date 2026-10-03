@@ -17,7 +17,7 @@
             <Setter Property="Background" Value="{DynamicResource CardBackgroundFillColorDefaultBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultBrush}" />
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="CornerRadius" Value="{StaticResource RadiusMD}" />
             <Setter Property="Padding" Value="20,16" />
         </Style>
 
@@ -626,6 +626,25 @@
                             Margin="16,0,0,0"
                             VerticalAlignment="Center"
                             IsChecked="{Binding MinimizeToTray, Mode=TwoWay}" />
+                    </Grid>
+
+                    <Border Style="{StaticResource ModernRowDivider}" />
+
+                    <!-- Exit on Game Launch Row -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock FontSize="13.5" FontWeight="SemiBold" Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{x:Static res:Strings.Settings_ExitOnPlay}" />
+                            <TextBlock Margin="0,3,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static res:Strings.Settings_ExitOnPlay_Hint}" TextWrapping="Wrap" />
+                        </StackPanel>
+                        <ui:ToggleSwitch
+                            Grid.Column="1"
+                            Margin="16,0,0,0"
+                            VerticalAlignment="Center"
+                            IsChecked="{Binding ExitOnPlay, Mode=TwoWay}" />
                     </Grid>
                 </StackPanel>
             </Border>

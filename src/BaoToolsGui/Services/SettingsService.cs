@@ -54,6 +54,9 @@ public class AppSettings
     // "never set" (→ default OFF) is distinguishable from an explicit choice.
     public bool? MinimizeToTray { get; set; }
 
+    // When true, close the app when launching a game (minimizes instead if downloads are active).
+    public bool? ExitOnPlay { get; set; }
+
     // When true, FastFetch auto-picks the first available source and downloads immediately.
     // Nullable so "never set" (→ default OFF) is distinguishable from an explicit choice.
     public bool? FastFetch { get; set; }
@@ -200,6 +203,13 @@ public class SettingsService
         set { _settings.MinimizeToTray = value; Save(); }
     }
 
+    /// <summary>When true, close the app on launching a game (default OFF). Minimizes instead if downloads are active.</summary>
+    public bool ExitOnPlay
+    {
+        get => _settings.ExitOnPlay ?? false; // default OFF
+        set { _settings.ExitOnPlay = value; Save(); }
+    }
+
     /// <summary>When true, FastFetch auto-picks the first available source and downloads immediately (default OFF).</summary>
     public bool FastFetch
     {
@@ -289,6 +299,7 @@ public class SettingsService
             && _settings.HubcapApiKey is null
             && _settings.StartWithWindows is null
             && _settings.MinimizeToTray is null
+            && _settings.ExitOnPlay is null
             && _settings.FastFetch is null
             && _settings.Theme is null
             && _settings.EnableAiAssistant is null;
