@@ -41,6 +41,12 @@
                             Icon="{ui:SymbolIcon Play24}"
                             Visibility="{Binding CanPlay, Converter={StaticResource BoolToVis}}" />
                         <MenuItem
+                            Command="{Binding PlacementTarget.Tag.UninstallCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
+                            CommandParameter="{Binding}"
+                            Header="{x:Static res:Strings.Downloads_Action_Uninstall}"
+                            Icon="{ui:SymbolIcon Delete24}"
+                            Visibility="{Binding CanUninstall, Converter={StaticResource BoolToVis}}" />
+                        <MenuItem
                             Command="{Binding PlacementTarget.Tag.ShowInFolderCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
                             CommandParameter="{Binding}"
                             Header="{x:Static res:Strings.Common_ShowInFolder}"
@@ -177,6 +183,14 @@
                             Visibility="{Binding CanPlay, Converter={StaticResource BoolToVis}}" />
                         <ui:Button
                             Margin="4,0,0,0"
+                            Appearance="Secondary"
+                            Command="{Binding DataContext.UninstallCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            CommandParameter="{Binding}"
+                            Icon="{ui:SymbolIcon Delete24}"
+                            ToolTip="{x:Static res:Strings.Downloads_Action_Uninstall}"
+                            Visibility="{Binding CanUninstall, Converter={StaticResource BoolToVis}}" />
+                        <ui:Button
+                            Margin="4,0,0,0"
                             Command="{Binding DataContext.PauseCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
                             CommandParameter="{Binding}"
                             Icon="{ui:SymbolIcon Pause24}"
@@ -248,6 +262,12 @@
                             Header="{x:Static res:Strings.Downloads_Action_Play}"
                             Icon="{ui:SymbolIcon Play24}"
                             Visibility="{Binding CanPlay, Converter={StaticResource BoolToVis}}" />
+                        <MenuItem
+                            Command="{Binding PlacementTarget.Tag.UninstallHistoryCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
+                            CommandParameter="{Binding}"
+                            Header="{x:Static res:Strings.Downloads_Action_Uninstall}"
+                            Icon="{ui:SymbolIcon Delete24}"
+                            Visibility="{Binding CanUninstall, Converter={StaticResource BoolToVis}}" />
                         <MenuItem
                             Command="{Binding PlacementTarget.Tag.CopyHistoryAppIdCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
                             CommandParameter="{Binding}"
@@ -384,6 +404,15 @@
                             Content="{x:Static res:Strings.Downloads_Action_Play}"
                             Icon="{ui:SymbolIcon Play24}"
                             Visibility="{Binding CanPlay, Converter={StaticResource BoolToVis}}" />
+                        <ui:Button
+                            Margin="4,0,0,0"
+                            Padding="8,4"
+                            Appearance="Secondary"
+                            Command="{Binding DataContext.UninstallHistoryCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            CommandParameter="{Binding}"
+                            Icon="{ui:SymbolIcon Delete24}"
+                            ToolTip="{x:Static res:Strings.Downloads_Action_Uninstall}"
+                            Visibility="{Binding CanUninstall, Converter={StaticResource BoolToVis}}" />
                         <ui:Button
                             Margin="4,0,0,0"
                             Padding="8,4"

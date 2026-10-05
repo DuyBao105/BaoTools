@@ -623,6 +623,11 @@ public static class Strings
     public static string Downloads_Action_MoveDown => Get(nameof(Downloads_Action_MoveDown));
     public static string Downloads_Action_ClearHistory => Get(nameof(Downloads_Action_ClearHistory));
     public static string Downloads_Action_Review => Get(nameof(Downloads_Action_Review));
+    public static string Downloads_Action_Uninstall => Get(nameof(Downloads_Action_Uninstall));
+    public static string Downloads_Uninstall_Title => Get(nameof(Downloads_Uninstall_Title));
+    public static string Downloads_Uninstall_Confirm => Get(nameof(Downloads_Uninstall_Confirm));
+    public static string Downloads_Uninstall_Success => Get(nameof(Downloads_Uninstall_Success));
+    public static string Downloads_Uninstall_Failed => Get(nameof(Downloads_Uninstall_Failed));
     public static string Downloads_Of => Get(nameof(Downloads_Of));
     public static string Downloads_Eta => Get(nameof(Downloads_Eta));
     public static string Downloads_ActionRequired => Get(nameof(Downloads_ActionRequired));

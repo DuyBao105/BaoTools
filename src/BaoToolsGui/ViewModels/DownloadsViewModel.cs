@@ -19,19 +19,54 @@ public partial class DownloadsViewModel : ObservableObject
     private readonly SteamAutoCrackService _sac;
     private readonly GameLauncherService _launcher;
     private readonly ToastService _toast;
+    private readonly CoverCache _covers;
+    private readonly SteamService _steam;
 
     public DownloadsViewModel(DownloadQueue queue, ManifestJobFactory jobs, SteamAutoCrackService sac,
-        GameLauncherService launcher, ToastService toast)
+        GameLauncherService launcher, ToastService toast, CoverCache covers, SteamService steam)
     {
         _queue = queue;
         _jobs = jobs;
         _sac = sac;
         _launcher = launcher;
         _toast = toast;
+        _covers = covers;
+        _steam = steam;
 
         _queue.Items.CollectionChanged += (_, _) => RaiseCounts();
-        _queue.History.CollectionChanged += (_, _) => RaiseCounts();
+        _queue.History.CollectionChanged += (_, _) =>
+        {
+            RaiseCounts();
+            EnsureCovers();
+        };
         _queue.StateChanged += RaiseCounts;
+
+        EnsureCovers();
+    }
+
+    private void EnsureCovers()
+    {
+        foreach (var entry in _queue.History.ToList())
+        {
+            if (entry.AppId <= 0) continue;
+            string? local = _covers.GetLocalPath(entry.AppId);
+            if (local is not null)
+            {
+                entry.SetResolvedCover(local);
+            }
+            else
+            {
+                string url = $"https://cdn.cloudflare.steamstatic.com/steam/apps/{entry.AppId}/header.jpg";
+                _ = Task.Run(async () =>
+                {
+                    string? path = await _covers.EnsureAsync(entry.AppId, url);
+                    if (path is not null)
+                    {
+                        Application.Current?.Dispatcher.Invoke(() => entry.SetResolvedCover(path));
+                    }
+                });
+            }
+        }
     }
 
     /// <summary>Bound directly by the view: <c>Queue.Items</c> and <c>Queue.History</c>.</summary>
@@ -201,6 +236,116 @@ public partial class DownloadsViewModel : ObservableObject
     {
         if (string.IsNullOrWhiteSpace(entry.Record.RevealPath)) return;
         await PlayGameFromFolderAsync(entry.Record.RevealPath, entry.Title, entry.AppId);
+    }
+
+    [RelayCommand]
+    private async Task UninstallHistory(DownloadHistoryEntry entry)
+    {
+        if (string.IsNullOrWhiteSpace(entry.Record.RevealPath)) return;
+        bool ok = await UninstallGameAsync(entry.Record.RevealPath, entry.Title, entry.AppId);
+        if (ok)
+        {
+            entry.RaiseStateChanged();
+        }
+    }
+
+    [RelayCommand]
+    private async Task Uninstall(DownloadItem item)
+    {
+        if (string.IsNullOrWhiteSpace(item.RevealPath)) return;
+        bool ok = await UninstallGameAsync(item.RevealPath, item.Title, item.AppId);
+        if (ok)
+        {
+            item.RaiseStateChanged();
+        }
+    }
+
+    private async Task<bool> UninstallGameAsync(string folderPath, string gameName, long appId)
+    {
+        string target = System.IO.Directory.Exists(folderPath)
+            ? SteamLibraryService.ResolveGameRootFolder(folderPath)
+            : folderPath;
+
+        var choice = ModernMessageBox.Show(
+            string.Format(Resources.Strings.Downloads_Uninstall_Confirm, gameName, target),
+            Resources.Strings.Downloads_Uninstall_Title,
+            MessageBoxButton.YesNo,
+            MessageBoxImage.Warning,
+            MessageBoxResult.No);
+
+        if (choice != MessageBoxResult.Yes) return false;
+
+        bool deleted = false;
+        try
+        {
+            deleted = await Task.Run(() =>
+            {
+                bool success = false;
+                if (System.IO.Directory.Exists(target))
+                {
+                    try
+                    {
+                        Microsoft.VisualBasic.FileIO.FileSystem.DeleteDirectory(
+                            target,
+                            Microsoft.VisualBasic.FileIO.UIOption.OnlyErrorDialogs,
+                            Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin);
+                    }
+                    catch
+                    {
+                        System.IO.Directory.Delete(target, recursive: true);
+                    }
+                    success = true;
+                }
+                else if (System.IO.File.Exists(target))
+                {
+                    try
+                    {
+                        Microsoft.VisualBasic.FileIO.FileSystem.DeleteFile(
+                            target,
+                            Microsoft.VisualBasic.FileIO.UIOption.OnlyErrorDialogs,
+                            Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin);
+                    }
+                    catch
+                    {
+                        System.IO.File.Delete(target);
+                    }
+                    success = true;
+                }
+
+                if (appId > 0)
+                {
+                    try
+                    {
+                        string? plugInDir = _steam.StPlugInDir;
+                        if (!string.IsNullOrWhiteSpace(plugInDir))
+                        {
+                            string luaFile = System.IO.Path.Combine(plugInDir, $"{appId}.lua");
+                            if (System.IO.File.Exists(luaFile)) System.IO.File.Delete(luaFile);
+                        }
+                    }
+                    catch { /* best-effort */ }
+                }
+
+                return success;
+            });
+
+            if (deleted)
+            {
+                _toast.Show(
+                    Resources.Strings.Downloads_Uninstall_Title,
+                    string.Format(Resources.Strings.Downloads_Uninstall_Success, gameName));
+                return true;
+            }
+        }
+        catch (Exception ex)
+        {
+            _toast.Show(
+                Resources.Strings.Downloads_Uninstall_Title,
+                string.Format(Resources.Strings.Downloads_Uninstall_Failed, gameName, ex.Message),
+                error: true);
+        }
+
+        return false;
     }
 
     private async Task PlayGameFromFolderAsync(string folderPath, string gameName, long appId)

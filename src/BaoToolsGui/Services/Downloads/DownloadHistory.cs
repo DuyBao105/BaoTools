@@ -1,3 +1,4 @@
+using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace BaoToolsGui.Services.Downloads;
@@ -48,10 +49,24 @@ public partial class DownloadHistoryEntry : ObservableObject
     public bool HasMessage => !string.IsNullOrWhiteSpace(Record.Message);
     public bool Failed => Status is DownloadStatus.Failed;
 
-    /// <summary>Steam header cover URL for games with a valid AppId.</summary>
-    public string? CoverPath => AppId > 0
-        ? $"https://cdn.cloudflare.steamstatic.com/steam/apps/{AppId}/header.jpg"
-        : null;
+    private string? _resolvedCover;
+
+    /// <summary>Steam header cover URL or local cached cover path for games with a valid AppId.</summary>
+    public string? CoverPath => _resolvedCover ?? GetDefaultCoverPath();
+
+    public void SetResolvedCover(string path)
+    {
+        _resolvedCover = path;
+        OnPropertyChanged(nameof(CoverPath));
+    }
+
+    private string? GetDefaultCoverPath()
+    {
+        if (AppId <= 0) return null;
+        string local = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BaoToolsGui", "covers", $"{AppId}.jpg");
+        if (File.Exists(local)) return local;
+        return $"https://cdn.cloudflare.steamstatic.com/steam/apps/{AppId}/header.jpg";
+    }
 
     public string SizeLabel => Record.Bytes > 0 ? ByteFormat.Size(Record.Bytes) : "";
 
@@ -71,6 +86,17 @@ public partial class DownloadHistoryEntry : ObservableObject
         && Record.Kind == nameof(DownloadKind.Depot)
         && !string.IsNullOrWhiteSpace(Record.RevealPath)
         && System.IO.Directory.Exists(Record.RevealPath);
+
+    public bool CanUninstall => Status is DownloadStatus.Completed
+        && !string.IsNullOrWhiteSpace(Record.RevealPath)
+        && (System.IO.Directory.Exists(Record.RevealPath) || System.IO.File.Exists(Record.RevealPath));
+
+    public void RaiseStateChanged()
+    {
+        OnPropertyChanged(nameof(CanPlay));
+        OnPropertyChanged(nameof(CanUninstall));
+        OnPropertyChanged(nameof(CanShowInFolder));
+    }
 
     public string WhenLabel =>
         DateTimeOffset.FromUnixTimeMilliseconds(Record.CompletedAtMs).LocalDateTime.ToString("g");

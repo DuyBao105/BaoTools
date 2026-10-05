@@ -20,9 +20,17 @@ public class ImagePathToSourceConverter : IValueConverter
         {
             var bmp = new BitmapImage();
             bmp.BeginInit();
-            bmp.CacheOption = BitmapCacheOption.OnLoad;
-            bmp.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
-            bmp.UriSource = new Uri(s, UriKind.Absolute);
+            if (s.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ||
+                s.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+            {
+                bmp.UriSource = new Uri(s, UriKind.Absolute);
+            }
+            else
+            {
+                bmp.CacheOption = BitmapCacheOption.OnLoad;
+                bmp.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
+                bmp.UriSource = new Uri(s, UriKind.Absolute);
+            }
             bmp.EndInit();
             return bmp;
         }

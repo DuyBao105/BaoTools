@@ -602,6 +602,11 @@ Thao tác này xóa các tệp .lua khỏi Steam\config\stplug-in.</value></data
   <data name="Downloads_Action_MoveDown" xml:space="preserve"><value>Xuống dưới</value></data>
   <data name="Downloads_Action_ClearHistory" xml:space="preserve"><value>Xóa lịch sử</value></data>
   <data name="Downloads_Action_Review" xml:space="preserve"><value>Xem lại</value></data>
+  <data name="Downloads_Action_Uninstall" xml:space="preserve"><value>Gỡ cài đặt</value></data>
+  <data name="Downloads_Uninstall_Title" xml:space="preserve"><value>Gỡ cài đặt game</value></data>
+  <data name="Downloads_Uninstall_Confirm" xml:space="preserve"><value>Bạn có chắc chắn muốn gỡ cài đặt game '{0}' không? Toàn bộ file game tại '{1}' sẽ được xóa.</value></data>
+  <data name="Downloads_Uninstall_Success" xml:space="preserve"><value>Đã gỡ cài đặt game '{0}' thành công.</value></data>
+  <data name="Downloads_Uninstall_Failed" xml:space="preserve"><value>Gỡ cài đặt game '{0}' thất bại: {1}</value></data>
   <data name="Downloads_Of" xml:space="preserve"><value>{0} trên {1}</value></data>
   <data name="Downloads_Eta" xml:space="preserve"><value>Còn {0}</value></data>
   <data name="Downloads_ActionRequired" xml:space="preserve"><value>Cần thao tác</value></data>

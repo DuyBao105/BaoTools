@@ -97,7 +97,11 @@ public partial class DownloadItem : ObservableObject
 
     public string Title => Job.Title;
     public string SubTitle => Job.SubTitle;
-    public string? CoverPath => Job.CoverPath;
+    public string? CoverPath => !string.IsNullOrWhiteSpace(Job.CoverPath)
+        ? Job.CoverPath
+        : (AppId > 0 ? (System.IO.File.Exists(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BaoToolsGui", "covers", $"{AppId}.jpg"))
+            ? System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BaoToolsGui", "covers", $"{AppId}.jpg")
+            : $"https://cdn.cloudflare.steamstatic.com/steam/apps/{AppId}/header.jpg") : null);
     public long AppId => Job.AppId;
 
     [ObservableProperty]
@@ -224,6 +228,17 @@ public partial class DownloadItem : ObservableObject
         && Job.Kind is DownloadKind.Depot
         && !string.IsNullOrWhiteSpace(RevealPath)
         && System.IO.Directory.Exists(RevealPath);
+
+    public bool CanUninstall => Status is DownloadStatus.Completed
+        && !string.IsNullOrWhiteSpace(RevealPath)
+        && (System.IO.Directory.Exists(RevealPath) || System.IO.File.Exists(RevealPath));
+
+    public void RaiseStateChanged()
+    {
+        OnPropertyChanged(nameof(CanPlay));
+        OnPropertyChanged(nameof(CanUninstall));
+        OnPropertyChanged(nameof(CanShowInFolder));
+    }
 
     public string StatusLabel => Status switch
     {

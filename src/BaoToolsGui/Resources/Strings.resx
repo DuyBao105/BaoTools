@@ -634,6 +634,11 @@ This deletes the .lua files from Steam\config\stplug-in.</value></data>
   <data name="Downloads_Action_MoveDown" xml:space="preserve"><value>Move down</value></data>
   <data name="Downloads_Action_ClearHistory" xml:space="preserve"><value>Clear history</value></data>
   <data name="Downloads_Action_Review" xml:space="preserve"><value>Review</value></data>
+  <data name="Downloads_Action_Uninstall" xml:space="preserve"><value>Uninstall</value></data>
+  <data name="Downloads_Uninstall_Title" xml:space="preserve"><value>Uninstall Game</value></data>
+  <data name="Downloads_Uninstall_Confirm" xml:space="preserve"><value>Are you sure you want to uninstall '{0}'? All downloaded files at '{1}' will be deleted.</value></data>
+  <data name="Downloads_Uninstall_Success" xml:space="preserve"><value>Successfully uninstalled '{0}'.</value></data>
+  <data name="Downloads_Uninstall_Failed" xml:space="preserve"><value>Failed to uninstall '{0}': {1}</value></data>
   <data name="Downloads_Of" xml:space="preserve"><value>{0} of {1}</value></data>
   <data name="Downloads_Eta" xml:space="preserve"><value>{0} left</value></data>
   <data name="Downloads_ActionRequired" xml:space="preserve"><value>Action required</value></data>
