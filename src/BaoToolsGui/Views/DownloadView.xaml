@@ -40,13 +40,13 @@
                                 <StackPanel>
                                     <TextBlock
                                         FontSize="12.5"
-                                        Foreground="#e5e7eb"
+                                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                         Text="{Binding Title}"
                                         TextTrimming="CharacterEllipsis" />
                                     <TextBlock
                                         Margin="0,1,0,0"
                                         FontSize="10.5"
-                                        Foreground="#6b7280"
+                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                         Text="{Binding Meta}" />
                                 </StackPanel>
                                 <Border
@@ -121,7 +121,7 @@
                                     Height="34"
                                     Margin="8,6,8,8"
                                     FontSize="12"
-                                    Foreground="#d1d5db"
+                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                     Text="{Binding Name}"
                                     TextTrimming="CharacterEllipsis"
                                     TextWrapping="Wrap" />
@@ -225,54 +225,100 @@
             <!-- Autocomplete results -->
             <Border
                 Margin="0,6,0,0"
+                MaxHeight="380"
+                Padding="4"
                 Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
                 BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                 BorderThickness="1"
                 CornerRadius="{StaticResource RadiusMD}"
                 Visibility="{Binding IsResultsOpen, Converter={StaticResource BoolToVis}}">
-                <ItemsControl ItemsSource="{Binding SearchResults}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Button
-                                HorizontalAlignment="Stretch"
-                                HorizontalContentAlignment="Stretch"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                Command="{Binding DataContext.SelectResultCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                CommandParameter="{Binding}"
-                                Cursor="Hand">
-                                <Grid Margin="2">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <Border
-                                        Width="60"
-                                        Height="28"
-                                        CornerRadius="4">
-                                        <Border.Background>
-                                            <ImageBrush ImageSource="{Binding Icon}" Stretch="UniformToFill" />
-                                        </Border.Background>
-                                    </Border>
-                                    <TextBlock
-                                        Grid.Column="1"
-                                        Margin="10,0"
-                                        VerticalAlignment="Center"
-                                        FontSize="13"
-                                        Text="{Binding Name}"
-                                        TextTrimming="CharacterEllipsis" />
-                                    <TextBlock
-                                        Grid.Column="2"
-                                        VerticalAlignment="Center"
-                                        FontSize="11.5"
-                                        Foreground="#6b7280"
-                                        Text="{Binding AppId}" />
-                                </Grid>
-                            </Button>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding SearchResults}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button
+                                    Margin="0,0,0,2"
+                                    Padding="8,6"
+                                    HorizontalAlignment="Stretch"
+                                    HorizontalContentAlignment="Stretch"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Command="{Binding DataContext.SelectResultCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                    CommandParameter="{Binding}"
+                                    Cursor="Hand">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border
+                                                x:Name="Bd"
+                                                Padding="{TemplateBinding Padding}"
+                                                Background="{TemplateBinding Background}"
+                                                CornerRadius="6">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <!-- Cover thumbnail -->
+                                                    <Border
+                                                        Grid.Column="0"
+                                                        Width="64"
+                                                        Height="30"
+                                                        CornerRadius="4"
+                                                        BorderBrush="#25FFFFFF"
+                                                        BorderThickness="1"
+                                                        ClipToBounds="True">
+                                                        <Border.Background>
+                                                            <ImageBrush ImageSource="{Binding Icon}" Stretch="UniformToFill" />
+                                                        </Border.Background>
+                                                    </Border>
+
+                                                    <!-- Game Title (Clear, High Contrast, Theme Dynamic) -->
+                                                    <TextBlock
+                                                        x:Name="TitleTxt"
+                                                        Grid.Column="1"
+                                                        Margin="12,0,10,0"
+                                                        VerticalAlignment="Center"
+                                                        FontSize="13.5"
+                                                        FontWeight="SemiBold"
+                                                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                                        Text="{Binding Name}"
+                                                        TextTrimming="CharacterEllipsis" />
+
+                                                    <!-- App ID Badge -->
+                                                    <Border
+                                                        Grid.Column="2"
+                                                        VerticalAlignment="Center"
+                                                        Padding="6,2"
+                                                        Background="#10FFFFFF"
+                                                        BorderBrush="#1AFFFFFF"
+                                                        BorderThickness="1"
+                                                        CornerRadius="4">
+                                                        <TextBlock
+                                                            FontSize="11.5"
+                                                            FontFamily="{StaticResource FontCode}"
+                                                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                                            Text="{Binding AppId}" />
+                                                    </Border>
+                                                </Grid>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="Bd" Property="Background" Value="#1AFFFFFF" />
+                                                    <Setter TargetName="TitleTxt" Property="Foreground" Value="{DynamicResource SystemAccentColorPrimaryBrush}" />
+                                                </Trigger>
+                                                <Trigger Property="IsPressed" Value="True">
+                                                    <Setter TargetName="Bd" Property="Background" Value="#25FFFFFF" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
             </Border>
 
             <!-- Featured rows (Steam top-sellers / new-releases). Idle-only: the whole block hides once you
@@ -286,7 +332,7 @@
                     <TextBlock
                         FontSize="13"
                         FontWeight="SemiBold"
-                        Foreground="#d1d5db"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                         Text="{x:Static res:Strings.Add_Featured_TopSellers}" />
                     <ScrollViewer
                         Margin="0,8,0,0"
@@ -312,7 +358,7 @@
                     <TextBlock
                         FontSize="13"
                         FontWeight="SemiBold"
-                        Foreground="#d1d5db"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                         Text="{x:Static res:Strings.Add_Featured_NewReleases}" />
                     <ScrollViewer
                         Margin="0,8,0,0"
@@ -386,14 +432,14 @@
                         <TextBlock
                             Margin="0,3,0,0"
                             FontSize="11.5"
-                            Foreground="#6b7280">
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}">
                             <Run Text="{Binding Details.AppId, Mode=OneWay}" />
                             <Run Text=" · " />
                             <Run Text="{Binding GenresText, Mode=OneWay}" />
                         </TextBlock>
                         <TextBlock
                             FontSize="11"
-                            Foreground="#4b5563"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                             Text="{Binding Details.ReleaseDate, StringFormat={x:Static res:Strings.Add_Released}}"
                             Visibility="{Binding Details.ReleaseDate, Converter={StaticResource NullToCollapsed}}" />
                     </StackPanel>
@@ -415,7 +461,7 @@
                         Text="{x:Static res:Strings.Add_FastFetch}" />
                     <TextBlock
                         FontSize="11"
-                        Foreground="#6b7280"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{x:Static res:Strings.Add_FastFetch_Hint}" />
                 </StackPanel>
                 <ui:ToggleSwitch
@@ -693,7 +739,7 @@
                                 Text="{Binding DlcInfo.DepotCount}" />
                             <TextBlock
                                 FontSize="11"
-                                Foreground="#6b7280"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                 Text="{x:Static res:Strings.Add_Depots}" />
                         </StackPanel>
                     </Border>
@@ -713,7 +759,7 @@
                                 Text="{Binding DlcInfo.HaveCount}" />
                             <TextBlock
                                 FontSize="11"
-                                Foreground="#6b7280"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                 Text="{x:Static res:Strings.Add_Available}" />
                         </StackPanel>
                     </Border>
@@ -733,7 +779,7 @@
                                 Text="{Binding DlcInfo.MissingCount}" />
                             <TextBlock
                                 FontSize="11"
-                                Foreground="#6b7280"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                 Text="{x:Static res:Strings.Add_Missing}" />
                         </StackPanel>
                     </Border>
@@ -819,7 +865,7 @@
                     Margin="0,8,0,0"
                     HorizontalAlignment="Center"
                     FontSize="11.5"
-                    Foreground="#6b7280"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     Text="{x:Static res:Strings.Add_DlcHint}"
                     TextAlignment="Center"
                     TextWrapping="Wrap" />
@@ -830,7 +876,7 @@
                 Margin="0,24,0,0"
                 FontSize="13"
                 FontWeight="SemiBold"
-                Foreground="#d1d5db"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                 Text="{x:Static res:Strings.Add_AlreadyHaveFiles}" />
             <views:DropZone Margin="0,8,0,0" DataContext="{Binding Drop}" />
         </StackPanel>
@@ -879,7 +925,7 @@
                         <!-- No changes note -->
                         <TextBlock
                             FontSize="12.5"
-                            Foreground="#6b7280"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                             Text="{Binding ConfirmNoChanges}"
                             TextWrapping="Wrap"
                             Visibility="{Binding ConfirmNoChanges, Converter={StaticResource NullToCollapsed}}" />

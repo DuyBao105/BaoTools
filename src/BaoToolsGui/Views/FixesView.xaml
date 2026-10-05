@@ -231,10 +231,10 @@
                                             <TextBlock
                                                 FontSize="13"
                                                 FontWeight="SemiBold"
-                                                Foreground="#e5e7eb"
+                                                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                 Text="{Binding Name}"
                                                 TextTrimming="CharacterEllipsis" />
-                                            <TextBlock Margin="0,3,0,0" FontSize="11.5" Foreground="#6b7280" Text="{Binding FixCountLabel}" />
+                                            <TextBlock Margin="0,3,0,0" FontSize="11.5" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding FixCountLabel}" />
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
@@ -464,9 +464,9 @@
                                             BorderThickness="1"
                                             CornerRadius="8">
                                             <StackPanel>
-                                                <TextBlock FontSize="13.5" FontWeight="SemiBold" Foreground="#e5e7eb"
+                                                <TextBlock FontSize="13.5" FontWeight="SemiBold" Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                            Text="{Binding Title, StringFormat={x:Static res:Strings.Fixes_Build}}" TextWrapping="Wrap" />
-                                                <TextBlock Margin="0,2,0,0" FontSize="11" Foreground="#6b7280" Text="{Binding DateLabel}" />
+                                                <TextBlock Margin="0,2,0,0" FontSize="11" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding DateLabel}" />
 
                                                 <!-- Tag chips -->
                                                 <ItemsControl Margin="0,6,0,0" ItemsSource="{Binding Tags}">
