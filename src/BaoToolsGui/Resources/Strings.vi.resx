@@ -603,6 +603,11 @@ Thao tác này xóa các tệp .lua khỏi Steam\config\stplug-in.</value></data
   <data name="Downloads_Action_ClearHistory" xml:space="preserve"><value>Xóa lịch sử</value></data>
   <data name="Downloads_Action_Review" xml:space="preserve"><value>Xem lại</value></data>
   <data name="Downloads_Action_Uninstall" xml:space="preserve"><value>Gỡ cài đặt</value></data>
+  <data name="Downloads_Action_CreateShortcut" xml:space="preserve"><value>Tạo lối tắt Desktop</value></data>
+  <data name="Downloads_Shortcut_Created" xml:space="preserve"><value>Đã tạo lối tắt '{0}' ngoài Desktop.</value></data>
+  <data name="Downloads_Shortcut_Failed" xml:space="preserve"><value>Không thể tạo lối tắt Desktop: {0}</value></data>
+  <data name="Settings_CreateDesktopShortcut" xml:space="preserve"><value>Tạo lối tắt Desktop khi tải xong</value></data>
+  <data name="Settings_CreateDesktopShortcut_Hint" xml:space="preserve"><value>Tự động tạo biểu tượng ngoài màn hình Desktop để mở game nhanh mà không cần vào app.</value></data>
   <data name="Downloads_Uninstall_Title" xml:space="preserve"><value>Gỡ cài đặt game</value></data>
   <data name="Downloads_Uninstall_Confirm" xml:space="preserve"><value>Bạn có chắc chắn muốn gỡ cài đặt game '{0}' không? Toàn bộ file game tại '{1}' sẽ được xóa.</value></data>
   <data name="Downloads_Uninstall_Success" xml:space="preserve"><value>Đã gỡ cài đặt game '{0}' thành công.</value></data>

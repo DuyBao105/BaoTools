@@ -67,6 +67,9 @@ public class AppSettings
     // Floating AI Assistant
     public bool? EnableAiAssistant { get; set; }
 
+    // When true (default), automatically create a Desktop shortcut when a game download completes.
+    public bool? CreateDesktopShortcut { get; set; }
+
     // How host names are resolved: "Auto" (default), "Always" or "Never". Stored in English because
     // it is matched in code; the Settings page localizes the display only. Null = never set → "Auto".
     // See AppHttp for what each mode does.
@@ -210,6 +213,13 @@ public class SettingsService
         set { _settings.ExitOnPlay = value; Save(); }
     }
 
+    /// <summary>When true, automatically create a Desktop shortcut when a game download completes (default ON).</summary>
+    public bool CreateDesktopShortcut
+    {
+        get => _settings.CreateDesktopShortcut ?? true; // default ON
+        set { _settings.CreateDesktopShortcut = value; Save(); }
+    }
+
     /// <summary>When true, FastFetch auto-picks the first available source and downloads immediately (default OFF).</summary>
     public bool FastFetch
     {
@@ -302,7 +312,8 @@ public class SettingsService
             && _settings.ExitOnPlay is null
             && _settings.FastFetch is null
             && _settings.Theme is null
-            && _settings.EnableAiAssistant is null;
+            && _settings.EnableAiAssistant is null
+            && _settings.CreateDesktopShortcut is null;
         if (empty)
         {
             foreach (var p in new[] { _filePath, _bakPath, _tmpPath })

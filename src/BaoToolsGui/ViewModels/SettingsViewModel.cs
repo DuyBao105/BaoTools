@@ -225,6 +225,11 @@ public partial class SettingsViewModel : ObservableObject
 
     partial void OnExitOnPlayChanged(bool value) => _settings.ExitOnPlay = value;
 
+    /// <summary>Automatically create desktop shortcut on game download completion.</summary>
+    [ObservableProperty] private bool _createDesktopShortcut;
+
+    partial void OnCreateDesktopShortcutChanged(bool value) => _settings.CreateDesktopShortcut = value;
+
     // ── Language ────────────────────────────────────────────────────
     /// <summary>Available UI languages (native endonyms, matching Steam's list). "System default"
     /// (null tag) follows Windows. Languages whose .resx isn't present fall back to English.</summary>
@@ -421,6 +426,7 @@ public partial class SettingsViewModel : ObservableObject
         _startWithSteam = steamStartup.IsStartWithSteamActive;
         _minimizeToTray = settings.MinimizeToTray;
         _exitOnPlay = settings.ExitOnPlay;
+        _createDesktopShortcut = settings.CreateDesktopShortcut;
         _enableAiAssistant = settings.EnableAiAssistant;
         _hubcapIsKeyConfigured = !string.IsNullOrEmpty(settings.HubcapApiKey);
 

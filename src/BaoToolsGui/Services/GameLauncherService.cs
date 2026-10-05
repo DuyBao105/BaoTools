@@ -628,4 +628,154 @@ public class GameLauncherService
             }
         });
     }
+
+    /// <summary>
+    /// Creates a Windows Desktop shortcut (.lnk) pointing to the game's executable.
+    /// Sets TargetPath, WorkingDirectory, and Icon.
+    /// </summary>
+    public (bool Success, string? ShortcutPath, string? Error) CreateDesktopShortcut(string folderPath, string gameName)
+    {
+        if (string.IsNullOrWhiteSpace(folderPath) || !Directory.Exists(folderPath))
+            return (false, null, "Game directory does not exist.");
+
+        string gameRoot = SteamLibraryService.ResolveGameRootFolder(folderPath);
+        var info = InspectFolder(gameRoot, gameName);
+        if (!info.ExeFound || string.IsNullOrWhiteSpace(info.ExecutablePath))
+            return (false, null, "Game executable not found.");
+
+        try
+        {
+            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            if (!Directory.Exists(desktop))
+                Directory.CreateDirectory(desktop);
+
+            string safeName = SanitizeFileName(gameName);
+            string shortcutPath = Path.Combine(desktop, $"{safeName}.lnk");
+
+            bool created = false;
+            try
+            {
+                Type? shellType = Type.GetTypeFromProgID("WScript.Shell");
+                if (shellType is not null)
+                {
+                    dynamic shell = Activator.CreateInstance(shellType)!;
+                    dynamic shortcut = shell.CreateShortcut(shortcutPath);
+                    shortcut.TargetPath = info.ExecutablePath;
+                    shortcut.WorkingDirectory = Path.GetDirectoryName(info.ExecutablePath);
+                    shortcut.Description = gameName;
+                    shortcut.IconLocation = $"{info.ExecutablePath},0";
+                    shortcut.Save();
+                    created = File.Exists(shortcutPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                _log?.LogDebug(ex, "WScript.Shell in-process shortcut creation failed, trying PowerShell fallback");
+            }
+
+            if (!created)
+            {
+                // Fallback via PowerShell
+                string escapedLnk = shortcutPath.Replace("'", "''");
+                string escapedTarget = info.ExecutablePath.Replace("'", "''");
+                string escapedDir = Path.GetDirectoryName(info.ExecutablePath)!.Replace("'", "''");
+                string escapedDesc = gameName.Replace("'", "''");
+                string script = $"$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('{escapedLnk}'); $s.TargetPath = '{escapedTarget}'; $s.WorkingDirectory = '{escapedDir}'; $s.Description = '{escapedDesc}'; $s.IconLocation = '{escapedTarget},0'; $s.Save()";
+
+                var psi = new ProcessStartInfo("powershell", $"-NoProfile -NonInteractive -Command \"{script}\"")
+                {
+                    CreateNoWindow = true,
+                    UseShellExecute = false
+                };
+                using var proc = Process.Start(psi);
+                proc?.WaitForExit(3000);
+                created = File.Exists(shortcutPath);
+            }
+
+            if (created)
+            {
+                _log?.LogInformation("Created desktop shortcut for {GameName} at {Path}", gameName, shortcutPath);
+                return (true, shortcutPath, null);
+            }
+
+            return (false, null, "Could not create desktop shortcut.");
+        }
+        catch (Exception ex)
+        {
+            _log?.LogError(ex, "Failed to create desktop shortcut for {GameName}", gameName);
+            return (false, null, ex.Message);
+        }
+    }
+
+    /// <summary>
+    /// If CreateDesktopShortcut is enabled in settings (default ON), creates a desktop shortcut.
+    /// </summary>
+    public void TryAutoCreateDesktopShortcut(string folderPath, string gameName)
+    {
+        if (_settings is null || _settings.CreateDesktopShortcut)
+        {
+            var (ok, path, _) = CreateDesktopShortcut(folderPath, gameName);
+            if (ok)
+            {
+                _log?.LogInformation("Auto-created desktop shortcut for {GameName} at {Path}", gameName, path);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Removes any desktop shortcuts matching the game name or target path.
+    /// </summary>
+    public void RemoveDesktopShortcut(string gameName, string? folderPath = null)
+    {
+        try
+        {
+            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            if (!Directory.Exists(desktop)) return;
+
+            string safeName = SanitizeFileName(gameName);
+            string directPath = Path.Combine(desktop, $"{safeName}.lnk");
+            if (File.Exists(directPath))
+            {
+                try { File.Delete(directPath); } catch { }
+            }
+
+            // Also check for any existing .lnk pointing into the folderPath
+            if (!string.IsNullOrWhiteSpace(folderPath))
+            {
+                string normFolder = Path.GetFullPath(folderPath).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+                Type? shellType = Type.GetTypeFromProgID("WScript.Shell");
+                if (shellType is not null)
+                {
+                    dynamic shell = Activator.CreateInstance(shellType)!;
+                    foreach (var lnk in Directory.EnumerateFiles(desktop, "*.lnk"))
+                    {
+                        try
+                        {
+                            dynamic sc = shell.CreateShortcut(lnk);
+                            string target = (string)sc.TargetPath;
+                            if (!string.IsNullOrWhiteSpace(target) &&
+                                Path.GetFullPath(target).StartsWith(normFolder, StringComparison.OrdinalIgnoreCase))
+                            {
+                                File.Delete(lnk);
+                            }
+                        }
+                        catch { /* skip unreadable */ }
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            _log?.LogDebug(ex, "Failed to remove desktop shortcut for {GameName}", gameName);
+        }
+    }
+
+    private static string SanitizeFileName(string name)
+    {
+        var invalid = Path.GetInvalidFileNameChars();
+        var chars = name.Select(c => invalid.Contains(c) ? '_' : c).ToArray();
+        string clean = new string(chars).Trim();
+        return string.IsNullOrWhiteSpace(clean) ? "Game" : clean;
+    }
 }
+

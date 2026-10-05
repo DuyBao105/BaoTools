@@ -646,6 +646,25 @@
                             VerticalAlignment="Center"
                             IsChecked="{Binding ExitOnPlay, Mode=TwoWay}" />
                     </Grid>
+
+                    <Border Style="{StaticResource ModernRowDivider}" />
+
+                    <!-- Create Desktop Shortcut Row -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock FontSize="13.5" FontWeight="SemiBold" Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{x:Static res:Strings.Settings_CreateDesktopShortcut}" />
+                            <TextBlock Margin="0,3,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static res:Strings.Settings_CreateDesktopShortcut_Hint}" TextWrapping="Wrap" />
+                        </StackPanel>
+                        <ui:ToggleSwitch
+                            Grid.Column="1"
+                            Margin="16,0,0,0"
+                            VerticalAlignment="Center"
+                            IsChecked="{Binding CreateDesktopShortcut, Mode=TwoWay}" />
+                    </Grid>
                 </StackPanel>
             </Border>
 

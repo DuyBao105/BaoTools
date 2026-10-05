@@ -434,6 +434,7 @@ public class DownloadQueue : IHostedService
                     _ = Task.Run(async () =>
                     {
                         await _launcher.EnsureFixOrCrackAppliedAsync(item.AppId, item.Title, outDir, _toast);
+                        _launcher.TryAutoCreateDesktopShortcut(outDir, item.Title);
                     });
                 }
 

@@ -174,4 +174,26 @@ public class GameLauncherServiceTests : IDisposable
         var method = typeof(GameLauncherService).GetMethod(nameof(GameLauncherService.StartSteam));
         Assert.NotNull(method);
     }
+
+    [Fact]
+    public void Settings_CreateDesktopShortcut_DefaultTrueAndPersists()
+    {
+        var settings = new SettingsService(Path.Combine(_tempDir, "test_shortcut_settings.json"));
+        Assert.True(settings.CreateDesktopShortcut);
+
+        settings.CreateDesktopShortcut = false;
+        Assert.False(settings.CreateDesktopShortcut);
+
+        var reloaded = new SettingsService(Path.Combine(_tempDir, "test_shortcut_settings.json"));
+        Assert.False(reloaded.CreateDesktopShortcut);
+    }
+
+    [Fact]
+    public void CreateDesktopShortcut_NonExistentFolder_ReturnsFalse()
+    {
+        var (ok, path, err) = _launcher.CreateDesktopShortcut(Path.Combine(_tempDir, "no_such_folder"), "TestGame");
+        Assert.False(ok);
+        Assert.Null(path);
+        Assert.NotNull(err);
+    }
 }

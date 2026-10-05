@@ -635,6 +635,11 @@ This deletes the .lua files from Steam\config\stplug-in.</value></data>
   <data name="Downloads_Action_ClearHistory" xml:space="preserve"><value>Clear history</value></data>
   <data name="Downloads_Action_Review" xml:space="preserve"><value>Review</value></data>
   <data name="Downloads_Action_Uninstall" xml:space="preserve"><value>Uninstall</value></data>
+  <data name="Downloads_Action_CreateShortcut" xml:space="preserve"><value>Create Desktop shortcut</value></data>
+  <data name="Downloads_Shortcut_Created" xml:space="preserve"><value>Created Desktop shortcut for '{0}'.</value></data>
+  <data name="Downloads_Shortcut_Failed" xml:space="preserve"><value>Failed to create Desktop shortcut: {0}</value></data>
+  <data name="Settings_CreateDesktopShortcut" xml:space="preserve"><value>Create Desktop shortcut on download</value></data>
+  <data name="Settings_CreateDesktopShortcut_Hint" xml:space="preserve"><value>Automatically create a desktop shortcut (.lnk) so you can launch the game directly without opening BaoTools.</value></data>
   <data name="Downloads_Uninstall_Title" xml:space="preserve"><value>Uninstall Game</value></data>
   <data name="Downloads_Uninstall_Confirm" xml:space="preserve"><value>Are you sure you want to uninstall '{0}'? All downloaded files at '{1}' will be deleted.</value></data>
   <data name="Downloads_Uninstall_Success" xml:space="preserve"><value>Successfully uninstalled '{0}'.</value></data>

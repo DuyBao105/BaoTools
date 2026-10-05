@@ -260,6 +260,38 @@ public partial class DownloadsViewModel : ObservableObject
         }
     }
 
+    [RelayCommand]
+    private void CreateShortcutHistory(DownloadHistoryEntry entry)
+    {
+        if (string.IsNullOrWhiteSpace(entry.Record.RevealPath)) return;
+        CreateShortcutForGame(entry.Record.RevealPath, entry.Title);
+    }
+
+    [RelayCommand]
+    private void CreateShortcut(DownloadItem item)
+    {
+        if (string.IsNullOrWhiteSpace(item.RevealPath)) return;
+        CreateShortcutForGame(item.RevealPath, item.Title);
+    }
+
+    private void CreateShortcutForGame(string folderPath, string gameName)
+    {
+        var (ok, path, err) = _launcher.CreateDesktopShortcut(folderPath, gameName);
+        if (ok)
+        {
+            _toast.Show(
+                Resources.Strings.Downloads_Action_CreateShortcut,
+                string.Format(Resources.Strings.Downloads_Shortcut_Created, gameName));
+        }
+        else
+        {
+            _toast.Show(
+                Resources.Strings.Downloads_Action_CreateShortcut,
+                string.Format(Resources.Strings.Downloads_Shortcut_Failed, err ?? ""),
+                error: true);
+        }
+    }
+
     private async Task<bool> UninstallGameAsync(string folderPath, string gameName, long appId)
     {
         string target = System.IO.Directory.Exists(folderPath)
@@ -325,6 +357,8 @@ public partial class DownloadsViewModel : ObservableObject
                     }
                     catch { /* best-effort */ }
                 }
+
+                _launcher.RemoveDesktopShortcut(gameName, target);
 
                 return success;
             });

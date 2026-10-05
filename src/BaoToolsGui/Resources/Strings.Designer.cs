@@ -624,6 +624,11 @@ public static class Strings
     public static string Downloads_Action_ClearHistory => Get(nameof(Downloads_Action_ClearHistory));
     public static string Downloads_Action_Review => Get(nameof(Downloads_Action_Review));
     public static string Downloads_Action_Uninstall => Get(nameof(Downloads_Action_Uninstall));
+    public static string Downloads_Action_CreateShortcut => Get(nameof(Downloads_Action_CreateShortcut));
+    public static string Downloads_Shortcut_Created => Get(nameof(Downloads_Shortcut_Created));
+    public static string Downloads_Shortcut_Failed => Get(nameof(Downloads_Shortcut_Failed));
+    public static string Settings_CreateDesktopShortcut => Get(nameof(Settings_CreateDesktopShortcut));
+    public static string Settings_CreateDesktopShortcut_Hint => Get(nameof(Settings_CreateDesktopShortcut_Hint));
     public static string Downloads_Uninstall_Title => Get(nameof(Downloads_Uninstall_Title));
     public static string Downloads_Uninstall_Confirm => Get(nameof(Downloads_Uninstall_Confirm));
     public static string Downloads_Uninstall_Success => Get(nameof(Downloads_Uninstall_Success));

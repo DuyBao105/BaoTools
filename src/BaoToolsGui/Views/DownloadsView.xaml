@@ -47,6 +47,12 @@
                             Icon="{ui:SymbolIcon Delete24}"
                             Visibility="{Binding CanUninstall, Converter={StaticResource BoolToVis}}" />
                         <MenuItem
+                            Command="{Binding PlacementTarget.Tag.CreateShortcutCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
+                            CommandParameter="{Binding}"
+                            Header="{x:Static res:Strings.Downloads_Action_CreateShortcut}"
+                            Icon="{ui:SymbolIcon Link24}"
+                            Visibility="{Binding CanPlay, Converter={StaticResource BoolToVis}}" />
+                        <MenuItem
                             Command="{Binding PlacementTarget.Tag.ShowInFolderCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
                             CommandParameter="{Binding}"
                             Header="{x:Static res:Strings.Common_ShowInFolder}"
@@ -191,6 +197,14 @@
                             Visibility="{Binding CanUninstall, Converter={StaticResource BoolToVis}}" />
                         <ui:Button
                             Margin="4,0,0,0"
+                            Appearance="Secondary"
+                            Command="{Binding DataContext.CreateShortcutCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            CommandParameter="{Binding}"
+                            Icon="{ui:SymbolIcon Link24}"
+                            ToolTip="{x:Static res:Strings.Downloads_Action_CreateShortcut}"
+                            Visibility="{Binding CanPlay, Converter={StaticResource BoolToVis}}" />
+                        <ui:Button
+                            Margin="4,0,0,0"
                             Command="{Binding DataContext.PauseCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
                             CommandParameter="{Binding}"
                             Icon="{ui:SymbolIcon Pause24}"
@@ -268,6 +282,12 @@
                             Header="{x:Static res:Strings.Downloads_Action_Uninstall}"
                             Icon="{ui:SymbolIcon Delete24}"
                             Visibility="{Binding CanUninstall, Converter={StaticResource BoolToVis}}" />
+                        <MenuItem
+                            Command="{Binding PlacementTarget.Tag.CreateShortcutHistoryCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
+                            CommandParameter="{Binding}"
+                            Header="{x:Static res:Strings.Downloads_Action_CreateShortcut}"
+                            Icon="{ui:SymbolIcon Link24}"
+                            Visibility="{Binding CanPlay, Converter={StaticResource BoolToVis}}" />
                         <MenuItem
                             Command="{Binding PlacementTarget.Tag.CopyHistoryAppIdCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
                             CommandParameter="{Binding}"
@@ -413,6 +433,15 @@
                             Icon="{ui:SymbolIcon Delete24}"
                             ToolTip="{x:Static res:Strings.Downloads_Action_Uninstall}"
                             Visibility="{Binding CanUninstall, Converter={StaticResource BoolToVis}}" />
+                        <ui:Button
+                            Margin="4,0,0,0"
+                            Padding="8,4"
+                            Appearance="Secondary"
+                            Command="{Binding DataContext.CreateShortcutHistoryCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            CommandParameter="{Binding}"
+                            Icon="{ui:SymbolIcon Link24}"
+                            ToolTip="{x:Static res:Strings.Downloads_Action_CreateShortcut}"
+                            Visibility="{Binding CanPlay, Converter={StaticResource BoolToVis}}" />
                         <ui:Button
                             Margin="4,0,0,0"
                             Padding="8,4"
