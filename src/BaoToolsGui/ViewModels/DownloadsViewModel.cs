@@ -489,17 +489,10 @@ public partial class DownloadsViewModel : ObservableObject
             }
         }
 
-        // 3. Locate the .lua script in stplug-in
-        string? plugInDir = _steam.StPlugInDir;
-        string? luaFile = (appId > 0 && !string.IsNullOrWhiteSpace(plugInDir))
-            ? System.IO.Path.Combine(plugInDir, $"{appId}.lua")
-            : (!string.IsNullOrWhiteSpace(folderPath) && folderPath.EndsWith(".lua", StringComparison.OrdinalIgnoreCase) ? folderPath : null);
-
         bool hasGameDir = !string.IsNullOrWhiteSpace(gameDir) && System.IO.Directory.Exists(gameDir);
         bool hasAcf = !string.IsNullOrWhiteSpace(acfFile) && System.IO.File.Exists(acfFile);
-        bool hasLua = !string.IsNullOrWhiteSpace(luaFile) && System.IO.File.Exists(luaFile);
 
-        if (!hasGameDir && !hasAcf && !hasLua)
+        if (!hasGameDir)
         {
             _toast.Show(
                 Resources.Strings.Downloads_Uninstall_Title,
@@ -509,9 +502,8 @@ public partial class DownloadsViewModel : ObservableObject
         }
 
         // Confirm with user: clearly display the REAL game installation directory
-        string displayTarget = hasGameDir ? gameDir! : (luaFile ?? folderPath);
         var choice = ModernMessageBox.Show(
-            string.Format(Resources.Strings.Downloads_Uninstall_Confirm, gameName, displayTarget),
+            string.Format(Resources.Strings.Downloads_Uninstall_Confirm, gameName, gameDir!),
             Resources.Strings.Downloads_Uninstall_Title,
             MessageBoxButton.YesNo,
             MessageBoxImage.Warning,
@@ -526,51 +518,36 @@ public partial class DownloadsViewModel : ObservableObject
             {
                 bool success = false;
 
-                // Delete the game directory (send to Recycle Bin so user can recover if needed)
-                if (hasGameDir)
+                // Delete the actual game directory (send to Recycle Bin so user can recover if needed)
+                try
+                {
+                    Microsoft.VisualBasic.FileIO.FileSystem.DeleteDirectory(
+                        gameDir!,
+                        Microsoft.VisualBasic.FileIO.UIOption.OnlyErrorDialogs,
+                        Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin);
+                    success = true;
+                }
+                catch
                 {
                     try
                     {
-                        Microsoft.VisualBasic.FileIO.FileSystem.DeleteDirectory(
-                            gameDir!,
-                            Microsoft.VisualBasic.FileIO.UIOption.OnlyErrorDialogs,
-                            Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin);
+                        System.IO.Directory.Delete(gameDir!, recursive: true);
                         success = true;
                     }
-                    catch
-                    {
-                        try
-                        {
-                            System.IO.Directory.Delete(gameDir!, recursive: true);
-                            success = true;
-                        }
-                        catch { }
-                    }
+                    catch { }
                 }
 
-                // Delete Steam appmanifest_<appId>.acf so Steam knows the game is uninstalled
+                // Delete Steam appmanifest_<appId>.acf so Steam knows the game files were removed
                 if (hasAcf)
                 {
                     try
                     {
                         System.IO.File.Delete(acfFile!);
-                        success = true;
                     }
                     catch { }
                 }
 
-                // Delete .lua unlock script from stplug-in
-                if (hasLua)
-                {
-                    try
-                    {
-                        System.IO.File.Delete(luaFile!);
-                        success = true;
-                    }
-                    catch { }
-                }
-
-                _launcher.RemoveDesktopShortcut(gameName, gameDir ?? folderPath);
+                _launcher.RemoveDesktopShortcut(gameName, gameDir!);
 
                 return success;
             });

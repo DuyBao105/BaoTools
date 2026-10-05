@@ -230,8 +230,9 @@ public partial class DownloadItem : ObservableObject
         && System.IO.Directory.Exists(RevealPath);
 
     public bool CanUninstall => Status is DownloadStatus.Completed
+        && Job.Kind is DownloadKind.Depot
         && !string.IsNullOrWhiteSpace(RevealPath)
-        && (System.IO.Directory.Exists(RevealPath) || System.IO.File.Exists(RevealPath));
+        && System.IO.Directory.Exists(RevealPath);
 
     public void RaiseStateChanged()
     {
