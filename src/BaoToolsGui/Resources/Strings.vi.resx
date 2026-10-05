@@ -612,6 +612,9 @@ Thao tác này xóa các tệp .lua khỏi Steam\config\stplug-in.</value></data
   <data name="Launcher_StartingSteam" xml:space="preserve"><value>Game có Online Fix yêu cầu Steam. Đang mở Steam, bạn vui lòng đợi Steam đăng nhập xong rồi bấm Play lại nhé!</value></data>
   <data name="Launcher_GameStarted" xml:space="preserve"><value>Đã khởi chạy {0}.</value></data>
   <data name="Launcher_LaunchFailed" xml:space="preserve"><value>Không thể khởi chạy game: {0}</value></data>
+  <data name="Launcher_DownloadingFix" xml:space="preserve"><value>Đang tự động tải &amp; cài đặt {0} cho {1}…</value></data>
+  <data name="Launcher_FixApplied" xml:space="preserve"><value>Đã tự động cài đặt {0} thành công! Đang khởi chạy game…</value></data>
+  <data name="Launcher_ConfiguredOfflineEmulator" xml:space="preserve"><value>Đã tự động cấu hình chế độ Offline cho {0}. Đang khởi chạy game…</value></data>
   <data name="Downloads_Toast_Depot_Done_Title" xml:space="preserve"><value>Tải xong Game</value></data>
   <data name="Downloads_Toast_Depot_Done_Body" xml:space="preserve"><value>{0} đã tải xong và sẵn sàng để chơi.</value></data>
   <data name="Manage_Action_PlayGame" xml:space="preserve"><value>Chơi Game</value></data>

@@ -635,6 +635,9 @@ public static class Strings
     public static string Launcher_StartingSteam => Get(nameof(Launcher_StartingSteam));
     public static string Launcher_GameStarted => Get(nameof(Launcher_GameStarted));
     public static string Launcher_LaunchFailed => Get(nameof(Launcher_LaunchFailed));
+    public static string Launcher_DownloadingFix => Get(nameof(Launcher_DownloadingFix));
+    public static string Launcher_FixApplied => Get(nameof(Launcher_FixApplied));
+    public static string Launcher_ConfiguredOfflineEmulator => Get(nameof(Launcher_ConfiguredOfflineEmulator));
     public static string Downloads_Toast_Depot_Done_Title => Get(nameof(Downloads_Toast_Depot_Done_Title));
     public static string Downloads_Toast_Depot_Done_Body => Get(nameof(Downloads_Toast_Depot_Done_Body));
     public static string Manage_Action_PlayGame => Get(nameof(Manage_Action_PlayGame));

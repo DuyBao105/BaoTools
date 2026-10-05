@@ -452,7 +452,7 @@ public class GameLauncherService
                     string tagName = fix.Tags.FirstOrDefault()?.Name ?? "Online Fix";
                     toast?.Show(
                         Resources.Strings.Fixes_Title,
-                        $"Đang tự động tải & cài đặt {tagName} cho {gameName}...");
+                        string.Format(Resources.Strings.Launcher_DownloadingFix, tagName, gameName));
 
                     var tcs = new TaskCompletionSource<bool>();
                     string fallback = fix.FixFilename ?? $"{appId}_fix.zip";
@@ -484,7 +484,7 @@ public class GameLauncherService
                     {
                         toast?.Show(
                             Resources.Strings.Fixes_Title,
-                            $"Đã tự động cài đặt {tagName} thành công! Đang khởi chạy game...");
+                            string.Format(Resources.Strings.Launcher_FixApplied, tagName));
                         return true;
                     }
                 }
@@ -519,7 +519,7 @@ public class GameLauncherService
         {
             toast?.Show(
                 Resources.Strings.Downloads_Action_Play,
-                $"Đã tự động cấu hình bẻ khóa Offline (Goldberg) cho {gameName}. Đang khởi chạy game...");
+                string.Format(Resources.Strings.Launcher_ConfiguredOfflineEmulator, gameName));
             return true;
         }
 
