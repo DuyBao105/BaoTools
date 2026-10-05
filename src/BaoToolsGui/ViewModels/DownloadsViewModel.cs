@@ -22,9 +22,11 @@ public partial class DownloadsViewModel : ObservableObject
     private readonly ToastService _toast;
     private readonly CoverCache _covers;
     private readonly SteamService _steam;
+    private readonly SteamLibraryService _library;
 
     public DownloadsViewModel(DownloadQueue queue, ManifestJobFactory jobs, SteamAutoCrackService sac,
-        GameLauncherService launcher, ToastService toast, CoverCache covers, SteamService steam)
+        GameLauncherService launcher, ToastService toast, CoverCache covers, SteamService steam,
+        SteamLibraryService library)
     {
         _queue = queue;
         _jobs = jobs;
@@ -33,6 +35,7 @@ public partial class DownloadsViewModel : ObservableObject
         _toast = toast;
         _covers = covers;
         _steam = steam;
+        _library = library;
 
         _queue.Items.CollectionChanged += (_, _) => RaiseCounts();
         _queue.History.CollectionChanged += (_, _) =>
@@ -419,20 +422,28 @@ public partial class DownloadsViewModel : ObservableObject
     [RelayCommand]
     private void CreateShortcutHistory(DownloadHistoryEntry entry)
     {
-        if (string.IsNullOrWhiteSpace(entry.Record.RevealPath)) return;
-        CreateShortcutForGame(entry.Record.RevealPath, entry.Title);
+        CreateShortcutForGame(entry.Record.RevealPath, entry.Title, entry.AppId);
     }
 
     [RelayCommand]
     private void CreateShortcut(DownloadItem item)
     {
-        if (string.IsNullOrWhiteSpace(item.RevealPath)) return;
-        CreateShortcutForGame(item.RevealPath, item.Title);
+        CreateShortcutForGame(item.RevealPath, item.Title, item.AppId);
     }
 
-    private void CreateShortcutForGame(string folderPath, string gameName)
+    private void CreateShortcutForGame(string? folderPath, string gameName, long appId = 0)
     {
-        var (ok, path, err) = _launcher.CreateDesktopShortcut(folderPath, gameName);
+        string targetPath = folderPath ?? "";
+        if ((string.IsNullOrWhiteSpace(folderPath) || !System.IO.Directory.Exists(folderPath) || folderPath.Contains("stplug-in", StringComparison.OrdinalIgnoreCase)) && appId > 0)
+        {
+            string? installDir = _library.GetInstallDir(appId);
+            if (!string.IsNullOrWhiteSpace(installDir) && System.IO.Directory.Exists(installDir))
+            {
+                targetPath = installDir;
+            }
+        }
+
+        var (ok, path, err) = _launcher.CreateDesktopShortcut(targetPath, gameName);
         if (ok)
         {
             _toast.Show(
@@ -450,12 +461,57 @@ public partial class DownloadsViewModel : ObservableObject
 
     private async Task<bool> UninstallGameAsync(string folderPath, string gameName, long appId)
     {
-        string target = System.IO.Directory.Exists(folderPath)
-            ? SteamLibraryService.ResolveGameRootFolder(folderPath)
-            : folderPath;
+        // 1. Resolve the actual game directory on disk (e.g. steamapps\common\<GameFolder> or BaoTools Depots)
+        string? gameDir = null;
+        if (!string.IsNullOrWhiteSpace(folderPath)
+            && System.IO.Directory.Exists(folderPath)
+            && !folderPath.Contains("stplug-in", StringComparison.OrdinalIgnoreCase))
+        {
+            gameDir = SteamLibraryService.ResolveGameRootFolder(folderPath);
+        }
+        else if (appId > 0)
+        {
+            gameDir = _library.GetInstallDir(appId);
+        }
 
+        // 2. Also locate the Steam appmanifest file if it's a Steam-installed game
+        string? acfFile = null;
+        if (appId > 0 && !string.IsNullOrEmpty(_steam.EffectivePath))
+        {
+            foreach (string library in SteamLibraryService.GetLibraryRoots(_steam.EffectivePath))
+            {
+                string candidateAcf = System.IO.Path.Combine(library, "steamapps", $"appmanifest_{appId}.acf");
+                if (System.IO.File.Exists(candidateAcf))
+                {
+                    acfFile = candidateAcf;
+                    break;
+                }
+            }
+        }
+
+        // 3. Locate the .lua script in stplug-in
+        string? plugInDir = _steam.StPlugInDir;
+        string? luaFile = (appId > 0 && !string.IsNullOrWhiteSpace(plugInDir))
+            ? System.IO.Path.Combine(plugInDir, $"{appId}.lua")
+            : (!string.IsNullOrWhiteSpace(folderPath) && folderPath.EndsWith(".lua", StringComparison.OrdinalIgnoreCase) ? folderPath : null);
+
+        bool hasGameDir = !string.IsNullOrWhiteSpace(gameDir) && System.IO.Directory.Exists(gameDir);
+        bool hasAcf = !string.IsNullOrWhiteSpace(acfFile) && System.IO.File.Exists(acfFile);
+        bool hasLua = !string.IsNullOrWhiteSpace(luaFile) && System.IO.File.Exists(luaFile);
+
+        if (!hasGameDir && !hasAcf && !hasLua)
+        {
+            _toast.Show(
+                Resources.Strings.Downloads_Uninstall_Title,
+                string.Format(Resources.Strings.Err_PathMissing, gameName),
+                error: true);
+            return false;
+        }
+
+        // Confirm with user: clearly display the REAL game installation directory
+        string displayTarget = hasGameDir ? gameDir! : (luaFile ?? folderPath);
         var choice = ModernMessageBox.Show(
-            string.Format(Resources.Strings.Downloads_Uninstall_Confirm, gameName, target),
+            string.Format(Resources.Strings.Downloads_Uninstall_Confirm, gameName, displayTarget),
             Resources.Strings.Downloads_Uninstall_Title,
             MessageBoxButton.YesNo,
             MessageBoxImage.Warning,
@@ -469,52 +525,52 @@ public partial class DownloadsViewModel : ObservableObject
             deleted = await Task.Run(() =>
             {
                 bool success = false;
-                if (System.IO.Directory.Exists(target))
+
+                // Delete the game directory (send to Recycle Bin so user can recover if needed)
+                if (hasGameDir)
                 {
                     try
                     {
                         Microsoft.VisualBasic.FileIO.FileSystem.DeleteDirectory(
-                            target,
+                            gameDir!,
                             Microsoft.VisualBasic.FileIO.UIOption.OnlyErrorDialogs,
                             Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin);
+                        success = true;
                     }
                     catch
                     {
-                        System.IO.Directory.Delete(target, recursive: true);
-                    }
-                    success = true;
-                }
-                else if (System.IO.File.Exists(target))
-                {
-                    try
-                    {
-                        Microsoft.VisualBasic.FileIO.FileSystem.DeleteFile(
-                            target,
-                            Microsoft.VisualBasic.FileIO.UIOption.OnlyErrorDialogs,
-                            Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin);
-                    }
-                    catch
-                    {
-                        System.IO.File.Delete(target);
-                    }
-                    success = true;
-                }
-
-                if (appId > 0)
-                {
-                    try
-                    {
-                        string? plugInDir = _steam.StPlugInDir;
-                        if (!string.IsNullOrWhiteSpace(plugInDir))
+                        try
                         {
-                            string luaFile = System.IO.Path.Combine(plugInDir, $"{appId}.lua");
-                            if (System.IO.File.Exists(luaFile)) System.IO.File.Delete(luaFile);
+                            System.IO.Directory.Delete(gameDir!, recursive: true);
+                            success = true;
                         }
+                        catch { }
                     }
-                    catch { /* best-effort */ }
                 }
 
-                _launcher.RemoveDesktopShortcut(gameName, target);
+                // Delete Steam appmanifest_<appId>.acf so Steam knows the game is uninstalled
+                if (hasAcf)
+                {
+                    try
+                    {
+                        System.IO.File.Delete(acfFile!);
+                        success = true;
+                    }
+                    catch { }
+                }
+
+                // Delete .lua unlock script from stplug-in
+                if (hasLua)
+                {
+                    try
+                    {
+                        System.IO.File.Delete(luaFile!);
+                        success = true;
+                    }
+                    catch { }
+                }
+
+                _launcher.RemoveDesktopShortcut(gameName, gameDir ?? folderPath);
 
                 return success;
             });
@@ -540,7 +596,26 @@ public partial class DownloadsViewModel : ObservableObject
 
     private async Task PlayGameFromFolderAsync(string folderPath, string gameName, long appId)
     {
-        string gameRoot = SteamLibraryService.ResolveGameRootFolder(folderPath);
+        string? gameRoot = null;
+        if (!string.IsNullOrWhiteSpace(folderPath)
+            && System.IO.Directory.Exists(folderPath)
+            && !folderPath.Contains("stplug-in", StringComparison.OrdinalIgnoreCase))
+        {
+            gameRoot = SteamLibraryService.ResolveGameRootFolder(folderPath);
+        }
+        else if (appId > 0)
+        {
+            gameRoot = _library.GetInstallDir(appId);
+        }
+
+        if (string.IsNullOrWhiteSpace(gameRoot) || !System.IO.Directory.Exists(gameRoot))
+        {
+            _toast.Show(
+                Resources.Strings.Downloads_Action_Play,
+                string.Format(Resources.Strings.Launcher_ExeNotFound, gameName),
+                error: true);
+            return;
+        }
 
         // Auto-apply Online Fix from server or Goldberg offline crack if game is not yet patched
         await _launcher.EnsureFixOrCrackAppliedAsync(appId, gameName, gameRoot, _toast);

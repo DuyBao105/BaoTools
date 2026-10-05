@@ -293,7 +293,7 @@ public partial class SteamLibraryService(SteamService steam, CacheService? cache
     }
 
     /// <summary>Every Steam library root (the main install plus any added libraries).</summary>
-    private static IEnumerable<string> GetLibraryRoots(string steamRoot)
+    internal static IEnumerable<string> GetLibraryRoots(string steamRoot)
     {
         // The main install is always a library.
         yield return steamRoot;

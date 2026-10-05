@@ -83,13 +83,13 @@ public partial class DownloadHistoryEntry : ObservableObject
     public bool CanShowInFolder => !string.IsNullOrWhiteSpace(Record.RevealPath);
 
     public bool CanPlay => Status is DownloadStatus.Completed
-        && Record.Kind == nameof(DownloadKind.Depot)
-        && !string.IsNullOrWhiteSpace(Record.RevealPath)
-        && System.IO.Directory.Exists(Record.RevealPath);
+        && ((Record.Kind == nameof(DownloadKind.Depot)
+             && !string.IsNullOrWhiteSpace(Record.RevealPath)
+             && System.IO.Directory.Exists(Record.RevealPath))
+            || Record.AppId > 0);
 
     public bool CanUninstall => Status is DownloadStatus.Completed
-        && !string.IsNullOrWhiteSpace(Record.RevealPath)
-        && (System.IO.Directory.Exists(Record.RevealPath) || System.IO.File.Exists(Record.RevealPath));
+        && (!string.IsNullOrWhiteSpace(Record.RevealPath) || Record.AppId > 0);
 
     public void RaiseStateChanged()
     {
