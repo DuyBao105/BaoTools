@@ -48,6 +48,11 @@ public partial class DownloadHistoryEntry : ObservableObject
     public bool HasMessage => !string.IsNullOrWhiteSpace(Record.Message);
     public bool Failed => Status is DownloadStatus.Failed;
 
+    /// <summary>Steam header cover URL for games with a valid AppId.</summary>
+    public string? CoverPath => AppId > 0
+        ? $"https://cdn.cloudflare.steamstatic.com/steam/apps/{AppId}/header.jpg"
+        : null;
+
     public string SizeLabel => Record.Bytes > 0 ? ByteFormat.Size(Record.Bytes) : "";
 
     public string StatusLabel => Status switch

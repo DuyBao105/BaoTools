@@ -602,6 +602,11 @@ public static class Strings
     public static string Nav_Downloads => Get(nameof(Nav_Downloads));
     public static string Downloads_Title => Get(nameof(Downloads_Title));
     public static string Downloads_Empty => Get(nameof(Downloads_Empty));
+    public static string Downloads_Empty_Desc => Get(nameof(Downloads_Empty_Desc));
+    public static string Downloads_Action_BrowseGames => Get(nameof(Downloads_Action_BrowseGames));
+    public static string Downloads_Stats_Active => Get(nameof(Downloads_Stats_Active));
+    public static string Downloads_Stats_Completed => Get(nameof(Downloads_Stats_Completed));
+    public static string Downloads_Stats_TotalData => Get(nameof(Downloads_Stats_TotalData));
     public static string Downloads_Section_Active => Get(nameof(Downloads_Section_Active));
     public static string Downloads_Section_History => Get(nameof(Downloads_Section_History));
     public static string Downloads_Status_Queued => Get(nameof(Downloads_Status_Queued));

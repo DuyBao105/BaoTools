@@ -405,9 +405,9 @@ public partial class App : Application
         // store plugin has its popup, and a silent install pops a tray balloon. A global toast on top of
         // those double-notified every one of them.
 
-        // The Downloads tab's "Review" button on an item waiting for an overwrite confirmation: the
-        // overlay lives on the Add page, so send the user there.
-        _host.Services.GetRequiredService<DownloadsViewModel>().RevealItem = _ => window.NavigateToAdd();
+        var downloadsVm = _host.Services.GetRequiredService<DownloadsViewModel>();
+        downloadsVm.RevealItem = _ => window.NavigateToAdd();
+        downloadsVm.NavigateToAdd = () => Dispatcher.Invoke(window.NavigateToAdd);
 
         download.NavigateToGame = openInManage;
         builds.NavigateToManage = openInManage; // Builds "Manage" button: the reverse of "Manage Build"

@@ -58,15 +58,19 @@
 
                     <!--  Cover  -->
                     <Border
-                        Width="92"
-                        Height="43"
-                        Margin="0,0,12,0"
+                        Width="96"
+                        Height="44"
+                        Margin="0,0,14,0"
                         VerticalAlignment="Top"
                         Background="{DynamicResource ControlFillColorDefaultBrush}"
-                        CornerRadius="4">
-                        <Image
-                            Source="{Binding CoverPath, Converter={StaticResource ImagePathToSource}}"
-                            Stretch="UniformToFill" />
+                        CornerRadius="{StaticResource RadiusSM}"
+                        ClipToBounds="True">
+                        <Grid>
+                            <ui:SymbolIcon Symbol="Games24" FontSize="22" Foreground="#20FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <Image
+                                Source="{Binding CoverPath, Converter={StaticResource ImagePathToSource}}"
+                                Stretch="UniformToFill" />
+                        </Grid>
                     </Border>
 
                     <StackPanel Grid.Column="1">
@@ -224,11 +228,15 @@
             </Border>
         </DataTemplate>
 
-        <!--  One history row: compact, no progress.  -->
+        <!--  One history row: modern card, cover art, badges, and quick actions.  -->
         <DataTemplate x:Key="HistoryItemTemplate" DataType="{x:Type downloads:DownloadHistoryEntry}">
-            <!--  Transparent, not unset: a null Background isn't hit-tested, so the right-click would
-                  only register over the text rather than anywhere on the row.  -->
-            <Border Padding="10,7" Background="Transparent">
+            <Border
+                Margin="0,0,0,8"
+                Padding="12,10"
+                Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="{StaticResource RadiusMD}">
                 <Border.Tag>
                     <Binding Path="DataContext" RelativeSource="{RelativeSource AncestorType=UserControl}" />
                 </Border.Tag>
@@ -254,64 +262,144 @@
                             Visibility="{Binding CanShowInFolder, Converter={StaticResource BoolToVis}}" />
                     </ContextMenu>
                 </Border.ContextMenu>
+
                 <Grid>
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Title}" TextTrimming="CharacterEllipsis" />
+
+                    <!--  Cover thumbnail with fallback  -->
+                    <Border
+                        Width="96"
+                        Height="44"
+                        Margin="0,0,14,0"
+                        VerticalAlignment="Center"
+                        Background="{DynamicResource ControlFillColorDefaultBrush}"
+                        CornerRadius="{StaticResource RadiusSM}"
+                        ClipToBounds="True">
+                        <Grid>
+                            <ui:SymbolIcon Symbol="Games24" FontSize="22" Foreground="#20FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <Image
+                                Source="{Binding CoverPath, Converter={StaticResource ImagePathToSource}}"
+                                Stretch="UniformToFill" />
+                        </Grid>
+                    </Border>
+
+                    <!--  Info Column  -->
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock
-                                FontSize="11"
-                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                Text="{Binding SubTitle}" />
+                                FontWeight="SemiBold"
+                                FontSize="13.5"
+                                Text="{Binding Title}"
+                                TextTrimming="CharacterEllipsis"
+                                MaxWidth="480" />
+                            <Border
+                                Margin="8,0,0,0"
+                                Padding="5,1"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                                CornerRadius="{StaticResource RadiusXS}"
+                                Visibility="{Binding CanCopyAppId, Converter={StaticResource BoolToVis}}">
+                                <TextBlock
+                                    FontFamily="{StaticResource FontCode}"
+                                    FontSize="10.5"
+                                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                    Text="{Binding AppId, StringFormat='#{0}'}" />
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,4,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+                            <!-- Status Chip: Success or Error -->
+                            <Border
+                                Padding="6,1.5"
+                                Background="{StaticResource StatusSuccessBackgroundBrush}"
+                                CornerRadius="{StaticResource RadiusXS}"
+                                Visibility="{Binding Failed, Converter={StaticResource InverseBoolToVis}}">
+                                <TextBlock
+                                    FontSize="10.5"
+                                    FontWeight="SemiBold"
+                                    Foreground="{StaticResource StatusSuccessBrush}"
+                                    Text="{Binding StatusLabel}" />
+                            </Border>
+                            <Border
+                                Padding="6,1.5"
+                                Background="{StaticResource StatusErrorBackgroundBrush}"
+                                CornerRadius="{StaticResource RadiusXS}"
+                                Visibility="{Binding Failed, Converter={StaticResource BoolToVis}}">
+                                <TextBlock
+                                    FontSize="10.5"
+                                    FontWeight="SemiBold"
+                                    Foreground="{StaticResource StatusErrorBrush}"
+                                    Text="{Binding StatusLabel}" />
+                            </Border>
+
                             <TextBlock
                                 Margin="6,0"
                                 FontSize="11"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                                 Text="·" />
+
                             <TextBlock
-                                FontSize="11"
+                                FontSize="11.5"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                Text="{Binding StatusLabel}" />
+                                Text="{Binding SubTitle}" />
+
                             <TextBlock
-                                Margin="6,0,0,0"
+                                Margin="6,0"
                                 FontSize="11"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="·" />
+
+                            <TextBlock
+                                FontSize="11.5"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                 Text="{Binding SizeLabel}" />
                         </StackPanel>
                     </StackPanel>
+
+                    <!--  Timestamp  -->
                     <TextBlock
-                        Grid.Column="1"
+                        Grid.Column="2"
+                        Margin="14,0"
                         VerticalAlignment="Center"
-                        FontSize="11"
+                        FontSize="11.5"
                         Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                         Text="{Binding WhenLabel}" />
-                    <ui:Button
-                        Grid.Column="2"
-                        Margin="10,0,0,0"
-                        Padding="8,3"
-                        VerticalAlignment="Center"
-                        Appearance="Primary"
-                        Command="{Binding DataContext.PlayHistoryCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                        CommandParameter="{Binding}"
-                        Content="{x:Static res:Strings.Downloads_Action_Play}"
-                        Icon="{ui:SymbolIcon Play24}"
-                        Visibility="{Binding CanPlay, Converter={StaticResource BoolToVis}}" />
-                    <!--  Always visible, matching the queue rows above. Removing a history row deletes a
-                          record, never a file, so it acts immediately with no prompt.  -->
-                    <ui:Button
+
+                    <!--  Action Buttons  -->
+                    <StackPanel
                         Grid.Column="3"
-                        Margin="6,0,0,0"
-                        Padding="6,3"
                         VerticalAlignment="Center"
-                        Command="{Binding DataContext.RemoveHistoryEntryCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                        CommandParameter="{Binding}"
-                        Icon="{ui:SymbolIcon Dismiss24}"
-                        ToolTip="{x:Static res:Strings.Downloads_Action_Remove}" />
+                        Orientation="Horizontal">
+                        <ui:Button
+                            Margin="4,0,0,0"
+                            Padding="10,4"
+                            Appearance="Primary"
+                            Command="{Binding DataContext.PlayHistoryCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            CommandParameter="{Binding}"
+                            Content="{x:Static res:Strings.Downloads_Action_Play}"
+                            Icon="{ui:SymbolIcon Play24}"
+                            Visibility="{Binding CanPlay, Converter={StaticResource BoolToVis}}" />
+                        <ui:Button
+                            Margin="4,0,0,0"
+                            Padding="8,4"
+                            Command="{Binding DataContext.ShowHistoryInFolderCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            CommandParameter="{Binding}"
+                            Icon="{ui:SymbolIcon FolderOpen24}"
+                            ToolTip="{x:Static res:Strings.Common_ShowInFolder}"
+                            Visibility="{Binding CanShowInFolder, Converter={StaticResource BoolToVis}}" />
+                        <ui:Button
+                            Margin="4,0,0,0"
+                            Padding="6,4"
+                            Command="{Binding DataContext.RemoveHistoryEntryCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            CommandParameter="{Binding}"
+                            Icon="{ui:SymbolIcon Dismiss24}"
+                            ToolTip="{x:Static res:Strings.Downloads_Action_Remove}" />
+                    </StackPanel>
                 </Grid>
             </Border>
         </DataTemplate>
@@ -320,21 +408,29 @@
     <Grid Margin="{StaticResource PageMargin}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <!--  Header: title + tools  -->
-        <Grid>
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TextBlock
-                FontSize="22"
-                FontWeight="Bold"
-                Text="{x:Static res:Strings.Downloads_Title}" />
-            <!--  Fetches SteamAutoCrack (and the .NET runtime it needs) and opens its window. Their GUI
-                  takes no arguments, so nothing is passed to it — the user drives it from there.  -->
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock
+                    FontSize="22"
+                    FontWeight="Bold"
+                    Text="{x:Static res:Strings.Downloads_Title}" />
+                <TextBlock
+                    Margin="0,2,0,0"
+                    FontSize="12"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                    Text="{Binding TotalSpeedLabel}"
+                    Visibility="{Binding HasItems, Converter={StaticResource BoolToVis}}" />
+            </StackPanel>
+            <!--  SteamAutoCrack launcher  -->
             <ui:Button
                 Grid.Column="1"
                 VerticalAlignment="Center"
@@ -343,35 +439,113 @@
                 Icon="{ui:SymbolIcon Wrench24}" />
         </Grid>
 
+        <!--  Overview Metric Cards  -->
+        <UniformGrid Grid.Row="1" Columns="3" Margin="0,16,0,16">
+            <!-- Active Queue Card -->
+            <Border Margin="0,0,8,0" Style="{StaticResource FluentCard}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static res:Strings.Downloads_Stats_Active}" />
+                        <TextBlock FontSize="20" FontWeight="Bold" Margin="0,3,0,0" Text="{Binding ActiveCount}" />
+                    </StackPanel>
+                    <Border Grid.Column="1" Width="38" Height="38" CornerRadius="{StaticResource RadiusMD}" Background="{DynamicResource ControlFillColorSecondaryBrush}">
+                        <ui:SymbolIcon Symbol="ArrowDownload24" FontSize="18" Foreground="{DynamicResource SystemAccentColorPrimaryBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!-- Completed Card -->
+            <Border Margin="4,0,4,0" Style="{StaticResource FluentCard}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static res:Strings.Downloads_Stats_Completed}" />
+                        <TextBlock FontSize="20" FontWeight="Bold" Margin="0,3,0,0" Text="{Binding CompletedCount}" />
+                    </StackPanel>
+                    <Border Grid.Column="1" Width="38" Height="38" CornerRadius="{StaticResource RadiusMD}" Background="{StaticResource StatusSuccessBackgroundBrush}">
+                        <ui:SymbolIcon Symbol="CheckmarkCircle24" FontSize="18" Foreground="{StaticResource StatusSuccessBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!-- Total Data Card -->
+            <Border Margin="8,0,0,0" Style="{StaticResource FluentCard}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static res:Strings.Downloads_Stats_TotalData}" />
+                        <TextBlock FontSize="20" FontWeight="Bold" Margin="0,3,0,0" Text="{Binding TotalCompletedSize}" />
+                    </StackPanel>
+                    <Border Grid.Column="1" Width="38" Height="38" CornerRadius="{StaticResource RadiusMD}" Background="{StaticResource StatusInfoBackgroundBrush}">
+                        <ui:SymbolIcon Symbol="HardDrive24" FontSize="18" Foreground="{StaticResource StatusInfoBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </Grid>
+            </Border>
+        </UniformGrid>
+
+        <!--  Main Content Area  -->
         <ScrollViewer
-            Grid.Row="1"
-            Margin="0,18,0,0"
+            Grid.Row="2"
             VerticalScrollBarVisibility="Auto">
-            <!-- Right margin keeps the scrollbar in its own lane instead of sitting on the rows. -->
             <StackPanel Margin="0,0,12,0">
-                <!--  Empty state  -->
+                <!--  Empty state hero card  -->
                 <Border
-                    Padding="32,28"
+                    Margin="0,0,0,16"
+                    Padding="36,30"
                     Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
                     BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                     BorderThickness="1"
-                    CornerRadius="{StaticResource RadiusMD}"
+                    CornerRadius="{StaticResource RadiusLG}"
                     Visibility="{Binding IsEmpty, Converter={StaticResource BoolToVis}}">
-                    <StackPanel HorizontalAlignment="Center">
-                        <ui:SymbolIcon
+                    <StackPanel HorizontalAlignment="Center" MaxWidth="440">
+                        <Border
+                            Width="56"
+                            Height="56"
                             HorizontalAlignment="Center"
-                            FontSize="32"
-                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Symbol="ArrowDownload24" />
+                            CornerRadius="28"
+                            Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                            BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                            BorderThickness="1">
+                            <ui:SymbolIcon
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="26"
+                                Foreground="{DynamicResource SystemAccentColorPrimaryBrush}"
+                                Symbol="ArrowDownload24" />
+                        </Border>
                         <TextBlock
-                            Margin="0,10,0,0"
+                            Margin="0,14,0,0"
                             HorizontalAlignment="Center"
-                            FontSize="13"
+                            FontSize="15"
                             FontWeight="SemiBold"
-                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                             Text="{x:Static res:Strings.Downloads_Empty}"
+                            TextAlignment="Center" />
+                        <TextBlock
+                            Margin="0,6,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="12.5"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{x:Static res:Strings.Downloads_Empty_Desc}"
                             TextAlignment="Center"
                             TextWrapping="Wrap" />
+                        <ui:Button
+                            Margin="0,18,0,0"
+                            HorizontalAlignment="Center"
+                            Appearance="Primary"
+                            Command="{Binding BrowseGamesCommand}"
+                            Content="{x:Static res:Strings.Downloads_Action_BrowseGames}"
+                            Icon="{ui:SymbolIcon Search24}" />
                     </StackPanel>
                 </Border>
 
@@ -385,23 +559,36 @@
                 <ItemsControl ItemTemplate="{StaticResource QueueItemTemplate}" ItemsSource="{Binding Queue.Items}" />
 
                 <!--  History  -->
-                <Grid Margin="0,20,0,10" Visibility="{Binding HasHistory, Converter={StaticResource BoolToVis}}">
-                    <TextBlock
-                        FontSize="14"
-                        FontWeight="SemiBold"
-                        Text="{x:Static res:Strings.Downloads_Section_History}" />
+                <Grid Margin="0,14,0,10" Visibility="{Binding HasHistory, Converter={StaticResource BoolToVis}}">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Text="{x:Static res:Strings.Downloads_Section_History}" />
+                        <Border
+                            Margin="8,0,0,0"
+                            Padding="6,1"
+                            Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                            CornerRadius="{StaticResource RadiusXS}"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                FontSize="11"
+                                FontWeight="SemiBold"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="{Binding Queue.History.Count}" />
+                        </Border>
+                    </StackPanel>
                     <ui:Button
                         HorizontalAlignment="Right"
                         Appearance="Secondary"
                         Command="{Binding ClearHistoryCommand}"
-                        Content="{x:Static res:Strings.Downloads_Action_ClearHistory}" />
+                        Content="{x:Static res:Strings.Downloads_Action_ClearHistory}"
+                        Icon="{ui:SymbolIcon Delete24}" />
                 </Grid>
-                <Border
-                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
-                    CornerRadius="8"
-                    Visibility="{Binding HasHistory, Converter={StaticResource BoolToVis}}">
-                    <ItemsControl ItemTemplate="{StaticResource HistoryItemTemplate}" ItemsSource="{Binding Queue.History}" />
-                </Border>
+                <ItemsControl
+                    ItemTemplate="{StaticResource HistoryItemTemplate}"
+                    ItemsSource="{Binding Queue.History}"
+                    Visibility="{Binding HasHistory, Converter={StaticResource BoolToVis}}" />
             </StackPanel>
         </ScrollViewer>
     </Grid>

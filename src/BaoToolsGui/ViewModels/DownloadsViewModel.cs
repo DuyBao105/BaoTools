@@ -40,18 +40,44 @@ public partial class DownloadsViewModel : ObservableObject
     /// <summary>Set by App: jump to the page that owns an item's pending confirmation.</summary>
     public Action<DownloadItem>? RevealItem { get; set; }
 
+    /// <summary>Set by App: jump to the Add / Search Game page.</summary>
+    public Action? NavigateToAdd { get; set; }
+
     public bool HasItems => _queue.Items.Count > 0;
     public bool HasHistory => _queue.History.Count > 0;
     public bool IsEmpty => !HasItems;
+
+    public int ActiveCount => _queue.Items.Count;
+    public int CompletedCount => _queue.History.Count(h => h.Status == DownloadStatus.Completed);
+    public string TotalCompletedSize => ByteFormat.Size(_queue.History.Where(h => h.Status == DownloadStatus.Completed).Sum(h => h.Record.Bytes));
+    public string TotalSpeedLabel
+    {
+        get
+        {
+            double speed = _queue.Items.Where(i => i.IsRunning).Sum(i => i.BytesPerSecond);
+            return speed > 0 ? ByteFormat.Rate(speed) : "";
+        }
+    }
 
     private void RaiseCounts()
     {
         OnPropertyChanged(nameof(HasItems));
         OnPropertyChanged(nameof(HasHistory));
         OnPropertyChanged(nameof(IsEmpty));
+        OnPropertyChanged(nameof(ActiveCount));
+        OnPropertyChanged(nameof(CompletedCount));
+        OnPropertyChanged(nameof(TotalCompletedSize));
+        OnPropertyChanged(nameof(TotalSpeedLabel));
     }
 
     // ── Commands ─────────────────────────────────────────────────────
+
+    [RelayCommand]
+    private void BrowseGames()
+    {
+        NavigateToAdd?.Invoke();
+        (Application.Current?.MainWindow as MainWindow)?.NavigateToAdd();
+    }
 
     /// <summary>
     /// Fetch SteamAutoCrack (and the .NET runtime it needs) and open it.

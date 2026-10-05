@@ -580,7 +580,12 @@ Thao tác này xóa các tệp .lua khỏi Steam\config\stplug-in.</value></data
   <data name="Hubcap_Err_DownloadFailed" xml:space="preserve"><value>Tải xuống từ Hubcap thất bại ({0}).</value></data>
   <data name="Nav_Downloads" xml:space="preserve"><value>Tải xuống</value></data>
   <data name="Downloads_Title" xml:space="preserve"><value>Tải xuống</value></data>
-  <data name="Downloads_Empty" xml:space="preserve"><value>Hiện không có gì đang tải. Tải cái gì đó đi nào!</value></data>
+  <data name="Downloads_Empty" xml:space="preserve"><value>Không có lượt tải nào đang chạy</value></data>
+  <data name="Downloads_Empty_Desc" xml:space="preserve"><value>Hàng đợi tải xuống đang trống. Khám phá kho game để tải về hoặc cài đặt các bản vá.</value></data>
+  <data name="Downloads_Action_BrowseGames" xml:space="preserve"><value>Tìm &amp; Tải Game Ngay</value></data>
+  <data name="Downloads_Stats_Active" xml:space="preserve"><value>Đang tải</value></data>
+  <data name="Downloads_Stats_Completed" xml:space="preserve"><value>Đã hoàn thành</value></data>
+  <data name="Downloads_Stats_TotalData" xml:space="preserve"><value>Tổng dung lượng</value></data>
   <data name="Downloads_Section_Active" xml:space="preserve"><value>Hàng đợi</value></data>
   <data name="Downloads_Section_History" xml:space="preserve"><value>Lịch sử</value></data>
   <data name="Downloads_Status_Queued" xml:space="preserve"><value>Đang chờ</value></data>
