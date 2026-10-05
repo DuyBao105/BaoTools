@@ -116,15 +116,6 @@ public partial class DownloadsViewModel : ObservableObject
             try
             {
                 string targetPath = GetDefaultDownloadsFolder();
-                var firstExisting = _queue.History
-                    .Select(h => h.Record.RevealPath)
-                    .FirstOrDefault(p => !string.IsNullOrWhiteSpace(p) && (Directory.Exists(p) || File.Exists(p)));
-
-                if (!string.IsNullOrWhiteSpace(firstExisting))
-                {
-                    targetPath = Directory.Exists(firstExisting) ? firstExisting : (Path.GetDirectoryName(firstExisting) ?? targetPath);
-                }
-
                 string? root = Path.GetPathRoot(Path.GetFullPath(targetPath));
                 if (!string.IsNullOrEmpty(root))
                 {
@@ -175,31 +166,61 @@ public partial class DownloadsViewModel : ObservableObject
     public Action? ScrollToQueueAction { get; set; }
     public Action? ScrollToHistoryAction { get; set; }
 
-    public static string GetDefaultDownloadsFolder()
+    public string GetDefaultDownloadsFolder()
     {
+        // 1. If user has downloaded depots to "BaoTools Depots" in their downloads folder, prioritize it
         try
         {
-            const string downloadsGuid = "{374DE290-123F-4565-9164-39C4925E467B}";
-            using var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(
-                @"Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders");
-            if (key?.GetValue(downloadsGuid) is string raw && raw.Length > 0)
+            string userDownloads = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
+            string userDepots = Path.Combine(userDownloads, "BaoTools Depots");
+            if (Directory.Exists(userDepots) && Directory.EnumerateFileSystemEntries(userDepots).Any())
             {
-                string expanded = Environment.ExpandEnvironmentVariables(raw);
-                if (Directory.Exists(expanded))
+                return userDepots;
+            }
+        }
+        catch { }
+
+        // 2. If user has games in Steam Library (steamapps\common), open that (where Steam games are installed)
+        try
+        {
+            string? steamRoot = _steam.EffectivePath;
+            if (!string.IsNullOrEmpty(steamRoot))
+            {
+                string common = Path.Combine(steamRoot, "steamapps", "common");
+                if (Directory.Exists(common))
                 {
-                    string depots = Path.Combine(expanded, "BaoTools Depots");
-                    return Directory.Exists(depots) ? depots : expanded;
+                    return common;
                 }
             }
         }
-        catch
-        {
-        }
+        catch { }
 
-        string userDownloads = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
-        string userDepots = Path.Combine(userDownloads, "BaoTools Depots");
-        if (Directory.Exists(userDepots)) return userDepots;
-        if (Directory.Exists(userDownloads)) return userDownloads;
+        // 3. Any actual game folder in history (excluding stplug-in or .lua script files)
+        try
+        {
+            var realGamePath = _queue.History
+                .Select(h => h.Record.RevealPath)
+                .FirstOrDefault(p => !string.IsNullOrWhiteSpace(p)
+                                     && !p.Contains("stplug-in", StringComparison.OrdinalIgnoreCase)
+                                     && !p.EndsWith(".lua", StringComparison.OrdinalIgnoreCase)
+                                     && (Directory.Exists(p) || File.Exists(p)));
+
+            if (!string.IsNullOrWhiteSpace(realGamePath))
+            {
+                return Directory.Exists(realGamePath) ? realGamePath : (Path.GetDirectoryName(realGamePath) ?? realGamePath);
+            }
+        }
+        catch { }
+
+        // 4. Default: User Downloads / BaoTools Depots
+        try
+        {
+            string defaultDl = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
+            string defaultDepots = Path.Combine(defaultDl, "BaoTools Depots");
+            if (Directory.Exists(defaultDepots)) return defaultDepots;
+            if (Directory.Exists(defaultDl)) return defaultDl;
+        }
+        catch { }
 
         return AppDomain.CurrentDomain.BaseDirectory;
     }
@@ -376,15 +397,6 @@ public partial class DownloadsViewModel : ObservableObject
     private void OpenDownloadsFolder()
     {
         string folder = GetDefaultDownloadsFolder();
-        var firstExisting = _queue.History
-            .Select(h => h.Record.RevealPath)
-            .FirstOrDefault(p => !string.IsNullOrWhiteSpace(p) && (Directory.Exists(p) || File.Exists(p)));
-
-        if (!string.IsNullOrWhiteSpace(firstExisting))
-        {
-            folder = Directory.Exists(firstExisting) ? firstExisting : (Path.GetDirectoryName(firstExisting) ?? folder);
-        }
-
         if (!Directory.Exists(folder))
         {
             try { Directory.CreateDirectory(folder); } catch { }
