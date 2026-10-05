@@ -618,6 +618,15 @@ This deletes the .lua files from Steam\config\stplug-in.</value></data>
   <data name="Downloads_Stats_Active" xml:space="preserve"><value>Active Queue</value></data>
   <data name="Downloads_Stats_Completed" xml:space="preserve"><value>Completed</value></data>
   <data name="Downloads_Stats_TotalData" xml:space="preserve"><value>Total Downloaded</value></data>
+  <data name="Downloads_Stats_DiskFree" xml:space="preserve"><value>Drive {0} · Free {1}</value></data>
+  <data name="Downloads_Stats_Active_Idle" xml:space="preserve"><value>Idle</value></data>
+  <data name="Downloads_Stats_Completed_Desc" xml:space="preserve"><value>Installed games</value></data>
+  <data name="Downloads_Stats_OpenFolder_Tooltip" xml:space="preserve"><value>Click to open download folder in File Explorer</value></data>
+  <data name="Downloads_Stats_Active_Tooltip" xml:space="preserve"><value>Click to view active downloads</value></data>
+  <data name="Downloads_Stats_Completed_Tooltip" xml:space="preserve"><value>Click to view installed games</value></data>
+  <data name="Downloads_Action_OpenFolder" xml:space="preserve"><value>Open Folder</value></data>
+  <data name="Downloads_Search_Placeholder" xml:space="preserve"><value>Search downloaded games...</value></data>
+  <data name="Downloads_Search_NoResults" xml:space="preserve"><value>No games match your search.</value></data>
   <data name="Downloads_Section_Active" xml:space="preserve"><value>Queue</value></data>
   <data name="Downloads_Section_History" xml:space="preserve"><value>History</value></data>
   <data name="Downloads_Status_Queued" xml:space="preserve"><value>Queued</value></data>

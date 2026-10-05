@@ -1,3 +1,4 @@
+using System.IO;
 using System.Windows;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -81,6 +82,7 @@ public partial class DownloadsViewModel : ObservableObject
     public bool HasItems => _queue.Items.Count > 0;
     public bool HasHistory => _queue.History.Count > 0;
     public bool IsEmpty => !HasItems;
+    public bool IsCompletelyEmpty => !HasItems && !HasHistory;
 
     public int ActiveCount => _queue.Items.Count;
     public int CompletedCount => _queue.History.Count(h => h.Status == DownloadStatus.Completed);
@@ -94,15 +96,129 @@ public partial class DownloadsViewModel : ObservableObject
         }
     }
 
+    public string ActiveSubLabel
+    {
+        get
+        {
+            if (HasItems)
+            {
+                string speed = TotalSpeedLabel;
+                return !string.IsNullOrEmpty(speed) ? speed : $"{ActiveCount} items";
+            }
+            return Resources.Strings.Downloads_Stats_Active_Idle;
+        }
+    }
+
+    public string DiskSpaceLabel
+    {
+        get
+        {
+            try
+            {
+                string targetPath = GetDefaultDownloadsFolder();
+                var firstExisting = _queue.History
+                    .Select(h => h.Record.RevealPath)
+                    .FirstOrDefault(p => !string.IsNullOrWhiteSpace(p) && (Directory.Exists(p) || File.Exists(p)));
+
+                if (!string.IsNullOrWhiteSpace(firstExisting))
+                {
+                    targetPath = Directory.Exists(firstExisting) ? firstExisting : (Path.GetDirectoryName(firstExisting) ?? targetPath);
+                }
+
+                string? root = Path.GetPathRoot(Path.GetFullPath(targetPath));
+                if (!string.IsNullOrEmpty(root))
+                {
+                    var drive = new DriveInfo(root);
+                    if (drive.IsReady)
+                    {
+                        string driveName = drive.Name.TrimEnd('\\');
+                        return string.Format(Resources.Strings.Downloads_Stats_DiskFree, driveName, ByteFormat.Size(drive.AvailableFreeSpace));
+                    }
+                }
+            }
+            catch
+            {
+            }
+
+            return "";
+        }
+    }
+
+    [ObservableProperty]
+    private string _historySearchText = "";
+
+    partial void OnHistorySearchTextChanged(string value)
+    {
+        OnPropertyChanged(nameof(FilteredHistory));
+        OnPropertyChanged(nameof(HasFilteredHistory));
+        OnPropertyChanged(nameof(IsSearchEmpty));
+    }
+
+    public IEnumerable<DownloadHistoryEntry> FilteredHistory
+    {
+        get
+        {
+            if (string.IsNullOrWhiteSpace(HistorySearchText))
+                return _queue.History;
+
+            string query = HistorySearchText.Trim();
+            return _queue.History.Where(h =>
+                (!string.IsNullOrEmpty(h.Title) && h.Title.Contains(query, StringComparison.OrdinalIgnoreCase)) ||
+                (h.AppId > 0 && h.AppId.ToString().Contains(query, StringComparison.OrdinalIgnoreCase)) ||
+                (!string.IsNullOrEmpty(h.SubTitle) && h.SubTitle.Contains(query, StringComparison.OrdinalIgnoreCase)));
+        }
+    }
+
+    public bool HasFilteredHistory => FilteredHistory.Any();
+    public bool IsSearchEmpty => HasHistory && !HasFilteredHistory;
+
+    public Action? ScrollToQueueAction { get; set; }
+    public Action? ScrollToHistoryAction { get; set; }
+
+    public static string GetDefaultDownloadsFolder()
+    {
+        try
+        {
+            const string downloadsGuid = "{374DE290-123F-4565-9164-39C4925E467B}";
+            using var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(
+                @"Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders");
+            if (key?.GetValue(downloadsGuid) is string raw && raw.Length > 0)
+            {
+                string expanded = Environment.ExpandEnvironmentVariables(raw);
+                if (Directory.Exists(expanded))
+                {
+                    string depots = Path.Combine(expanded, "BaoTools Depots");
+                    return Directory.Exists(depots) ? depots : expanded;
+                }
+            }
+        }
+        catch
+        {
+        }
+
+        string userDownloads = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
+        string userDepots = Path.Combine(userDownloads, "BaoTools Depots");
+        if (Directory.Exists(userDepots)) return userDepots;
+        if (Directory.Exists(userDownloads)) return userDownloads;
+
+        return AppDomain.CurrentDomain.BaseDirectory;
+    }
+
     private void RaiseCounts()
     {
         OnPropertyChanged(nameof(HasItems));
         OnPropertyChanged(nameof(HasHistory));
         OnPropertyChanged(nameof(IsEmpty));
+        OnPropertyChanged(nameof(IsCompletelyEmpty));
         OnPropertyChanged(nameof(ActiveCount));
         OnPropertyChanged(nameof(CompletedCount));
         OnPropertyChanged(nameof(TotalCompletedSize));
         OnPropertyChanged(nameof(TotalSpeedLabel));
+        OnPropertyChanged(nameof(ActiveSubLabel));
+        OnPropertyChanged(nameof(DiskSpaceLabel));
+        OnPropertyChanged(nameof(FilteredHistory));
+        OnPropertyChanged(nameof(HasFilteredHistory));
+        OnPropertyChanged(nameof(IsSearchEmpty));
     }
 
     // ── Commands ─────────────────────────────────────────────────────
@@ -245,8 +361,36 @@ public partial class DownloadsViewModel : ObservableObject
         bool ok = await UninstallGameAsync(entry.Record.RevealPath, entry.Title, entry.AppId);
         if (ok)
         {
-            entry.RaiseStateChanged();
+            _queue.RemoveHistory(entry);
+            RaiseCounts();
         }
+    }
+
+    [RelayCommand]
+    private void ScrollToQueue() => ScrollToQueueAction?.Invoke();
+
+    [RelayCommand]
+    private void ScrollToHistory() => ScrollToHistoryAction?.Invoke();
+
+    [RelayCommand]
+    private void OpenDownloadsFolder()
+    {
+        string folder = GetDefaultDownloadsFolder();
+        var firstExisting = _queue.History
+            .Select(h => h.Record.RevealPath)
+            .FirstOrDefault(p => !string.IsNullOrWhiteSpace(p) && (Directory.Exists(p) || File.Exists(p)));
+
+        if (!string.IsNullOrWhiteSpace(firstExisting))
+        {
+            folder = Directory.Exists(firstExisting) ? firstExisting : (Path.GetDirectoryName(firstExisting) ?? folder);
+        }
+
+        if (!Directory.Exists(folder))
+        {
+            try { Directory.CreateDirectory(folder); } catch { }
+        }
+
+        SteamService.ShowInExplorer(folder);
     }
 
     [RelayCommand]

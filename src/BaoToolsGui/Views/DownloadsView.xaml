@@ -488,19 +488,31 @@
                     Text="{Binding TotalSpeedLabel}"
                     Visibility="{Binding HasItems, Converter={StaticResource BoolToVis}}" />
             </StackPanel>
-            <!--  SteamAutoCrack launcher  -->
-            <ui:Button
-                Grid.Column="1"
-                VerticalAlignment="Center"
-                Command="{Binding LaunchSteamAutoCrackCommand}"
-                Content="{x:Static res:Strings.Downloads_SteamAutoCrack}"
-                Icon="{ui:SymbolIcon Wrench24}" />
+            <!--  Action Buttons  -->
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                <ui:Button
+                    Margin="0,0,8,0"
+                    Command="{Binding OpenDownloadsFolderCommand}"
+                    Content="{x:Static res:Strings.Downloads_Action_OpenFolder}"
+                    Icon="{ui:SymbolIcon FolderOpen24}"
+                    ToolTip="{x:Static res:Strings.Downloads_Stats_OpenFolder_Tooltip}" />
+                <ui:Button
+                    Command="{Binding LaunchSteamAutoCrackCommand}"
+                    Content="{x:Static res:Strings.Downloads_SteamAutoCrack}"
+                    Icon="{ui:SymbolIcon Wrench24}" />
+            </StackPanel>
         </Grid>
 
-        <!--  Overview Metric Cards  -->
+        <!--  Overview Metric Cards (Interactive, Theme-Synced, Clickable)  -->
         <UniformGrid Grid.Row="1" Columns="3" Margin="0,16,0,16">
             <!-- Active Queue Card -->
-            <Border Margin="0,0,8,0" Style="{StaticResource FluentCard}">
+            <Border
+                Margin="0,0,8,0"
+                Style="{StaticResource InteractiveFluentCard}"
+                ToolTip="{x:Static res:Strings.Downloads_Stats_Active_Tooltip}">
+                <Border.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" Command="{Binding ScrollToQueueCommand}" />
+                </Border.InputBindings>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -509,6 +521,7 @@
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static res:Strings.Downloads_Stats_Active}" />
                         <TextBlock FontSize="20" FontWeight="Bold" Margin="0,3,0,0" Text="{Binding ActiveCount}" />
+                        <TextBlock FontSize="11" Margin="0,2,0,0" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ActiveSubLabel}" />
                     </StackPanel>
                     <Border Grid.Column="1" Width="38" Height="38" CornerRadius="{StaticResource RadiusMD}" Background="{DynamicResource ControlFillColorSecondaryBrush}">
                         <ui:SymbolIcon Symbol="ArrowDownload24" FontSize="18" Foreground="{DynamicResource SystemAccentColorPrimaryBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -517,7 +530,13 @@
             </Border>
 
             <!-- Completed Card -->
-            <Border Margin="4,0,4,0" Style="{StaticResource FluentCard}">
+            <Border
+                Margin="4,0,4,0"
+                Style="{StaticResource InteractiveFluentCard}"
+                ToolTip="{x:Static res:Strings.Downloads_Stats_Completed_Tooltip}">
+                <Border.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" Command="{Binding ScrollToHistoryCommand}" />
+                </Border.InputBindings>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -526,6 +545,7 @@
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static res:Strings.Downloads_Stats_Completed}" />
                         <TextBlock FontSize="20" FontWeight="Bold" Margin="0,3,0,0" Text="{Binding CompletedCount}" />
+                        <TextBlock FontSize="11" Margin="0,2,0,0" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{x:Static res:Strings.Downloads_Stats_Completed_Desc}" />
                     </StackPanel>
                     <Border Grid.Column="1" Width="38" Height="38" CornerRadius="{StaticResource RadiusMD}" Background="{StaticResource StatusSuccessBackgroundBrush}">
                         <ui:SymbolIcon Symbol="CheckmarkCircle24" FontSize="18" Foreground="{StaticResource StatusSuccessBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -533,8 +553,14 @@
                 </Grid>
             </Border>
 
-            <!-- Total Data Card -->
-            <Border Margin="8,0,0,0" Style="{StaticResource FluentCard}">
+            <!-- Total Data & Disk Free Card -->
+            <Border
+                Margin="8,0,0,0"
+                Style="{StaticResource InteractiveFluentCard}"
+                ToolTip="{x:Static res:Strings.Downloads_Stats_OpenFolder_Tooltip}">
+                <Border.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" Command="{Binding OpenDownloadsFolderCommand}" />
+                </Border.InputBindings>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -543,6 +569,7 @@
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static res:Strings.Downloads_Stats_TotalData}" />
                         <TextBlock FontSize="20" FontWeight="Bold" Margin="0,3,0,0" Text="{Binding TotalCompletedSize}" />
+                        <TextBlock FontSize="11" Margin="0,2,0,0" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding DiskSpaceLabel}" />
                     </StackPanel>
                     <Border Grid.Column="1" Width="38" Height="38" CornerRadius="{StaticResource RadiusMD}" Background="{StaticResource StatusInfoBackgroundBrush}">
                         <ui:SymbolIcon Symbol="HardDrive24" FontSize="18" Foreground="{StaticResource StatusInfoBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -556,7 +583,7 @@
             Grid.Row="2"
             VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="0,0,12,0">
-                <!--  Empty state hero card  -->
+                <!--  Empty state hero card (Only shown when completely empty: no active items AND no history)  -->
                 <Border
                     Margin="0,0,0,16"
                     Padding="36,30"
@@ -564,7 +591,7 @@
                     BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                     BorderThickness="1"
                     CornerRadius="{StaticResource RadiusLG}"
-                    Visibility="{Binding IsEmpty, Converter={StaticResource BoolToVis}}">
+                    Visibility="{Binding IsCompletelyEmpty, Converter={StaticResource BoolToVis}}">
                     <StackPanel HorizontalAlignment="Center" MaxWidth="440">
                         <Border
                             Width="56"
@@ -609,6 +636,7 @@
 
                 <!--  Queue  -->
                 <TextBlock
+                    x:Name="QueueSectionHeader"
                     Margin="0,0,0,10"
                     FontSize="14"
                     FontWeight="SemiBold"
@@ -617,7 +645,16 @@
                 <ItemsControl ItemTemplate="{StaticResource QueueItemTemplate}" ItemsSource="{Binding Queue.Items}" />
 
                 <!--  History  -->
-                <Grid Margin="0,14,0,10" Visibility="{Binding HasHistory, Converter={StaticResource BoolToVis}}">
+                <Grid
+                    x:Name="HistorySectionHeader"
+                    Margin="0,14,0,10"
+                    Visibility="{Binding HasHistory, Converter={StaticResource BoolToVis}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <TextBlock
                             FontSize="14"
@@ -636,16 +673,54 @@
                                 Text="{Binding Queue.History.Count}" />
                         </Border>
                     </StackPanel>
+
+                    <!-- Quick Search in Download History -->
+                    <ui:TextBox
+                        Grid.Column="1"
+                        Margin="16,0"
+                        HorizontalAlignment="Left"
+                        Width="240"
+                        Icon="{ui:SymbolIcon Search24}"
+                        PlaceholderText="{x:Static res:Strings.Downloads_Search_Placeholder}"
+                        Text="{Binding HistorySearchText, UpdateSourceTrigger=PropertyChanged}"
+                        ClearButtonEnabled="True" />
+
                     <ui:Button
+                        Grid.Column="2"
                         HorizontalAlignment="Right"
                         Appearance="Secondary"
                         Command="{Binding ClearHistoryCommand}"
                         Content="{x:Static res:Strings.Downloads_Action_ClearHistory}"
                         Icon="{ui:SymbolIcon Delete24}" />
                 </Grid>
+
+                <!-- Empty Search Filter Hint -->
+                <Border
+                    Margin="0,4,0,12"
+                    Padding="16,20"
+                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="{StaticResource RadiusMD}"
+                    Visibility="{Binding IsSearchEmpty, Converter={StaticResource BoolToVis}}">
+                    <StackPanel HorizontalAlignment="Center">
+                        <ui:SymbolIcon
+                            FontSize="22"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            HorizontalAlignment="Center"
+                            Symbol="Search24" />
+                        <TextBlock
+                            Margin="0,8,0,0"
+                            FontSize="13"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            HorizontalAlignment="Center"
+                            Text="{x:Static res:Strings.Downloads_Search_NoResults}" />
+                    </StackPanel>
+                </Border>
+
                 <ItemsControl
                     ItemTemplate="{StaticResource HistoryItemTemplate}"
-                    ItemsSource="{Binding Queue.History}"
+                    ItemsSource="{Binding FilteredHistory}"
                     Visibility="{Binding HasHistory, Converter={StaticResource BoolToVis}}" />
             </StackPanel>
         </ScrollViewer>

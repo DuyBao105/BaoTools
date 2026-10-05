@@ -1,3 +1,4 @@
+using System.Windows;
 using System.Windows.Controls;
 using BaoToolsGui.ViewModels;
 
@@ -9,5 +10,15 @@ public partial class DownloadsView : UserControl
     {
         InitializeComponent();
         DataContext = viewModel;
+
+        viewModel.ScrollToQueueAction = () =>
+        {
+            Dispatcher.InvokeAsync(() => QueueSectionHeader?.BringIntoView());
+        };
+
+        viewModel.ScrollToHistoryAction = () =>
+        {
+            Dispatcher.InvokeAsync(() => HistorySectionHeader?.BringIntoView());
+        };
     }
 }

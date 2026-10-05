@@ -607,6 +607,15 @@ public static class Strings
     public static string Downloads_Stats_Active => Get(nameof(Downloads_Stats_Active));
     public static string Downloads_Stats_Completed => Get(nameof(Downloads_Stats_Completed));
     public static string Downloads_Stats_TotalData => Get(nameof(Downloads_Stats_TotalData));
+    public static string Downloads_Stats_DiskFree => Get(nameof(Downloads_Stats_DiskFree));
+    public static string Downloads_Stats_Active_Idle => Get(nameof(Downloads_Stats_Active_Idle));
+    public static string Downloads_Stats_Completed_Desc => Get(nameof(Downloads_Stats_Completed_Desc));
+    public static string Downloads_Stats_OpenFolder_Tooltip => Get(nameof(Downloads_Stats_OpenFolder_Tooltip));
+    public static string Downloads_Stats_Active_Tooltip => Get(nameof(Downloads_Stats_Active_Tooltip));
+    public static string Downloads_Stats_Completed_Tooltip => Get(nameof(Downloads_Stats_Completed_Tooltip));
+    public static string Downloads_Action_OpenFolder => Get(nameof(Downloads_Action_OpenFolder));
+    public static string Downloads_Search_Placeholder => Get(nameof(Downloads_Search_Placeholder));
+    public static string Downloads_Search_NoResults => Get(nameof(Downloads_Search_NoResults));
     public static string Downloads_Section_Active => Get(nameof(Downloads_Section_Active));
     public static string Downloads_Section_History => Get(nameof(Downloads_Section_History));
     public static string Downloads_Status_Queued => Get(nameof(Downloads_Status_Queued));

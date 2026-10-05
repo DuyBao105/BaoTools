@@ -586,6 +586,15 @@ Thao tác này xóa các tệp .lua khỏi Steam\config\stplug-in.</value></data
   <data name="Downloads_Stats_Active" xml:space="preserve"><value>Đang tải</value></data>
   <data name="Downloads_Stats_Completed" xml:space="preserve"><value>Đã hoàn thành</value></data>
   <data name="Downloads_Stats_TotalData" xml:space="preserve"><value>Tổng dung lượng</value></data>
+  <data name="Downloads_Stats_DiskFree" xml:space="preserve"><value>Ổ {0} · Còn trống {1}</value></data>
+  <data name="Downloads_Stats_Active_Idle" xml:space="preserve"><value>Chờ tải</value></data>
+  <data name="Downloads_Stats_Completed_Desc" xml:space="preserve"><value>Game trong máy</value></data>
+  <data name="Downloads_Stats_OpenFolder_Tooltip" xml:space="preserve"><value>Bấm để mở thư mục lưu trữ trong máy tính</value></data>
+  <data name="Downloads_Stats_Active_Tooltip" xml:space="preserve"><value>Bấm để xem các lượt tải đang chạy</value></data>
+  <data name="Downloads_Stats_Completed_Tooltip" xml:space="preserve"><value>Bấm để xem danh sách game đã tải</value></data>
+  <data name="Downloads_Action_OpenFolder" xml:space="preserve"><value>Mở thư mục tải</value></data>
+  <data name="Downloads_Search_Placeholder" xml:space="preserve"><value>Tìm kiếm game đã tải...</value></data>
+  <data name="Downloads_Search_NoResults" xml:space="preserve"><value>Không tìm thấy game phù hợp.</value></data>
   <data name="Downloads_Section_Active" xml:space="preserve"><value>Hàng đợi</value></data>
   <data name="Downloads_Section_History" xml:space="preserve"><value>Lịch sử</value></data>
   <data name="Downloads_Status_Queued" xml:space="preserve"><value>Đang chờ</value></data>
