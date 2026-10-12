@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:schema id="root">
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -158,7 +158,7 @@
     <value>จัดการคีย์ API Hubcap และโปรไฟล์ของคุณที่</value>
   </data>
   <data name="Settings_Section_Hubcap" xml:space="preserve">
-    <value>HUBCAP</value>
+    <value>ดุมล้อ</value>
   </data>
   <data name="Settings_HubcapKey" xml:space="preserve">
     <value>คีย์ API ของ Hubcap</value>
@@ -524,7 +524,7 @@
     <value>กำลังโหลด…</value>
   </data>
   <data name="Common_AppId" xml:space="preserve">
-    <value>App ID: {0}</value>
+    <value>รหัสแอป: {0}</value>
   </data>
   <data name="Common_AppFallback" xml:space="preserve">
     <value>แอป {0}</value>
@@ -656,7 +656,7 @@
     <value>วันที่วางจำหน่าย (ใหม่สุด)</value>
   </data>
   <data name="Manage_Sort_Metacritic" xml:space="preserve">
-    <value>Metacritic</value>
+    <value>ริติค</value>
   </data>
   <data name="Manage_Sort_MostReviewed" xml:space="preserve">
     <value>รีวิวมากที่สุด</value>
@@ -713,7 +713,7 @@
     <value>depot ที่ใช้ร่วมกัน</value>
   </data>
   <data name="Manage_DlcName" xml:space="preserve">
-    <value>DLC {0}</value>
+    <value>เนื้อหาดาวน์โหลด {0}</value>
   </data>
   <data name="Manage_Delete_Title" xml:space="preserve">
     <value>ลบไฟล์ lua</value>
@@ -761,7 +761,7 @@
     <value>บิลด์ {0}</value>
   </data>
   <data name="Fixes_Manifest" xml:space="preserve">
-    <value>Manifest</value>
+    <value>ประจักษ์</value>
   </data>
   <data name="Fixes_Fix" xml:space="preserve">
     <value>การแก้ไข</value>
@@ -854,7 +854,7 @@
     <value>แสดง</value>
   </data>
   <data name="Add_Supporter" xml:space="preserve">
-    <value>Supporter</value>
+    <value>ผู้สนับสนุน</value>
   </data>
   <data name="Add_Unlimited" xml:space="preserve">
     <value>ไม่จำกัด</value>
@@ -1678,26 +1678,26 @@
     <value>ต้องการลบรายการทั้งหมด {0} รายการออกจากประวัติการดาวน์โหลดหรือไม่ ไฟล์ที่ดาวน์โหลดแล้วจะไม่ได้รับผลกระทบ</value>
   </data>
   <data name="Nav_OnlineFixes" xml:space="preserve">
-    <value>Online Fix</value>
+    <value>การแก้ไขออนไลน์</value>
   </data>
   <data name="OnlineFixes_Download" xml:space="preserve">
-    <value>Download Fix</value>
+    <value>ดาวน์โหลด Fix</value>
   </data>
   <data name="OnlineFixes_Install" xml:space="preserve">
-    <value>Install Fix</value>
+    <value>ติดตั้งโปรแกรมแก้ไข</value>
   </data>
   <data name="OnlineFixes_Search" xml:space="preserve">
-    <value>Search installed games...</value>
+    <value>ค้นหาเกมที่ติดตั้ง...</value>
   </data>
   <data name="OnlineFixes_Help" xml:space="preserve">
-    <value>Step 1: Click "Download Fix" to search and download the ZIP file from online-fix.me.
-Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically extract it into the game folder.</value>
+    <value>ขั้นตอนที่ 1: คลิก "ดาวน์โหลด Fix" เพื่อค้นหาและดาวน์โหลดไฟล์ ZIP จาก online-fix.me
+ขั้นตอนที่ 2: คลิก "ติดตั้งโปรแกรมแก้ไข" และเลือกไฟล์ ZIP ที่ดาวน์โหลดมาเพื่อแตกไฟล์ลงในโฟลเดอร์เกมโดยอัตโนมัติ</value>
   </data>
   <data name="Nav_Tickets" xml:space="preserve">
-    <value>Tickets</value>
+    <value>ตั๋ว</value>
   </data>
   <data name="Tickets_CopyHex" xml:space="preserve">
-    <value>Copy Hex</value>
+    <value>คัดลอกเลขฐานสิบหก</value>
   </data>
   <data name="Manage_Action_ExtractTickets" xml:space="preserve">
     <value>แยกตั๋ว</value>
@@ -1841,37 +1841,37 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>ตั๋ว Steam และ Denuvo</value>
   </data>
   <data name="Download_DailyQuota_Label" xml:space="preserve">
-    <value>Daily downloads: </value>
+    <value>ดาวน์โหลดรายวัน:</value>
   </data>
   <data name="Download_DailyQuota_GuestBadge" xml:space="preserve">
-    <value>Sign in for 10 downloads/day</value>
+    <value>ลงชื่อเข้าใช้เพื่อดาวน์โหลด 10 ครั้ง/วัน</value>
   </data>
   <data name="Download_DailyQuota_LimitReached" xml:space="preserve">
-    <value>You have reached your daily limit of 10 downloads. Please try again tomorrow.</value>
+    <value>คุณมีการดาวน์โหลดถึงขีดจำกัด 10 รายการต่อวันแล้ว โปรดลองอีกครั้งพรุ่งนี้</value>
   </data>
   <data name="Home_DailyQuota_Guest" xml:space="preserve">
     <value>ดาวน์โหลดรายวัน: ลงชื่อเข้าใช้ด้วย Discord เพื่อดาวน์โหลด 10 ครั้ง/วัน</value>
   </data>
   <data name="Home_DailyQuota_Supporter" xml:space="preserve">
-    <value>Daily downloads: {0} / Unlimited (Supporter)</value>
+    <value>ดาวน์โหลดรายวัน: {0} / ไม่จำกัด (ผู้สนับสนุน)</value>
   </data>
   <data name="Home_DailyQuota_Used" xml:space="preserve">
     <value>ดาวน์โหลดรายวัน: {0}/{1} ใช้แล้ววันนี้</value>
   </data>
   <data name="Home_DailyQuota_Active" xml:space="preserve">
-    <value>Daily downloads: 10/day (Active)</value>
+    <value>ดาวน์โหลดรายวัน: 10/วัน (ใช้งานอยู่)</value>
   </data>
   <data name="Tickets_AppTicket_Title" xml:space="preserve">
     <value>ตั๋วการเป็นเจ้าของแอป</value>
   </data>
   <data name="Tickets_ETicket_Title" xml:space="preserve">
-    <value>Encrypted App Ticket (Denuvo)</value>
+    <value>ตั๋วแอปที่เข้ารหัส (Denuvo)</value>
   </data>
   <data name="Common_NotAvailable" xml:space="preserve">
     <value>ไม่สามารถใช้ได้</value>
   </data>
   <data name="Nav_Plugin" xml:space="preserve">
-    <value>Plugin</value>
+    <value>ปลั๊กอิน</value>
   </data>
   <data name="Fixes_Applied_Hint" xml:space="preserve">
     <value>แก้ไขนี้ถูกใช้งานอยู่แล้ว ย้อนกลับก่อนหากต้องการติดตั้งอันอื่น</value>
@@ -1985,96 +1985,96 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>เปิด BaoTools โดยอัตโนมัติในถาดระบบเมื่อ Steam เริ่มทำงาน</value>
   </data>
   <data name="Theme_Default" xml:space="preserve">
-    <value>BaoTools Classic</value>
+    <value>BaoTools คลาสสิก</value>
   </data>
   <data name="Theme_Dracula" xml:space="preserve">
-    <value>Dracula</value>
+    <value>แดร็กคูล่า</value>
   </data>
   <data name="Theme_Nord" xml:space="preserve">
     <value>Nord</value>
   </data>
   <data name="Theme_Catppuccin" xml:space="preserve">
-    <value>Catppuccin Mocha</value>
+    <value>คัปปุชชินมอคค่า</value>
   </data>
   <data name="Theme_Cyberpunk" xml:space="preserve">
-    <value>Cyberpunk</value>
+    <value>ไซเบอร์พังค์</value>
   </data>
   <data name="Theme_Midnight" xml:space="preserve">
-    <value>Midnight OLED</value>
+    <value>OLED เที่ยงคืน</value>
   </data>
   <data name="Theme_TokyoNight" xml:space="preserve">
-    <value>Tokyo Night</value>
+    <value>โตเกียวไนท์</value>
   </data>
   <data name="Theme_Synthwave" xml:space="preserve">
-    <value>Synthwave '84</value>
+    <value>ซินธ์เวฟ '84</value>
   </data>
   <data name="Theme_RosePine" xml:space="preserve">
-    <value>Rosé Pine</value>
+    <value>โรเซ่ ไพน์</value>
   </data>
   <data name="Theme_Sakura" xml:space="preserve">
-    <value>Sakura Blossom</value>
+    <value>ซากุระ บลอสซั่ม</value>
   </data>
   <data name="Theme_Emerald" xml:space="preserve">
-    <value>Emerald Matrix</value>
+    <value>มรกตเมทริกซ์</value>
   </data>
   <data name="Theme_AmberSunset" xml:space="preserve">
-    <value>Amber Horizon</value>
+    <value>แอมเบอร์ฮอไรซอน</value>
   </data>
   <data name="Theme_Amethyst" xml:space="preserve">
-    <value>Amethyst Neon</value>
+    <value>อเมทิสต์ นีออน</value>
   </data>
   <data name="Theme_AbyssalOcean" xml:space="preserve">
-    <value>Abyssal Ocean</value>
+    <value>มหาสมุทรอเวจี</value>
   </data>
   <data name="Theme_OneDark" xml:space="preserve">
-    <value>One Dark Pro</value>
+    <value>หนึ่งดาร์กโปร</value>
   </data>
   <data name="Theme_Gruvbox" xml:space="preserve">
-    <value>Gruvbox Retro</value>
+    <value>กรูฟบ็อกซ์ เรโทร</value>
   </data>
   <data name="UpdateDialog_Title" xml:space="preserve">
-    <value>Software Update</value>
+    <value>อัพเดตซอฟต์แวร์</value>
   </data>
   <data name="UpdateDialog_DownloadingHeader" xml:space="preserve">
-    <value>Downloading Update</value>
+    <value>กำลังดาวน์โหลดอัปเดต</value>
   </data>
   <data name="UpdateDialog_DownloadingSub" xml:space="preserve">
-    <value>Downloading update package for {0}... Please keep BaoTools open.</value>
+    <value>กำลังดาวน์โหลดแพ็คเกจอัปเดตสำหรับ {0}... โปรดเปิด BaoTools ไว้</value>
   </data>
   <data name="UpdateDialog_DownloadingStatus" xml:space="preserve">
-    <value>Downloading</value>
+    <value>กำลังดาวน์โหลด</value>
   </data>
   <data name="UpdateDialog_ReadyHeader" xml:space="preserve">
-    <value>Update Ready to Install</value>
+    <value>อัพเดตพร้อมติดตั้ง</value>
   </data>
   <data name="UpdateDialog_ReadySub" xml:space="preserve">
-    <value>BaoTools {0} has been downloaded. Click Restart Now to apply the update and start using the new version.</value>
+    <value>ดาวน์โหลด BaoTools {0} แล้ว คลิกรีสตาร์ททันทีเพื่อใช้การอัปเดตและเริ่มใช้เวอร์ชันใหม่</value>
   </data>
   <data name="UpdateDialog_ReadyStatus" xml:space="preserve">
-    <value>Ready to install</value>
+    <value>พร้อมติดตั้ง</value>
   </data>
   <data name="UpdateDialog_RestartNow" xml:space="preserve">
-    <value>Restart Now</value>
+    <value>รีสตาร์ททันที</value>
   </data>
   <data name="UpdateDialog_Restarting" xml:space="preserve">
-    <value>Restarting...</value>
+    <value>กำลังรีสตาร์ท...</value>
   </data>
   <data name="UpdateDialog_Later" xml:space="preserve">
     <value>Later</value>
   </data>
   <data name="UpdateDialog_Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>ยกเลิก</value>
   </data>
   <data name="UpdateDialog_FailedHeader" xml:space="preserve">
-    <value>Download Failed</value>
+    <value>ดาวน์โหลดล้มเหลว</value>
   </data>
   <data name="UpdateDialog_FailedSub" xml:space="preserve">
-    <value>An error occurred while downloading the update. You can download the latest installer manually from your browser.</value>
+    <value>เกิดข้อผิดพลาดขณะดาวน์โหลดการอัปเดต คุณสามารถดาวน์โหลดตัวติดตั้งล่าสุดได้ด้วยตนเองจากเบราว์เซอร์ของคุณ</value>
   </data>
   <data name="UpdateDialog_OpenBrowser" xml:space="preserve">
-    <value>Open Browser</value>
+    <value>เปิดเบราว์เซอร์</value>
   </data>
-  <!-- Added Keys Sync -->
+  
   <data name="Nav_Section_Tools" xml:space="preserve">
     <value>เครื่องมือ</value>
   </data>
@@ -2229,51 +2229,51 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>หัวข้อที่แนะนำ:</value>
   </data>
   <data name="Settings_Subtitle" xml:space="preserve">
-    <value>Manage BaoTools preferences</value>
+    <value>จัดการการตั้งค่า BaoTools</value>
   </data>
   <data name="Home_Discord_Title" xml:space="preserve">
-    <value>Discord Community</value>
+    <value>ชุมชนที่ไม่ลงรอยกัน</value>
   </data>
   <data name="Home_Discord_Desc" xml:space="preserve">
-    <value>Join the BaoTools Discord server for announcements, fresh updates, and technical support.</value>
+    <value>เข้าร่วมเซิร์ฟเวอร์ BaoTools Discord เพื่อรับประกาศ อัปเดตล่าสุด และการสนับสนุนทางเทคนิค</value>
   </data>
   <data name="Home_Discord_Join" xml:space="preserve">
-    <value>Join Discord</value>
+    <value>เข้าร่วมความไม่ลงรอยกัน</value>
   </data>
   <data name="Settings_AiAssistant_LocalOffline" xml:space="preserve">
-    <value>Local / Offline</value>
+    <value>ท้องถิ่น / ออฟไลน์</value>
   </data>
   <data name="Settings_AiAssistant_CardDesc" xml:space="preserve">
-    <value>Diagnose games, explain errors and help fix common problems.</value>
+    <value>วิเคราะห์เกม อธิบายข้อผิดพลาด และช่วยแก้ไขปัญหาทั่วไป</value>
   </data>
   <data name="Settings_AiAssistant_Key" xml:space="preserve">
-    <value>Google Gemini API Key</value>
+    <value>คีย์ Google Gemini API</value>
   </data>
   <data name="Settings_AiAssistant_Key_Hint" xml:space="preserve">
-    <value>Free API key from Google AI Studio. Used by the assistant for deeper reasoning.</value>
+    <value>คีย์ API ฟรีจาก Google AI Studio ใช้โดยผู้ช่วยเพื่อการให้เหตุผลเชิงลึก</value>
   </data>
   <data name="Settings_AiAssistant_KeyPlaceholder" xml:space="preserve">
-    <value>Paste your Gemini API key (AIzaSy...)</value>
+    <value>วางคีย์ Gemini API ของคุณ (AIzaSy...)</value>
   </data>
   <data name="Settings_AiAssistant_GetKey" xml:space="preserve">
-    <value>Get Free API Key</value>
+    <value>รับรหัส API ฟรี</value>
   </data>
   <data name="AiChat_CopyMessage" xml:space="preserve">
-    <value>Copy message</value>
+    <value>คัดลอกข้อความ</value>
   </data>
   <data name="AiChat_Copied" xml:space="preserve">
-    <value>Copied!</value>
+    <value>คัดลอก!</value>
   </data>
   <data name="AiChat_Regenerate" xml:space="preserve">
-    <value>Regenerate response</value>
+    <value>สร้างการตอบสนองขึ้นมาใหม่</value>
   </data>
   <data name="AiChat_InspectingGame" xml:space="preserve">
-    <value>Inspecting: {0}</value>
+    <value>กำลังตรวจสอบ: {0}</value>
   </data>
   <data name="AiChat_ClearGameContext" xml:space="preserve">
-    <value>Clear game context</value>
+    <value>ล้างบริบทของเกม</value>
   </data>
-  <!-- Assistant Rotating Discovery Messages -->
+  
   <data name="AssistantAskAnything" xml:space="preserve">
     <value>ถามฉันได้ทุกเรื่อง...</value>
   </data>
@@ -2287,28 +2287,28 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>ต้องการแก้ปัญหาไหม?</value>
   </data>
   <data name="Downloads_Search_Placeholder" xml:space="preserve">
-    <value>Search downloaded games...</value>
+    <value>ค้นหาเกมที่ดาวน์โหลด...</value>
   </data>
   <data name="Manage_Filter_Source" xml:space="preserve">
-    <value>Source</value>
+    <value>แหล่งที่มา</value>
   </data>
   <data name="Downloads_Stats_TotalData" xml:space="preserve">
-    <value>Total Downloaded</value>
+    <value>ดาวน์โหลดทั้งหมด</value>
   </data>
   <data name="Downloads_Stats_DiskFree" xml:space="preserve">
     <value>Drive {0} Â· Free {1}</value>
   </data>
   <data name="Downloads_Shortcut_Failed" xml:space="preserve">
-    <value>Failed to create Desktop shortcut: {0}</value>
+    <value>ไม่สามารถสร้างทางลัดบนเดสก์ท็อป: {0}</value>
   </data>
   <data name="Launcher_MinimizingDueToDownloads" xml:space="preserve">
-    <value>Active downloads in progress. BaoTools minimized to keep downloading.</value>
+    <value>อยู่ระหว่างการดาวน์โหลดที่ใช้งานอยู่ BaoTools ย่อเล็กสุดเพื่อให้ดาวน์โหลดต่อไป</value>
   </data>
   <data name="Downloads_Uninstall_Title" xml:space="preserve">
-    <value>Uninstall Game</value>
+    <value>ถอนการติดตั้งเกม</value>
   </data>
   <data name="Settings_CreateDesktopShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut on download</value>
+    <value>สร้างทางลัดบนเดสก์ท็อปเมื่อดาวน์โหลด</value>
   </data>
   <data name="Downloads_Action_Play" xml:space="preserve">
     <value>Play</value>
@@ -2317,91 +2317,91 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Idle</value>
   </data>
   <data name="Downloads_Empty_Desc" xml:space="preserve">
-    <value>Your download queue is empty. Find and download games, DLCs, or fixes to get started.</value>
+    <value>คิวการดาวน์โหลดของคุณว่างเปล่า ค้นหาและดาวน์โหลดเกม DLC หรือโปรแกรมแก้ไขเพื่อเริ่มต้น</value>
   </data>
   <data name="Downloads_Uninstall_Success" xml:space="preserve">
-    <value>Successfully uninstalled '{0}'.</value>
+    <value>ถอนการติดตั้ง '{0}' สำเร็จแล้ว</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Body" xml:space="preserve">
     <value>{0} is downloaded and ready to play.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Title" xml:space="preserve">
-    <value>Download Complete</value>
+    <value>ดาวน์โหลดเสร็จสมบูรณ์</value>
   </data>
   <data name="Downloads_Stats_Active" xml:space="preserve">
-    <value>Active Queue</value>
+    <value>คิวที่ใช้งานอยู่</value>
   </data>
   <data name="Settings_ExitOnPlay" xml:space="preserve">
-    <value>Close app when launching game</value>
+    <value>ปิดแอปเมื่อเปิดเกม</value>
   </data>
   <data name="Launcher_StartingSteam" xml:space="preserve">
-    <value>Game with Online Fix requires Steam. Opening Steam, please wait until signed in and press Play again!</value>
+    <value>เกมที่มี Online Fix ต้องใช้ Steam กำลังเปิด Steam โปรดรอจนกระทั่งลงชื่อเข้าใช้แล้วกดเล่นอีกครั้ง!</value>
   </data>
   <data name="Settings_ExitOnPlay_Hint" xml:space="preserve">
-    <value>Automatically exit BaoTools when launching a game. If downloads are active, BaoTools minimizes instead to keep downloading.</value>
+    <value>ออกจาก BaoTools โดยอัตโนมัติเมื่อเปิดเกม หากการดาวน์โหลดทำงานอยู่ BaoTools จะย่อขนาดแทนเพื่อให้ดาวน์โหลดต่อไป</value>
   </data>
   <data name="Downloads_Stats_Completed_Desc" xml:space="preserve">
-    <value>Installed games</value>
+    <value>เกมที่ติดตั้ง</value>
   </data>
   <data name="Launcher_LaunchFailed" xml:space="preserve">
-    <value>Failed to launch game: {0}</value>
+    <value>ไม่สามารถเปิดเกมได้: {0}</value>
   </data>
   <data name="Downloads_Stats_Active_Tooltip" xml:space="preserve">
-    <value>Click to view active downloads</value>
+    <value>คลิกเพื่อดูการดาวน์โหลดที่ใช้งานอยู่</value>
   </data>
   <data name="Manage_Filter_Source_Steam" xml:space="preserve">
-    <value>Steam Unlock</value>
+    <value>ปลดล็อคไอน้ำ</value>
   </data>
   <data name="Manage_Badge_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>คลังวัตถุดิบ</value>
   </data>
   <data name="Launcher_GameStarted" xml:space="preserve">
-    <value>Launched {0}.</value>
+    <value>เปิดตัว {0}</value>
   </data>
   <data name="Downloads_Stats_Completed" xml:space="preserve">
-    <value>Completed</value>
+    <value>สมบูรณ์</value>
   </data>
   <data name="Downloads_Action_CreateShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut</value>
+    <value>สร้างทางลัดบนเดสก์ท็อป</value>
   </data>
   <data name="Downloads_Stats_OpenFolder_Tooltip" xml:space="preserve">
-    <value>Click to open download folder in File Explorer</value>
+    <value>คลิกเพื่อเปิดโฟลเดอร์ดาวน์โหลดใน File Explorer</value>
   </data>
   <data name="Downloads_Search_NoResults" xml:space="preserve">
-    <value>No games match your search.</value>
+    <value>ไม่มีเกมที่ตรงกับการค้นหาของคุณ</value>
   </data>
   <data name="Downloads_Action_Uninstall" xml:space="preserve">
-    <value>Uninstall</value>
+    <value>ถอนการติดตั้ง</value>
   </data>
   <data name="Launcher_ExeNotFound" xml:space="preserve">
-    <value>Cannot find a runnable game executable for {0}. Opened folder for manual check.</value>
+    <value>ไม่พบเกมที่รันได้สำหรับ {0} เปิดโฟลเดอร์เพื่อตรวจสอบด้วยตนเอง</value>
   </data>
   <data name="Launcher_ConfiguredOfflineEmulator" xml:space="preserve">
     <value>Configured offline mode for {0}. Launching gameâ€¦</value>
   </data>
   <data name="Downloads_Shortcut_Created" xml:space="preserve">
-    <value>Created Desktop shortcut for '{0}'.</value>
+    <value>สร้างทางลัดบนเดสก์ท็อปสำหรับ '{0}'</value>
   </data>
   <data name="Settings_CreateDesktopShortcut_Hint" xml:space="preserve">
-    <value>Automatically create a desktop shortcut (.lnk) so you can launch the game directly without opening BaoTools.</value>
+    <value>สร้างทางลัดบนเดสก์ท็อป (.lnk) โดยอัตโนมัติ เพื่อให้คุณสามารถเปิดเกมได้โดยตรงโดยไม่ต้องเปิด BaoTools</value>
   </data>
   <data name="Manage_Action_PlayGame" xml:space="preserve">
-    <value>Play Game</value>
+    <value>เล่นเกม</value>
   </data>
   <data name="Downloads_Uninstall_Confirm" xml:space="preserve">
-    <value>Are you sure you want to uninstall '{0}'? All downloaded files at '{1}' will be deleted.</value>
+    <value>คุณแน่ใจหรือไม่ว่าต้องการถอนการติดตั้ง '{0}'? ไฟล์ที่ดาวน์โหลดทั้งหมดที่ '{1}' จะถูกลบ</value>
   </data>
   <data name="Downloads_Stats_Completed_Tooltip" xml:space="preserve">
-    <value>Click to view installed games</value>
+    <value>คลิกเพื่อดูเกมที่ติดตั้ง</value>
   </data>
   <data name="Manage_Filter_Source_All" xml:space="preserve">
-    <value>All sources</value>
+    <value>แหล่งที่มาทั้งหมด</value>
   </data>
   <data name="Downloads_Uninstall_Failed" xml:space="preserve">
-    <value>Failed to uninstall '{0}': {1}</value>
+    <value>ไม่สามารถถอนการติดตั้ง '{0}': {1}</value>
   </data>
   <data name="Downloads_Action_BrowseGames" xml:space="preserve">
-    <value>Browse &amp; Download Games</value>
+    <value>เรียกดูและดาวน์โหลดเกม</value>
   </data>
   <data name="Launcher_DownloadingFix" xml:space="preserve">
     <value>Downloading and installing {0} for {1}â€¦</value>
@@ -2410,9 +2410,132 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Successfully applied {0}! Launching gameâ€¦</value>
   </data>
   <data name="Manage_Filter_Source_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>คลังวัตถุดิบ</value>
   </data>
   <data name="Downloads_Action_OpenFolder" xml:space="preserve">
-    <value>Open Folder</value>
+    <value>เปิดโฟลเดอร์</value>
   </data>
-</root>
+  <data name="Downloads_Filter_All" xml:space="preserve">
+    <value>ทั้งหมด</value>
+  </data>
+  <data name="Downloads_Filter_Games" xml:space="preserve">
+    <value>เกม</value>
+  </data>
+  <data name="Downloads_Filter_Lua" xml:space="preserve">
+    <value>Lua / ปลดล็อก</value>
+  </data>
+  <data name="Downloads_Badge_Game" xml:space="preserve">
+    <value>เกม</value>
+  </data>
+  <data name="Downloads_Badge_Lua" xml:space="preserve">
+    <value>ปลดล็อก Lua</value>
+  </data>
+  <data name="Launcher_GameStarted_Online" xml:space="preserve">
+    <value>การเล่นในโหมดออนไลน์ (Online-Fix): {0}</value>
+  </data>
+  <data name="Launcher_GameStarted_Offline" xml:space="preserve">
+    <value>ไม่พบวิธีแก้ไขออนไลน์ กำลังเล่นในโหมดออฟไลน์: {0}</value>
+  </data>
+  <data name="Launcher_RestoredOnlineFix" xml:space="preserve">
+    <value>OnlineFix64.dll ที่กู้คืนโดยอัตโนมัติถูกลบโดย Windows Defender และเพิ่มเข้าในการยกเว้น</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion" xml:space="preserve">
+    <value>ป้องกันการลบ Defender</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_Success" xml:space="preserve">
+    <value>เพิ่ม {0} ลงในการยกเว้นของ Windows Defender</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All" xml:space="preserve">
+    <value>ปกป้องเกมทั้งหมดจาก Defender</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All_Success" xml:space="preserve">
+    <value>ขอการยกเว้น Windows Defender สำหรับไดเร็กทอรีเกมที่ติดตั้งทั้งหมด</value>
+  </data>
+  <data name="OnlineFixes_Filter_All" xml:space="preserve">
+    <value>ทั้งหมด ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Online" xml:space="preserve">
+    <value>ðŸŸ¢ Online Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Offline" xml:space="preserve">
+    <value>âšª Offline / No Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Badge_Online" xml:space="preserve">
+    <value>การแก้ไขออนไลน์</value>
+  </data>
+  <data name="OnlineFixes_Badge_Offline" xml:space="preserve">
+    <value>ออฟไลน์</value>
+  </data>
+  <data name="GameDoctor_Title" xml:space="preserve">
+    <value>เกมหมอ</value>
+  </data>
+  <data name="Settings_AutoGameDoctor" xml:space="preserve">
+    <value>Auto Game Doctor (รันไทม์รักษาอัตโนมัติ)</value>
+  </data>
+  <data name="Settings_AutoGameDoctor_Hint" xml:space="preserve">
+    <value>วินิจฉัยและติดตั้งรันไทม์ Visual C++ และ DirectX ที่หายไปโดยอัตโนมัติเมื่อดาวน์โหลดและเปิดเกม เพื่อป้องกันข้อผิดพลาด 0xc000007b หรือเปิดข้อขัดข้อง</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes" xml:space="preserve">
+    <value>ติดตั้งรันไทม์เกมออลอินวัน (VC++ และ DirectX)</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes_Hint" xml:space="preserve">
+    <value>ดาวน์โหลดและติดตั้งรันไทม์ Microsoft Visual C++ และ DirectX ที่จำเป็นสำหรับเกม</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealing" xml:space="preserve">
+    <value>Game Doctor: การรักษาอัตโนมัติ {0} แพ็คเกจรันไทม์หายไป...</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealSuccess" xml:space="preserve">
+    <value>Game Doctor: ติดตั้งไลบรารีรันไทม์ทั้งหมดสำเร็จแล้ว เกมพร้อมแล้ว!</value>
+  </data>
+  <data name="GameDoctor_Toast_AllRuntimesInstalled" xml:space="preserve">
+    <value>ติดตั้งรันไทม์ Visual C++ และ DirectX สำเร็จแล้ว!</value>
+  </data>
+  <data name="GameDoctor_Status_Installing" xml:space="preserve">
+    <value>กำลังติดตั้งรันไทม์...</value>
+  </data>
+  <data name="GameDoctor_Status_Failed" xml:space="preserve">
+    <value>การติดตั้งล้มเหลว</value>
+  </data>
+  <data name="Manage_Action_GameDoctor" xml:space="preserve">
+    <value>เกมหมอ (วินิจฉัย)</value>
+  </data>
+  <data name="GameDoctor_Healthy" xml:space="preserve">
+    <value>สภาพแวดล้อมของเกมมีสุขภาพดี ตรวจสอบการพึ่งพาทั้งหมดแล้ว!</value>
+  </data>
+  <data name="GameDoctor_MissingDllCount" xml:space="preserve">
+    <value>ตรวจพบ {0} ไฟล์อ้างอิงหายไปหรือสถาปัตยกรรมไม่ตรงกัน</value>
+  </data>
+  <data name="GameDoctor_ArchitectureMismatch" xml:space="preserve">
+    <value>สถาปัตยกรรมไม่ตรงกัน (ไม่ตรงกันแบบ 32 บิต / 64 บิตทำให้เกิดข้อผิดพลาด 0xc000007b)</value>
+  </data>
+  <data name="GameDoctor_FixNow" xml:space="preserve">
+    <value>แก้ไขอัตโนมัติ 1 คลิก</value>
+  </data>
+  <data name="GameDoctor_ChooseExe" xml:space="preserve">
+    <value>วินิจฉัย .exe อื่น ๆ</value>
+  </data>
+  <data name="Common_Install" xml:space="preserve">
+    <value>ติดตั้ง</value>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Splash_Subtitle" xml:space="preserve">
+    <value>ผู้ช่วยเล่นเกมขั้นสุดยอด</value>
+  </data>
+  <data name="Splash_Initializing" xml:space="preserve">
+    <value>กำลังเริ่มต้นระบบ...</value>
+  </data>
+  <data name="Splash_CheckingEnv" xml:space="preserve">
+    <value>กำลังตรวจสอบสภาพแวดล้อมเกม...</value>
+  </data>
+  <data name="Splash_Preparing" xml:space="preserve">
+    <value>กำลังเตรียมอินเทอร์เฟซ...</value>
+  </data>
+  <data name="Splash_WelcomeGuest" xml:space="preserve">
+    <value>ยินดีต้อนรับสู่ BaoTools!</value>
+  </data>
+  <data name="Splash_WelcomeUser" xml:space="preserve">
+    <value>ยินดีต้อนรับกลับมา {0}! ขอให้สนุกกับการเล่นเกม!</value>
+  </data>
+<data name="Auth_Err_PortBusy" xml:space="preserve"><value>พอร์ตการเชื่อมต่อ ({0}) ไม่ว่างหรือกำลังรอการเปิดตัว Windows โปรดรอสักครู่แล้วลองอีกครั้ง!</value></data><data name="Auth_Err_Denied" xml:space="preserve"><value>การลงชื่อเข้าใช้ถูกปฏิเสธหรือถูกยกเลิก</value></data><data name="Status_SteamOnline" xml:space="preserve"><value>ไอน้ำ: ออนไลน์</value></data><data name="Status_SteamOffline" xml:space="preserve"><value>ไอน้ำ: ออฟไลน์</value></data><data name="Status_PluginActive" xml:space="preserve"><value>ปลั๊กอิน: ใช้งานอยู่</value></data><data name="Status_PluginMissing" xml:space="preserve"><value>ปลั๊กอิน: หายไป</value></data><data name="GameDoctor_ExeNotFound_Title" xml:space="preserve"><value>ไม่พบการดำเนินการ</value></data><data name="GameDoctor_ExeNotFound_Status" xml:space="preserve"><value>ไม่พบไฟล์ปฏิบัติการที่รันได้</value></data><data name="GameDoctor_AllPeImportsValid" xml:space="preserve"><value>ตรวจสอบไลบรารี {0} PE ทั้งหมดถูกต้องและเข้ากันได้</value></data><data name="GameDoctor_NeedsRuntimePackages" xml:space="preserve"><value>จำเป็นต้องติดตั้งแพ็คเกจรันไทม์ {0} (Visual C++ / DirectX) เพื่อรันเกมนี้</value></data><data name="GameDoctor_PeImportsHeader" xml:space="preserve"><value>ไลบรารี PE ที่เชื่อมโยง (นำเข้า)</value></data><data name="GameDoctor_Status_Missing" xml:space="preserve"><value>หายไป</value></data><data name="GameDoctor_Status_Ok" xml:space="preserve"><value>ติดตั้งแล้ว</value></data><data name="GameDoctor_Status_Mismatch" xml:space="preserve"><value>ส่วนโค้งไม่ตรงกัน (x86/x64)</value></data><data name="Settings_Gemini_KeyDeleted" xml:space="preserve"><value>ลบคีย์ Gemini API แล้ว ผู้ช่วย AI จะทำงานในโหมดโลคัลออฟไลน์</value></data><data name="Settings_Gemini_KeyActivated" xml:space="preserve"><value>✓ เปิดใช้งาน Google Gemini AI สำเร็จแล้ว!</value></data><data name="Update_DownloadError" xml:space="preserve"><value>เกิดข้อผิดพลาดขณะดาวน์โหลดการอัปเดต</value></data></root>

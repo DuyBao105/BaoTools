@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:schema id="root">
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -128,7 +128,7 @@
     <value>Есть код? Выполните /login в Discord и введите его здесь.</value>
   </data>
   <data name="Settings_BotCode_Placeholder" xml:space="preserve">
-    <value>A3X9K2</value>
+    <value>А3Х9К2</value>
   </data>
   <data name="Settings_BotCode_Redeem" xml:space="preserve">
     <value>Активировать</value>
@@ -158,7 +158,7 @@
     <value>Управляйте своим ключом API Hubcap и профилем на</value>
   </data>
   <data name="Settings_Section_Hubcap" xml:space="preserve">
-    <value>HUBCAP</value>
+    <value>КОЛПАЧОК</value>
   </data>
   <data name="Settings_HubcapKey" xml:space="preserve">
     <value>Ключ API Hubcap</value>
@@ -524,7 +524,7 @@
     <value>Загрузка…</value>
   </data>
   <data name="Common_AppId" xml:space="preserve">
-    <value>App ID: {0}</value>
+    <value>Идентификатор приложения: {0}</value>
   </data>
   <data name="Common_AppFallback" xml:space="preserve">
     <value>Приложение {0}</value>
@@ -656,7 +656,7 @@
     <value>Дата выхода (новые)</value>
   </data>
   <data name="Manage_Sort_Metacritic" xml:space="preserve">
-    <value>Metacritic</value>
+    <value>Метакритик</value>
   </data>
   <data name="Manage_Sort_MostReviewed" xml:space="preserve">
     <value>Больше всего отзывов</value>
@@ -713,7 +713,7 @@
     <value>Общее депо</value>
   </data>
   <data name="Manage_DlcName" xml:space="preserve">
-    <value>DLC {0}</value>
+    <value>Дополнение {0}</value>
   </data>
   <data name="Manage_Delete_Title" xml:space="preserve">
     <value>Удалить файл lua</value>
@@ -854,7 +854,7 @@
     <value>Показать</value>
   </data>
   <data name="Add_Supporter" xml:space="preserve">
-    <value>Supporter</value>
+    <value>Сторонник</value>
   </data>
   <data name="Add_Unlimited" xml:space="preserve">
     <value>Безлимитно</value>
@@ -1678,20 +1678,20 @@
     <value>Удалить все записи ({0}) из истории загрузок? Загруженные файлы не затрагиваются.</value>
   </data>
   <data name="Nav_OnlineFixes" xml:space="preserve">
-    <value>Online Fix</value>
+    <value>Онлайн исправление</value>
   </data>
   <data name="OnlineFixes_Download" xml:space="preserve">
-    <value>Download Fix</value>
+    <value>Скачать исправление</value>
   </data>
   <data name="OnlineFixes_Install" xml:space="preserve">
-    <value>Install Fix</value>
+    <value>Установить исправление</value>
   </data>
   <data name="OnlineFixes_Search" xml:space="preserve">
-    <value>Search installed games...</value>
+    <value>Поиск установленных игр...</value>
   </data>
   <data name="OnlineFixes_Help" xml:space="preserve">
-    <value>Step 1: Click "Download Fix" to search and download the ZIP file from online-fix.me.
-Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically extract it into the game folder.</value>
+    <value>Шаг 1. Нажмите «Загрузить исправление», чтобы найти и загрузить ZIP-файл с сайта online-fix.me.
+Шаг 2: Нажмите «Установить исправление» и выберите загруженный ZIP-файл, чтобы автоматически извлечь его в папку с игрой.</value>
   </data>
   <data name="Nav_Tickets" xml:space="preserve">
     <value>Тикеты</value>
@@ -1724,7 +1724,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>1. Загрузите исправление (online-fix.me).</value>
   </data>
   <data name="OnlineFixes_Step2_Desc" xml:space="preserve">
-    <value>Click 'Install Fix' and select the downloaded ZIP file to auto-extract into the game folder.</value>
+    <value>Нажмите «Установить исправление» и выберите загруженный ZIP-файл для автоматического извлечения в папку с игрой.</value>
   </data>
   <data name="OnlineFixes_Step2_Title" xml:space="preserve">
     <value>2. Установить автоматически</value>
@@ -1790,13 +1790,13 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>30-минутный период действия билета</value>
   </data>
   <data name="Tickets_NoticeBody" xml:space="preserve">
-    <value>Tickets can only be extracted from an account that genuinely owns the game or has valid Family Sharing. Denuvo authorization tickets have a ~30-minute validity window before they must be refreshed.</value>
+    <value>Билеты можно извлечь только из учетной записи, которая действительно владеет игрой или имеет действующую функцию «Семейный доступ». Билеты авторизации Denuvo имеют период действия около 30 минут, прежде чем их необходимо обновить.</value>
   </data>
   <data name="Tickets_NoticeHeader" xml:space="preserve">
     <value>Важные примечания для Denuvo</value>
   </data>
   <data name="Tickets_OpenFolder" xml:space="preserve">
-    <value>Open Folder</value>
+    <value>Открыть папку</value>
   </data>
   <data name="Tickets_Opt_AutoLua" xml:space="preserve">
     <value>Автоматически применить setAppTicket и setETicket к config/stplug-in/&lt;appid&gt;.lua</value>
@@ -1841,16 +1841,16 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Билеты на Steam и Denuvo</value>
   </data>
   <data name="Download_DailyQuota_Label" xml:space="preserve">
-    <value>Daily downloads: </value>
+    <value>Ежедневные загрузки:</value>
   </data>
   <data name="Download_DailyQuota_GuestBadge" xml:space="preserve">
     <value>Войдите и получите 10 загрузок в день</value>
   </data>
   <data name="Download_DailyQuota_LimitReached" xml:space="preserve">
-    <value>You have reached your daily limit of 10 downloads. Please try again tomorrow.</value>
+    <value>Вы достигли дневного лимита в 10 загрузок. Пожалуйста, повторите попытку завтра.</value>
   </data>
   <data name="Home_DailyQuota_Guest" xml:space="preserve">
-    <value>Daily downloads: Sign in with Discord for 10 downloads/day</value>
+    <value>Ежедневные загрузки: войдите в Discord и получите 10 загрузок в день.</value>
   </data>
   <data name="Home_DailyQuota_Supporter" xml:space="preserve">
     <value>Ежедневные загрузки: {0} / без ограничений (поддержка)</value>
@@ -1859,7 +1859,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Ежедневные загрузки: использовано сегодня: {0}/{1}.</value>
   </data>
   <data name="Home_DailyQuota_Active" xml:space="preserve">
-    <value>Daily downloads: 10/day (Active)</value>
+    <value>Ежедневные загрузки: 10 в день (активно)</value>
   </data>
   <data name="Tickets_AppTicket_Title" xml:space="preserve">
     <value>Билет на владение приложением</value>
@@ -1871,7 +1871,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Нет в наличии</value>
   </data>
   <data name="Nav_Plugin" xml:space="preserve">
-    <value>Plugin</value>
+    <value>Плагин</value>
   </data>
   <data name="Fixes_Applied_Hint" xml:space="preserve">
     <value>Это исправление уже применено. Откатите его, чтобы установить другое.</value>
@@ -1985,96 +1985,96 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Автоматически запускать BaoTools в системном трее при запуске Steam.</value>
   </data>
   <data name="Theme_Default" xml:space="preserve">
-    <value>BaoTools Classic</value>
+    <value>БаоИнструменты Классик</value>
   </data>
   <data name="Theme_Dracula" xml:space="preserve">
-    <value>Dracula</value>
+    <value>Дракула</value>
   </data>
   <data name="Theme_Nord" xml:space="preserve">
     <value>Nord</value>
   </data>
   <data name="Theme_Catppuccin" xml:space="preserve">
-    <value>Catppuccin Mocha</value>
+    <value>Катпучин Мокко</value>
   </data>
   <data name="Theme_Cyberpunk" xml:space="preserve">
-    <value>Cyberpunk</value>
+    <value>Киберпанк</value>
   </data>
   <data name="Theme_Midnight" xml:space="preserve">
-    <value>Midnight OLED</value>
+    <value>Полуночный OLED</value>
   </data>
   <data name="Theme_TokyoNight" xml:space="preserve">
-    <value>Tokyo Night</value>
+    <value>Токио Ночь</value>
   </data>
   <data name="Theme_Synthwave" xml:space="preserve">
-    <value>Synthwave '84</value>
+    <value>Синтвейв '84</value>
   </data>
   <data name="Theme_RosePine" xml:space="preserve">
-    <value>Rosé Pine</value>
+    <value>Розе Пайн</value>
   </data>
   <data name="Theme_Sakura" xml:space="preserve">
-    <value>Sakura Blossom</value>
+    <value>Сакура Цветение</value>
   </data>
   <data name="Theme_Emerald" xml:space="preserve">
-    <value>Emerald Matrix</value>
+    <value>Изумрудная матрица</value>
   </data>
   <data name="Theme_AmberSunset" xml:space="preserve">
-    <value>Amber Horizon</value>
+    <value>Янтарный горизонт</value>
   </data>
   <data name="Theme_Amethyst" xml:space="preserve">
-    <value>Amethyst Neon</value>
+    <value>Аметист Неон</value>
   </data>
   <data name="Theme_AbyssalOcean" xml:space="preserve">
-    <value>Abyssal Ocean</value>
+    <value>Бездонный океан</value>
   </data>
   <data name="Theme_OneDark" xml:space="preserve">
-    <value>One Dark Pro</value>
+    <value>Один Темный Про</value>
   </data>
   <data name="Theme_Gruvbox" xml:space="preserve">
-    <value>Gruvbox Retro</value>
+    <value>Грувбокс Ретро</value>
   </data>
   <data name="UpdateDialog_Title" xml:space="preserve">
-    <value>Software Update</value>
+    <value>Обновление программного обеспечения</value>
   </data>
   <data name="UpdateDialog_DownloadingHeader" xml:space="preserve">
-    <value>Downloading Update</value>
+    <value>Загрузка обновления</value>
   </data>
   <data name="UpdateDialog_DownloadingSub" xml:space="preserve">
-    <value>Downloading update package for {0}... Please keep BaoTools open.</value>
+    <value>Загрузка пакета обновления для {0}... Не закрывайте BaoTools.</value>
   </data>
   <data name="UpdateDialog_DownloadingStatus" xml:space="preserve">
-    <value>Downloading</value>
+    <value>Загрузка</value>
   </data>
   <data name="UpdateDialog_ReadyHeader" xml:space="preserve">
-    <value>Update Ready to Install</value>
+    <value>Обновление готово к установке</value>
   </data>
   <data name="UpdateDialog_ReadySub" xml:space="preserve">
-    <value>BaoTools {0} has been downloaded. Click Restart Now to apply the update and start using the new version.</value>
+    <value>BaoTools {0} загружен. Нажмите «Перезагрузить сейчас», чтобы применить обновление и начать использовать новую версию.</value>
   </data>
   <data name="UpdateDialog_ReadyStatus" xml:space="preserve">
-    <value>Ready to install</value>
+    <value>Готов к установке</value>
   </data>
   <data name="UpdateDialog_RestartNow" xml:space="preserve">
-    <value>Restart Now</value>
+    <value>Перезагрузить сейчас</value>
   </data>
   <data name="UpdateDialog_Restarting" xml:space="preserve">
-    <value>Restarting...</value>
+    <value>Перезапуск...</value>
   </data>
   <data name="UpdateDialog_Later" xml:space="preserve">
     <value>Later</value>
   </data>
   <data name="UpdateDialog_Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Отмена</value>
   </data>
   <data name="UpdateDialog_FailedHeader" xml:space="preserve">
-    <value>Download Failed</value>
+    <value>Загрузка не удалась</value>
   </data>
   <data name="UpdateDialog_FailedSub" xml:space="preserve">
-    <value>An error occurred while downloading the update. You can download the latest installer manually from your browser.</value>
+    <value>При загрузке обновления произошла ошибка. Вы можете загрузить последнюю версию установщика вручную из браузера.</value>
   </data>
   <data name="UpdateDialog_OpenBrowser" xml:space="preserve">
-    <value>Open Browser</value>
+    <value>Открыть браузер</value>
   </data>
-  <!-- Added Keys Sync -->
+  
   <data name="Nav_Section_Tools" xml:space="preserve">
     <value>ИНСТРУМЕНТЫ</value>
   </data>
@@ -2229,34 +2229,34 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Рекомендуемые темы:</value>
   </data>
   <data name="Settings_Subtitle" xml:space="preserve">
-    <value>Manage BaoTools preferences</value>
+    <value>Управление настройками BaoTools</value>
   </data>
   <data name="Home_Discord_Title" xml:space="preserve">
-    <value>Discord Community</value>
+    <value>Дискорд-сообщество</value>
   </data>
   <data name="Home_Discord_Desc" xml:space="preserve">
-    <value>Join the BaoTools Discord server for announcements, fresh updates, and technical support.</value>
+    <value>Присоединяйтесь к серверу BaoTools Discord, чтобы получать объявления, свежие обновления и техническую поддержку.</value>
   </data>
   <data name="Home_Discord_Join" xml:space="preserve">
-    <value>Join Discord</value>
+    <value>Присоединяйтесь к Discord</value>
   </data>
   <data name="Settings_AiAssistant_LocalOffline" xml:space="preserve">
-    <value>Local / Offline</value>
+    <value>Локальный / Оффлайн</value>
   </data>
   <data name="Settings_AiAssistant_CardDesc" xml:space="preserve">
-    <value>Diagnose games, explain errors and help fix common problems.</value>
+    <value>Диагностика игр, объяснение ошибок и помощь в устранении распространенных проблем.</value>
   </data>
   <data name="Settings_AiAssistant_Key" xml:space="preserve">
-    <value>Google Gemini API Key</value>
+    <value>Ключ API Google Gemini</value>
   </data>
   <data name="Settings_AiAssistant_Key_Hint" xml:space="preserve">
-    <value>Free API key from Google AI Studio. Used by the assistant for deeper reasoning.</value>
+    <value>Бесплатный ключ API от Google AI Studio. Используется помощником для более глубоких рассуждений.</value>
   </data>
   <data name="Settings_AiAssistant_KeyPlaceholder" xml:space="preserve">
-    <value>Paste your Gemini API key (AIzaSy...)</value>
+    <value>Вставьте свой ключ API Gemini (AIzaSy...)</value>
   </data>
   <data name="Settings_AiAssistant_GetKey" xml:space="preserve">
-    <value>Get Free API Key</value>
+    <value>Получите бесплатный ключ API</value>
   </data>
   <data name="AiChat_CopyMessage" xml:space="preserve">
     <value>Копировать сообщение</value>
@@ -2273,7 +2273,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
   <data name="AiChat_ClearGameContext" xml:space="preserve">
     <value>Снять контекст игры</value>
   </data>
-  <!-- Assistant Rotating Discovery Messages -->
+  
   <data name="AssistantAskAnything" xml:space="preserve">
     <value>Спросите меня о чем угодно...</value>
   </data>
@@ -2287,28 +2287,28 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Нужно исправление?</value>
   </data>
   <data name="Downloads_Search_Placeholder" xml:space="preserve">
-    <value>Search downloaded games...</value>
+    <value>Поиск скачанных игр...</value>
   </data>
   <data name="Manage_Filter_Source" xml:space="preserve">
-    <value>Source</value>
+    <value>Источник</value>
   </data>
   <data name="Downloads_Stats_TotalData" xml:space="preserve">
-    <value>Total Downloaded</value>
+    <value>Всего скачано</value>
   </data>
   <data name="Downloads_Stats_DiskFree" xml:space="preserve">
     <value>Drive {0} Â· Free {1}</value>
   </data>
   <data name="Downloads_Shortcut_Failed" xml:space="preserve">
-    <value>Failed to create Desktop shortcut: {0}</value>
+    <value>Не удалось создать ярлык на рабочем столе: {0}.</value>
   </data>
   <data name="Launcher_MinimizingDueToDownloads" xml:space="preserve">
-    <value>Active downloads in progress. BaoTools minimized to keep downloading.</value>
+    <value>Идут активные загрузки. BaoTools свернута, чтобы продолжить загрузку.</value>
   </data>
   <data name="Downloads_Uninstall_Title" xml:space="preserve">
-    <value>Uninstall Game</value>
+    <value>Удалить игру</value>
   </data>
   <data name="Settings_CreateDesktopShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut on download</value>
+    <value>Создать ярлык на рабочем столе при загрузке</value>
   </data>
   <data name="Downloads_Action_Play" xml:space="preserve">
     <value>Play</value>
@@ -2317,91 +2317,91 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Idle</value>
   </data>
   <data name="Downloads_Empty_Desc" xml:space="preserve">
-    <value>Your download queue is empty. Find and download games, DLCs, or fixes to get started.</value>
+    <value>Ваша очередь загрузки пуста. Чтобы начать работу, найдите и загрузите игры, дополнения или исправления.</value>
   </data>
   <data name="Downloads_Uninstall_Success" xml:space="preserve">
-    <value>Successfully uninstalled '{0}'.</value>
+    <value>Успешно удален «{0}».</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Body" xml:space="preserve">
     <value>{0} is downloaded and ready to play.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Title" xml:space="preserve">
-    <value>Download Complete</value>
+    <value>Загрузка завершена</value>
   </data>
   <data name="Downloads_Stats_Active" xml:space="preserve">
-    <value>Active Queue</value>
+    <value>Активная очередь</value>
   </data>
   <data name="Settings_ExitOnPlay" xml:space="preserve">
-    <value>Close app when launching game</value>
+    <value>Закрыть приложение при запуске игры</value>
   </data>
   <data name="Launcher_StartingSteam" xml:space="preserve">
-    <value>Game with Online Fix requires Steam. Opening Steam, please wait until signed in and press Play again!</value>
+    <value>Для игры с Online Fix требуется Steam. Открыв Steam, подождите, пока войдёте в систему, и снова нажмите «Играть»!</value>
   </data>
   <data name="Settings_ExitOnPlay_Hint" xml:space="preserve">
-    <value>Automatically exit BaoTools when launching a game. If downloads are active, BaoTools minimizes instead to keep downloading.</value>
+    <value>Автоматический выход из BaoTools при запуске игры. Если загрузка активна, BaoTools сворачивается, чтобы продолжить загрузку.</value>
   </data>
   <data name="Downloads_Stats_Completed_Desc" xml:space="preserve">
-    <value>Installed games</value>
+    <value>Установленные игры</value>
   </data>
   <data name="Launcher_LaunchFailed" xml:space="preserve">
-    <value>Failed to launch game: {0}</value>
+    <value>Не удалось запустить игру: {0}.</value>
   </data>
   <data name="Downloads_Stats_Active_Tooltip" xml:space="preserve">
-    <value>Click to view active downloads</value>
+    <value>Нажмите, чтобы просмотреть активные загрузки</value>
   </data>
   <data name="Manage_Filter_Source_Steam" xml:space="preserve">
-    <value>Steam Unlock</value>
+    <value>Разблокировка в Steam</value>
   </data>
   <data name="Manage_Badge_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>Сырьевой склад</value>
   </data>
   <data name="Launcher_GameStarted" xml:space="preserve">
-    <value>Launched {0}.</value>
+    <value>Запущен {0}.</value>
   </data>
   <data name="Downloads_Stats_Completed" xml:space="preserve">
-    <value>Completed</value>
+    <value>Завершенный</value>
   </data>
   <data name="Downloads_Action_CreateShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut</value>
+    <value>Создать ярлык на рабочем столе</value>
   </data>
   <data name="Downloads_Stats_OpenFolder_Tooltip" xml:space="preserve">
-    <value>Click to open download folder in File Explorer</value>
+    <value>Нажмите, чтобы открыть папку загрузки в проводнике.</value>
   </data>
   <data name="Downloads_Search_NoResults" xml:space="preserve">
-    <value>No games match your search.</value>
+    <value>Ни одна игра не соответствует вашему запросу.</value>
   </data>
   <data name="Downloads_Action_Uninstall" xml:space="preserve">
-    <value>Uninstall</value>
+    <value>Удалить</value>
   </data>
   <data name="Launcher_ExeNotFound" xml:space="preserve">
-    <value>Cannot find a runnable game executable for {0}. Opened folder for manual check.</value>
+    <value>Невозможно найти работоспособный исполняемый файл игры для {0}. Открыта папка для ручной проверки.</value>
   </data>
   <data name="Launcher_ConfiguredOfflineEmulator" xml:space="preserve">
     <value>Configured offline mode for {0}. Launching gameâ€¦</value>
   </data>
   <data name="Downloads_Shortcut_Created" xml:space="preserve">
-    <value>Created Desktop shortcut for '{0}'.</value>
+    <value>Создан ярлык на рабочем столе для «{0}».</value>
   </data>
   <data name="Settings_CreateDesktopShortcut_Hint" xml:space="preserve">
-    <value>Automatically create a desktop shortcut (.lnk) so you can launch the game directly without opening BaoTools.</value>
+    <value>Автоматически создайте ярлык на рабочем столе (.lnk), чтобы можно было запускать игру напрямую, не открывая BaoTools.</value>
   </data>
   <data name="Manage_Action_PlayGame" xml:space="preserve">
-    <value>Play Game</value>
+    <value>Играть в игру</value>
   </data>
   <data name="Downloads_Uninstall_Confirm" xml:space="preserve">
-    <value>Are you sure you want to uninstall '{0}'? All downloaded files at '{1}' will be deleted.</value>
+    <value>Вы уверены, что хотите удалить «{0}»? Все загруженные файлы по адресу «{1}» будут удалены.</value>
   </data>
   <data name="Downloads_Stats_Completed_Tooltip" xml:space="preserve">
-    <value>Click to view installed games</value>
+    <value>Нажмите, чтобы просмотреть установленные игры</value>
   </data>
   <data name="Manage_Filter_Source_All" xml:space="preserve">
-    <value>All sources</value>
+    <value>Все источники</value>
   </data>
   <data name="Downloads_Uninstall_Failed" xml:space="preserve">
-    <value>Failed to uninstall '{0}': {1}</value>
+    <value>Не удалось удалить «{0}»: {1}.</value>
   </data>
   <data name="Downloads_Action_BrowseGames" xml:space="preserve">
-    <value>Browse &amp; Download Games</value>
+    <value>Просматривайте и скачивайте игры</value>
   </data>
   <data name="Launcher_DownloadingFix" xml:space="preserve">
     <value>Downloading and installing {0} for {1}â€¦</value>
@@ -2410,9 +2410,132 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Successfully applied {0}! Launching gameâ€¦</value>
   </data>
   <data name="Manage_Filter_Source_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>Сырьевой склад</value>
   </data>
   <data name="Downloads_Action_OpenFolder" xml:space="preserve">
-    <value>Open Folder</value>
+    <value>Открыть папку</value>
   </data>
-</root>
+  <data name="Downloads_Filter_All" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="Downloads_Filter_Games" xml:space="preserve">
+    <value>Игры</value>
+  </data>
+  <data name="Downloads_Filter_Lua" xml:space="preserve">
+    <value>Lua / Разблокировки</value>
+  </data>
+  <data name="Downloads_Badge_Game" xml:space="preserve">
+    <value>Игра</value>
+  </data>
+  <data name="Downloads_Badge_Lua" xml:space="preserve">
+    <value>Lua разблокировка</value>
+  </data>
+  <data name="Launcher_GameStarted_Online" xml:space="preserve">
+    <value>Игра в онлайн-режиме (онлайн-исправление): {0}</value>
+  </data>
+  <data name="Launcher_GameStarted_Offline" xml:space="preserve">
+    <value>Онлайн-исправление не найдено. Игра в автономном режиме: {0}</value>
+  </data>
+  <data name="Launcher_RestoredOnlineFix" xml:space="preserve">
+    <value>Автоматически восстановленный файл OnlineFix64.dll, удаленный Защитником Windows и добавленный в исключения.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion" xml:space="preserve">
+    <value>Запретить удаление Защитника</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_Success" xml:space="preserve">
+    <value>В исключения Защитника Windows добавлен {0}.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All" xml:space="preserve">
+    <value>Защитите все игры от Защитника</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All_Success" xml:space="preserve">
+    <value>Запрошены исключения Защитника Windows для всех установленных каталогов игр.</value>
+  </data>
+  <data name="OnlineFixes_Filter_All" xml:space="preserve">
+    <value>Все ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Online" xml:space="preserve">
+    <value>ðŸŸ¢ Online Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Offline" xml:space="preserve">
+    <value>âšª Offline / No Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Badge_Online" xml:space="preserve">
+    <value>Онлайн исправление</value>
+  </data>
+  <data name="OnlineFixes_Badge_Offline" xml:space="preserve">
+    <value>Офлайн</value>
+  </data>
+  <data name="GameDoctor_Title" xml:space="preserve">
+    <value>Игровой доктор</value>
+  </data>
+  <data name="Settings_AutoGameDoctor" xml:space="preserve">
+    <value>Auto Game Doctor (время выполнения автоматического восстановления)</value>
+  </data>
+  <data name="Settings_AutoGameDoctor_Hint" xml:space="preserve">
+    <value>Автоматически диагностируйте и устанавливайте отсутствующие среды выполнения Visual C++ и DirectX при загрузке и запуске игр, чтобы предотвратить ошибки 0xc000007b или сбои при запуске.</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes" xml:space="preserve">
+    <value>Установите универсальные среды выполнения игр (VC++ и DirectX)</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes_Hint" xml:space="preserve">
+    <value>Загрузите и установите среды выполнения Microsoft Visual C++ и DirectX, необходимые для игр.</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealing" xml:space="preserve">
+    <value>Game Doctor: автоматическое восстановление {0} отсутствующих пакетов среды выполнения...</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealSuccess" xml:space="preserve">
+    <value>Game Doctor: Все библиотеки времени выполнения успешно установлены. Игра готова!</value>
+  </data>
+  <data name="GameDoctor_Toast_AllRuntimesInstalled" xml:space="preserve">
+    <value>Среды выполнения Visual C++ и DirectX успешно установлены!</value>
+  </data>
+  <data name="GameDoctor_Status_Installing" xml:space="preserve">
+    <value>Установка среды выполнения...</value>
+  </data>
+  <data name="GameDoctor_Status_Failed" xml:space="preserve">
+    <value>Установка не удалась.</value>
+  </data>
+  <data name="Manage_Action_GameDoctor" xml:space="preserve">
+    <value>Game Doctor (Диагностика)</value>
+  </data>
+  <data name="GameDoctor_Healthy" xml:space="preserve">
+    <value>Игровая среда здоровая. Все зависимости проверены!</value>
+  </data>
+  <data name="GameDoctor_MissingDllCount" xml:space="preserve">
+    <value>Обнаружено отсутствие файлов зависимостей {0} или несоответствие архитектуры.</value>
+  </data>
+  <data name="GameDoctor_ArchitectureMismatch" xml:space="preserve">
+    <value>Несоответствие архитектуры (несоответствие 32-битной/64-битной версии вызывает ошибку 0xc000007b)</value>
+  </data>
+  <data name="GameDoctor_FixNow" xml:space="preserve">
+    <value>Автоисправление в 1 клик</value>
+  </data>
+  <data name="GameDoctor_ChooseExe" xml:space="preserve">
+    <value>Диагностика других .exe</value>
+  </data>
+  <data name="Common_Install" xml:space="preserve">
+    <value>Установить</value>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Splash_Subtitle" xml:space="preserve">
+    <value>Ваш универсальный игровой помощник</value>
+  </data>
+  <data name="Splash_Initializing" xml:space="preserve">
+    <value>Инициализация системы...</value>
+  </data>
+  <data name="Splash_CheckingEnv" xml:space="preserve">
+    <value>Проверка игрового окружения...</value>
+  </data>
+  <data name="Splash_Preparing" xml:space="preserve">
+    <value>Подготовка интерфейса...</value>
+  </data>
+  <data name="Splash_WelcomeGuest" xml:space="preserve">
+    <value>Добро пожаловать в BaoTools!</value>
+  </data>
+  <data name="Splash_WelcomeUser" xml:space="preserve">
+    <value>С возвращением, {0}! Приятной игры!</value>
+  </data>
+<data name="Auth_Err_PortBusy" xml:space="preserve"><value>Порт подключения ({0}) занят или ожидает выхода версии Windows. Пожалуйста, подождите несколько секунд и повторите попытку!</value></data><data name="Auth_Err_Denied" xml:space="preserve"><value>Вход в систему был отклонен или отменен.</value></data><data name="Status_SteamOnline" xml:space="preserve"><value>Steam: Онлайн</value></data><data name="Status_SteamOffline" xml:space="preserve"><value>Steam: Оффлайн</value></data><data name="Status_PluginActive" xml:space="preserve"><value>Плагин: Активный</value></data><data name="Status_PluginMissing" xml:space="preserve"><value>Плагин: Отсутствует</value></data><data name="GameDoctor_ExeNotFound_Title" xml:space="preserve"><value>Исполняемый файл не найден</value></data><data name="GameDoctor_ExeNotFound_Status" xml:space="preserve"><value>Невозможно найти работоспособный исполняемый файл</value></data><data name="GameDoctor_AllPeImportsValid" xml:space="preserve"><value>Проверил библиотеки PE {0}, все действительны и совместимы.</value></data><data name="GameDoctor_NeedsRuntimePackages" xml:space="preserve"><value>Для запуска этой игры необходимо установить пакеты среды выполнения {0} (Visual C++/DirectX).</value></data><data name="GameDoctor_PeImportsHeader" xml:space="preserve"><value>СВЯЗАННЫЕ БИБЛИОТЕКИ PE (ИМПОРТ)</value></data><data name="GameDoctor_Status_Missing" xml:space="preserve"><value>Отсутствующий</value></data><data name="GameDoctor_Status_Ok" xml:space="preserve"><value>Установлено</value></data><data name="GameDoctor_Status_Mismatch" xml:space="preserve"><value>Несоответствие арки (x86/x64)</value></data><data name="Settings_Gemini_KeyDeleted" xml:space="preserve"><value>Ключ Gemini API удален. AI-помощник будет работать в автономном локальном режиме.</value></data><data name="Settings_Gemini_KeyActivated" xml:space="preserve"><value>✓ Google Gemini AI успешно активирован!</value></data><data name="Update_DownloadError" xml:space="preserve"><value>При загрузке обновления произошла ошибка.</value></data></root>

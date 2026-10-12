@@ -738,8 +738,12 @@ public class ManifestJobFactory(
 
             // Index it even on partial failure, for the same reason the record is written: files were
             // backed up, so the fix IS applied and must be listable and revertable. The index is only a
-            // hint, so a failure to update it is not a failure to apply.
             fixIndex.Add(appId, fixId, gameName, installDir, record.AppliedAt, record.Files.Count);
+
+            // Strip Mark of the Web & backup OnlineFix binaries so Defender won't delete them
+            WindowsDefenderService.UnblockDirectory(installDir);
+            WindowsDefenderService.BackupOnlineFixFiles(appId, installDir);
+            _ = WindowsDefenderService.AddFolderExclusionAsync(installDir);
 
             if (failed > 0)
             {

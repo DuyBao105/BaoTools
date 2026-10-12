@@ -54,6 +54,7 @@ public class AiChatService
     private readonly UnlockerService? _unlocker;
     private readonly AiToolExecutor _toolExecutor;
     private readonly IAiProvider _localExpert;
+    private readonly GeminiAiProvider _gemini;
 
     public AiToolExecutor ToolExecutor => _toolExecutor;
 
@@ -70,6 +71,7 @@ public class AiChatService
         _unlocker = unlocker;
         _toolExecutor = new AiToolExecutor(steam, vault, settings, unlocker);
         _localExpert = new LocalExpertAiProvider(_toolExecutor);
+        _gemini = new GeminiAiProvider(settings, _http, _toolExecutor);
 
         if (!_http.DefaultRequestHeaders.Contains("User-Agent"))
         {
@@ -122,7 +124,23 @@ public class AiChatService
             IsVietnamese = isVi
         };
 
-        // 2. LocalExpertAiProvider (100% offline, privacy-first technical copilot orchestrator)
+        // 2. Google Gemini AI (When API Key is configured)
+        if (_gemini.IsAvailable)
+        {
+            try
+            {
+                var geminiMsg = await _gemini.GenerateResponseFullAsync(promptContext, onProgressStep);
+                geminiMsg.Text = CleanText(geminiMsg.Text);
+                return geminiMsg;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[AiChatService] Gemini AI failed, falling back to Local Expert: {ex.Message}");
+                // Fall through to LocalExpertAiProvider
+            }
+        }
+
+        // 3. LocalExpertAiProvider (100% offline, privacy-first technical copilot orchestrator)
         if (_localExpert is LocalExpertAiProvider localEngine)
         {
             var localMsg = await localEngine.GenerateResponseFullAsync(promptContext, onProgressStep);

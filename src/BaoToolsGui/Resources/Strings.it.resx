@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:schema id="root">
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -110,7 +110,7 @@
     <value>INSTALLAZIONE</value>
   </data>
   <data name="Settings_Section_Community" xml:space="preserve">
-    <value>COMMUNITY</value>
+    <value>COMUNITÀ</value>
   </data>
   <data name="Settings_SignOut" xml:space="preserve">
     <value>Disconnetti</value>
@@ -158,7 +158,7 @@
     <value>Gestisci la tua chiave API Hubcap e il tuo profilo su</value>
   </data>
   <data name="Settings_Section_Hubcap" xml:space="preserve">
-    <value>HUBCAP</value>
+    <value>COPRIMOZZO</value>
   </data>
   <data name="Settings_HubcapKey" xml:space="preserve">
     <value>Chiave API Hubcap</value>
@@ -524,10 +524,10 @@
     <value>Caricamento…</value>
   </data>
   <data name="Common_AppId" xml:space="preserve">
-    <value>App ID: {0}</value>
+    <value>ID app: {0}</value>
   </data>
   <data name="Common_AppFallback" xml:space="preserve">
-    <value>App {0}</value>
+    <value>Applicazione {0}</value>
   </data>
   <data name="Manage_Title" xml:space="preserve">
     <value>Gestisci</value>
@@ -656,7 +656,7 @@
     <value>Data di uscita (più recente)</value>
   </data>
   <data name="Manage_Sort_Metacritic" xml:space="preserve">
-    <value>Metacritic</value>
+    <value>Metacritico</value>
   </data>
   <data name="Manage_Sort_MostReviewed" xml:space="preserve">
     <value>Più recensiti</value>
@@ -758,10 +758,10 @@ Questo elimina i file .lua da Steam\config\stplug-in.</value>
     <value>Caricamento dei fix…</value>
   </data>
   <data name="Fixes_Build" xml:space="preserve">
-    <value>Build {0}</value>
+    <value>Costruisci {0}</value>
   </data>
   <data name="Fixes_Manifest" xml:space="preserve">
-    <value>Manifest</value>
+    <value>Manifesto</value>
   </data>
   <data name="Fixes_Fix" xml:space="preserve">
     <value>Fix</value>
@@ -854,7 +854,7 @@ Questo elimina i file .lua da Steam\config\stplug-in.</value>
     <value>Mostra</value>
   </data>
   <data name="Add_Supporter" xml:space="preserve">
-    <value>Supporter</value>
+    <value>Sostenitore</value>
   </data>
   <data name="Add_Unlimited" xml:space="preserve">
     <value>Illimitato</value>
@@ -989,7 +989,7 @@ Questo elimina i file .lua da Steam\config\stplug-in.</value>
     <value>· tramite {0}</value>
   </data>
   <data name="Plugin_Title" xml:space="preserve">
-    <value>Plugin</value>
+    <value>Collegare</value>
   </data>
   <data name="Plugin_Subtitle" xml:space="preserve">
     <value>Il plugin per Steam! — Ora usa LuaLoader invece di Merdennium</value>
@@ -1007,10 +1007,10 @@ Questo elimina i file .lua da Steam\config\stplug-in.</value>
     <value>Ultima versione</value>
   </data>
   <data name="Plugin_Row_Frontend" xml:space="preserve">
-    <value>Frontend</value>
+    <value>Fine frontale</value>
   </data>
   <data name="Plugin_Row_Loader" xml:space="preserve">
-    <value>Loader (winmm.dll)</value>
+    <value>Caricatore (winmm.dll)</value>
   </data>
   <data name="Plugin_Millennium_Coexisting" xml:space="preserve">
     <value>Millennium rilevato — BaoTools funziona insieme a esso. L'installazione disattiva la copia di questo plugin di Millennium, in modo che solo LuaLoader effettui l'iniezione.</value>
@@ -1052,7 +1052,7 @@ Questo elimina i file .lua da Steam\config\stplug-in.</value>
     <value>sconosciuta</value>
   </data>
   <data name="Plugin_Version_Offline" xml:space="preserve">
-    <value>offline</value>
+    <value>non in linea</value>
   </data>
   <data name="Plugin_Status_OfflineCheck" xml:space="preserve">
     <value>Impossibile raggiungere GitHub per controllare nuovi aggiornamenti.</value>
@@ -1067,7 +1067,7 @@ Questo elimina i file .lua da Steam\config\stplug-in.</value>
     <value>Riavvia Steam</value>
   </data>
   <data name="Plugin_Toast_Title" xml:space="preserve">
-    <value>Plugin</value>
+    <value>Collegare</value>
   </data>
   <data name="Plugin_Toast_Installed" xml:space="preserve">
     <value>Plugin installato. Steam si sta riavviando per caricarlo.</value>
@@ -1151,7 +1151,7 @@ Questo elimina i file .lua da Steam\config\stplug-in.</value>
     <value>Predefinita</value>
   </data>
   <data name="Builds_Variant_Build" xml:space="preserve">
-    <value>Build {0}</value>
+    <value>Costruisci {0}</value>
   </data>
   <data name="Builds_Variant_Preset" xml:space="preserve">
     <value>Salvato · {0}</value>
@@ -1166,7 +1166,7 @@ Questo elimina i file .lua da Steam\config\stplug-in.</value>
     <value>Ultima build su Steam: {0}</value>
   </data>
   <data name="Builds_Manifest" xml:space="preserve">
-    <value>manifest {0}</value>
+    <value>manifesto {0}</value>
   </data>
   <data name="Builds_ManifestLatest" xml:space="preserve">
     <value>l'ultima è {0}</value>
@@ -1678,26 +1678,26 @@ Annulla - continua a scaricare</value>
     <value>Rimuovere tutte le {0} voci dalla cronologia dei download? I file scaricati non vengono toccati.</value>
   </data>
   <data name="Nav_OnlineFixes" xml:space="preserve">
-    <value>Online Fix</value>
+    <value>Correzione in linea</value>
   </data>
   <data name="OnlineFixes_Download" xml:space="preserve">
-    <value>Download Fix</value>
+    <value>Scarica Correzione</value>
   </data>
   <data name="OnlineFixes_Install" xml:space="preserve">
-    <value>Install Fix</value>
+    <value>Installa Correzione</value>
   </data>
   <data name="OnlineFixes_Search" xml:space="preserve">
-    <value>Search installed games...</value>
+    <value>Cerca giochi installati...</value>
   </data>
   <data name="OnlineFixes_Help" xml:space="preserve">
-    <value>Step 1: Click "Download Fix" to search and download the ZIP file from online-fix.me.
-Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically extract it into the game folder.</value>
+    <value>Passaggio 1: fare clic su "Scarica correzione" per cercare e scaricare il file ZIP da online-fix.me.
+Passaggio 2: fai clic su "Installa correzione" e seleziona il file ZIP scaricato per estrarlo automaticamente nella cartella del gioco.</value>
   </data>
   <data name="Nav_Tickets" xml:space="preserve">
-    <value>Tickets</value>
+    <value>Biglietti</value>
   </data>
   <data name="Tickets_CopyHex" xml:space="preserve">
-    <value>Copy Hex</value>
+    <value>Copia esadecimale</value>
   </data>
   <data name="Manage_Action_ExtractTickets" xml:space="preserve">
     <value>Estrai biglietti</value>
@@ -1709,7 +1709,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Nessun gioco installato corrisponde alla tua query di ricerca.</value>
   </data>
   <data name="OnlineFixes_InstalledBadge" xml:space="preserve">
-    <value>Installed</value>
+    <value>Installato</value>
   </data>
   <data name="OnlineFixes_Loading" xml:space="preserve">
     <value>Scansione dei giochi installati...</value>
@@ -1772,7 +1772,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Mantieni il client Steam in esecuzione</value>
   </data>
   <data name="Tickets_Note_Limit_Desc" xml:space="preserve">
-    <value>Denuvo permits up to 5 unique PC activations per day per game license. Sharing with more than 5 machines within 24 hours will temporarily lock new activations until the next day.</value>
+    <value>Denuvo consente fino a 5 attivazioni PC uniche al giorno per licenza di gioco. La condivisione con più di 5 macchine nell'arco di 24 ore bloccherà temporaneamente le nuove attivazioni fino al giorno successivo.</value>
   </data>
   <data name="Tickets_Note_Limit_Title" xml:space="preserve">
     <value>Denuvo 5 attivazioni/limite di 24 ore</value>
@@ -1847,7 +1847,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Accedi per 10 download al giorno</value>
   </data>
   <data name="Download_DailyQuota_LimitReached" xml:space="preserve">
-    <value>You have reached your daily limit of 10 downloads. Please try again tomorrow.</value>
+    <value>Hai raggiunto il limite giornaliero di 10 download. Per favore riprova domani.</value>
   </data>
   <data name="Home_DailyQuota_Guest" xml:space="preserve">
     <value>Download giornalieri: accedi con Discord per 10 download al giorno</value>
@@ -1862,16 +1862,16 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Download giornalieri: 10/giorno (attivo)</value>
   </data>
   <data name="Tickets_AppTicket_Title" xml:space="preserve">
-    <value>App Ownership Ticket</value>
+    <value>Ticket di proprietà dell'app</value>
   </data>
   <data name="Tickets_ETicket_Title" xml:space="preserve">
     <value>Ticket app crittografato (Denuvo)</value>
   </data>
   <data name="Common_NotAvailable" xml:space="preserve">
-    <value>Not available</value>
+    <value>Non disponibile</value>
   </data>
   <data name="Nav_Plugin" xml:space="preserve">
-    <value>Plugin</value>
+    <value>Collegare</value>
   </data>
   <data name="Fixes_Applied_Hint" xml:space="preserve">
     <value>Questa fix è già applicata. Annullala se vuoi installarne un'altra.</value>
@@ -1985,7 +1985,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Avvia automaticamente BaoTools in background nella barra delle applicazioni all'avvio di Steam.</value>
   </data>
   <data name="Theme_Default" xml:space="preserve">
-    <value>BaoTools Classic</value>
+    <value>BaoTools classico</value>
   </data>
   <data name="Theme_Dracula" xml:space="preserve">
     <value>Dracula</value>
@@ -1994,87 +1994,87 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Nord</value>
   </data>
   <data name="Theme_Catppuccin" xml:space="preserve">
-    <value>Catppuccin Mocha</value>
+    <value>Moka Catppuccin</value>
   </data>
   <data name="Theme_Cyberpunk" xml:space="preserve">
     <value>Cyberpunk</value>
   </data>
   <data name="Theme_Midnight" xml:space="preserve">
-    <value>Midnight OLED</value>
+    <value>OLED di mezzanotte</value>
   </data>
   <data name="Theme_TokyoNight" xml:space="preserve">
-    <value>Tokyo Night</value>
+    <value>Notte di Tokio</value>
   </data>
   <data name="Theme_Synthwave" xml:space="preserve">
     <value>Synthwave '84</value>
   </data>
   <data name="Theme_RosePine" xml:space="preserve">
-    <value>Rosé Pine</value>
+    <value>Pino rosato</value>
   </data>
   <data name="Theme_Sakura" xml:space="preserve">
-    <value>Sakura Blossom</value>
+    <value>Fiore di Sakura</value>
   </data>
   <data name="Theme_Emerald" xml:space="preserve">
-    <value>Emerald Matrix</value>
+    <value>Matrice Smeraldo</value>
   </data>
   <data name="Theme_AmberSunset" xml:space="preserve">
-    <value>Amber Horizon</value>
+    <value>Orizzonte d'Ambra</value>
   </data>
   <data name="Theme_Amethyst" xml:space="preserve">
-    <value>Amethyst Neon</value>
+    <value>Ametista Neon</value>
   </data>
   <data name="Theme_AbyssalOcean" xml:space="preserve">
-    <value>Abyssal Ocean</value>
+    <value>Oceano abissale</value>
   </data>
   <data name="Theme_OneDark" xml:space="preserve">
-    <value>One Dark Pro</value>
+    <value>Un professionista oscuro</value>
   </data>
   <data name="Theme_Gruvbox" xml:space="preserve">
     <value>Gruvbox Retro</value>
   </data>
   <data name="UpdateDialog_Title" xml:space="preserve">
-    <value>Software Update</value>
+    <value>Aggiornamento del software</value>
   </data>
   <data name="UpdateDialog_DownloadingHeader" xml:space="preserve">
-    <value>Downloading Update</value>
+    <value>Download dell'aggiornamento</value>
   </data>
   <data name="UpdateDialog_DownloadingSub" xml:space="preserve">
-    <value>Downloading update package for {0}... Please keep BaoTools open.</value>
+    <value>Download del pacchetto di aggiornamento per {0}... Tieni BaoTools aperto.</value>
   </data>
   <data name="UpdateDialog_DownloadingStatus" xml:space="preserve">
-    <value>Downloading</value>
+    <value>Download in corso</value>
   </data>
   <data name="UpdateDialog_ReadyHeader" xml:space="preserve">
-    <value>Update Ready to Install</value>
+    <value>Aggiornamento pronto per l'installazione</value>
   </data>
   <data name="UpdateDialog_ReadySub" xml:space="preserve">
-    <value>BaoTools {0} has been downloaded. Click Restart Now to apply the update and start using the new version.</value>
+    <value>BaoTools {0} è stato scaricato. Fare clic su Riavvia ora per applicare l'aggiornamento e iniziare a utilizzare la nuova versione.</value>
   </data>
   <data name="UpdateDialog_ReadyStatus" xml:space="preserve">
-    <value>Ready to install</value>
+    <value>Pronto per l'installazione</value>
   </data>
   <data name="UpdateDialog_RestartNow" xml:space="preserve">
-    <value>Restart Now</value>
+    <value>Riavvia ora</value>
   </data>
   <data name="UpdateDialog_Restarting" xml:space="preserve">
-    <value>Restarting...</value>
+    <value>Riavvio...</value>
   </data>
   <data name="UpdateDialog_Later" xml:space="preserve">
     <value>Later</value>
   </data>
   <data name="UpdateDialog_Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Cancellare</value>
   </data>
   <data name="UpdateDialog_FailedHeader" xml:space="preserve">
-    <value>Download Failed</value>
+    <value>Download non riuscito</value>
   </data>
   <data name="UpdateDialog_FailedSub" xml:space="preserve">
-    <value>An error occurred while downloading the update. You can download the latest installer manually from your browser.</value>
+    <value>Si è verificato un errore durante il download dell'aggiornamento. Puoi scaricare manualmente il programma di installazione più recente dal tuo browser.</value>
   </data>
   <data name="UpdateDialog_OpenBrowser" xml:space="preserve">
-    <value>Open Browser</value>
+    <value>Apri Browser</value>
   </data>
-  <!-- Added Keys Sync -->
+  
   <data name="Nav_Section_Tools" xml:space="preserve">
     <value>STRUMENTI</value>
   </data>
@@ -2229,51 +2229,51 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Argomenti suggeriti:</value>
   </data>
   <data name="Settings_Subtitle" xml:space="preserve">
-    <value>Manage BaoTools preferences</value>
+    <value>Gestisci le preferenze di BaoTools</value>
   </data>
   <data name="Home_Discord_Title" xml:space="preserve">
-    <value>Discord Community</value>
+    <value>Comunità della discordia</value>
   </data>
   <data name="Home_Discord_Desc" xml:space="preserve">
-    <value>Join the BaoTools Discord server for announcements, fresh updates, and technical support.</value>
+    <value>Unisciti al server Discord di BaoTools per annunci, nuovi aggiornamenti e supporto tecnico.</value>
   </data>
   <data name="Home_Discord_Join" xml:space="preserve">
-    <value>Join Discord</value>
+    <value>Unisciti a Discord</value>
   </data>
   <data name="Settings_AiAssistant_LocalOffline" xml:space="preserve">
-    <value>Local / Offline</value>
+    <value>Locale/Non in linea</value>
   </data>
   <data name="Settings_AiAssistant_CardDesc" xml:space="preserve">
-    <value>Diagnose games, explain errors and help fix common problems.</value>
+    <value>Diagnostica i giochi, spiega gli errori e aiuta a risolvere i problemi comuni.</value>
   </data>
   <data name="Settings_AiAssistant_Key" xml:space="preserve">
-    <value>Google Gemini API Key</value>
+    <value>Chiave API di Google Gemini</value>
   </data>
   <data name="Settings_AiAssistant_Key_Hint" xml:space="preserve">
-    <value>Free API key from Google AI Studio. Used by the assistant for deeper reasoning.</value>
+    <value>Chiave API gratuita di Google AI Studio. Utilizzato dall'assistente per ragionamenti più profondi.</value>
   </data>
   <data name="Settings_AiAssistant_KeyPlaceholder" xml:space="preserve">
-    <value>Paste your Gemini API key (AIzaSy...)</value>
+    <value>Incolla la tua chiave API Gemini (AIzaSy...)</value>
   </data>
   <data name="Settings_AiAssistant_GetKey" xml:space="preserve">
-    <value>Get Free API Key</value>
+    <value>Ottieni la chiave API gratuita</value>
   </data>
   <data name="AiChat_CopyMessage" xml:space="preserve">
-    <value>Copy message</value>
+    <value>Copia messaggio</value>
   </data>
   <data name="AiChat_Copied" xml:space="preserve">
-    <value>Copied!</value>
+    <value>Copiato!</value>
   </data>
   <data name="AiChat_Regenerate" xml:space="preserve">
-    <value>Regenerate response</value>
+    <value>Rigenera la risposta</value>
   </data>
   <data name="AiChat_InspectingGame" xml:space="preserve">
-    <value>Inspecting: {0}</value>
+    <value>Ispezione: {0}</value>
   </data>
   <data name="AiChat_ClearGameContext" xml:space="preserve">
-    <value>Clear game context</value>
+    <value>Contesto di gioco chiaro</value>
   </data>
-  <!-- Assistant Rotating Discovery Messages -->
+  
   <data name="AssistantAskAnything" xml:space="preserve">
     <value>Chiedimi qualsiasi cosa...</value>
   </data>
@@ -2287,28 +2287,28 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Serve una correzione?</value>
   </data>
   <data name="Downloads_Search_Placeholder" xml:space="preserve">
-    <value>Search downloaded games...</value>
+    <value>Cerca giochi scaricati...</value>
   </data>
   <data name="Manage_Filter_Source" xml:space="preserve">
-    <value>Source</value>
+    <value>Fonte</value>
   </data>
   <data name="Downloads_Stats_TotalData" xml:space="preserve">
-    <value>Total Downloaded</value>
+    <value>Totale scaricato</value>
   </data>
   <data name="Downloads_Stats_DiskFree" xml:space="preserve">
     <value>Drive {0} Â· Free {1}</value>
   </data>
   <data name="Downloads_Shortcut_Failed" xml:space="preserve">
-    <value>Failed to create Desktop shortcut: {0}</value>
+    <value>Impossibile creare il collegamento sul desktop: {0}</value>
   </data>
   <data name="Launcher_MinimizingDueToDownloads" xml:space="preserve">
-    <value>Active downloads in progress. BaoTools minimized to keep downloading.</value>
+    <value>Download attivi in ​​corso. BaoTools ridotto a icona per continuare a scaricare.</value>
   </data>
   <data name="Downloads_Uninstall_Title" xml:space="preserve">
-    <value>Uninstall Game</value>
+    <value>Disinstallare il gioco</value>
   </data>
   <data name="Settings_CreateDesktopShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut on download</value>
+    <value>Crea collegamento sul desktop al momento del download</value>
   </data>
   <data name="Downloads_Action_Play" xml:space="preserve">
     <value>Play</value>
@@ -2317,91 +2317,91 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Idle</value>
   </data>
   <data name="Downloads_Empty_Desc" xml:space="preserve">
-    <value>Your download queue is empty. Find and download games, DLCs, or fixes to get started.</value>
+    <value>La tua coda di download è vuota. Trova e scarica giochi, DLC o correzioni per iniziare.</value>
   </data>
   <data name="Downloads_Uninstall_Success" xml:space="preserve">
-    <value>Successfully uninstalled '{0}'.</value>
+    <value>Disinstallato '{0}' riuscito.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Body" xml:space="preserve">
     <value>{0} is downloaded and ready to play.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Title" xml:space="preserve">
-    <value>Download Complete</value>
+    <value>Scarica completo</value>
   </data>
   <data name="Downloads_Stats_Active" xml:space="preserve">
-    <value>Active Queue</value>
+    <value>Coda attiva</value>
   </data>
   <data name="Settings_ExitOnPlay" xml:space="preserve">
-    <value>Close app when launching game</value>
+    <value>Chiudi l'app all'avvio del gioco</value>
   </data>
   <data name="Launcher_StartingSteam" xml:space="preserve">
-    <value>Game with Online Fix requires Steam. Opening Steam, please wait until signed in and press Play again!</value>
+    <value>Il gioco con correzione online richiede Steam. Aprendo Steam, attendi fino all'accesso e premi di nuovo Gioca!</value>
   </data>
   <data name="Settings_ExitOnPlay_Hint" xml:space="preserve">
-    <value>Automatically exit BaoTools when launching a game. If downloads are active, BaoTools minimizes instead to keep downloading.</value>
+    <value>Esci automaticamente da BaoTools all'avvio di un gioco. Se i download sono attivi, BaoTools si minimizza invece per continuare a scaricare.</value>
   </data>
   <data name="Downloads_Stats_Completed_Desc" xml:space="preserve">
-    <value>Installed games</value>
+    <value>Giochi installati</value>
   </data>
   <data name="Launcher_LaunchFailed" xml:space="preserve">
-    <value>Failed to launch game: {0}</value>
+    <value>Impossibile avviare il gioco: {0}</value>
   </data>
   <data name="Downloads_Stats_Active_Tooltip" xml:space="preserve">
-    <value>Click to view active downloads</value>
+    <value>Fare clic per visualizzare i download attivi</value>
   </data>
   <data name="Manage_Filter_Source_Steam" xml:space="preserve">
-    <value>Steam Unlock</value>
+    <value>Sblocco di Steam</value>
   </data>
   <data name="Manage_Badge_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>Deposito grezzo</value>
   </data>
   <data name="Launcher_GameStarted" xml:space="preserve">
-    <value>Launched {0}.</value>
+    <value>Lanciato {0}.</value>
   </data>
   <data name="Downloads_Stats_Completed" xml:space="preserve">
-    <value>Completed</value>
+    <value>Completato</value>
   </data>
   <data name="Downloads_Action_CreateShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut</value>
+    <value>Crea collegamento sul desktop</value>
   </data>
   <data name="Downloads_Stats_OpenFolder_Tooltip" xml:space="preserve">
-    <value>Click to open download folder in File Explorer</value>
+    <value>Fare clic per aprire la cartella di download in Esplora file</value>
   </data>
   <data name="Downloads_Search_NoResults" xml:space="preserve">
-    <value>No games match your search.</value>
+    <value>Nessun gioco corrisponde alla tua ricerca.</value>
   </data>
   <data name="Downloads_Action_Uninstall" xml:space="preserve">
-    <value>Uninstall</value>
+    <value>Disinstallare</value>
   </data>
   <data name="Launcher_ExeNotFound" xml:space="preserve">
-    <value>Cannot find a runnable game executable for {0}. Opened folder for manual check.</value>
+    <value>Impossibile trovare un eseguibile del gioco eseguibile per {0}. Cartella aperta per il controllo manuale.</value>
   </data>
   <data name="Launcher_ConfiguredOfflineEmulator" xml:space="preserve">
     <value>Configured offline mode for {0}. Launching gameâ€¦</value>
   </data>
   <data name="Downloads_Shortcut_Created" xml:space="preserve">
-    <value>Created Desktop shortcut for '{0}'.</value>
+    <value>Collegamento sul desktop creato per '{0}'.</value>
   </data>
   <data name="Settings_CreateDesktopShortcut_Hint" xml:space="preserve">
-    <value>Automatically create a desktop shortcut (.lnk) so you can launch the game directly without opening BaoTools.</value>
+    <value>Crea automaticamente un collegamento sul desktop (.lnk) in modo da poter avviare il gioco direttamente senza aprire BaoTools.</value>
   </data>
   <data name="Manage_Action_PlayGame" xml:space="preserve">
-    <value>Play Game</value>
+    <value>Gioca</value>
   </data>
   <data name="Downloads_Uninstall_Confirm" xml:space="preserve">
-    <value>Are you sure you want to uninstall '{0}'? All downloaded files at '{1}' will be deleted.</value>
+    <value>Sei sicuro di voler disinstallare '{0}'? Tutti i file scaricati in "{1}" verranno eliminati.</value>
   </data>
   <data name="Downloads_Stats_Completed_Tooltip" xml:space="preserve">
-    <value>Click to view installed games</value>
+    <value>Fare clic per visualizzare i giochi installati</value>
   </data>
   <data name="Manage_Filter_Source_All" xml:space="preserve">
-    <value>All sources</value>
+    <value>Tutte le fonti</value>
   </data>
   <data name="Downloads_Uninstall_Failed" xml:space="preserve">
-    <value>Failed to uninstall '{0}': {1}</value>
+    <value>Impossibile disinstallare '{0}': {1}</value>
   </data>
   <data name="Downloads_Action_BrowseGames" xml:space="preserve">
-    <value>Browse &amp; Download Games</value>
+    <value>Sfoglia e scarica giochi</value>
   </data>
   <data name="Launcher_DownloadingFix" xml:space="preserve">
     <value>Downloading and installing {0} for {1}â€¦</value>
@@ -2410,9 +2410,132 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Successfully applied {0}! Launching gameâ€¦</value>
   </data>
   <data name="Manage_Filter_Source_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>Deposito grezzo</value>
   </data>
   <data name="Downloads_Action_OpenFolder" xml:space="preserve">
-    <value>Open Folder</value>
+    <value>Apri cartella</value>
   </data>
-</root>
+  <data name="Downloads_Filter_All" xml:space="preserve">
+    <value>Tutti</value>
+  </data>
+  <data name="Downloads_Filter_Games" xml:space="preserve">
+    <value>Giochi</value>
+  </data>
+  <data name="Downloads_Filter_Lua" xml:space="preserve">
+    <value>Lua / Sblocchi</value>
+  </data>
+  <data name="Downloads_Badge_Game" xml:space="preserve">
+    <value>Gioco</value>
+  </data>
+  <data name="Downloads_Badge_Lua" xml:space="preserve">
+    <value>Sblocco Lua</value>
+  </data>
+  <data name="Launcher_GameStarted_Online" xml:space="preserve">
+    <value>Giocare in modalità online (Online-Fix): {0}</value>
+  </data>
+  <data name="Launcher_GameStarted_Offline" xml:space="preserve">
+    <value>Nessuna correzione online trovata. Giocare in modalità offline: {0}</value>
+  </data>
+  <data name="Launcher_RestoredOnlineFix" xml:space="preserve">
+    <value>OnlineFix64.dll ripristinato automaticamente eliminato da Windows Defender e aggiunto alle esclusioni.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion" xml:space="preserve">
+    <value>Impedisci l'eliminazione del difensore</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_Success" xml:space="preserve">
+    <value>Aggiunto {0} alle esclusioni di Windows Defender.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All" xml:space="preserve">
+    <value>Proteggi tutti i giochi da Defender</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All_Success" xml:space="preserve">
+    <value>Richieste esclusioni di Windows Defender per tutte le directory di gioco installate.</value>
+  </data>
+  <data name="OnlineFixes_Filter_All" xml:space="preserve">
+    <value>Tutti ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Online" xml:space="preserve">
+    <value>ðŸŸ¢ Online Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Offline" xml:space="preserve">
+    <value>âšª Offline / No Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Badge_Online" xml:space="preserve">
+    <value>Correzione in linea</value>
+  </data>
+  <data name="OnlineFixes_Badge_Offline" xml:space="preserve">
+    <value>Non in linea</value>
+  </data>
+  <data name="GameDoctor_Title" xml:space="preserve">
+    <value>Dottore del Gioco</value>
+  </data>
+  <data name="Settings_AutoGameDoctor" xml:space="preserve">
+    <value>Auto Game Doctor (runtime di riparazione automatica)</value>
+  </data>
+  <data name="Settings_AutoGameDoctor_Hint" xml:space="preserve">
+    <value>Diagnostica e installa automaticamente i runtime Visual C++ e DirectX mancanti durante il download e l'avvio di giochi per prevenire errori 0xc000007b o arresti anomali dell'avvio.</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes" xml:space="preserve">
+    <value>Installa runtime di gioco tutto in uno (VC++ e DirectX)</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes_Hint" xml:space="preserve">
+    <value>Scarica e installa i runtime Microsoft Visual C++ e DirectX richiesti dai giochi.</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealing" xml:space="preserve">
+    <value>Game Doctor: riparazione automatica {0} pacchetto/i runtime mancante/i...</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealSuccess" xml:space="preserve">
+    <value>Game Doctor: tutte le librerie runtime installate correttamente. Il gioco è pronto!</value>
+  </data>
+  <data name="GameDoctor_Toast_AllRuntimesInstalled" xml:space="preserve">
+    <value>Runtime Visual C++ e DirectX installati correttamente!</value>
+  </data>
+  <data name="GameDoctor_Status_Installing" xml:space="preserve">
+    <value>Installazione dei runtime...</value>
+  </data>
+  <data name="GameDoctor_Status_Failed" xml:space="preserve">
+    <value>Installazione non riuscita.</value>
+  </data>
+  <data name="Manage_Action_GameDoctor" xml:space="preserve">
+    <value>Game Doctor (diagnosi)</value>
+  </data>
+  <data name="GameDoctor_Healthy" xml:space="preserve">
+    <value>L'ambiente di gioco è sano. Tutte le dipendenze verificate!</value>
+  </data>
+  <data name="GameDoctor_MissingDllCount" xml:space="preserve">
+    <value>Rilevati {0} file di dipendenza mancanti o mancata corrispondenza dell'architettura.</value>
+  </data>
+  <data name="GameDoctor_ArchitectureMismatch" xml:space="preserve">
+    <value>Mancata corrispondenza dell'architettura (la mancata corrispondenza a 32 bit/64 bit causa l'errore 0xc000007b)</value>
+  </data>
+  <data name="GameDoctor_FixNow" xml:space="preserve">
+    <value>Correzione automatica con 1 clic</value>
+  </data>
+  <data name="GameDoctor_ChooseExe" xml:space="preserve">
+    <value>Diagnostica altri file .exe</value>
+  </data>
+  <data name="Common_Install" xml:space="preserve">
+    <value>Installare</value>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Splash_Subtitle" xml:space="preserve">
+    <value>L'assistente di gioco definitivo</value>
+  </data>
+  <data name="Splash_Initializing" xml:space="preserve">
+    <value>Inizializzazione del sistema...</value>
+  </data>
+  <data name="Splash_CheckingEnv" xml:space="preserve">
+    <value>Verifica dell'ambiente di gioco...</value>
+  </data>
+  <data name="Splash_Preparing" xml:space="preserve">
+    <value>Preparazione dell'interfaccia...</value>
+  </data>
+  <data name="Splash_WelcomeGuest" xml:space="preserve">
+    <value>Benvenuto in BaoTools!</value>
+  </data>
+  <data name="Splash_WelcomeUser" xml:space="preserve">
+    <value>Bentornato, {0}! Buon divertimento!</value>
+  </data>
+<data name="Auth_Err_PortBusy" xml:space="preserve"><value>La porta di connessione ({0}) è occupata o in attesa del rilascio di Windows. Attendi qualche secondo e riprova!</value></data><data name="Auth_Err_Denied" xml:space="preserve"><value>L'accesso è stato negato o annullato.</value></data><data name="Status_SteamOnline" xml:space="preserve"><value>Vapore: in linea</value></data><data name="Status_SteamOffline" xml:space="preserve"><value>Vapore: offline</value></data><data name="Status_PluginActive" xml:space="preserve"><value>Plug-in: attivo</value></data><data name="Status_PluginMissing" xml:space="preserve"><value>Plug-in: mancante</value></data><data name="GameDoctor_ExeNotFound_Title" xml:space="preserve"><value>Eseguibile non trovato</value></data><data name="GameDoctor_ExeNotFound_Status" xml:space="preserve"><value>Impossibile trovare un eseguibile eseguibile</value></data><data name="GameDoctor_AllPeImportsValid" xml:space="preserve"><value>Librerie {0} PE controllate, tutte valide e compatibili.</value></data><data name="GameDoctor_NeedsRuntimePackages" xml:space="preserve"><value>È necessario installare i pacchetti runtime {0} (Visual C++/DirectX) per eseguire questo gioco.</value></data><data name="GameDoctor_PeImportsHeader" xml:space="preserve"><value>LIBRERIE PE COLLEGATE (IMPORTAZIONI)</value></data><data name="GameDoctor_Status_Missing" xml:space="preserve"><value>Mancante</value></data><data name="GameDoctor_Status_Ok" xml:space="preserve"><value>Installato</value></data><data name="GameDoctor_Status_Mismatch" xml:space="preserve"><value>Mancata corrispondenza dell'arco (x86/x64)</value></data><data name="Settings_Gemini_KeyDeleted" xml:space="preserve"><value>Chiave API Gemini rimossa. L'assistente AI funzionerà in modalità locale offline.</value></data><data name="Settings_Gemini_KeyActivated" xml:space="preserve"><value>✓ Google Gemini AI attivato con successo!</value></data><data name="Update_DownloadError" xml:space="preserve"><value>Si è verificato un errore durante il download dell'aggiornamento.</value></data></root>

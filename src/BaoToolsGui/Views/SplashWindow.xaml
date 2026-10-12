@@ -1,0 +1,327 @@
+<ui:FluentWindow
+    x:Class="BaoToolsGui.Views.SplashWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:res="clr-namespace:BaoToolsGui.Resources"
+    Title="BaoTools"
+    Width="490"
+    Height="335"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    ShowInTaskbar="False"
+    Topmost="True"
+    ExtendsContentIntoTitleBar="True"
+    WindowBackdropType="Mica"
+    WindowCornerPreference="Round"
+    FontFamily="{StaticResource FontFluent}">
+
+    <ui:FluentWindow.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation
+                        Storyboard.TargetName="SplashContainer"
+                        Storyboard.TargetProperty="Opacity"
+                        From="0.0" To="1.0"
+                        Duration="0:0:0.25">
+                        <DoubleAnimation.EasingFunction>
+                            <CubicEase EasingMode="EaseOut" />
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                    <!-- Logo Ambient Glow Breathing Animation -->
+                    <DoubleAnimation
+                        Storyboard.TargetName="AmbientAura"
+                        Storyboard.TargetProperty="Opacity"
+                        From="0.30" To="0.70"
+                        Duration="0:0:1.8"
+                        AutoReverse="True"
+                        RepeatBehavior="Forever">
+                        <DoubleAnimation.EasingFunction>
+                            <SineEase EasingMode="EaseInOut" />
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </ui:FluentWindow.Triggers>
+
+    <!-- Main Container -->
+    <Grid x:Name="SplashContainer" Opacity="0">
+        <!-- Background Ambient Glow Behind Card -->
+        <Canvas IsHitTestVisible="False" ClipToBounds="True">
+            <Ellipse
+                Width="280"
+                Height="280"
+                Canvas.Left="105"
+                Canvas.Top="-80"
+                Opacity="0.45">
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#508B5CF6" Offset="0" />
+                        <GradientStop Color="#156366F1" Offset="0.5" />
+                        <GradientStop Color="#00000000" Offset="1" />
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+        </Canvas>
+
+        <!-- Centered Layout Content -->
+        <Grid Margin="36,24,36,18">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Hero Stack (All Centered) -->
+            <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="418">
+                <!-- 1. Hero BaoTools Logo with Breathing Glow -->
+                <Grid HorizontalAlignment="Center" Width="64" Height="64">
+                    <Border
+                        x:Name="AmbientAura"
+                        Width="62"
+                        Height="62"
+                        CornerRadius="31"
+                        Opacity="0.5">
+                        <Border.Background>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#808B5CF6" Offset="0" />
+                                <GradientStop Color="#306366F1" Offset="0.6" />
+                                <GradientStop Color="#00000000" Offset="1" />
+                            </RadialGradientBrush>
+                        </Border.Background>
+                    </Border>
+
+                    <Border
+                        Width="54"
+                        Height="54"
+                        CornerRadius="16"
+                        Background="#1E1B46"
+                        BorderBrush="#60818CF8"
+                        BorderThickness="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="16"
+                                ShadowDepth="0"
+                                Color="#8B5CF6"
+                                Opacity="0.55" />
+                        </Border.Effect>
+                        <Image
+                            Source="pack://application:,,,/icon.ico"
+                            Width="34"
+                            Height="34"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            RenderOptions.BitmapScalingMode="HighQuality" />
+                    </Border>
+                </Grid>
+
+                <!-- 2. Brand Name & Badges -->
+                <StackPanel
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="0,8,0,0">
+                    <TextBlock
+                        Text="BaoTools"
+                        FontSize="22"
+                        FontWeight="Bold"
+                        Foreground="#FFFFFF"
+                        VerticalAlignment="Center" />
+                    <Border
+                        Margin="8,0,0,0"
+                        Padding="7,2"
+                        CornerRadius="5"
+                        Background="#258B5CF6"
+                        BorderBrush="#558B5CF6"
+                        BorderThickness="1"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Text="LAUNCHER"
+                            FontSize="9.5"
+                            FontWeight="SemiBold"
+                            Foreground="#C084FC" />
+                    </Border>
+                    <Border
+                        Margin="6,0,0,0"
+                        Padding="6,2"
+                        CornerRadius="5"
+                        Background="#15FFFFFF"
+                        BorderBrush="#25FFFFFF"
+                        BorderThickness="1"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Text="v10.5"
+                            FontSize="9.5"
+                            FontWeight="Medium"
+                            Foreground="#94A3B8" />
+                    </Border>
+                </StackPanel>
+
+                <!-- 3. Localized Subtitle -->
+                <TextBlock
+                    Text="{x:Static res:Strings.Splash_Subtitle}"
+                    FontSize="11.5"
+                    Foreground="#A5B4FC"
+                    HorizontalAlignment="Center"
+                    Margin="0,3,0,0" />
+
+                <!-- 4. User Welcome Pill (Avatar + Username) -->
+                <Border
+                    x:Name="UserCard"
+                    HorizontalAlignment="Center"
+                    Margin="0,14,0,0"
+                    Padding="10,5,12,5"
+                    CornerRadius="18"
+                    Background="#161528"
+                    BorderBrush="#358B5CF6"
+                    BorderThickness="1"
+                    Visibility="Collapsed">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <!-- Round Avatar / Icon -->
+                        <Grid Width="24" Height="24" Margin="0,0,8,0">
+                            <Border
+                                CornerRadius="12"
+                                ClipToBounds="True"
+                                Background="#2A2450">
+                                <Image
+                                    x:Name="UserAvatarImage"
+                                    Width="24"
+                                    Height="24"
+                                    Stretch="UniformToFill"
+                                    RenderOptions.BitmapScalingMode="HighQuality" />
+                            </Border>
+                            <Border
+                                Width="8"
+                                Height="8"
+                                CornerRadius="4"
+                                Background="#10B981"
+                                BorderBrush="#161528"
+                                BorderThickness="1.5"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom" />
+                        </Grid>
+
+                        <!-- Greeting text -->
+                        <TextBlock
+                            x:Name="UserGreetingText"
+                            Text="Welcome, ChauTinhBao"
+                            FontSize="12"
+                            FontWeight="SemiBold"
+                            Foreground="#F1F5F9"
+                            VerticalAlignment="Center" />
+
+                        <!-- Status badge -->
+                        <Border
+                            Margin="8,0,0,0"
+                            Padding="5,1.5"
+                            CornerRadius="4"
+                            Background="#2010B981"
+                            BorderBrush="#3510B981"
+                            BorderThickness="1"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                x:Name="UserBadgeText"
+                                Text="ONLINE"
+                                FontSize="9"
+                                FontWeight="Bold"
+                                Foreground="#34D399" />
+                        </Border>
+                    </StackPanel>
+                </Border>
+
+                <!-- 5. Status Text & Percentage Counter -->
+                <Grid Margin="0,16,0,7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <ui:SymbolIcon
+                            x:Name="StatusIcon"
+                            Symbol="ArrowSync24"
+                            FontSize="13.5"
+                            Foreground="#8B5CF6"
+                            Margin="0,0,7,0"
+                            VerticalAlignment="Center" />
+                        <TextBlock
+                            x:Name="StatusText"
+                            Text="{x:Static res:Strings.Splash_Initializing}"
+                            FontSize="12"
+                            Foreground="#CBD5E1"
+                            FontWeight="Medium"
+                            TextTrimming="CharacterEllipsis"
+                            VerticalAlignment="Center" />
+                    </StackPanel>
+
+                    <TextBlock
+                        x:Name="PercentText"
+                        Grid.Column="1"
+                        Text="0%"
+                        FontSize="12.5"
+                        FontWeight="Bold"
+                        Foreground="#C084FC"
+                        VerticalAlignment="Center" />
+                </Grid>
+
+                <!-- 6. High-tech Glowing Progress Bar -->
+                <Border
+                    x:Name="ProgressTrack"
+                    Height="6"
+                    CornerRadius="3"
+                    Background="#222136"
+                    ClipToBounds="True">
+                    <Border
+                        x:Name="ProgressFill"
+                        HorizontalAlignment="Left"
+                        Width="0"
+                        Height="6"
+                        CornerRadius="3">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#8B5CF6" Offset="0" />
+                                <GradientStop Color="#6366F1" Offset="0.5" />
+                                <GradientStop Color="#38BDF8" Offset="1" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="8"
+                                ShadowDepth="0"
+                                Color="#8B5CF6"
+                                Opacity="0.8" />
+                        </Border.Effect>
+                    </Border>
+                </Border>
+            </StackPanel>
+
+            <!-- 7. Minimalist Footer -->
+            <Grid Grid.Row="1" Margin="2,12,2,0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Border
+                        Width="6"
+                        Height="6"
+                        CornerRadius="3"
+                        Background="#10B981"
+                        Margin="0,0,6,0"
+                        VerticalAlignment="Center" />
+                    <TextBlock
+                        Text="Ready"
+                        FontSize="10.5"
+                        Foreground="#64748B"
+                        VerticalAlignment="Center" />
+                </StackPanel>
+
+                <TextBlock
+                    Text="BaoTools Game Launcher"
+                    FontSize="10.5"
+                    Foreground="#64748B"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" />
+            </Grid>
+        </Grid>
+    </Grid>
+</ui:FluentWindow>

@@ -15,12 +15,13 @@ using Microsoft.Win32;
 
 namespace BaoToolsGui.ViewModels;
 
-public partial class OnlineFixGameCardVm(long appId, string name, string installDir) : ObservableObject
+public partial class OnlineFixGameCardVm(long appId, string name, string installDir, bool hasOnlineFix = false) : ObservableObject
 {
     public long AppId { get; } = appId;
     public string Name { get; } = name;
     public string InstallDir { get; } = installDir;
 
+    [ObservableProperty] private bool _hasOnlineFix = hasOnlineFix;
     [ObservableProperty] private string? _cover;
     private int _resolving;
 
@@ -48,12 +49,32 @@ public partial class OnlineFixGameCardVm(long appId, string name, string install
     }
 }
 
+public enum OnlineFixFilterMode
+{
+    All,
+    OnlineOnly,
+    OfflineOnly
+}
+
 public partial class OnlineFixesViewModel(SteamLibraryService library, CoverCache covers, ToastService toast) : ObservableObject
 {
     public ObservableCollection<OnlineFixGameCardVm> Games { get; } = [];
 
     [ObservableProperty] private bool _isLoading;
     [ObservableProperty] private string _searchText = "";
+    [ObservableProperty] private OnlineFixFilterMode _filterMode = OnlineFixFilterMode.All;
+
+    [ObservableProperty] private int _totalCount;
+    [ObservableProperty] private int _onlineCount;
+    [ObservableProperty] private int _offlineCount;
+
+    public bool IsFilterAll => FilterMode == OnlineFixFilterMode.All;
+    public bool IsFilterOnline => FilterMode == OnlineFixFilterMode.OnlineOnly;
+    public bool IsFilterOffline => FilterMode == OnlineFixFilterMode.OfflineOnly;
+
+    public string FilterAllLabel => string.Format(Resources.Strings.OnlineFixes_Filter_All, TotalCount);
+    public string FilterOnlineLabel => string.Format(Resources.Strings.OnlineFixes_Filter_Online, OnlineCount);
+    public string FilterOfflineLabel => string.Format(Resources.Strings.OnlineFixes_Filter_Offline, OfflineCount);
 
     public bool IsEmpty => !IsLoading && Games.Count == 0;
     public string EmptyMessage => string.IsNullOrWhiteSpace(SearchText)
@@ -63,8 +84,23 @@ public partial class OnlineFixesViewModel(SteamLibraryService library, CoverCach
     partial void OnSearchTextChanged(string value)
     {
         ApplyFilter();
-        OnPropertyChanged(nameof(IsEmpty));
-        OnPropertyChanged(nameof(EmptyMessage));
+    }
+
+    partial void OnFilterModeChanged(OnlineFixFilterMode value)
+    {
+        OnPropertyChanged(nameof(IsFilterAll));
+        OnPropertyChanged(nameof(IsFilterOnline));
+        OnPropertyChanged(nameof(IsFilterOffline));
+        ApplyFilter();
+    }
+
+    [RelayCommand]
+    private void SelectFilter(string mode)
+    {
+        if (Enum.TryParse<OnlineFixFilterMode>(mode, true, out var m))
+        {
+            FilterMode = m;
+        }
     }
 
     private List<OnlineFixGameCardVm> _allGames = [];
@@ -82,11 +118,17 @@ public partial class OnlineFixesViewModel(SteamLibraryService library, CoverCach
                 return library.GetAllInstalledApps()
                     .Where(a => !IsToolOrRedistributable(a.AppId, a.Name))
                     .OrderBy(a => a.Name)
-                    .Select(a => new OnlineFixGameCardVm(a.AppId, a.Name, a.InstallDir))
+                    .Select(a =>
+                    {
+                        bool hasFix = GameLauncherService.IsOnlineFixPresent(a.InstallDir)
+                                      || WindowsDefenderService.HasBackup(a.AppId);
+                        return new OnlineFixGameCardVm(a.AppId, a.Name, a.InstallDir, hasFix);
+                    })
                     .ToList();
             });
 
             _allGames = apps;
+            UpdateCounts();
             ApplyFilter();
         }
         finally
@@ -97,18 +139,38 @@ public partial class OnlineFixesViewModel(SteamLibraryService library, CoverCach
         }
     }
 
+    private void UpdateCounts()
+    {
+        TotalCount = _allGames.Count;
+        OnlineCount = _allGames.Count(g => g.HasOnlineFix);
+        OfflineCount = TotalCount - OnlineCount;
+
+        OnPropertyChanged(nameof(FilterAllLabel));
+        OnPropertyChanged(nameof(FilterOnlineLabel));
+        OnPropertyChanged(nameof(FilterOfflineLabel));
+    }
+
     private void ApplyFilter()
     {
-        var shown = string.IsNullOrWhiteSpace(SearchText)
-            ? _allGames
-            : _allGames.Where(g => g.Matches(SearchText));
+        IEnumerable<OnlineFixGameCardVm> query = _allGames;
+
+        if (FilterMode == OnlineFixFilterMode.OnlineOnly)
+            query = query.Where(g => g.HasOnlineFix);
+        else if (FilterMode == OnlineFixFilterMode.OfflineOnly)
+            query = query.Where(g => !g.HasOnlineFix);
+
+        if (!string.IsNullOrWhiteSpace(SearchText))
+            query = query.Where(g => g.Matches(SearchText));
 
         Games.Clear();
-        foreach (var g in shown)
+        foreach (var g in query)
         {
             Games.Add(g);
             _ = g.EnsureCoverAsync(covers);
         }
+
+        OnPropertyChanged(nameof(IsEmpty));
+        OnPropertyChanged(nameof(EmptyMessage));
     }
 
     [RelayCommand]
@@ -179,16 +241,28 @@ public partial class OnlineFixesViewModel(SteamLibraryService library, CoverCach
                         Directory.CreateDirectory(Path.GetDirectoryName(dest)!);
                         entry.ExtractToFile(dest, overwrite: true);
                         extracted++;
+                        WindowsDefenderService.UnblockFile(dest);
                     }
                     catch { failed++; }
                 }
+
+                // Strip Mark of the Web & backup OnlineFix binaries so Defender won't eat them
+                WindowsDefenderService.UnblockDirectory(game.InstallDir);
+                WindowsDefenderService.BackupOnlineFixFiles(game.AppId, game.InstallDir);
+
+                // Auto-add folder exclusion to Windows Defender
+                _ = WindowsDefenderService.AddFolderExclusionAsync(game.InstallDir);
 
                 Application.Current?.Dispatcher.Invoke(() =>
                 {
                     if (failed > 0)
                         toast.Show("Install with warnings", $"{extracted} files extracted, {failed} failed.", error: true);
                     else
-                        toast.Show("Online Fix Installed", $"{game.Name} has been successfully patched!");
+                        toast.Show("Online Fix Installed", $"{game.Name} has been successfully patched!\n(Protected against Defender)");
+
+                    game.HasOnlineFix = true;
+                    UpdateCounts();
+                    ApplyFilter();
                 });
             });
         }
@@ -200,6 +274,30 @@ public partial class OnlineFixesViewModel(SteamLibraryService library, CoverCach
         {
             IsLoading = false;
         }
+    }
+
+    [RelayCommand]
+    private async Task AddDefenderExclusionAsync(OnlineFixGameCardVm game)
+    {
+        WindowsDefenderService.UnblockDirectory(game.InstallDir);
+        await WindowsDefenderService.AddFolderExclusionAsync(game.InstallDir);
+        toast.Show(
+            Resources.Strings.OnlineFixes_DefenderExclusion,
+            string.Format(Resources.Strings.OnlineFixes_DefenderExclusion_Success, game.Name));
+    }
+
+    [RelayCommand]
+    private async Task AddAllDefenderExclusionsAsync()
+    {
+        var dirs = _allGames.Select(g => g.InstallDir).ToList();
+        foreach (var dir in dirs)
+        {
+            WindowsDefenderService.UnblockDirectory(dir);
+        }
+        await WindowsDefenderService.AddFoldersExclusionAsync(dirs);
+        toast.Show(
+            Resources.Strings.OnlineFixes_DefenderExclusion_All,
+            Resources.Strings.OnlineFixes_DefenderExclusion_All_Success);
     }
 
     private static bool IsToolOrRedistributable(long appId, string name)

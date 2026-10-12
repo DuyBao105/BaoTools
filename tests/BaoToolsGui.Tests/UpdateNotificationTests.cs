@@ -28,6 +28,13 @@ public class UpdateNotificationTests
     [InlineData("v105.5", "v105.4", true)]
     [InlineData("v105.4", "v105.5", false)]
     [InlineData("v105.5", "v105.5", false)]
+    [InlineData("v10.5", "v105.5", true)]
+    [InlineData("v105.5", "v10.5", false)]
+    [InlineData("v10.5", "v10.5", false)]
+    [InlineData("10.5", "10.5", false)]
+    [InlineData("v10.6", "v10.5", true)]
+    [InlineData("v10.5.1", "v10.5", true)]
+    [InlineData("v10.4", "v10.5", false)]
     public void IsVersionNewer_DetectsNewerVersionsCorrectly(string latest, string current, bool expected)
     {
         bool result = UpdateService.IsVersionNewer(latest, current);
@@ -166,30 +173,34 @@ public class UpdateNotificationTests
     public void UpdateHistoryService_LoadsDefaultsAndSetsFlags()
     {
         var service = new UpdateHistoryService();
-        var history = service.LoadHistory("v105.5");
+        var history = service.LoadHistory("v10.5");
 
         Assert.NotEmpty(history);
+        Assert.Single(history);
+        Assert.Equal("v10.5", history[0].TagName);
+
+        var v10_5 = history.FirstOrDefault(x => x.TagName == "v10.5");
+        Assert.NotNull(v10_5);
+        Assert.True(v10_5.IsCurrent);
+        Assert.False(v10_5.IsNew);
+
         var v105_5 = history.FirstOrDefault(x => x.TagName == "v105.5");
-        Assert.NotNull(v105_5);
-        Assert.True(v105_5.IsCurrent);
-        Assert.False(v105_5.IsNew);
+        Assert.Null(v105_5);
 
         var v105_4 = history.FirstOrDefault(x => x.TagName == "v105.4");
-        Assert.NotNull(v105_4);
-        Assert.False(v105_4.IsCurrent);
-        Assert.False(v105_4.IsNew);
+        Assert.Null(v105_4);
     }
 
     [Fact]
     public void UpdateHistoryService_DetectsNewerWhenOnOlderVersion()
     {
         var service = new UpdateHistoryService();
-        var history = service.LoadHistory("v105.4");
+        var history = service.LoadHistory("v10.4");
 
-        var v105_5 = history.FirstOrDefault(x => x.TagName == "v105.5");
-        Assert.NotNull(v105_5);
-        Assert.False(v105_5.IsCurrent);
-        Assert.True(v105_5.IsNew);
+        var v10_5 = history.FirstOrDefault(x => x.TagName == "v10.5");
+        Assert.NotNull(v10_5);
+        Assert.False(v10_5.IsCurrent);
+        Assert.True(v10_5.IsNew);
     }
 
     [Fact]
@@ -202,30 +213,28 @@ public class UpdateNotificationTests
             System.Globalization.CultureInfo.CurrentUICulture = new System.Globalization.CultureInfo("vi-VN");
             var viHistory = UpdateHistoryService.GetDefaultHistory();
             Assert.NotEmpty(viHistory);
-            Assert.Contains("Giao diện", viHistory[0].Title);
-            Assert.Contains("Themes", viHistory[0].Title);
-            Assert.Contains("Tự động khởi động lại", viHistory[1].Title);
+            Assert.Equal("v10.5", viHistory[0].TagName);
+            Assert.Contains("Phân loại Tải xuống", viHistory[0].Title);
 
             // Test English / international culture
             System.Globalization.CultureInfo.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
             var enHistory = UpdateHistoryService.GetDefaultHistory();
             Assert.NotEmpty(enHistory);
-            Assert.Contains("Theme Switcher", enHistory[0].Title);
-            Assert.Contains("themes", enHistory[0].Body);
-            Assert.Contains("Auto-restart", enHistory[1].Title);
+            Assert.Equal("v10.5", enHistory[0].TagName);
+            Assert.Contains("Download Categorization", enHistory[0].Title);
 
             // Test LoadHistory updates cached default items when language changes
             var service = new UpdateHistoryService();
-            var loadedEn = service.LoadHistory("v105.5");
-            var itemEn = loadedEn.FirstOrDefault(x => x.TagName == "v105.5");
+            var loadedEn = service.LoadHistory("v10.5");
+            var itemEn = loadedEn.FirstOrDefault(x => x.TagName == "v10.5");
             Assert.NotNull(itemEn);
-            Assert.Contains("Theme", itemEn.Title);
+            Assert.Contains("Download Categorization", itemEn.Title);
 
             System.Globalization.CultureInfo.CurrentUICulture = new System.Globalization.CultureInfo("vi-VN");
-            var loadedVi = service.LoadHistory("v105.5");
-            var itemVi = loadedVi.FirstOrDefault(x => x.TagName == "v105.5");
+            var loadedVi = service.LoadHistory("v10.5");
+            var itemVi = loadedVi.FirstOrDefault(x => x.TagName == "v10.5");
             Assert.NotNull(itemVi);
-            Assert.Contains("Giao diện", itemVi.Title);
+            Assert.Contains("Phân loại Tải xuống", itemVi.Title);
         }
         finally
         {
@@ -268,19 +277,19 @@ public class UpdateNotificationTests
             {
                 new()
                 {
-                    TagName = "v105.3",
-                    Title = "Revert Fixes Cleanly English Title From GitHub",
+                    TagName = "v10.5",
+                    Title = "Download Categorization English Title From GitHub",
                     Body = "English markdown body from GitHub that should not overwrite Vietnamese",
-                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.3",
+                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v10.5",
                     PublishedAt = DateTimeOffset.UtcNow
                 }
             };
 
-            var merged = service.MergeWithRemoteReleases(remoteReleases, "v105.3");
-            var item = merged.FirstOrDefault(x => x.TagName == "v105.3");
+            var merged = service.MergeWithRemoteReleases(remoteReleases, "v10.5");
+            var item = merged.FirstOrDefault(x => x.TagName == "v10.5");
             Assert.NotNull(item);
-            Assert.Contains("Gỡ Fix", item.Title);
-            Assert.Contains("Hỗ trợ gỡ Fix", item.Body);
+            Assert.Contains("Phân loại Tải xuống", item.Title);
+            Assert.Contains("Cấu hình Lua", item.Body);
         }
         finally
         {
@@ -323,6 +332,21 @@ public class UpdateNotificationTests
         Assert.Contains(@"cd /d ""C:\Games\BaoTools""", script);
         Assert.Contains(@"start """" ""C:\Games\BaoTools\BaoTools.exe""", script);
         Assert.Contains(@"rd /s /q ""C:\Temp\Staging""", script);
+    }
+
+    [Fact]
+    public void NotificationBell_UnreadIndicatorAndCurrentBadge_WorksForV10_5()
+    {
+        var historyService = new UpdateHistoryService();
+        var history = historyService.LoadHistory("v10.5");
+
+        Assert.Equal("v10.5", history[0].TagName);
+        Assert.True(history[0].IsCurrent);
+        Assert.False(history[0].IsNew);
+
+        // Older legacy releases must be purged from history
+        var v105_5 = history.FirstOrDefault(x => x.TagName == "v105.5");
+        Assert.Null(v105_5);
     }
 }
 

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:schema id="root">
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -524,7 +524,7 @@
     <value>Načítání…</value>
   </data>
   <data name="Common_AppId" xml:space="preserve">
-    <value>App ID: {0}</value>
+    <value>ID aplikace: {0}</value>
   </data>
   <data name="Common_AppFallback" xml:space="preserve">
     <value>Aplikace {0}</value>
@@ -656,7 +656,7 @@
     <value>Datum vydání (nejnovější)</value>
   </data>
   <data name="Manage_Sort_Metacritic" xml:space="preserve">
-    <value>Metacritic</value>
+    <value>Metakritický</value>
   </data>
   <data name="Manage_Sort_MostReviewed" xml:space="preserve">
     <value>Nejvíce recenzí</value>
@@ -854,7 +854,7 @@ Tím se smažou soubory .lua ze Steam\config\stplug-in.</value>
     <value>Zobrazit</value>
   </data>
   <data name="Add_Supporter" xml:space="preserve">
-    <value>Supporter</value>
+    <value>Podporovatel</value>
   </data>
   <data name="Add_Unlimited" xml:space="preserve">
     <value>Neomezeno</value>
@@ -1678,26 +1678,26 @@ Zrušit - pokračovat ve stahování</value>
     <value>Odstranit všech {0} záznamů z historie stahování? Stažené soubory zůstanou zachovány.</value>
   </data>
   <data name="Nav_OnlineFixes" xml:space="preserve">
-    <value>Online Fix</value>
+    <value>Oprava online</value>
   </data>
   <data name="OnlineFixes_Download" xml:space="preserve">
-    <value>Download Fix</value>
+    <value>Stáhnout Fix</value>
   </data>
   <data name="OnlineFixes_Install" xml:space="preserve">
-    <value>Install Fix</value>
+    <value>Nainstalujte opravu</value>
   </data>
   <data name="OnlineFixes_Search" xml:space="preserve">
-    <value>Search installed games...</value>
+    <value>Hledat nainstalované hry...</value>
   </data>
   <data name="OnlineFixes_Help" xml:space="preserve">
-    <value>Step 1: Click "Download Fix" to search and download the ZIP file from online-fix.me.
-Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically extract it into the game folder.</value>
+    <value>Krok 1: Klikněte na „Stáhnout opravu“ pro vyhledání a stažení souboru ZIP z online-fix.me.
+Krok 2: Klikněte na „Instalovat opravu“ a vyberte stažený soubor ZIP, aby se automaticky extrahoval do složky hry.</value>
   </data>
   <data name="Nav_Tickets" xml:space="preserve">
-    <value>Tickets</value>
+    <value>Vstupenky</value>
   </data>
   <data name="Tickets_CopyHex" xml:space="preserve">
-    <value>Copy Hex</value>
+    <value>Kopírovat hex</value>
   </data>
   <data name="Manage_Action_ExtractTickets" xml:space="preserve">
     <value>Extrahovat vstupenky</value>
@@ -1706,7 +1706,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Ve vaší knihovně Steam nebyly nalezeny žádné nainstalované hry.</value>
   </data>
   <data name="OnlineFixes_EmptySearch" xml:space="preserve">
-    <value>No installed games match your search query.</value>
+    <value>Vašemu vyhledávacímu dotazu neodpovídají žádné nainstalované hry.</value>
   </data>
   <data name="OnlineFixes_InstalledBadge" xml:space="preserve">
     <value>Instalováno</value>
@@ -1739,7 +1739,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Kód lístku Lua zkopírován do schránky.</value>
   </data>
   <data name="Tickets_CopyLuaCode" xml:space="preserve">
-    <value>Copy Lua Snippet</value>
+    <value>Zkopírujte Lua Snippet</value>
   </data>
   <data name="Tickets_ExportSuccess" xml:space="preserve">
     <value>Soubor {0} byl úspěšně exportován do počítače!</value>
@@ -1751,7 +1751,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Extrahovat vstupenky</value>
   </data>
   <data name="Tickets_ExtractFailed" xml:space="preserve">
-    <value>Failed to extract tickets. Make sure the account owns the game.</value>
+    <value>Vstupenky se nepodařilo extrahovat. Ujistěte se, že účet vlastní hru.</value>
   </data>
   <data name="Tickets_Extracting" xml:space="preserve">
     <value>Žádost o vstupenky z klienta Steam...</value>
@@ -1775,10 +1775,10 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Denuvo umožňuje až 5 unikátních aktivací PC denně na jednu herní licenci. Sdílení s více než 5 počítači během 24 hodin dočasně uzamkne nové aktivace do dalšího dne.</value>
   </data>
   <data name="Tickets_Note_Limit_Title" xml:space="preserve">
-    <value>Denuvo 5 Activations / 24 Hours Limit</value>
+    <value>Denuvo 5 aktivací / 24 hodinový limit</value>
   </data>
   <data name="Tickets_Note_Ownership_Desc" xml:space="preserve">
-    <value>Tickets can only be generated if the currently logged-in Steam account genuinely owns the game license or has active Family Sharing.</value>
+    <value>Vstupenky lze generovat pouze v případě, že aktuálně přihlášený účet Steam skutečně vlastní licenci hry nebo má aktivní rodinné sdílení.</value>
   </data>
   <data name="Tickets_Note_Ownership_Title" xml:space="preserve">
     <value>Je vyžadováno vlastnictví účtu</value>
@@ -1790,7 +1790,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>30minutové okno platnosti vstupenky</value>
   </data>
   <data name="Tickets_NoticeBody" xml:space="preserve">
-    <value>Tickets can only be extracted from an account that genuinely owns the game or has valid Family Sharing. Denuvo authorization tickets have a ~30-minute validity window before they must be refreshed.</value>
+    <value>Vstupenky lze získat pouze z účtu, který skutečně vlastní hru nebo má platné rodinné sdílení. Autorizační lístky Denuvo mají dobu platnosti ~30 minut, než je nutné je obnovit.</value>
   </data>
   <data name="Tickets_NoticeHeader" xml:space="preserve">
     <value>Důležité poznámky pro Denuvo</value>
@@ -1811,7 +1811,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Zkontrolujte stav Steamu</value>
   </data>
   <data name="Tickets_RescanGames" xml:space="preserve">
-    <value>Rescan installed Denuvo games</value>
+    <value>Znovu prohledejte nainstalované hry Denuvo</value>
   </data>
   <data name="Tickets_ResultsHeader" xml:space="preserve">
     <value>Extrahované vstupenky</value>
@@ -1820,7 +1820,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Vyberte nainstalovanou hru Denuvo</value>
   </data>
   <data name="Tickets_SelectDenuvoGameHint" xml:space="preserve">
-    <value>Only games with detected Denuvo protection are listed below for quick selection.</value>
+    <value>Pro rychlý výběr jsou níže uvedeny pouze hry s detekovanou ochranou Denuvo.</value>
   </data>
   <data name="Tickets_SteamClosedHint" xml:space="preserve">
     <value>Před extrahováním spusťte Steam a přihlaste se k účtu, který hru vlastní.</value>
@@ -1844,7 +1844,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Denní stahování:</value>
   </data>
   <data name="Download_DailyQuota_GuestBadge" xml:space="preserve">
-    <value>Sign in for 10 downloads/day</value>
+    <value>Přihlaste se a získejte 10 stažení denně</value>
   </data>
   <data name="Download_DailyQuota_LimitReached" xml:space="preserve">
     <value>Dosáhli jste svého denního limitu 10 stažení. Zkuste to prosím znovu zítra.</value>
@@ -1859,16 +1859,16 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Denní stažení: dnes využito {0}/{1}</value>
   </data>
   <data name="Home_DailyQuota_Active" xml:space="preserve">
-    <value>Daily downloads: 10/day (Active)</value>
+    <value>Denní stažení: 10/den (aktivní)</value>
   </data>
   <data name="Tickets_AppTicket_Title" xml:space="preserve">
-    <value>App Ownership Ticket</value>
+    <value>Vstupenka na vlastnictví aplikace</value>
   </data>
   <data name="Tickets_ETicket_Title" xml:space="preserve">
     <value>Vstupenka do šifrované aplikace (Denuvo)</value>
   </data>
   <data name="Common_NotAvailable" xml:space="preserve">
-    <value>Not available</value>
+    <value>Není k dispozici</value>
   </data>
   <data name="Nav_Plugin" xml:space="preserve">
     <value>Plugin</value>
@@ -1988,43 +1988,43 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>BaoTools Classic</value>
   </data>
   <data name="Theme_Dracula" xml:space="preserve">
-    <value>Dracula</value>
+    <value>Drákula</value>
   </data>
   <data name="Theme_Nord" xml:space="preserve">
     <value>Nord</value>
   </data>
   <data name="Theme_Catppuccin" xml:space="preserve">
-    <value>Catppuccin Mocha</value>
+    <value>Catpuccin Mocha</value>
   </data>
   <data name="Theme_Cyberpunk" xml:space="preserve">
     <value>Cyberpunk</value>
   </data>
   <data name="Theme_Midnight" xml:space="preserve">
-    <value>Midnight OLED</value>
+    <value>Půlnoční OLED</value>
   </data>
   <data name="Theme_TokyoNight" xml:space="preserve">
-    <value>Tokyo Night</value>
+    <value>Tokijská noc</value>
   </data>
   <data name="Theme_Synthwave" xml:space="preserve">
     <value>Synthwave '84</value>
   </data>
   <data name="Theme_RosePine" xml:space="preserve">
-    <value>Rosé Pine</value>
+    <value>Růžová borovice</value>
   </data>
   <data name="Theme_Sakura" xml:space="preserve">
-    <value>Sakura Blossom</value>
+    <value>Sakura květ</value>
   </data>
   <data name="Theme_Emerald" xml:space="preserve">
-    <value>Emerald Matrix</value>
+    <value>Smaragdový Matrix</value>
   </data>
   <data name="Theme_AmberSunset" xml:space="preserve">
     <value>Amber Horizon</value>
   </data>
   <data name="Theme_Amethyst" xml:space="preserve">
-    <value>Amethyst Neon</value>
+    <value>Ametyst Neon</value>
   </data>
   <data name="Theme_AbyssalOcean" xml:space="preserve">
-    <value>Abyssal Ocean</value>
+    <value>Propastný oceán</value>
   </data>
   <data name="Theme_OneDark" xml:space="preserve">
     <value>One Dark Pro</value>
@@ -2033,48 +2033,48 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Gruvbox Retro</value>
   </data>
   <data name="UpdateDialog_Title" xml:space="preserve">
-    <value>Software Update</value>
+    <value>Aktualizace softwaru</value>
   </data>
   <data name="UpdateDialog_DownloadingHeader" xml:space="preserve">
-    <value>Downloading Update</value>
+    <value>Stahování aktualizace</value>
   </data>
   <data name="UpdateDialog_DownloadingSub" xml:space="preserve">
-    <value>Downloading update package for {0}... Please keep BaoTools open.</value>
+    <value>Stahování aktualizačního balíčku pro {0}... Ponechte BaoTools otevřené.</value>
   </data>
   <data name="UpdateDialog_DownloadingStatus" xml:space="preserve">
-    <value>Downloading</value>
+    <value>Stahování</value>
   </data>
   <data name="UpdateDialog_ReadyHeader" xml:space="preserve">
-    <value>Update Ready to Install</value>
+    <value>Aktualizace připravena k instalaci</value>
   </data>
   <data name="UpdateDialog_ReadySub" xml:space="preserve">
-    <value>BaoTools {0} has been downloaded. Click Restart Now to apply the update and start using the new version.</value>
+    <value>BaoTools {0} byl stažen. Klepnutím na Restartovat nyní použijte aktualizaci a začněte používat novou verzi.</value>
   </data>
   <data name="UpdateDialog_ReadyStatus" xml:space="preserve">
-    <value>Ready to install</value>
+    <value>Připraveno k instalaci</value>
   </data>
   <data name="UpdateDialog_RestartNow" xml:space="preserve">
-    <value>Restart Now</value>
+    <value>Restartujte nyní</value>
   </data>
   <data name="UpdateDialog_Restarting" xml:space="preserve">
-    <value>Restarting...</value>
+    <value>Restartování...</value>
   </data>
   <data name="UpdateDialog_Later" xml:space="preserve">
     <value>Later</value>
   </data>
   <data name="UpdateDialog_Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Zrušit</value>
   </data>
   <data name="UpdateDialog_FailedHeader" xml:space="preserve">
-    <value>Download Failed</value>
+    <value>Stahování se nezdařilo</value>
   </data>
   <data name="UpdateDialog_FailedSub" xml:space="preserve">
-    <value>An error occurred while downloading the update. You can download the latest installer manually from your browser.</value>
+    <value>Při stahování aktualizace došlo k chybě. Nejnovější instalační program si můžete stáhnout ručně z vašeho prohlížeče.</value>
   </data>
   <data name="UpdateDialog_OpenBrowser" xml:space="preserve">
-    <value>Open Browser</value>
+    <value>Otevřete Prohlížeč</value>
   </data>
-  <!-- Added Keys Sync -->
+  
   <data name="Nav_Section_Tools" xml:space="preserve">
     <value>NÁSTROJE</value>
   </data>
@@ -2229,51 +2229,51 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Doporučená témata:</value>
   </data>
   <data name="Settings_Subtitle" xml:space="preserve">
-    <value>Manage BaoTools preferences</value>
+    <value>Spravujte předvolby BaoTools</value>
   </data>
   <data name="Home_Discord_Title" xml:space="preserve">
     <value>Discord Community</value>
   </data>
   <data name="Home_Discord_Desc" xml:space="preserve">
-    <value>Join the BaoTools Discord server for announcements, fresh updates, and technical support.</value>
+    <value>Připojte se k serveru BaoTools Discord pro oznámení, čerstvé aktualizace a technickou podporu.</value>
   </data>
   <data name="Home_Discord_Join" xml:space="preserve">
-    <value>Join Discord</value>
+    <value>Připojte se k Discordu</value>
   </data>
   <data name="Settings_AiAssistant_LocalOffline" xml:space="preserve">
-    <value>Local / Offline</value>
+    <value>Místní / Offline</value>
   </data>
   <data name="Settings_AiAssistant_CardDesc" xml:space="preserve">
-    <value>Diagnose games, explain errors and help fix common problems.</value>
+    <value>Diagnostikujte hry, vysvětlete chyby a pomozte opravit běžné problémy.</value>
   </data>
   <data name="Settings_AiAssistant_Key" xml:space="preserve">
-    <value>Google Gemini API Key</value>
+    <value>Google Gemini API klíč</value>
   </data>
   <data name="Settings_AiAssistant_Key_Hint" xml:space="preserve">
-    <value>Free API key from Google AI Studio. Used by the assistant for deeper reasoning.</value>
+    <value>Bezplatný klíč API od Google AI Studio. Slouží asistentovi k hlubšímu uvažování.</value>
   </data>
   <data name="Settings_AiAssistant_KeyPlaceholder" xml:space="preserve">
-    <value>Paste your Gemini API key (AIzaSy...)</value>
+    <value>Vložte svůj klíč Gemini API (AIzaSy...)</value>
   </data>
   <data name="Settings_AiAssistant_GetKey" xml:space="preserve">
-    <value>Get Free API Key</value>
+    <value>Získejte bezplatný klíč API</value>
   </data>
   <data name="AiChat_CopyMessage" xml:space="preserve">
-    <value>Copy message</value>
+    <value>Zkopírujte zprávu</value>
   </data>
   <data name="AiChat_Copied" xml:space="preserve">
-    <value>Copied!</value>
+    <value>Zkopírováno!</value>
   </data>
   <data name="AiChat_Regenerate" xml:space="preserve">
-    <value>Regenerate response</value>
+    <value>Regenerovat odezvu</value>
   </data>
   <data name="AiChat_InspectingGame" xml:space="preserve">
-    <value>Inspecting: {0}</value>
+    <value>Kontrola: {0}</value>
   </data>
   <data name="AiChat_ClearGameContext" xml:space="preserve">
-    <value>Clear game context</value>
+    <value>Jasný herní kontext</value>
   </data>
-  <!-- Assistant Rotating Discovery Messages -->
+  
   <data name="AssistantAskAnything" xml:space="preserve">
     <value>Zeptejte se mě na cokoliv...</value>
   </data>
@@ -2287,28 +2287,28 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Potřebujete opravu?</value>
   </data>
   <data name="Downloads_Search_Placeholder" xml:space="preserve">
-    <value>Search downloaded games...</value>
+    <value>Hledat stažené hry...</value>
   </data>
   <data name="Manage_Filter_Source" xml:space="preserve">
-    <value>Source</value>
+    <value>Zdroj</value>
   </data>
   <data name="Downloads_Stats_TotalData" xml:space="preserve">
-    <value>Total Downloaded</value>
+    <value>Celkem staženo</value>
   </data>
   <data name="Downloads_Stats_DiskFree" xml:space="preserve">
     <value>Drive {0} Â· Free {1}</value>
   </data>
   <data name="Downloads_Shortcut_Failed" xml:space="preserve">
-    <value>Failed to create Desktop shortcut: {0}</value>
+    <value>Nepodařilo se vytvořit zástupce na ploše: {0}</value>
   </data>
   <data name="Launcher_MinimizingDueToDownloads" xml:space="preserve">
-    <value>Active downloads in progress. BaoTools minimized to keep downloading.</value>
+    <value>Probíhají aktivní stahování. BaoTools minimalizováno, aby stahování pokračovalo.</value>
   </data>
   <data name="Downloads_Uninstall_Title" xml:space="preserve">
-    <value>Uninstall Game</value>
+    <value>Odinstalovat hru</value>
   </data>
   <data name="Settings_CreateDesktopShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut on download</value>
+    <value>Vytvořit zástupce na ploše při stahování</value>
   </data>
   <data name="Downloads_Action_Play" xml:space="preserve">
     <value>Play</value>
@@ -2317,91 +2317,91 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Idle</value>
   </data>
   <data name="Downloads_Empty_Desc" xml:space="preserve">
-    <value>Your download queue is empty. Find and download games, DLCs, or fixes to get started.</value>
+    <value>Vaše fronta stahování je prázdná. Chcete-li začít, vyhledejte a stáhněte si hry, DLC nebo opravy.</value>
   </data>
   <data name="Downloads_Uninstall_Success" xml:space="preserve">
-    <value>Successfully uninstalled '{0}'.</value>
+    <value>'{0}' byla úspěšně odinstalována.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Body" xml:space="preserve">
     <value>{0} is downloaded and ready to play.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Title" xml:space="preserve">
-    <value>Download Complete</value>
+    <value>Stahování dokončeno</value>
   </data>
   <data name="Downloads_Stats_Active" xml:space="preserve">
-    <value>Active Queue</value>
+    <value>Aktivní fronta</value>
   </data>
   <data name="Settings_ExitOnPlay" xml:space="preserve">
-    <value>Close app when launching game</value>
+    <value>Při spouštění hry zavřete aplikaci</value>
   </data>
   <data name="Launcher_StartingSteam" xml:space="preserve">
-    <value>Game with Online Fix requires Steam. Opening Steam, please wait until signed in and press Play again!</value>
+    <value>Hra s online opravou vyžaduje Steam. Otevřete Steam, počkejte, až se přihlásíte, a znovu stiskněte Play!</value>
   </data>
   <data name="Settings_ExitOnPlay_Hint" xml:space="preserve">
-    <value>Automatically exit BaoTools when launching a game. If downloads are active, BaoTools minimizes instead to keep downloading.</value>
+    <value>Automaticky ukončit BaoTools při spuštění hry. Pokud jsou stahování aktivní, BaoTools místo toho minimalizuje, aby stahování pokračovalo.</value>
   </data>
   <data name="Downloads_Stats_Completed_Desc" xml:space="preserve">
-    <value>Installed games</value>
+    <value>Nainstalované hry</value>
   </data>
   <data name="Launcher_LaunchFailed" xml:space="preserve">
-    <value>Failed to launch game: {0}</value>
+    <value>Nepodařilo se spustit hru: {0}</value>
   </data>
   <data name="Downloads_Stats_Active_Tooltip" xml:space="preserve">
-    <value>Click to view active downloads</value>
+    <value>Kliknutím zobrazíte aktivní stahování</value>
   </data>
   <data name="Manage_Filter_Source_Steam" xml:space="preserve">
-    <value>Steam Unlock</value>
+    <value>Odemknutí na Steamu</value>
   </data>
   <data name="Manage_Badge_Depot" xml:space="preserve">
     <value>Raw Depot</value>
   </data>
   <data name="Launcher_GameStarted" xml:space="preserve">
-    <value>Launched {0}.</value>
+    <value>Spuštěno {0}.</value>
   </data>
   <data name="Downloads_Stats_Completed" xml:space="preserve">
-    <value>Completed</value>
+    <value>Dokončeno</value>
   </data>
   <data name="Downloads_Action_CreateShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut</value>
+    <value>Vytvořit zástupce na ploše</value>
   </data>
   <data name="Downloads_Stats_OpenFolder_Tooltip" xml:space="preserve">
-    <value>Click to open download folder in File Explorer</value>
+    <value>Kliknutím otevřete složku pro stahování v Průzkumníku souborů</value>
   </data>
   <data name="Downloads_Search_NoResults" xml:space="preserve">
-    <value>No games match your search.</value>
+    <value>Vašemu vyhledávání neodpovídají žádné hry.</value>
   </data>
   <data name="Downloads_Action_Uninstall" xml:space="preserve">
-    <value>Uninstall</value>
+    <value>Odinstalovat</value>
   </data>
   <data name="Launcher_ExeNotFound" xml:space="preserve">
-    <value>Cannot find a runnable game executable for {0}. Opened folder for manual check.</value>
+    <value>Nelze najít spustitelnou hru spustitelnou pro {0}. Otevřená složka pro ruční kontrolu.</value>
   </data>
   <data name="Launcher_ConfiguredOfflineEmulator" xml:space="preserve">
     <value>Configured offline mode for {0}. Launching gameâ€¦</value>
   </data>
   <data name="Downloads_Shortcut_Created" xml:space="preserve">
-    <value>Created Desktop shortcut for '{0}'.</value>
+    <value>Na ploše vytvořen zástupce pro '{0}'.</value>
   </data>
   <data name="Settings_CreateDesktopShortcut_Hint" xml:space="preserve">
-    <value>Automatically create a desktop shortcut (.lnk) so you can launch the game directly without opening BaoTools.</value>
+    <value>Automaticky vytvořte zástupce na ploše (.lnk), abyste mohli hru spustit přímo bez otevření BaoTools.</value>
   </data>
   <data name="Manage_Action_PlayGame" xml:space="preserve">
-    <value>Play Game</value>
+    <value>Hrát hru</value>
   </data>
   <data name="Downloads_Uninstall_Confirm" xml:space="preserve">
-    <value>Are you sure you want to uninstall '{0}'? All downloaded files at '{1}' will be deleted.</value>
+    <value>Opravdu chcete odinstalovat '{0}'? Všechny stažené soubory z '{1}' budou smazány.</value>
   </data>
   <data name="Downloads_Stats_Completed_Tooltip" xml:space="preserve">
-    <value>Click to view installed games</value>
+    <value>Kliknutím zobrazíte nainstalované hry</value>
   </data>
   <data name="Manage_Filter_Source_All" xml:space="preserve">
-    <value>All sources</value>
+    <value>Všechny zdroje</value>
   </data>
   <data name="Downloads_Uninstall_Failed" xml:space="preserve">
-    <value>Failed to uninstall '{0}': {1}</value>
+    <value>Nepodařilo se odinstalovat '{0}': {1}</value>
   </data>
   <data name="Downloads_Action_BrowseGames" xml:space="preserve">
-    <value>Browse &amp; Download Games</value>
+    <value>Procházet a stahovat hry</value>
   </data>
   <data name="Launcher_DownloadingFix" xml:space="preserve">
     <value>Downloading and installing {0} for {1}â€¦</value>
@@ -2413,6 +2413,129 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Raw Depot</value>
   </data>
   <data name="Downloads_Action_OpenFolder" xml:space="preserve">
-    <value>Open Folder</value>
+    <value>Otevřete složku</value>
   </data>
-</root>
+  <data name="Downloads_Filter_All" xml:space="preserve">
+    <value>Vše</value>
+  </data>
+  <data name="Downloads_Filter_Games" xml:space="preserve">
+    <value>Hry</value>
+  </data>
+  <data name="Downloads_Filter_Lua" xml:space="preserve">
+    <value>Lua / Odemčení</value>
+  </data>
+  <data name="Downloads_Badge_Game" xml:space="preserve">
+    <value>Hra</value>
+  </data>
+  <data name="Downloads_Badge_Lua" xml:space="preserve">
+    <value>Odemčení Lua</value>
+  </data>
+  <data name="Launcher_GameStarted_Online" xml:space="preserve">
+    <value>Přehrávání v režimu online (Oprava online): {0}</value>
+  </data>
+  <data name="Launcher_GameStarted_Offline" xml:space="preserve">
+    <value>Nebyla nalezena žádná online oprava. Přehrávání v režimu offline: {0}</value>
+  </data>
+  <data name="Launcher_RestoredOnlineFix" xml:space="preserve">
+    <value>Automaticky obnovená OnlineFix64.dll odstraněna programem Windows Defender a přidána do výjimek.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion" xml:space="preserve">
+    <value>Zabránit smazání Defenderu</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_Success" xml:space="preserve">
+    <value>Přidáno {0} do výjimek programu Windows Defender.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All" xml:space="preserve">
+    <value>Chraňte všechny hry před Defenderem</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All_Success" xml:space="preserve">
+    <value>Požadované výjimky programu Windows Defender pro všechny adresáře nainstalovaných her.</value>
+  </data>
+  <data name="OnlineFixes_Filter_All" xml:space="preserve">
+    <value>Vše ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Online" xml:space="preserve">
+    <value>ðŸŸ¢ Online Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Offline" xml:space="preserve">
+    <value>âšª Offline / No Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Badge_Online" xml:space="preserve">
+    <value>Oprava online</value>
+  </data>
+  <data name="OnlineFixes_Badge_Offline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="GameDoctor_Title" xml:space="preserve">
+    <value>Herní doktor</value>
+  </data>
+  <data name="Settings_AutoGameDoctor" xml:space="preserve">
+    <value>Auto Game Doctor (běhové doby automatického léčení)</value>
+  </data>
+  <data name="Settings_AutoGameDoctor_Hint" xml:space="preserve">
+    <value>Automaticky diagnostikujte a nainstalujte chybějící moduly Visual C++ a DirectX při stahování a spouštění her, abyste zabránili chybám 0xc000007b nebo selháním spouštění.</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes" xml:space="preserve">
+    <value>Instalace All-in-One Game Runtimes (VC++ a DirectX)</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes_Hint" xml:space="preserve">
+    <value>Stáhněte si a nainstalujte runtime Microsoft Visual C++ a DirectX vyžadované hrami.</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealing" xml:space="preserve">
+    <value>Game Doctor: Automatické léčení {0} chybějících runtime balíčků...</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealSuccess" xml:space="preserve">
+    <value>Game Doctor: Všechny runtime knihovny byly úspěšně nainstalovány. Hra je připravena!</value>
+  </data>
+  <data name="GameDoctor_Toast_AllRuntimesInstalled" xml:space="preserve">
+    <value>Běhové moduly Visual C++ a DirectX byly úspěšně nainstalovány!</value>
+  </data>
+  <data name="GameDoctor_Status_Installing" xml:space="preserve">
+    <value>Instalace modulů runtime...</value>
+  </data>
+  <data name="GameDoctor_Status_Failed" xml:space="preserve">
+    <value>Instalace se nezdařila.</value>
+  </data>
+  <data name="Manage_Action_GameDoctor" xml:space="preserve">
+    <value>Game Doctor (diagnostika)</value>
+  </data>
+  <data name="GameDoctor_Healthy" xml:space="preserve">
+    <value>Herní prostředí je zdravé. Všechny závislosti ověřeny!</value>
+  </data>
+  <data name="GameDoctor_MissingDllCount" xml:space="preserve">
+    <value>Zjištěno {0} chybějících závislých souborů nebo nesoulad architektury.</value>
+  </data>
+  <data name="GameDoctor_ArchitectureMismatch" xml:space="preserve">
+    <value>Neshoda architektury (32bitová / 64bitová neshoda způsobuje chybu 0xc000007b)</value>
+  </data>
+  <data name="GameDoctor_FixNow" xml:space="preserve">
+    <value>Automatická oprava 1 kliknutím</value>
+  </data>
+  <data name="GameDoctor_ChooseExe" xml:space="preserve">
+    <value>Diagnostikujte další .exe</value>
+  </data>
+  <data name="Common_Install" xml:space="preserve">
+    <value>Instalovat</value>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Splash_Subtitle" xml:space="preserve">
+    <value>Dokonalý herní asistent</value>
+  </data>
+  <data name="Splash_Initializing" xml:space="preserve">
+    <value>Inicializace systému...</value>
+  </data>
+  <data name="Splash_CheckingEnv" xml:space="preserve">
+    <value>Kontrola herního prostředí...</value>
+  </data>
+  <data name="Splash_Preparing" xml:space="preserve">
+    <value>Příprava rozhraní...</value>
+  </data>
+  <data name="Splash_WelcomeGuest" xml:space="preserve">
+    <value>Vítejte v BaoTools!</value>
+  </data>
+  <data name="Splash_WelcomeUser" xml:space="preserve">
+    <value>Vítejte zpět, {0}! Příjemné hraní!</value>
+  </data>
+<data name="Auth_Err_PortBusy" xml:space="preserve"><value>Port připojení ({0}) je zaneprázdněn nebo čeká na vydání systému Windows. Počkejte prosím několik sekund a zkuste to znovu!</value></data><data name="Auth_Err_Denied" xml:space="preserve"><value>Přihlášení bylo zamítnuto nebo zrušeno.</value></data><data name="Status_SteamOnline" xml:space="preserve"><value /></data><data name="Status_SteamOffline" xml:space="preserve"><value>Steam: offline</value></data><data name="Status_PluginActive" xml:space="preserve"><value>Plugin: Aktivní</value></data><data name="Status_PluginMissing" xml:space="preserve"><value>Plugin: Chybí</value></data><data name="GameDoctor_ExeNotFound_Title" xml:space="preserve"><value>Spustitelný soubor nenalezen</value></data><data name="GameDoctor_ExeNotFound_Status" xml:space="preserve"><value>Nelze najít spustitelný spustitelný soubor</value></data><data name="GameDoctor_AllPeImportsValid" xml:space="preserve"><value>Zkontrolováno {0} PE knihoven, všechny jsou platné a kompatibilní.</value></data><data name="GameDoctor_NeedsRuntimePackages" xml:space="preserve"><value>Ke spuštění této hry je třeba nainstalovat {0} runtime balíčky (Visual C++ / DirectX).</value></data><data name="GameDoctor_PeImportsHeader" xml:space="preserve"><value>PROPOJENÉ KNIHOVNY PE (IMPORTY)</value></data><data name="GameDoctor_Status_Missing" xml:space="preserve"><value>Chybějící</value></data><data name="GameDoctor_Status_Ok" xml:space="preserve"><value>Instalováno</value></data><data name="GameDoctor_Status_Mismatch" xml:space="preserve"><value /></data><data name="Settings_Gemini_KeyDeleted" xml:space="preserve"><value>Klíč Gemini API byl odstraněn. Asistent AI bude fungovat v offline místním režimu.</value></data><data name="Settings_Gemini_KeyActivated" xml:space="preserve"><value>✓ Google Gemini AI byla úspěšně aktivována!</value></data><data name="Update_DownloadError" xml:space="preserve"><value>Při stahování aktualizace došlo k chybě.</value></data></root>

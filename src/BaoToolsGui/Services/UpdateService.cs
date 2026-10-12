@@ -102,7 +102,7 @@ public class UpdateService
     public async Task<GitHubReleaseInfo?> CheckGitHubReleaseFullAsync(string currentVersion)
     {
         string url = "https://api.github.com/repos/DevBaor/BaoTools_1005/releases/latest";
-        var client = AppHttp.Create(TimeSpan.FromSeconds(5));
+        var client = AppHttp.Create(TimeSpan.FromSeconds(10));
 
         foreach (var candidate in GithubProxy.Candidates(url))
         {
@@ -110,12 +110,27 @@ public class UpdateService
             {
                 using var req = new HttpRequestMessage(HttpMethod.Get, candidate);
                 req.Headers.UserAgent.ParseAdd("BaoTools");
+                req.Headers.TryAddWithoutValidation("Accept", "application/vnd.github+json");
                 var res = await client.SendAsync(req);
                 if (res.IsSuccessStatusCode)
                 {
                     var json = await res.Content.ReadAsStringAsync();
                     var parsed = ParseGitHubRelease(json, currentVersion);
                     if (parsed is not null) return parsed;
+                }
+                else if (res.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    // Repo has no public release published yet on GitHub (or is private).
+                    // This indicates no newer version exists upstream: treat current version as up to date.
+                    return new GitHubReleaseInfo
+                    {
+                        TagName = currentVersion,
+                        Title = $"BaoTools {currentVersion}",
+                        Body = "",
+                        HtmlUrl = "https://github.com/DevBaor/BaoTools_1005",
+                        DownloadUrl = "https://github.com/DevBaor/BaoTools_1005",
+                        IsNewer = false
+                    };
                 }
             }
             catch
@@ -148,7 +163,7 @@ public class UpdateService
     public async Task<List<GitHubReleaseInfo>> FetchReleasesHistoryAsync(string currentVersion)
     {
         string url = "https://api.github.com/repos/DevBaor/BaoTools_1005/releases?per_page=10";
-        var client = AppHttp.Create(TimeSpan.FromSeconds(5));
+        var client = AppHttp.Create(TimeSpan.FromSeconds(10));
 
         foreach (var candidate in GithubProxy.Candidates(url))
         {
@@ -256,6 +271,67 @@ public class UpdateService
     }
 
     /// <summary>
+    /// Computes a comparable numeric score for version strings, properly handling legacy 105.x tags
+    /// (v1005, v105.1 - v105.5 from Sep 2026) vs modern semantic versions (v10.5 from Oct 2026 onwards).
+    /// </summary>
+    public static long GetVersionScore(string? tag)
+    {
+        if (string.IsNullOrWhiteSpace(tag)) return 0L;
+        string v = tag.Trim().TrimStart('v', 'V');
+
+        // Legacy format mapping:
+        // "100x" -> 10_000_000L + x (e.g. 1004, 1005, 1006)
+        if (v.Length == 4 && v.StartsWith("100") && long.TryParse(v.Substring(3), out var legacyPatch))
+        {
+            return 10_000_000L + legacyPatch;
+        }
+
+        // Legacy "105.x" (v105.1 to v105.5 released Sep 2026):
+        if (v.StartsWith("105.", StringComparison.OrdinalIgnoreCase))
+        {
+            var p = v.Split('.');
+            long patch = p.Length > 1 && long.TryParse(new string(p[1].Where(char.IsDigit).ToArray()), out var sub) ? sub : 0;
+            return 10_000_000L + 5 * 1_000L + patch; // e.g. 10_005_001 to 10_005_005
+        }
+
+        // Modern "10.5" (v10.5 released Oct 2026 superseding v105.5):
+        if (v.Equals("10.5", StringComparison.OrdinalIgnoreCase))
+        {
+            return 10_005_010L; // v10.5 base release -> 10_005_010
+        }
+        if (v.StartsWith("10.5.", StringComparison.OrdinalIgnoreCase))
+        {
+            var p = v.Split('.');
+            long patch = p.Length > 2 && long.TryParse(new string(p[2].Where(char.IsDigit).ToArray()), out var sub) ? sub : 0;
+            return 10_005_010L + patch;
+        }
+
+        // General semantic version: "major.minor.patch"
+        if (v.Contains('.'))
+        {
+            var parts = v.Split('.');
+            long major = parts.Length > 0 && long.TryParse(new string(parts[0].Where(char.IsDigit).ToArray()), out var maj) ? maj : 0;
+            long minor = parts.Length > 1 && long.TryParse(new string(parts[1].Where(char.IsDigit).ToArray()), out var min) ? min : 0;
+            long patch = parts.Length > 2 && long.TryParse(new string(parts[2].Where(char.IsDigit).ToArray()), out var pt) ? pt : 0;
+            return major * 1_000_000L + minor * 1_000L + patch;
+        }
+
+        if (long.TryParse(new string(v.Where(char.IsDigit).ToArray()), out var fallback))
+        {
+            if (fallback < 1000) return fallback * 1_000_000L;
+            if (fallback >= 1000 && fallback < 10000)
+            {
+                long maj = fallback / 100;
+                long minPatch = fallback % 100;
+                return maj * 1_000_000L + minPatch;
+            }
+            return fallback;
+        }
+
+        return 0L;
+    }
+
+    /// <summary>
     /// Determines whether latestTag represents a newer version than currentVersion.
     /// </summary>
     public static bool IsVersionNewer(string latestTag, string currentVersion)
@@ -269,20 +345,12 @@ public class UpdateService
         if (string.Equals(tLatest, tCurrent, StringComparison.OrdinalIgnoreCase))
             return false;
 
-        // If both have dot-separated version components (e.g. 105.1 vs 105.2)
-        if (tLatest.Contains('.') && tCurrent.Contains('.'))
+        long scoreLatest = GetVersionScore(latestTag);
+        long scoreCurrent = GetVersionScore(currentVersion);
+
+        if (scoreLatest > 0 && scoreCurrent > 0)
         {
-            var pLatest = tLatest.Split('.');
-            var pCurrent = tCurrent.Split('.');
-            int len = Math.Max(pLatest.Length, pCurrent.Length);
-            for (int i = 0; i < len; i++)
-            {
-                long nLatest = i < pLatest.Length && long.TryParse(new string(pLatest[i].Where(char.IsDigit).ToArray()), out var nl) ? nl : 0;
-                long nCurrent = i < pCurrent.Length && long.TryParse(new string(pCurrent[i].Where(char.IsDigit).ToArray()), out var nc) ? nc : 0;
-                if (nLatest != nCurrent)
-                    return nLatest > nCurrent;
-            }
-            return false;
+            return scoreLatest > scoreCurrent;
         }
 
         // Fallback / legacy comparison: all digits (e.g. 105.1 -> 1051 vs 1005 -> 1005)

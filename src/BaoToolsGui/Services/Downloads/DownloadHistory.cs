@@ -80,6 +80,12 @@ public partial class DownloadHistoryEntry : ObservableObject
     /// <summary>Tool downloads carry appid 0; see <see cref="DownloadItem.CanCopyAppId"/>.</summary>
     public bool CanCopyAppId => Record.AppId > 0;
 
+    /// <summary>True if this download is a full game (Depot files), false if it is an unlock/manifest/tool.</summary>
+    public bool IsGameDownload => Record.Kind == nameof(DownloadKind.Depot);
+
+    /// <summary>True if this download is a Lua unlock script or manifest/tool.</summary>
+    public bool IsLuaUnlock => !IsGameDownload;
+
     public bool CanShowInFolder => !string.IsNullOrWhiteSpace(Record.RevealPath);
 
     public bool CanPlay => Status is DownloadStatus.Completed

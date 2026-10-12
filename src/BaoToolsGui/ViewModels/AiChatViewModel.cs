@@ -460,7 +460,7 @@ public partial class AiChatViewModel : ObservableObject
 
         IsLoading = true;
         UpdateStatusLabel();
-        CurrentProgressStep = IsVietnameseCulture() ? "Đang phân tích yêu cầu..." : "Analyzing request...";
+        CurrentProgressStep = Strings.AiChat_Thinking;
 
         try
         {
@@ -590,6 +590,9 @@ public partial class AiChatViewModel : ObservableObject
                 break;
             case "navigate_builds":
                 mainWin.NavigateToBuilds();
+                break;
+            case "navigate_online_fixes":
+                mainWin.NavigateToOnlineFixes();
                 break;
         }
     }

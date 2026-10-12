@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:schema id="root">
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -158,7 +158,7 @@
     <value>Hubcap APIキーとプロフィールはこちらで管理：</value>
   </data>
   <data name="Settings_Section_Hubcap" xml:space="preserve">
-    <value>HUBCAP</value>
+    <value>ハブキャップ</value>
   </data>
   <data name="Settings_HubcapKey" xml:space="preserve">
     <value>Hubcap APIキー</value>
@@ -524,7 +524,7 @@
     <value>読み込み中…</value>
   </data>
   <data name="Common_AppId" xml:space="preserve">
-    <value>App ID: {0}</value>
+    <value>アプリID: {0}</value>
   </data>
   <data name="Common_AppFallback" xml:space="preserve">
     <value>アプリ {0}</value>
@@ -656,7 +656,7 @@
     <value>リリース日（新しい順）</value>
   </data>
   <data name="Manage_Sort_Metacritic" xml:space="preserve">
-    <value>Metacritic</value>
+    <value>メタクリティック</value>
   </data>
   <data name="Manage_Sort_MostReviewed" xml:space="preserve">
     <value>レビュー数順</value>
@@ -854,7 +854,7 @@ Steam\config\stplug-in から .lua ファイルを削除します。</value>
     <value>表示</value>
   </data>
   <data name="Add_Supporter" xml:space="preserve">
-    <value>Supporter</value>
+    <value>サポーター</value>
   </data>
   <data name="Add_Unlimited" xml:space="preserve">
     <value>無制限</value>
@@ -1604,7 +1604,7 @@ Steam\config\stplug-in から .lua ファイルを削除します。</value>
     <value>ツール</value>
   </data>
   <data name="Downloads_SteamAutoCrack" xml:space="preserve">
-    <value>SteamAutoCrack</value>
+    <value>スチームオートクラック</value>
   </data>
   <data name="Downloads_SAC_GettingRuntime" xml:space="preserve">
     <value>.NET ランタイムを確認中</value>
@@ -1678,20 +1678,20 @@ Steam\config\stplug-in から .lua ファイルを削除します。</value>
     <value>ダウンロード履歴から {0} 件すべてを削除しますか？ダウンロード済みのファイルには影響しません。</value>
   </data>
   <data name="Nav_OnlineFixes" xml:space="preserve">
-    <value>Online Fix</value>
+    <value>オンライン修正</value>
   </data>
   <data name="OnlineFixes_Download" xml:space="preserve">
-    <value>Download Fix</value>
+    <value>修正をダウンロード</value>
   </data>
   <data name="OnlineFixes_Install" xml:space="preserve">
-    <value>Install Fix</value>
+    <value>修正をインストールする</value>
   </data>
   <data name="OnlineFixes_Search" xml:space="preserve">
-    <value>Search installed games...</value>
+    <value>インストールされているゲームを検索...</value>
   </data>
   <data name="OnlineFixes_Help" xml:space="preserve">
-    <value>Step 1: Click "Download Fix" to search and download the ZIP file from online-fix.me.
-Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically extract it into the game folder.</value>
+    <value>ステップ 1: [修正をダウンロード] をクリックして、online-fix.me から ZIP ファイルを検索してダウンロードします。
+ステップ 2: [修正のインストール] をクリックし、ダウンロードした ZIP ファイルを選択すると、ゲーム フォルダーに自動的に解凍されます。</value>
   </data>
   <data name="Nav_Tickets" xml:space="preserve">
     <value>チケット</value>
@@ -1766,7 +1766,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>または AppID を手動で入力します</value>
   </data>
   <data name="Tickets_Note_Client_Desc" xml:space="preserve">
-    <value>Steam must be active and logged in during extraction, as tickets are requested directly in-memory from the official Steam client interface.</value>
+    <value>チケットは公式 Steam クライアント インターフェイスからメモリ内で直接リクエストされるため、抽出中は Steam がアクティブでログインしている必要があります。</value>
   </data>
   <data name="Tickets_Note_Client_Title" xml:space="preserve">
     <value>Steam クライアントを実行し続ける</value>
@@ -1808,7 +1808,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>生のチケット ファイルを保存し、他の PC で 1 クリックでアクティベーションできるように共有可能な ZIP パッケージ (BaoTools_ticket) を準備します。</value>
   </data>
   <data name="Tickets_RefreshSteam" xml:space="preserve">
-    <value>Check Steam status</value>
+    <value>Steamのステータスを確認する</value>
   </data>
   <data name="Tickets_RescanGames" xml:space="preserve">
     <value>インストールされている Denuvo ゲームを再スキャンします</value>
@@ -1985,96 +1985,96 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Steam の起動時に BaoTools をシステムトレイにサイレント起動します。</value>
   </data>
   <data name="Theme_Default" xml:space="preserve">
-    <value>BaoTools Classic</value>
+    <value>BaoTools クラシック</value>
   </data>
   <data name="Theme_Dracula" xml:space="preserve">
-    <value>Dracula</value>
+    <value>ドラキュラ</value>
   </data>
   <data name="Theme_Nord" xml:space="preserve">
     <value>Nord</value>
   </data>
   <data name="Theme_Catppuccin" xml:space="preserve">
-    <value>Catppuccin Mocha</value>
+    <value>キャットプッチンモカ</value>
   </data>
   <data name="Theme_Cyberpunk" xml:space="preserve">
-    <value>Cyberpunk</value>
+    <value>サイバーパンク</value>
   </data>
   <data name="Theme_Midnight" xml:space="preserve">
-    <value>Midnight OLED</value>
+    <value>ミッドナイトOLED</value>
   </data>
   <data name="Theme_TokyoNight" xml:space="preserve">
-    <value>Tokyo Night</value>
+    <value>東京の夜</value>
   </data>
   <data name="Theme_Synthwave" xml:space="preserve">
-    <value>Synthwave '84</value>
+    <value>シンセウェーブ '84</value>
   </data>
   <data name="Theme_RosePine" xml:space="preserve">
-    <value>Rosé Pine</value>
+    <value>ローズパイン</value>
   </data>
   <data name="Theme_Sakura" xml:space="preserve">
-    <value>Sakura Blossom</value>
+    <value>桜の花</value>
   </data>
   <data name="Theme_Emerald" xml:space="preserve">
-    <value>Emerald Matrix</value>
+    <value>エメラルドマトリックス</value>
   </data>
   <data name="Theme_AmberSunset" xml:space="preserve">
-    <value>Amber Horizon</value>
+    <value>アンバーホライゾン</value>
   </data>
   <data name="Theme_Amethyst" xml:space="preserve">
-    <value>Amethyst Neon</value>
+    <value>アメジストネオン</value>
   </data>
   <data name="Theme_AbyssalOcean" xml:space="preserve">
-    <value>Abyssal Ocean</value>
+    <value>深海の海</value>
   </data>
   <data name="Theme_OneDark" xml:space="preserve">
-    <value>One Dark Pro</value>
+    <value>ワンダークプロ</value>
   </data>
   <data name="Theme_Gruvbox" xml:space="preserve">
-    <value>Gruvbox Retro</value>
+    <value>Gruvbox レトロ</value>
   </data>
   <data name="UpdateDialog_Title" xml:space="preserve">
-    <value>Software Update</value>
+    <value>ソフトウェアアップデート</value>
   </data>
   <data name="UpdateDialog_DownloadingHeader" xml:space="preserve">
-    <value>Downloading Update</value>
+    <value>アップデートをダウンロード中</value>
   </data>
   <data name="UpdateDialog_DownloadingSub" xml:space="preserve">
-    <value>Downloading update package for {0}... Please keep BaoTools open.</value>
+    <value>{0} の更新パッケージをダウンロードしています... BaoTools を開いたままにしてください。</value>
   </data>
   <data name="UpdateDialog_DownloadingStatus" xml:space="preserve">
-    <value>Downloading</value>
+    <value>ダウンロード中</value>
   </data>
   <data name="UpdateDialog_ReadyHeader" xml:space="preserve">
-    <value>Update Ready to Install</value>
+    <value>アップデートをインストールする準備ができました</value>
   </data>
   <data name="UpdateDialog_ReadySub" xml:space="preserve">
-    <value>BaoTools {0} has been downloaded. Click Restart Now to apply the update and start using the new version.</value>
+    <value>BaoTools {0} がダウンロードされました。 「今すぐ再起動」をクリックしてアップデートを適用し、新しいバージョンの使用を開始します。</value>
   </data>
   <data name="UpdateDialog_ReadyStatus" xml:space="preserve">
-    <value>Ready to install</value>
+    <value>インストールの準備ができました</value>
   </data>
   <data name="UpdateDialog_RestartNow" xml:space="preserve">
-    <value>Restart Now</value>
+    <value>今すぐ再起動してください</value>
   </data>
   <data name="UpdateDialog_Restarting" xml:space="preserve">
-    <value>Restarting...</value>
+    <value>再起動中...</value>
   </data>
   <data name="UpdateDialog_Later" xml:space="preserve">
     <value>Later</value>
   </data>
   <data name="UpdateDialog_Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>キャンセル</value>
   </data>
   <data name="UpdateDialog_FailedHeader" xml:space="preserve">
-    <value>Download Failed</value>
+    <value>ダウンロードに失敗しました</value>
   </data>
   <data name="UpdateDialog_FailedSub" xml:space="preserve">
-    <value>An error occurred while downloading the update. You can download the latest installer manually from your browser.</value>
+    <value>アップデートのダウンロード中にエラーが発生しました。最新のインストーラーはブラウザから手動でダウンロードできます。</value>
   </data>
   <data name="UpdateDialog_OpenBrowser" xml:space="preserve">
-    <value>Open Browser</value>
+    <value>ブラウザを開く</value>
   </data>
-  <!-- Added Keys Sync -->
+  
   <data name="Nav_Section_Tools" xml:space="preserve">
     <value>ツール</value>
   </data>
@@ -2229,34 +2229,34 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>おすすめのトピック：</value>
   </data>
   <data name="Settings_Subtitle" xml:space="preserve">
-    <value>Manage BaoTools preferences</value>
+    <value>BaoTools の設定を管理する</value>
   </data>
   <data name="Home_Discord_Title" xml:space="preserve">
-    <value>Discord Community</value>
+    <value>ディスコードコミュニティ</value>
   </data>
   <data name="Home_Discord_Desc" xml:space="preserve">
-    <value>Join the BaoTools Discord server for announcements, fresh updates, and technical support.</value>
+    <value>BaoTools Discord サーバーに参加して、お知らせ、最新のアップデート、テクニカル サポートを入手してください。</value>
   </data>
   <data name="Home_Discord_Join" xml:space="preserve">
-    <value>Join Discord</value>
+    <value>Discordに参加する</value>
   </data>
   <data name="Settings_AiAssistant_LocalOffline" xml:space="preserve">
-    <value>Local / Offline</value>
+    <value>ローカル/オフライン</value>
   </data>
   <data name="Settings_AiAssistant_CardDesc" xml:space="preserve">
-    <value>Diagnose games, explain errors and help fix common problems.</value>
+    <value>ゲームを診断し、エラーを説明し、一般的な問題の解決を支援します。</value>
   </data>
   <data name="Settings_AiAssistant_Key" xml:space="preserve">
-    <value>Google Gemini API Key</value>
+    <value>Google Gemini API キー</value>
   </data>
   <data name="Settings_AiAssistant_Key_Hint" xml:space="preserve">
-    <value>Free API key from Google AI Studio. Used by the assistant for deeper reasoning.</value>
+    <value>Google AI Studio からの無料 API キー。より深い推論のためにアシスタントによって使用されます。</value>
   </data>
   <data name="Settings_AiAssistant_KeyPlaceholder" xml:space="preserve">
-    <value>Paste your Gemini API key (AIzaSy...)</value>
+    <value>Gemini API キー (AIzaSy...) を貼り付けます。</value>
   </data>
   <data name="Settings_AiAssistant_GetKey" xml:space="preserve">
-    <value>Get Free API Key</value>
+    <value>無料のAPIキーを入手</value>
   </data>
   <data name="AiChat_CopyMessage" xml:space="preserve">
     <value>メッセージをコピー</value>
@@ -2273,7 +2273,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
   <data name="AiChat_ClearGameContext" xml:space="preserve">
     <value>ゲームコンテキストをクリア</value>
   </data>
-  <!-- Assistant Rotating Discovery Messages -->
+  
   <data name="AssistantAskAnything" xml:space="preserve">
     <value>何でも聞いてください...</value>
   </data>
@@ -2287,28 +2287,28 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>修正が必要ですか？</value>
   </data>
   <data name="Downloads_Search_Placeholder" xml:space="preserve">
-    <value>Search downloaded games...</value>
+    <value>ダウンロードしたゲームを検索...</value>
   </data>
   <data name="Manage_Filter_Source" xml:space="preserve">
-    <value>Source</value>
+    <value>ソース</value>
   </data>
   <data name="Downloads_Stats_TotalData" xml:space="preserve">
-    <value>Total Downloaded</value>
+    <value>ダウンロード総数</value>
   </data>
   <data name="Downloads_Stats_DiskFree" xml:space="preserve">
     <value>Drive {0} Â· Free {1}</value>
   </data>
   <data name="Downloads_Shortcut_Failed" xml:space="preserve">
-    <value>Failed to create Desktop shortcut: {0}</value>
+    <value>デスクトップショートカットの作成に失敗しました: {0}</value>
   </data>
   <data name="Launcher_MinimizingDueToDownloads" xml:space="preserve">
-    <value>Active downloads in progress. BaoTools minimized to keep downloading.</value>
+    <value>アクティブなダウンロードが進行中です。ダウンロードを続けるには、BaoTools を最小化してください。</value>
   </data>
   <data name="Downloads_Uninstall_Title" xml:space="preserve">
-    <value>Uninstall Game</value>
+    <value>ゲームをアンインストールする</value>
   </data>
   <data name="Settings_CreateDesktopShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut on download</value>
+    <value>ダウンロード時にデスクトップショートカットを作成する</value>
   </data>
   <data name="Downloads_Action_Play" xml:space="preserve">
     <value>Play</value>
@@ -2317,91 +2317,91 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Idle</value>
   </data>
   <data name="Downloads_Empty_Desc" xml:space="preserve">
-    <value>Your download queue is empty. Find and download games, DLCs, or fixes to get started.</value>
+    <value>ダウンロード キューが空です。ゲーム、DLC、修正プログラムを見つけてダウンロードして始めましょう。</value>
   </data>
   <data name="Downloads_Uninstall_Success" xml:space="preserve">
-    <value>Successfully uninstalled '{0}'.</value>
+    <value>「{0}」が正常にアンインストールされました。</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Body" xml:space="preserve">
     <value>{0} is downloaded and ready to play.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Title" xml:space="preserve">
-    <value>Download Complete</value>
+    <value>ダウンロード完了</value>
   </data>
   <data name="Downloads_Stats_Active" xml:space="preserve">
-    <value>Active Queue</value>
+    <value>アクティブなキュー</value>
   </data>
   <data name="Settings_ExitOnPlay" xml:space="preserve">
-    <value>Close app when launching game</value>
+    <value>ゲーム起動時はアプリを閉じる</value>
   </data>
   <data name="Launcher_StartingSteam" xml:space="preserve">
-    <value>Game with Online Fix requires Steam. Opening Steam, please wait until signed in and press Play again!</value>
+    <value>オンライン修正のあるゲームには Steam が必要です。 Steam を開き、サインインするまで待ってからもう一度 [プレイ] を押してください。</value>
   </data>
   <data name="Settings_ExitOnPlay_Hint" xml:space="preserve">
-    <value>Automatically exit BaoTools when launching a game. If downloads are active, BaoTools minimizes instead to keep downloading.</value>
+    <value>ゲームの起動時に BaoTools を自動的に終了します。ダウンロードがアクティブな場合、BaoTools は代わりに最小化してダウンロードを続けます。</value>
   </data>
   <data name="Downloads_Stats_Completed_Desc" xml:space="preserve">
-    <value>Installed games</value>
+    <value>インストールされているゲーム</value>
   </data>
   <data name="Launcher_LaunchFailed" xml:space="preserve">
-    <value>Failed to launch game: {0}</value>
+    <value>ゲームの起動に失敗しました: {0}</value>
   </data>
   <data name="Downloads_Stats_Active_Tooltip" xml:space="preserve">
-    <value>Click to view active downloads</value>
+    <value>クリックしてアクティブなダウンロードを表示します</value>
   </data>
   <data name="Manage_Filter_Source_Steam" xml:space="preserve">
-    <value>Steam Unlock</value>
+    <value>スチームロック解除</value>
   </data>
   <data name="Manage_Badge_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>ローデポ</value>
   </data>
   <data name="Launcher_GameStarted" xml:space="preserve">
-    <value>Launched {0}.</value>
+    <value>{0} を開始しました。</value>
   </data>
   <data name="Downloads_Stats_Completed" xml:space="preserve">
-    <value>Completed</value>
+    <value>完了</value>
   </data>
   <data name="Downloads_Action_CreateShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut</value>
+    <value>デスクトップショートカットを作成する</value>
   </data>
   <data name="Downloads_Stats_OpenFolder_Tooltip" xml:space="preserve">
-    <value>Click to open download folder in File Explorer</value>
+    <value>クリックしてファイル エクスプローラーでダウンロード フォルダーを開きます</value>
   </data>
   <data name="Downloads_Search_NoResults" xml:space="preserve">
-    <value>No games match your search.</value>
+    <value>検索に一致するゲームはありません。</value>
   </data>
   <data name="Downloads_Action_Uninstall" xml:space="preserve">
-    <value>Uninstall</value>
+    <value>アンインストール</value>
   </data>
   <data name="Launcher_ExeNotFound" xml:space="preserve">
-    <value>Cannot find a runnable game executable for {0}. Opened folder for manual check.</value>
+    <value>{0} 用の実行可能なゲーム実行ファイルが見つかりません。手動チェックのためにフォルダーを開きました。</value>
   </data>
   <data name="Launcher_ConfiguredOfflineEmulator" xml:space="preserve">
     <value>Configured offline mode for {0}. Launching gameâ€¦</value>
   </data>
   <data name="Downloads_Shortcut_Created" xml:space="preserve">
-    <value>Created Desktop shortcut for '{0}'.</value>
+    <value>「{0}」のデスクトップ ショートカットを作成しました。</value>
   </data>
   <data name="Settings_CreateDesktopShortcut_Hint" xml:space="preserve">
-    <value>Automatically create a desktop shortcut (.lnk) so you can launch the game directly without opening BaoTools.</value>
+    <value>デスクトップ ショートカット (.lnk) が自動的に作成されるため、BaoTools を開かずにゲームを直接起動できます。</value>
   </data>
   <data name="Manage_Action_PlayGame" xml:space="preserve">
-    <value>Play Game</value>
+    <value>ゲームをプレイする</value>
   </data>
   <data name="Downloads_Uninstall_Confirm" xml:space="preserve">
-    <value>Are you sure you want to uninstall '{0}'? All downloaded files at '{1}' will be deleted.</value>
+    <value>「{0}」をアンインストールしてもよろしいですか? 「{1}」にダウンロードされたファイルはすべて削除されます。</value>
   </data>
   <data name="Downloads_Stats_Completed_Tooltip" xml:space="preserve">
-    <value>Click to view installed games</value>
+    <value>クリックしてインストールされているゲームを表示します</value>
   </data>
   <data name="Manage_Filter_Source_All" xml:space="preserve">
-    <value>All sources</value>
+    <value>すべてのソース</value>
   </data>
   <data name="Downloads_Uninstall_Failed" xml:space="preserve">
-    <value>Failed to uninstall '{0}': {1}</value>
+    <value>'{0}' をアンインストールできませんでした: {1}</value>
   </data>
   <data name="Downloads_Action_BrowseGames" xml:space="preserve">
-    <value>Browse &amp; Download Games</value>
+    <value>ゲームの閲覧とダウンロード</value>
   </data>
   <data name="Launcher_DownloadingFix" xml:space="preserve">
     <value>Downloading and installing {0} for {1}â€¦</value>
@@ -2410,9 +2410,132 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Successfully applied {0}! Launching gameâ€¦</value>
   </data>
   <data name="Manage_Filter_Source_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>ローデポ</value>
   </data>
   <data name="Downloads_Action_OpenFolder" xml:space="preserve">
-    <value>Open Folder</value>
+    <value>フォルダーを開く</value>
   </data>
-</root>
+  <data name="Downloads_Filter_All" xml:space="preserve">
+    <value>すべて</value>
+  </data>
+  <data name="Downloads_Filter_Games" xml:space="preserve">
+    <value>ゲーム</value>
+  </data>
+  <data name="Downloads_Filter_Lua" xml:space="preserve">
+    <value>Lua / アンロック</value>
+  </data>
+  <data name="Downloads_Badge_Game" xml:space="preserve">
+    <value>ゲーム</value>
+  </data>
+  <data name="Downloads_Badge_Lua" xml:space="preserve">
+    <value>Lua アンロック</value>
+  </data>
+  <data name="Launcher_GameStarted_Online" xml:space="preserve">
+    <value>オンライン モードでのプレイ (オンライン修正): {0}</value>
+  </data>
+  <data name="Launcher_GameStarted_Offline" xml:space="preserve">
+    <value>オンライン修正は見つかりませんでした。オフライン モードでのプレイ: {0}</value>
+  </data>
+  <data name="Launcher_RestoredOnlineFix" xml:space="preserve">
+    <value>Windows Defender によって削除され、除外対象に追加された OnlineFix64.dll が自動的に復元されました。</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion" xml:space="preserve">
+    <value>Defender の削除を防止する</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_Success" xml:space="preserve">
+    <value>Windows Defender の除外対象に {0} を追加しました。</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All" xml:space="preserve">
+    <value>すべてのゲームを Defender から保護します</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All_Success" xml:space="preserve">
+    <value>インストールされているすべてのゲーム ディレクトリに対して Windows Defender の除外を要求しました。</value>
+  </data>
+  <data name="OnlineFixes_Filter_All" xml:space="preserve">
+    <value>すべて ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Online" xml:space="preserve">
+    <value>ðŸŸ¢ Online Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Offline" xml:space="preserve">
+    <value>âšª Offline / No Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Badge_Online" xml:space="preserve">
+    <value>オンライン修正</value>
+  </data>
+  <data name="OnlineFixes_Badge_Offline" xml:space="preserve">
+    <value>オフライン</value>
+  </data>
+  <data name="GameDoctor_Title" xml:space="preserve">
+    <value>ゲームドクター</value>
+  </data>
+  <data name="Settings_AutoGameDoctor" xml:space="preserve">
+    <value>Auto Game Doctor (ランタイムの自動修復)</value>
+  </data>
+  <data name="Settings_AutoGameDoctor_Hint" xml:space="preserve">
+    <value>ゲームをダウンロードして起動するときに、不足している Visual C++ および DirectX ランタイムを自動的に診断してインストールし、0xc000007b エラーや起動のクラッシュを防ぎます。</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes" xml:space="preserve">
+    <value>オールインワン ゲーム ランタイム (VC++ および DirectX) をインストールする</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes_Hint" xml:space="preserve">
+    <value>ゲームに必要な Microsoft Visual C++ および DirectX ランタイムをダウンロードしてインストールします。</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealing" xml:space="preserve">
+    <value>Game Doctor: 自動修復 {0} ランタイム パッケージが見つかりません...</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealSuccess" xml:space="preserve">
+    <value>Game Doctor: すべてのランタイム ライブラリが正常にインストールされました。ゲームの準備は完了です!</value>
+  </data>
+  <data name="GameDoctor_Toast_AllRuntimesInstalled" xml:space="preserve">
+    <value>Visual C++ および DirectX ランタイムが正常にインストールされました。</value>
+  </data>
+  <data name="GameDoctor_Status_Installing" xml:space="preserve">
+    <value>ランタイムをインストールしています...</value>
+  </data>
+  <data name="GameDoctor_Status_Failed" xml:space="preserve">
+    <value>インストールに失敗しました。</value>
+  </data>
+  <data name="Manage_Action_GameDoctor" xml:space="preserve">
+    <value>ゲームドクター（診断）</value>
+  </data>
+  <data name="GameDoctor_Healthy" xml:space="preserve">
+    <value>ゲーム環境は健全です。すべての依存関係が確認されました。</value>
+  </data>
+  <data name="GameDoctor_MissingDllCount" xml:space="preserve">
+    <value>{0} の依存関係ファイルが欠落しているか、アーキテクチャの不一致が検出されました。</value>
+  </data>
+  <data name="GameDoctor_ArchitectureMismatch" xml:space="preserve">
+    <value>アーキテクチャの不一致 (32 ビット / 64 ビットの不一致により 0xc000007b エラーが発生します)</value>
+  </data>
+  <data name="GameDoctor_FixNow" xml:space="preserve">
+    <value>ワンクリック自動修正</value>
+  </data>
+  <data name="GameDoctor_ChooseExe" xml:space="preserve">
+    <value>他の.exeを診断する</value>
+  </data>
+  <data name="Common_Install" xml:space="preserve">
+    <value>インストール</value>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Splash_Subtitle" xml:space="preserve">
+    <value>究極のゲームアシスタント</value>
+  </data>
+  <data name="Splash_Initializing" xml:space="preserve">
+    <value>システムを初期化中...</value>
+  </data>
+  <data name="Splash_CheckingEnv" xml:space="preserve">
+    <value>ゲーム環境を確認中...</value>
+  </data>
+  <data name="Splash_Preparing" xml:space="preserve">
+    <value>インターフェースを準備中...</value>
+  </data>
+  <data name="Splash_WelcomeGuest" xml:space="preserve">
+    <value>BaoTools へようこそ！</value>
+  </data>
+  <data name="Splash_WelcomeUser" xml:space="preserve">
+    <value>おかえりなさい、{0}さん！ゲームをお楽しみください！</value>
+  </data>
+<data name="Auth_Err_PortBusy" xml:space="preserve"><value>接続ポート ({0}) が使用中であるか、Windows のリリースを待っています。数秒待ってからもう一度お試しください。</value></data><data name="Auth_Err_Denied" xml:space="preserve"><value>サインインが拒否またはキャンセルされました。</value></data><data name="Status_SteamOnline" xml:space="preserve"><value>スチーム: オンライン</value></data><data name="Status_SteamOffline" xml:space="preserve"><value>スチーム: オフライン</value></data><data name="Status_PluginActive" xml:space="preserve"><value>プラグイン: アクティブ</value></data><data name="Status_PluginMissing" xml:space="preserve"><value>プラグイン: 見つかりません</value></data><data name="GameDoctor_ExeNotFound_Title" xml:space="preserve"><value>実行可能ファイルが見つかりません</value></data><data name="GameDoctor_ExeNotFound_Status" xml:space="preserve"><value>実行可能な実行可能ファイルが見つかりません</value></data><data name="GameDoctor_AllPeImportsValid" xml:space="preserve"><value>{0} PE ライブラリを確認しました。すべて有効で互換性があります。</value></data><data name="GameDoctor_NeedsRuntimePackages" xml:space="preserve"><value>このゲームを実行するには、{0} ランタイム パッケージ (Visual C++ / DirectX) をインストールする必要があります。</value></data><data name="GameDoctor_PeImportsHeader" xml:space="preserve"><value>リンクされた PE ライブラリ (インポート)</value></data><data name="GameDoctor_Status_Missing" xml:space="preserve"><value>ない</value></data><data name="GameDoctor_Status_Ok" xml:space="preserve"><value>インストール済み</value></data><data name="GameDoctor_Status_Mismatch" xml:space="preserve"><value>アーチの不一致 (x86/x64)</value></data><data name="Settings_Gemini_KeyDeleted" xml:space="preserve"><value>Gemini API キーが削除されました。 AI アシスタントはオフライン ローカル モードで動作します。</value></data><data name="Settings_Gemini_KeyActivated" xml:space="preserve"><value>✓ Google Gemini AI が正常にアクティベートされました!</value></data><data name="Update_DownloadError" xml:space="preserve"><value>アップデートのダウンロード中にエラーが発生しました。</value></data></root>

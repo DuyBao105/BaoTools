@@ -629,6 +629,11 @@ This deletes the .lua files from Steam\config\stplug-in.</value></data>
   <data name="Downloads_Search_NoResults" xml:space="preserve"><value>No games match your search.</value></data>
   <data name="Downloads_Section_Active" xml:space="preserve"><value>Queue</value></data>
   <data name="Downloads_Section_History" xml:space="preserve"><value>History</value></data>
+  <data name="Downloads_Filter_All" xml:space="preserve"><value>All</value></data>
+  <data name="Downloads_Filter_Games" xml:space="preserve"><value>Games</value></data>
+  <data name="Downloads_Filter_Lua" xml:space="preserve"><value>Lua / Unlocks</value></data>
+  <data name="Downloads_Badge_Game" xml:space="preserve"><value>Game</value></data>
+  <data name="Downloads_Badge_Lua" xml:space="preserve"><value>Lua Unlock</value></data>
   <data name="Downloads_Status_Queued" xml:space="preserve"><value>Queued</value></data>
   <data name="Downloads_Status_Downloading" xml:space="preserve"><value>Downloading</value></data>
   <data name="Downloads_Status_AwaitingConfirm" xml:space="preserve"><value>Waiting for you</value></data>
@@ -667,6 +672,13 @@ This deletes the .lua files from Steam\config\stplug-in.</value></data>
   <data name="Launcher_ExeNotFound" xml:space="preserve"><value>Cannot find a runnable game executable for {0}. Opened folder for manual check.</value></data>
   <data name="Launcher_StartingSteam" xml:space="preserve"><value>Game with Online Fix requires Steam. Opening Steam, please wait until signed in and press Play again!</value></data>
   <data name="Launcher_GameStarted" xml:space="preserve"><value>Launched {0}.</value></data>
+  <data name="Launcher_GameStarted_Online" xml:space="preserve"><value>Playing in Online mode (Online-Fix): {0}</value></data>
+  <data name="Launcher_GameStarted_Offline" xml:space="preserve"><value>No online fix found. Playing in Offline mode: {0}</value></data>
+  <data name="Launcher_RestoredOnlineFix" xml:space="preserve"><value>Automatically restored OnlineFix64.dll deleted by Windows Defender and added to exclusions.</value></data>
+  <data name="OnlineFixes_DefenderExclusion" xml:space="preserve"><value>Prevent Defender deletion</value></data>
+  <data name="OnlineFixes_DefenderExclusion_Success" xml:space="preserve"><value>Added {0} to Windows Defender exclusions.</value></data>
+  <data name="OnlineFixes_DefenderExclusion_All" xml:space="preserve"><value>Protect all games from Defender</value></data>
+  <data name="OnlineFixes_DefenderExclusion_All_Success" xml:space="preserve"><value>Requested Windows Defender exclusions for all installed game directories.</value></data>
   <data name="Launcher_LaunchFailed" xml:space="preserve"><value>Failed to launch game: {0}</value></data>
   <data name="Launcher_DownloadingFix" xml:space="preserve"><value>Downloading and installing {0} for {1}…</value></data>
   <data name="Launcher_FixApplied" xml:space="preserve"><value>Successfully applied {0}! Launching game…</value></data>
@@ -788,6 +800,11 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
   <data name="OnlineFixes_EmptyLibrary" xml:space="preserve"><value>No installed games found in your Steam library.</value></data>
   <data name="OnlineFixes_Loading" xml:space="preserve"><value>Scanning installed games...</value></data>
   <data name="OnlineFixes_OpenFolder" xml:space="preserve"><value>Open Game Folder</value></data>
+  <data name="OnlineFixes_Filter_All" xml:space="preserve"><value>All ({0})</value></data>
+  <data name="OnlineFixes_Filter_Online" xml:space="preserve"><value>🟢 Online Fix ({0})</value></data>
+  <data name="OnlineFixes_Filter_Offline" xml:space="preserve"><value>⚪ Offline / No Fix ({0})</value></data>
+  <data name="OnlineFixes_Badge_Online" xml:space="preserve"><value>Online Fix</value></data>
+  <data name="OnlineFixes_Badge_Offline" xml:space="preserve"><value>Offline</value></data>
 
   <data name="Download_DailyQuota_Label" xml:space="preserve"><value>Daily downloads: </value></data>
   <data name="Download_DailyQuota_GuestBadge" xml:space="preserve"><value>Sign in for 10 downloads/day</value></data>
@@ -987,4 +1004,55 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
   <data name="AssistantNeedHelp" xml:space="preserve"><value>Need help?</value></data>
   <data name="AssistantGameNotWorking" xml:space="preserve"><value>Game not working?</value></data>
   <data name="AssistantNeedFix" xml:space="preserve"><value>Need a fix?</value></data>
+
+  <!-- Game Doctor -->
+  <data name="GameDoctor_Title" xml:space="preserve"><value>Game Doctor</value></data>
+  <data name="Settings_AutoGameDoctor" xml:space="preserve"><value>Auto Game Doctor (Auto-heal runtimes)</value></data>
+  <data name="Settings_AutoGameDoctor_Hint" xml:space="preserve"><value>Automatically diagnose and install missing Visual C++ and DirectX runtimes when downloading and launching games to prevent 0xc000007b errors or launch crashes.</value></data>
+  <data name="Settings_InstallAllRuntimes" xml:space="preserve"><value>Install All-in-One Game Runtimes (VC++ &amp; DirectX)</value></data>
+  <data name="Settings_InstallAllRuntimes_Hint" xml:space="preserve"><value>Download and install Microsoft Visual C++ and DirectX runtimes required by games.</value></data>
+  <data name="GameDoctor_Toast_AutoHealing" xml:space="preserve"><value>Game Doctor: Auto-healing {0} missing runtime package(s)...</value></data>
+  <data name="GameDoctor_Toast_AutoHealSuccess" xml:space="preserve"><value>Game Doctor: All runtime libraries installed successfully. Game is ready!</value></data>
+  <data name="GameDoctor_Toast_AllRuntimesInstalled" xml:space="preserve"><value>Visual C++ and DirectX runtimes installed successfully!</value></data>
+  <data name="GameDoctor_Status_Installing" xml:space="preserve"><value>Installing runtimes...</value></data>
+  <data name="GameDoctor_Status_Failed" xml:space="preserve"><value>Installation failed.</value></data>
+  <data name="Manage_Action_GameDoctor" xml:space="preserve"><value>Game Doctor (Diagnose)</value></data>
+  <data name="GameDoctor_Healthy" xml:space="preserve"><value>Game environment is healthy. All dependencies verified!</value></data>
+  <data name="GameDoctor_MissingDllCount" xml:space="preserve"><value>Detected {0} missing dependency file(s) or architecture mismatch.</value></data>
+  <data name="GameDoctor_ArchitectureMismatch" xml:space="preserve"><value>Architecture mismatch (32-bit / 64-bit mismatch causes 0xc000007b error)</value></data>
+  <data name="GameDoctor_FixNow" xml:space="preserve"><value>Auto-Fix 1-Click</value></data>
+  <data name="GameDoctor_ChooseExe" xml:space="preserve"><value>Diagnose other .exe</value></data>
+  <data name="Common_Install" xml:space="preserve"><value>Install</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Close</value></data>
+
+  <!-- Splash Screen -->
+  <data name="Splash_Subtitle" xml:space="preserve"><value>The Ultimate Game Assistant</value></data>
+  <data name="Splash_Initializing" xml:space="preserve"><value>Initializing system...</value></data>
+  <data name="Splash_CheckingEnv" xml:space="preserve"><value>Checking game environment...</value></data>
+  <data name="Splash_Preparing" xml:space="preserve"><value>Preparing interface...</value></data>
+  <data name="Splash_WelcomeGuest" xml:space="preserve"><value>Welcome to BaoTools!</value></data>
+  <data name="Splash_WelcomeUser" xml:space="preserve"><value>Welcome back, {0}! Have fun gaming!</value></data>
+
+  <!-- Auth and System Status -->
+  <data name="Auth_Err_PortBusy" xml:space="preserve"><value>Connection port ({0}) is busy or waiting for Windows release. Please wait a few seconds and try again!</value></data>
+  <data name="Auth_Err_Denied" xml:space="preserve"><value>Sign-in was denied or cancelled.</value></data>
+  <data name="Status_SteamOnline" xml:space="preserve"><value>Steam: Online</value></data>
+  <data name="Status_SteamOffline" xml:space="preserve"><value>Steam: Offline</value></data>
+  <data name="Status_PluginActive" xml:space="preserve"><value>Plugin: Active</value></data>
+  <data name="Status_PluginMissing" xml:space="preserve"><value>Plugin: Missing</value></data>
+
+  <!-- Game Doctor Dialog -->
+  <data name="GameDoctor_ExeNotFound_Title" xml:space="preserve"><value>Executable not found</value></data>
+  <data name="GameDoctor_ExeNotFound_Status" xml:space="preserve"><value>Cannot find a runnable executable</value></data>
+  <data name="GameDoctor_AllPeImportsValid" xml:space="preserve"><value>Checked {0} PE libraries, all are valid and compatible.</value></data>
+  <data name="GameDoctor_NeedsRuntimePackages" xml:space="preserve"><value>Need to install {0} runtime package(s) (Visual C++ / DirectX) to run this game.</value></data>
+  <data name="GameDoctor_PeImportsHeader" xml:space="preserve"><value>LINKED PE LIBRARIES (IMPORTS)</value></data>
+  <data name="GameDoctor_Status_Missing" xml:space="preserve"><value>Missing</value></data>
+  <data name="GameDoctor_Status_Ok" xml:space="preserve"><value>Installed</value></data>
+  <data name="GameDoctor_Status_Mismatch" xml:space="preserve"><value>Arch Mismatch (x86/x64)</value></data>
+
+  <!-- Settings & Update -->
+  <data name="Settings_Gemini_KeyDeleted" xml:space="preserve"><value>Gemini API key removed. AI assistant will operate in offline local mode.</value></data>
+  <data name="Settings_Gemini_KeyActivated" xml:space="preserve"><value>✓ Google Gemini AI activated successfully!</value></data>
+  <data name="Update_DownloadError" xml:space="preserve"><value>An error occurred while downloading the update.</value></data>
 </root>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:schema id="root">
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -524,7 +524,7 @@
     <value>Betöltés…</value>
   </data>
   <data name="Common_AppId" xml:space="preserve">
-    <value>App ID: {0}</value>
+    <value>Alkalmazásazonosító: {0}</value>
   </data>
   <data name="Common_AppFallback" xml:space="preserve">
     <value>Alkalmazás {0}</value>
@@ -656,7 +656,7 @@
     <value>Megjelenés dátuma (legújabb)</value>
   </data>
   <data name="Manage_Sort_Metacritic" xml:space="preserve">
-    <value>Metacritic</value>
+    <value>Metakritikus</value>
   </data>
   <data name="Manage_Sort_MostReviewed" xml:space="preserve">
     <value>Legtöbbet értékelt</value>
@@ -761,7 +761,7 @@ Ez törli a .lua fájlokat a Steam\config\stplug-in mappából.</value>
     <value>Build {0}</value>
   </data>
   <data name="Fixes_Manifest" xml:space="preserve">
-    <value>Manifest</value>
+    <value>Nyilvánvaló</value>
   </data>
   <data name="Fixes_Fix" xml:space="preserve">
     <value>Javítás</value>
@@ -854,7 +854,7 @@ Ez törli a .lua fájlokat a Steam\config\stplug-in mappából.</value>
     <value>Megjelenítés</value>
   </data>
   <data name="Add_Supporter" xml:space="preserve">
-    <value>Supporter</value>
+    <value>Támogató</value>
   </data>
   <data name="Add_Unlimited" xml:space="preserve">
     <value>Korlátlan</value>
@@ -1052,7 +1052,7 @@ Ez törli a .lua fájlokat a Steam\config\stplug-in mappából.</value>
     <value>ismeretlen</value>
   </data>
   <data name="Plugin_Version_Offline" xml:space="preserve">
-    <value>offline</value>
+    <value>offline módban</value>
   </data>
   <data name="Plugin_Status_OfflineCheck" xml:space="preserve">
     <value>A GitHub nem érhető el a frissítések ellenőrzéséhez.</value>
@@ -1678,26 +1678,26 @@ Mégse - letöltés folytatása</value>
     <value>Eltávolítja mind a(z) {0} bejegyzést a letöltési előzményekből? A letöltött fájlokat ez nem érinti.</value>
   </data>
   <data name="Nav_OnlineFixes" xml:space="preserve">
-    <value>Online Fix</value>
+    <value>Online javítás</value>
   </data>
   <data name="OnlineFixes_Download" xml:space="preserve">
-    <value>Download Fix</value>
+    <value>Letöltés Fix</value>
   </data>
   <data name="OnlineFixes_Install" xml:space="preserve">
-    <value>Install Fix</value>
+    <value>Telepítse a Fixet</value>
   </data>
   <data name="OnlineFixes_Search" xml:space="preserve">
-    <value>Search installed games...</value>
+    <value>Telepített játékok keresése...</value>
   </data>
   <data name="OnlineFixes_Help" xml:space="preserve">
-    <value>Step 1: Click "Download Fix" to search and download the ZIP file from online-fix.me.
-Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically extract it into the game folder.</value>
+    <value>1. lépés: Kattintson a "Javítás letöltése" elemre a ZIP-fájl megkereséséhez és letöltéséhez az online-fix.me webhelyről.
+2. lépés: Kattintson az "Install Fix" elemre, és válassza ki a letöltött ZIP-fájlt, hogy automatikusan kicsomagolja a játék mappájába.</value>
   </data>
   <data name="Nav_Tickets" xml:space="preserve">
-    <value>Tickets</value>
+    <value>Jegyek</value>
   </data>
   <data name="Tickets_CopyHex" xml:space="preserve">
-    <value>Copy Hex</value>
+    <value>Másolás Hex</value>
   </data>
   <data name="Manage_Action_ExtractTickets" xml:space="preserve">
     <value>Jegyek kivonata</value>
@@ -1736,7 +1736,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Titkosított ETicket hexa vágólapra másolva.</value>
   </data>
   <data name="Tickets_CopiedLua" xml:space="preserve">
-    <value>Lua ticket code copied to clipboard.</value>
+    <value>A Lua jegy kódja a vágólapra másolva.</value>
   </data>
   <data name="Tickets_CopyLuaCode" xml:space="preserve">
     <value>Lua Snippet másolása</value>
@@ -1805,19 +1805,19 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Nyers jegyfájlok mentése (appticket.bin, eticket.bin, jegyek.txt)</value>
   </data>
   <data name="Tickets_Opt_SaveFiles_Hint" xml:space="preserve">
-    <value>Saves raw ticket files and prepares a shareable ZIP package (BaoTools_ticket) for 1-click activation on other PCs.</value>
+    <value>Menti a nyers jegyfájlokat, és elkészít egy megosztható ZIP-csomagot (BaoTools_ticket) az 1 kattintással történő aktiváláshoz más számítógépeken.</value>
   </data>
   <data name="Tickets_RefreshSteam" xml:space="preserve">
     <value>Ellenőrizze a Steam állapotát</value>
   </data>
   <data name="Tickets_RescanGames" xml:space="preserve">
-    <value>Rescan installed Denuvo games</value>
+    <value>A telepített Denuvo játékok újraolvasása</value>
   </data>
   <data name="Tickets_ResultsHeader" xml:space="preserve">
     <value>Kivont jegyek</value>
   </data>
   <data name="Tickets_SelectDenuvoGame" xml:space="preserve">
-    <value>Select Installed Denuvo Game</value>
+    <value>Válassza a Telepített Denuvo játék lehetőséget</value>
   </data>
   <data name="Tickets_SelectDenuvoGameHint" xml:space="preserve">
     <value>Csak az észlelt Denuvo védelemmel rendelkező játékok szerepelnek az alábbiakban a gyors kiválasztáshoz.</value>
@@ -1841,34 +1841,34 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Steam és Denuvo Jegyek</value>
   </data>
   <data name="Download_DailyQuota_Label" xml:space="preserve">
-    <value>Daily downloads: </value>
+    <value>Napi letöltések:</value>
   </data>
   <data name="Download_DailyQuota_GuestBadge" xml:space="preserve">
-    <value>Sign in for 10 downloads/day</value>
+    <value>Jelentkezzen be napi 10 letöltésért</value>
   </data>
   <data name="Download_DailyQuota_LimitReached" xml:space="preserve">
-    <value>You have reached your daily limit of 10 downloads. Please try again tomorrow.</value>
+    <value>Elérte a napi 10 letöltési korlátot. Próbáld újra holnap.</value>
   </data>
   <data name="Home_DailyQuota_Guest" xml:space="preserve">
-    <value>Daily downloads: Sign in with Discord for 10 downloads/day</value>
+    <value>Napi letöltések: Jelentkezzen be a Discord segítségével napi 10 letöltésért</value>
   </data>
   <data name="Home_DailyQuota_Supporter" xml:space="preserve">
-    <value>Daily downloads: {0} / Unlimited (Supporter)</value>
+    <value>Napi letöltések: {0} / Korlátlan (támogató)</value>
   </data>
   <data name="Home_DailyQuota_Used" xml:space="preserve">
-    <value>Daily downloads: {0}/{1} used today</value>
+    <value>Napi letöltések: ma használt {0}/{1}</value>
   </data>
   <data name="Home_DailyQuota_Active" xml:space="preserve">
-    <value>Daily downloads: 10/day (Active)</value>
+    <value>Napi letöltések: 10/nap (aktív)</value>
   </data>
   <data name="Tickets_AppTicket_Title" xml:space="preserve">
     <value>Alkalmazástulajdonosi jegy</value>
   </data>
   <data name="Tickets_ETicket_Title" xml:space="preserve">
-    <value>Encrypted App Ticket (Denuvo)</value>
+    <value>Titkosított alkalmazásjegy (Denuvo)</value>
   </data>
   <data name="Common_NotAvailable" xml:space="preserve">
-    <value>Not available</value>
+    <value>Nem elérhető</value>
   </data>
   <data name="Nav_Plugin" xml:space="preserve">
     <value>Plugin</value>
@@ -1988,7 +1988,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>BaoTools Classic</value>
   </data>
   <data name="Theme_Dracula" xml:space="preserve">
-    <value>Dracula</value>
+    <value>Drakula</value>
   </data>
   <data name="Theme_Nord" xml:space="preserve">
     <value>Nord</value>
@@ -2000,10 +2000,10 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Cyberpunk</value>
   </data>
   <data name="Theme_Midnight" xml:space="preserve">
-    <value>Midnight OLED</value>
+    <value>Éjféli OLED</value>
   </data>
   <data name="Theme_TokyoNight" xml:space="preserve">
-    <value>Tokyo Night</value>
+    <value>Tokiói éjszaka</value>
   </data>
   <data name="Theme_Synthwave" xml:space="preserve">
     <value>Synthwave '84</value>
@@ -2015,16 +2015,16 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Sakura Blossom</value>
   </data>
   <data name="Theme_Emerald" xml:space="preserve">
-    <value>Emerald Matrix</value>
+    <value>Smaragd Mátrix</value>
   </data>
   <data name="Theme_AmberSunset" xml:space="preserve">
     <value>Amber Horizon</value>
   </data>
   <data name="Theme_Amethyst" xml:space="preserve">
-    <value>Amethyst Neon</value>
+    <value>Ametiszt Neon</value>
   </data>
   <data name="Theme_AbyssalOcean" xml:space="preserve">
-    <value>Abyssal Ocean</value>
+    <value>Abyssal óceán</value>
   </data>
   <data name="Theme_OneDark" xml:space="preserve">
     <value>One Dark Pro</value>
@@ -2033,48 +2033,48 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Gruvbox Retro</value>
   </data>
   <data name="UpdateDialog_Title" xml:space="preserve">
-    <value>Software Update</value>
+    <value>Szoftverfrissítés</value>
   </data>
   <data name="UpdateDialog_DownloadingHeader" xml:space="preserve">
-    <value>Downloading Update</value>
+    <value>Frissítés letöltése</value>
   </data>
   <data name="UpdateDialog_DownloadingSub" xml:space="preserve">
-    <value>Downloading update package for {0}... Please keep BaoTools open.</value>
+    <value>Frissítőcsomag letöltése a következőhöz: {0}... Kérjük, tartsa nyitva a BaoTools programot.</value>
   </data>
   <data name="UpdateDialog_DownloadingStatus" xml:space="preserve">
-    <value>Downloading</value>
+    <value>Letöltés</value>
   </data>
   <data name="UpdateDialog_ReadyHeader" xml:space="preserve">
-    <value>Update Ready to Install</value>
+    <value>Frissítés készen áll a telepítésre</value>
   </data>
   <data name="UpdateDialog_ReadySub" xml:space="preserve">
-    <value>BaoTools {0} has been downloaded. Click Restart Now to apply the update and start using the new version.</value>
+    <value>A BaoTools {0} letöltve. Kattintson az Újraindítás most gombra a frissítés alkalmazásához és az új verzió használatának megkezdéséhez.</value>
   </data>
   <data name="UpdateDialog_ReadyStatus" xml:space="preserve">
-    <value>Ready to install</value>
+    <value>Telepítésre kész</value>
   </data>
   <data name="UpdateDialog_RestartNow" xml:space="preserve">
-    <value>Restart Now</value>
+    <value>Indítsa újra most</value>
   </data>
   <data name="UpdateDialog_Restarting" xml:space="preserve">
-    <value>Restarting...</value>
+    <value>Újraindítás...</value>
   </data>
   <data name="UpdateDialog_Later" xml:space="preserve">
     <value>Later</value>
   </data>
   <data name="UpdateDialog_Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Mégsem</value>
   </data>
   <data name="UpdateDialog_FailedHeader" xml:space="preserve">
-    <value>Download Failed</value>
+    <value>Letöltés sikertelen</value>
   </data>
   <data name="UpdateDialog_FailedSub" xml:space="preserve">
-    <value>An error occurred while downloading the update. You can download the latest installer manually from your browser.</value>
+    <value>Hiba történt a frissítés letöltése közben. A legújabb telepítőt manuálisan letöltheti a böngészőből.</value>
   </data>
   <data name="UpdateDialog_OpenBrowser" xml:space="preserve">
-    <value>Open Browser</value>
+    <value>Nyissa meg a Böngészőt</value>
   </data>
-  <!-- Added Keys Sync -->
+  
   <data name="Nav_Section_Tools" xml:space="preserve">
     <value>ESZKÖZÖK</value>
   </data>
@@ -2229,51 +2229,51 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Javasolt témák:</value>
   </data>
   <data name="Settings_Subtitle" xml:space="preserve">
-    <value>Manage BaoTools preferences</value>
+    <value>A BaoTools beállításainak kezelése</value>
   </data>
   <data name="Home_Discord_Title" xml:space="preserve">
-    <value>Discord Community</value>
+    <value>Discord közösség</value>
   </data>
   <data name="Home_Discord_Desc" xml:space="preserve">
-    <value>Join the BaoTools Discord server for announcements, fresh updates, and technical support.</value>
+    <value>Csatlakozzon a BaoTools Discord szerverhez bejelentésekért, friss frissítésekért és technikai támogatásért.</value>
   </data>
   <data name="Home_Discord_Join" xml:space="preserve">
-    <value>Join Discord</value>
+    <value>Csatlakozz a Discordhoz</value>
   </data>
   <data name="Settings_AiAssistant_LocalOffline" xml:space="preserve">
-    <value>Local / Offline</value>
+    <value>Helyi / Offline</value>
   </data>
   <data name="Settings_AiAssistant_CardDesc" xml:space="preserve">
-    <value>Diagnose games, explain errors and help fix common problems.</value>
+    <value>Diagnosztizálja a játékokat, magyarázza el a hibákat és segít a gyakori problémák megoldásában.</value>
   </data>
   <data name="Settings_AiAssistant_Key" xml:space="preserve">
-    <value>Google Gemini API Key</value>
+    <value>Google Gemini API kulcs</value>
   </data>
   <data name="Settings_AiAssistant_Key_Hint" xml:space="preserve">
-    <value>Free API key from Google AI Studio. Used by the assistant for deeper reasoning.</value>
+    <value>Ingyenes API-kulcs a Google AI Studio-tól. Az asszisztens mélyebb érveléshez használja.</value>
   </data>
   <data name="Settings_AiAssistant_KeyPlaceholder" xml:space="preserve">
-    <value>Paste your Gemini API key (AIzaSy...)</value>
+    <value>Illessze be a Gemini API-kulcsot (AIzaSy...)</value>
   </data>
   <data name="Settings_AiAssistant_GetKey" xml:space="preserve">
-    <value>Get Free API Key</value>
+    <value>Ingyenes API-kulcs beszerzése</value>
   </data>
   <data name="AiChat_CopyMessage" xml:space="preserve">
-    <value>Copy message</value>
+    <value>Üzenet másolása</value>
   </data>
   <data name="AiChat_Copied" xml:space="preserve">
-    <value>Copied!</value>
+    <value>Másolva!</value>
   </data>
   <data name="AiChat_Regenerate" xml:space="preserve">
-    <value>Regenerate response</value>
+    <value>Válasz újragenerálása</value>
   </data>
   <data name="AiChat_InspectingGame" xml:space="preserve">
-    <value>Inspecting: {0}</value>
+    <value>Ellenőrzés: {0}</value>
   </data>
   <data name="AiChat_ClearGameContext" xml:space="preserve">
-    <value>Clear game context</value>
+    <value>Tiszta játékkörnyezet</value>
   </data>
-  <!-- Assistant Rotating Discovery Messages -->
+  
   <data name="AssistantAskAnything" xml:space="preserve">
     <value>Kérdezz bármit...</value>
   </data>
@@ -2287,28 +2287,28 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Javításra van szüksége?</value>
   </data>
   <data name="Downloads_Search_Placeholder" xml:space="preserve">
-    <value>Search downloaded games...</value>
+    <value>Letöltött játékok keresése...</value>
   </data>
   <data name="Manage_Filter_Source" xml:space="preserve">
-    <value>Source</value>
+    <value>Forrás</value>
   </data>
   <data name="Downloads_Stats_TotalData" xml:space="preserve">
-    <value>Total Downloaded</value>
+    <value>Összes letöltött</value>
   </data>
   <data name="Downloads_Stats_DiskFree" xml:space="preserve">
     <value>Drive {0} Â· Free {1}</value>
   </data>
   <data name="Downloads_Shortcut_Failed" xml:space="preserve">
-    <value>Failed to create Desktop shortcut: {0}</value>
+    <value>Nem sikerült létrehozni az asztali parancsikont: {0}</value>
   </data>
   <data name="Launcher_MinimizingDueToDownloads" xml:space="preserve">
-    <value>Active downloads in progress. BaoTools minimized to keep downloading.</value>
+    <value>Aktív letöltések folyamatban. A BaoTools minimálisra csökkentve a letöltés folytatásához.</value>
   </data>
   <data name="Downloads_Uninstall_Title" xml:space="preserve">
-    <value>Uninstall Game</value>
+    <value>Távolítsa el a játékot</value>
   </data>
   <data name="Settings_CreateDesktopShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut on download</value>
+    <value>Hozzon létre asztali parancsikont letöltéskor</value>
   </data>
   <data name="Downloads_Action_Play" xml:space="preserve">
     <value>Play</value>
@@ -2317,91 +2317,91 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Idle</value>
   </data>
   <data name="Downloads_Empty_Desc" xml:space="preserve">
-    <value>Your download queue is empty. Find and download games, DLCs, or fixes to get started.</value>
+    <value>A letöltési sor üres. Keressen és töltsön le játékokat, DLC-ket vagy javításokat a kezdéshez.</value>
   </data>
   <data name="Downloads_Uninstall_Success" xml:space="preserve">
-    <value>Successfully uninstalled '{0}'.</value>
+    <value>A '{0}' sikeresen eltávolítva.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Body" xml:space="preserve">
     <value>{0} is downloaded and ready to play.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Title" xml:space="preserve">
-    <value>Download Complete</value>
+    <value>Letöltés kész</value>
   </data>
   <data name="Downloads_Stats_Active" xml:space="preserve">
-    <value>Active Queue</value>
+    <value>Aktív sor</value>
   </data>
   <data name="Settings_ExitOnPlay" xml:space="preserve">
-    <value>Close app when launching game</value>
+    <value>Zárja be az alkalmazást a játék indításakor</value>
   </data>
   <data name="Launcher_StartingSteam" xml:space="preserve">
-    <value>Game with Online Fix requires Steam. Opening Steam, please wait until signed in and press Play again!</value>
+    <value>Az Online Fix funkcióval rendelkező játékhoz Steam szükséges. A Steam megnyitása, kérjük, várja meg, amíg bejelentkezik, és nyomja meg újra a Play gombot!</value>
   </data>
   <data name="Settings_ExitOnPlay_Hint" xml:space="preserve">
-    <value>Automatically exit BaoTools when launching a game. If downloads are active, BaoTools minimizes instead to keep downloading.</value>
+    <value>Automatikusan kilép a BaoToolsból a játék indításakor. Ha a letöltések aktívak, a BaoTools minimalizálja a letöltést a letöltés folytatásához.</value>
   </data>
   <data name="Downloads_Stats_Completed_Desc" xml:space="preserve">
-    <value>Installed games</value>
+    <value>Telepített játékok</value>
   </data>
   <data name="Launcher_LaunchFailed" xml:space="preserve">
-    <value>Failed to launch game: {0}</value>
+    <value>Nem sikerült elindítani a játékot: {0}</value>
   </data>
   <data name="Downloads_Stats_Active_Tooltip" xml:space="preserve">
-    <value>Click to view active downloads</value>
+    <value>Kattintson az aktív letöltések megtekintéséhez</value>
   </data>
   <data name="Manage_Filter_Source_Steam" xml:space="preserve">
-    <value>Steam Unlock</value>
+    <value>Steam feloldás</value>
   </data>
   <data name="Manage_Badge_Depot" xml:space="preserve">
     <value>Raw Depot</value>
   </data>
   <data name="Launcher_GameStarted" xml:space="preserve">
-    <value>Launched {0}.</value>
+    <value>Elindítva: {0}.</value>
   </data>
   <data name="Downloads_Stats_Completed" xml:space="preserve">
-    <value>Completed</value>
+    <value>Befejezve</value>
   </data>
   <data name="Downloads_Action_CreateShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut</value>
+    <value>Hozzon létre asztali parancsikont</value>
   </data>
   <data name="Downloads_Stats_OpenFolder_Tooltip" xml:space="preserve">
-    <value>Click to open download folder in File Explorer</value>
+    <value>Kattintson a letöltési mappa megnyitásához a File Explorerben</value>
   </data>
   <data name="Downloads_Search_NoResults" xml:space="preserve">
-    <value>No games match your search.</value>
+    <value>Egyetlen játék sem felel meg a keresésnek.</value>
   </data>
   <data name="Downloads_Action_Uninstall" xml:space="preserve">
-    <value>Uninstall</value>
+    <value>Eltávolítás</value>
   </data>
   <data name="Launcher_ExeNotFound" xml:space="preserve">
-    <value>Cannot find a runnable game executable for {0}. Opened folder for manual check.</value>
+    <value>Nem található futtatható játék futtatható fájlja a {0} számára. Mappa megnyitva kézi ellenőrzéshez.</value>
   </data>
   <data name="Launcher_ConfiguredOfflineEmulator" xml:space="preserve">
     <value>Configured offline mode for {0}. Launching gameâ€¦</value>
   </data>
   <data name="Downloads_Shortcut_Created" xml:space="preserve">
-    <value>Created Desktop shortcut for '{0}'.</value>
+    <value>Asztali parancsikon létrehozva a '{0}' számára.</value>
   </data>
   <data name="Settings_CreateDesktopShortcut_Hint" xml:space="preserve">
-    <value>Automatically create a desktop shortcut (.lnk) so you can launch the game directly without opening BaoTools.</value>
+    <value>Automatikusan hozzon létre egy asztali parancsikont (.lnk), így közvetlenül elindíthatja a játékot a BaoTools megnyitása nélkül.</value>
   </data>
   <data name="Manage_Action_PlayGame" xml:space="preserve">
-    <value>Play Game</value>
+    <value>Játssz játékot</value>
   </data>
   <data name="Downloads_Uninstall_Confirm" xml:space="preserve">
-    <value>Are you sure you want to uninstall '{0}'? All downloaded files at '{1}' will be deleted.</value>
+    <value>Biztosan eltávolítja a következőt: '{0}'? A '{1}' címen letöltött összes fájl törlődik.</value>
   </data>
   <data name="Downloads_Stats_Completed_Tooltip" xml:space="preserve">
-    <value>Click to view installed games</value>
+    <value>Kattintson a telepített játékok megtekintéséhez</value>
   </data>
   <data name="Manage_Filter_Source_All" xml:space="preserve">
-    <value>All sources</value>
+    <value>Minden forrás</value>
   </data>
   <data name="Downloads_Uninstall_Failed" xml:space="preserve">
-    <value>Failed to uninstall '{0}': {1}</value>
+    <value>A '{0}' eltávolítása nem sikerült: {1}</value>
   </data>
   <data name="Downloads_Action_BrowseGames" xml:space="preserve">
-    <value>Browse &amp; Download Games</value>
+    <value>Játékok böngészése és letöltése</value>
   </data>
   <data name="Launcher_DownloadingFix" xml:space="preserve">
     <value>Downloading and installing {0} for {1}â€¦</value>
@@ -2413,6 +2413,129 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Raw Depot</value>
   </data>
   <data name="Downloads_Action_OpenFolder" xml:space="preserve">
-    <value>Open Folder</value>
+    <value>Nyissa meg a mappát</value>
   </data>
-</root>
+  <data name="Downloads_Filter_All" xml:space="preserve">
+    <value>Mind</value>
+  </data>
+  <data name="Downloads_Filter_Games" xml:space="preserve">
+    <value>Játékok</value>
+  </data>
+  <data name="Downloads_Filter_Lua" xml:space="preserve">
+    <value>Lua / Feloldások</value>
+  </data>
+  <data name="Downloads_Badge_Game" xml:space="preserve">
+    <value>Játék</value>
+  </data>
+  <data name="Downloads_Badge_Lua" xml:space="preserve">
+    <value>Lua feloldás</value>
+  </data>
+  <data name="Launcher_GameStarted_Online" xml:space="preserve">
+    <value>Játék online módban (Online-Fix): {0}</value>
+  </data>
+  <data name="Launcher_GameStarted_Offline" xml:space="preserve">
+    <value>Nem található online javítás. Lejátszás offline módban: {0}</value>
+  </data>
+  <data name="Launcher_RestoredOnlineFix" xml:space="preserve">
+    <value>A Windows Defender által törölt és a kizárásokhoz hozzáadott, automatikusan visszaállított OnlineFix64.dll.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion" xml:space="preserve">
+    <value>A Defender törlésének megakadályozása</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_Success" xml:space="preserve">
+    <value>{0} hozzáadva a Windows Defender kizárásaihoz.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All" xml:space="preserve">
+    <value>Védje meg az összes játékot a Defendertől</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All_Success" xml:space="preserve">
+    <value>A Windows Defender kizárását kérte az összes telepített játékkönyvtárhoz.</value>
+  </data>
+  <data name="OnlineFixes_Filter_All" xml:space="preserve">
+    <value>Mind ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Online" xml:space="preserve">
+    <value>ðŸŸ¢ Online Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Offline" xml:space="preserve">
+    <value>âšª Offline / No Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Badge_Online" xml:space="preserve">
+    <value>Online javítás</value>
+  </data>
+  <data name="OnlineFixes_Badge_Offline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="GameDoctor_Title" xml:space="preserve">
+    <value>Játék Doktor</value>
+  </data>
+  <data name="Settings_AutoGameDoctor" xml:space="preserve">
+    <value>Auto Game Doctor (automatikus gyógyulási futásidő)</value>
+  </data>
+  <data name="Settings_AutoGameDoctor_Hint" xml:space="preserve">
+    <value>Automatically diagnose and install missing Visual C++ and DirectX runtimes when downloading and launching games to prevent 0xc000007b errors or launch crashes.</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes" xml:space="preserve">
+    <value>Az All-in-One Game Runtimes telepítése (VC++ és DirectX)</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes_Hint" xml:space="preserve">
+    <value>Töltse le és telepítse a játékokhoz szükséges Microsoft Visual C++ és DirectX futtatókörnyezetet.</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealing" xml:space="preserve">
+    <value>Game Doctor: Auto-healing {0} hiányzó futásidejű csomag(ok)...</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealSuccess" xml:space="preserve">
+    <value>Game Doctor: Minden futásidejű könyvtár sikeresen telepítve. A játék készen áll!</value>
+  </data>
+  <data name="GameDoctor_Toast_AllRuntimesInstalled" xml:space="preserve">
+    <value>A Visual C++ és a DirectX futtatókörnyezetek sikeresen telepítve!</value>
+  </data>
+  <data name="GameDoctor_Status_Installing" xml:space="preserve">
+    <value>Futási környezetek telepítése...</value>
+  </data>
+  <data name="GameDoctor_Status_Failed" xml:space="preserve">
+    <value>A telepítés nem sikerült.</value>
+  </data>
+  <data name="Manage_Action_GameDoctor" xml:space="preserve">
+    <value>Game Doctor (diagnózis)</value>
+  </data>
+  <data name="GameDoctor_Healthy" xml:space="preserve">
+    <value>A játék környezete egészséges. Minden függőség ellenőrizve!</value>
+  </data>
+  <data name="GameDoctor_MissingDllCount" xml:space="preserve">
+    <value>Detected {0} missing dependency file(s) or architecture mismatch.</value>
+  </data>
+  <data name="GameDoctor_ArchitectureMismatch" xml:space="preserve">
+    <value>Architecture mismatch (32-bit / 64-bit mismatch causes 0xc000007b error)</value>
+  </data>
+  <data name="GameDoctor_FixNow" xml:space="preserve">
+    <value>Auto-Fix 1-Click</value>
+  </data>
+  <data name="GameDoctor_ChooseExe" xml:space="preserve">
+    <value>Diagnosztizáljon más .exe fájlt</value>
+  </data>
+  <data name="Common_Install" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Splash_Subtitle" xml:space="preserve">
+    <value>A végső játékasszisztens</value>
+  </data>
+  <data name="Splash_Initializing" xml:space="preserve">
+    <value>Rendszer inicializálása...</value>
+  </data>
+  <data name="Splash_CheckingEnv" xml:space="preserve">
+    <value>Játékkörnyezet ellenőrzése...</value>
+  </data>
+  <data name="Splash_Preparing" xml:space="preserve">
+    <value>Felület előkészítése...</value>
+  </data>
+  <data name="Splash_WelcomeGuest" xml:space="preserve">
+    <value>Üdvözöljük a BaoToolsban!</value>
+  </data>
+  <data name="Splash_WelcomeUser" xml:space="preserve">
+    <value>Üdv újra, {0}! Jó játékot!</value>
+  </data>
+<data name="Auth_Err_PortBusy" xml:space="preserve"><value>A csatlakozási port ({0}) foglalt, vagy a Windows kiadására vár. Kérjük, várjon néhány másodpercet, és próbálja újra!</value></data><data name="Auth_Err_Denied" xml:space="preserve"><value>A bejelentkezést megtagadták vagy törölték.</value></data><data name="Status_SteamOnline" xml:space="preserve"><value /></data><data name="Status_SteamOffline" xml:space="preserve"><value /></data><data name="Status_PluginActive" xml:space="preserve"><value>Plugin: Aktív</value></data><data name="Status_PluginMissing" xml:space="preserve"><value>Plugin: Hiányzik</value></data><data name="GameDoctor_ExeNotFound_Title" xml:space="preserve"><value>A végrehajtható fájl nem található</value></data><data name="GameDoctor_ExeNotFound_Status" xml:space="preserve"><value>Nem található futtatható végrehajtható fájl</value></data><data name="GameDoctor_AllPeImportsValid" xml:space="preserve"><value /></data><data name="GameDoctor_NeedsRuntimePackages" xml:space="preserve"><value>A játék futtatásához telepítenie kell {0} futásidejű csomago(ka)t (Visual C++ / DirectX).</value></data><data name="GameDoctor_PeImportsHeader" xml:space="preserve"><value /></data><data name="GameDoctor_Status_Missing" xml:space="preserve"><value>Hiányzó</value></data><data name="GameDoctor_Status_Ok" xml:space="preserve"><value /></data><data name="GameDoctor_Status_Mismatch" xml:space="preserve"><value>íveltérés (x86/x64)</value></data><data name="Settings_Gemini_KeyDeleted" xml:space="preserve"><value /></data><data name="Settings_Gemini_KeyActivated" xml:space="preserve"><value>✓ A Google Gemini AI sikeresen aktiválva!</value></data><data name="Update_DownloadError" xml:space="preserve"><value /></data></root>

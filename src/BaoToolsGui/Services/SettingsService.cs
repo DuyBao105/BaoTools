@@ -74,6 +74,16 @@ public class AppSettings
     // it is matched in code; the Settings page localizes the display only. Null = never set → "Auto".
     // See AppHttp for what each mode does.
     public string? DnsMode { get; set; }
+
+    // The last version whose update notes were viewed in the notification bell flyout.
+    public string? LastSeenUpdateVersion { get; set; }
+
+    // Google Gemini API Key for advanced AI reasoning and chat
+    public string? GeminiApiKey { get; set; }
+
+    // When true (default ON), automatically diagnose and fix missing runtimes/DLLs for games.
+    // Nullable so "never set" (→ default ON on fresh install) is distinguishable from an explicit user choice.
+    public bool? AutoGameDoctor { get; set; }
 }
 
 public class SettingsService
@@ -254,6 +264,27 @@ public class SettingsService
         set { _settings.DnsMode = value; Save(); }
     }
 
+    /// <summary>The last version whose update notes were viewed in the notification bell flyout.</summary>
+    public string? LastSeenUpdateVersion
+    {
+        get => _settings.LastSeenUpdateVersion;
+        set { _settings.LastSeenUpdateVersion = value; Save(); }
+    }
+
+    /// <summary>The user's Google Gemini API key for advanced AI reasoning.</summary>
+    public string? GeminiApiKey
+    {
+        get => _settings.GeminiApiKey;
+        set { _settings.GeminiApiKey = string.IsNullOrWhiteSpace(value) ? null : value; Save(); }
+    }
+
+    /// <summary>When true (default ON), automatically diagnose and fix missing runtimes/DLLs for games.</summary>
+    public bool AutoGameDoctor
+    {
+        get => _settings.AutoGameDoctor ?? true; // default ON on fresh install
+        set { _settings.AutoGameDoctor = value; Save(); }
+    }
+
     private void Load()
     {
         // Prefer the primary file; fall back to the last-good .bak. Crucially, NEVER silently reset a
@@ -313,7 +344,9 @@ public class SettingsService
             && _settings.FastFetch is null
             && _settings.Theme is null
             && _settings.EnableAiAssistant is null
-            && _settings.CreateDesktopShortcut is null;
+            && _settings.CreateDesktopShortcut is null
+            && _settings.GeminiApiKey is null
+            && _settings.AutoGameDoctor is null;
         if (empty)
         {
             foreach (var p in new[] { _filePath, _bakPath, _tmpPath })

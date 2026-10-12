@@ -13,6 +13,10 @@ public static class AppConfig
 
     public const string ApiBaseUrl = "https://lua.tools";
 
+    /// <summary>Built-in Google Gemini API key for AI assistant reasoning.</summary>
+    private static readonly string EncodedGeminiApiKey = "QVEuQWI4Uk42S0tZREFJTmdTU0U1ODJmN1hrbU5oNld2VDljSHFoNEJCWGZGeHVYR1BXVnc=";
+    public static string DefaultGeminiApiKey => System.Text.Encoding.UTF8.GetString(System.Convert.FromBase64String(EncodedGeminiApiKey));
+
     // Bot-provisioned (Discord /login placeholder) accounts use this email domain. Detecting it on
     // startup lets the app prompt the user to re-link their full lua.tools account.
     public const string BotAccountEmailDomain = "@bot.lua.tools";
@@ -102,7 +106,7 @@ public static class AppConfig
     /// </summary>
     public static readonly string[] GithubReleasesRepos =
     [
-        "https://github.com/DevBaor/BaoTools_1005", // primary
+        "https://github.com/DuyBao105/BaoTools", // primary
     ];
 
     /// <summary>The primary releases repo (first in <see cref="GithubReleasesRepos"/>).</summary>

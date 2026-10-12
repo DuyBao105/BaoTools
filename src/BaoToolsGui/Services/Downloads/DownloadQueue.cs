@@ -435,6 +435,7 @@ public class DownloadQueue : IHostedService
                     {
                         await _launcher.EnsureFixOrCrackAppliedAsync(item.AppId, item.Title, outDir, _toast);
                         _launcher.TryAutoCreateDesktopShortcut(outDir, item.Title);
+                        _launcher.TryAutoHealGameEnvironment(outDir, item.Title);
                     });
                 }
 

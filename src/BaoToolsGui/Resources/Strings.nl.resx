@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:schema id="root">
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -110,7 +110,7 @@
     <value>INSTALLATIE</value>
   </data>
   <data name="Settings_Section_Community" xml:space="preserve">
-    <value>COMMUNITY</value>
+    <value>GEMEENSCHAP</value>
   </data>
   <data name="Settings_SignOut" xml:space="preserve">
     <value>Afmelden</value>
@@ -158,7 +158,7 @@
     <value>Beheer je Hubcap-API-sleutel en profiel op</value>
   </data>
   <data name="Settings_Section_Hubcap" xml:space="preserve">
-    <value>HUBCAP</value>
+    <value>WIELDOP</value>
   </data>
   <data name="Settings_HubcapKey" xml:space="preserve">
     <value>Hubcap-API-sleutel</value>
@@ -524,7 +524,7 @@
     <value>Laden…</value>
   </data>
   <data name="Common_AppId" xml:space="preserve">
-    <value>App ID: {0}</value>
+    <value>App-ID: {0}</value>
   </data>
   <data name="Common_AppFallback" xml:space="preserve">
     <value>App {0}</value>
@@ -656,7 +656,7 @@
     <value>Releasedatum (nieuwste)</value>
   </data>
   <data name="Manage_Sort_Metacritic" xml:space="preserve">
-    <value>Metacritic</value>
+    <value>Metacritisch</value>
   </data>
   <data name="Manage_Sort_MostReviewed" xml:space="preserve">
     <value>Meest beoordeeld</value>
@@ -758,7 +758,7 @@ Dit verwijdert de .lua-bestanden uit Steam\config\stplug-in.</value>
     <value>Fixes laden…</value>
   </data>
   <data name="Fixes_Build" xml:space="preserve">
-    <value>Build {0}</value>
+    <value>Bouw {0}</value>
   </data>
   <data name="Fixes_Manifest" xml:space="preserve">
     <value>Manifest</value>
@@ -878,7 +878,7 @@ Dit verwijdert de .lua-bestanden uit Steam\config\stplug-in.</value>
     <value>Stel je Hubcap-API-sleutel in bij Instellingen om deze bron te ontgrendelen</value>
   </data>
   <data name="Add_Depots" xml:space="preserve">
-    <value>DEPOTS</value>
+    <value>DEPOTEN</value>
   </data>
   <data name="Add_Available" xml:space="preserve">
     <value>BESCHIKBAAR</value>
@@ -1010,7 +1010,7 @@ Dit verwijdert de .lua-bestanden uit Steam\config\stplug-in.</value>
     <value>Frontend</value>
   </data>
   <data name="Plugin_Row_Loader" xml:space="preserve">
-    <value>Loader (winmm.dll)</value>
+    <value>Lader (winmm.dll)</value>
   </data>
   <data name="Plugin_Millennium_Coexisting" xml:space="preserve">
     <value>Millennium gedetecteerd — BaoTools draait ernaast. Bij installatie wordt de eigen kopie van deze plug-in van Millennium uitgeschakeld, zodat alleen LuaLoader injecteert.</value>
@@ -1151,7 +1151,7 @@ Dit verwijdert de .lua-bestanden uit Steam\config\stplug-in.</value>
     <value>Standaard</value>
   </data>
   <data name="Builds_Variant_Build" xml:space="preserve">
-    <value>Build {0}</value>
+    <value>Bouw {0}</value>
   </data>
   <data name="Builds_Variant_Preset" xml:space="preserve">
     <value>Opgeslagen · {0}</value>
@@ -1678,26 +1678,26 @@ Annuleren - doorgaan met downloaden</value>
     <value>Alle {0} items uit de downloadgeschiedenis verwijderen? Gedownloade bestanden blijven staan.</value>
   </data>
   <data name="Nav_OnlineFixes" xml:space="preserve">
-    <value>Online Fix</value>
+    <value>Online oplossing</value>
   </data>
   <data name="OnlineFixes_Download" xml:space="preserve">
-    <value>Download Fix</value>
+    <value>Fix downloaden</value>
   </data>
   <data name="OnlineFixes_Install" xml:space="preserve">
-    <value>Install Fix</value>
+    <value>Fix installeren</value>
   </data>
   <data name="OnlineFixes_Search" xml:space="preserve">
-    <value>Search installed games...</value>
+    <value>Geïnstalleerde games zoeken...</value>
   </data>
   <data name="OnlineFixes_Help" xml:space="preserve">
-    <value>Step 1: Click "Download Fix" to search and download the ZIP file from online-fix.me.
-Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically extract it into the game folder.</value>
+    <value>Stap 1: Klik op "Fix downloaden" om het ZIP-bestand te zoeken en te downloaden van online-fix.me.
+Stap 2: Klik op "Install Fix" en selecteer het gedownloade ZIP-bestand om het automatisch uit te pakken in de gamemap.</value>
   </data>
   <data name="Nav_Tickets" xml:space="preserve">
-    <value>Tickets</value>
+    <value>Kaartjes</value>
   </data>
   <data name="Tickets_CopyHex" xml:space="preserve">
-    <value>Copy Hex</value>
+    <value>Kopieer Hex</value>
   </data>
   <data name="Manage_Action_ExtractTickets" xml:space="preserve">
     <value>Tickets uitpakken</value>
@@ -1709,13 +1709,13 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Er zijn geen geïnstalleerde games die overeenkomen met uw zoekopdracht.</value>
   </data>
   <data name="OnlineFixes_InstalledBadge" xml:space="preserve">
-    <value>Installed</value>
+    <value>Geïnstalleerd</value>
   </data>
   <data name="OnlineFixes_Loading" xml:space="preserve">
     <value>Geïnstalleerde games scannen...</value>
   </data>
   <data name="OnlineFixes_OpenFolder" xml:space="preserve">
-    <value>Open Game Folder</value>
+    <value>Open de gamemap</value>
   </data>
   <data name="OnlineFixes_Step1_Desc" xml:space="preserve">
     <value>Klik op 'Download Fix' om het multiplayer-patcharchief te vinden en te downloaden.</value>
@@ -1754,7 +1754,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Kan tickets niet extraheren. Zorg ervoor dat het account eigenaar is van het spel.</value>
   </data>
   <data name="Tickets_Extracting" xml:space="preserve">
-    <value>Requesting tickets from Steam client...</value>
+    <value>Tickets aanvragen via Steam-client...</value>
   </data>
   <data name="Tickets_ExtractSuccess" xml:space="preserve">
     <value>Tickets succesvol geëxtraheerd voor AppID {0}.</value>
@@ -1844,13 +1844,13 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Dagelijkse downloads:</value>
   </data>
   <data name="Download_DailyQuota_GuestBadge" xml:space="preserve">
-    <value>Sign in for 10 downloads/day</value>
+    <value>Meld u aan voor 10 downloads per dag</value>
   </data>
   <data name="Download_DailyQuota_LimitReached" xml:space="preserve">
     <value>U heeft uw dagelijkse limiet van 10 downloads bereikt. Probeer het morgen opnieuw.</value>
   </data>
   <data name="Home_DailyQuota_Guest" xml:space="preserve">
-    <value>Daily downloads: Sign in with Discord for 10 downloads/day</value>
+    <value>Dagelijkse downloads: log in met Discord voor 10 downloads per dag</value>
   </data>
   <data name="Home_DailyQuota_Supporter" xml:space="preserve">
     <value>Dagelijkse downloads: {0} / onbeperkt (supporter)</value>
@@ -1859,19 +1859,19 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Dagelijkse downloads: {0}/{1} vandaag gebruikt</value>
   </data>
   <data name="Home_DailyQuota_Active" xml:space="preserve">
-    <value>Daily downloads: 10/day (Active)</value>
+    <value>Dagelijkse downloads: 10/dag (actief)</value>
   </data>
   <data name="Tickets_AppTicket_Title" xml:space="preserve">
-    <value>App Ownership Ticket</value>
+    <value>App-eigendomsticket</value>
   </data>
   <data name="Tickets_ETicket_Title" xml:space="preserve">
     <value>Gecodeerd app-ticket (Denuvo)</value>
   </data>
   <data name="Common_NotAvailable" xml:space="preserve">
-    <value>Not available</value>
+    <value>Niet beschikbaar</value>
   </data>
   <data name="Nav_Plugin" xml:space="preserve">
-    <value>Plugin</value>
+    <value>Plug-in</value>
   </data>
   <data name="Fixes_Applied_Hint" xml:space="preserve">
     <value>Deze fix is al toegepast. Draai hem terug als je een andere wilt installeren.</value>
@@ -1985,7 +1985,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Start BaoTools automatisch stil in het systeemvak wanneer Steam opstart.</value>
   </data>
   <data name="Theme_Default" xml:space="preserve">
-    <value>BaoTools Classic</value>
+    <value>BaoTools Klassiek</value>
   </data>
   <data name="Theme_Dracula" xml:space="preserve">
     <value>Dracula</value>
@@ -1994,87 +1994,87 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Nord</value>
   </data>
   <data name="Theme_Catppuccin" xml:space="preserve">
-    <value>Catppuccin Mocha</value>
+    <value>Catppuccin mokka</value>
   </data>
   <data name="Theme_Cyberpunk" xml:space="preserve">
     <value>Cyberpunk</value>
   </data>
   <data name="Theme_Midnight" xml:space="preserve">
-    <value>Midnight OLED</value>
+    <value>Middernacht OLED</value>
   </data>
   <data name="Theme_TokyoNight" xml:space="preserve">
-    <value>Tokyo Night</value>
+    <value>Tokio nacht</value>
   </data>
   <data name="Theme_Synthwave" xml:space="preserve">
     <value>Synthwave '84</value>
   </data>
   <data name="Theme_RosePine" xml:space="preserve">
-    <value>Rosé Pine</value>
+    <value>Rosé Pijnboom</value>
   </data>
   <data name="Theme_Sakura" xml:space="preserve">
-    <value>Sakura Blossom</value>
+    <value>Sakura-bloesem</value>
   </data>
   <data name="Theme_Emerald" xml:space="preserve">
-    <value>Emerald Matrix</value>
+    <value>Smaragdgroene matrix</value>
   </data>
   <data name="Theme_AmberSunset" xml:space="preserve">
     <value>Amber Horizon</value>
   </data>
   <data name="Theme_Amethyst" xml:space="preserve">
-    <value>Amethyst Neon</value>
+    <value>Amethist neon</value>
   </data>
   <data name="Theme_AbyssalOcean" xml:space="preserve">
-    <value>Abyssal Ocean</value>
+    <value>Abyssale oceaan</value>
   </data>
   <data name="Theme_OneDark" xml:space="preserve">
-    <value>One Dark Pro</value>
+    <value>Eén donkere professional</value>
   </data>
   <data name="Theme_Gruvbox" xml:space="preserve">
     <value>Gruvbox Retro</value>
   </data>
   <data name="UpdateDialog_Title" xml:space="preserve">
-    <value>Software Update</value>
+    <value>Software-update</value>
   </data>
   <data name="UpdateDialog_DownloadingHeader" xml:space="preserve">
-    <value>Downloading Update</value>
+    <value>Update downloaden</value>
   </data>
   <data name="UpdateDialog_DownloadingSub" xml:space="preserve">
-    <value>Downloading update package for {0}... Please keep BaoTools open.</value>
+    <value>Updatepakket downloaden voor {0}... Houd BaoTools open.</value>
   </data>
   <data name="UpdateDialog_DownloadingStatus" xml:space="preserve">
-    <value>Downloading</value>
+    <value>Downloaden</value>
   </data>
   <data name="UpdateDialog_ReadyHeader" xml:space="preserve">
-    <value>Update Ready to Install</value>
+    <value>Update klaar om te installeren</value>
   </data>
   <data name="UpdateDialog_ReadySub" xml:space="preserve">
-    <value>BaoTools {0} has been downloaded. Click Restart Now to apply the update and start using the new version.</value>
+    <value>BaoTools {0} is gedownload. Klik op Nu opnieuw opstarten om de update toe te passen en de nieuwe versie te gaan gebruiken.</value>
   </data>
   <data name="UpdateDialog_ReadyStatus" xml:space="preserve">
-    <value>Ready to install</value>
+    <value>Klaar om te installeren</value>
   </data>
   <data name="UpdateDialog_RestartNow" xml:space="preserve">
-    <value>Restart Now</value>
+    <value>Start nu opnieuw op</value>
   </data>
   <data name="UpdateDialog_Restarting" xml:space="preserve">
-    <value>Restarting...</value>
+    <value>Opnieuw opstarten...</value>
   </data>
   <data name="UpdateDialog_Later" xml:space="preserve">
     <value>Later</value>
   </data>
   <data name="UpdateDialog_Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Annuleren</value>
   </data>
   <data name="UpdateDialog_FailedHeader" xml:space="preserve">
-    <value>Download Failed</value>
+    <value>Downloaden mislukt</value>
   </data>
   <data name="UpdateDialog_FailedSub" xml:space="preserve">
-    <value>An error occurred while downloading the update. You can download the latest installer manually from your browser.</value>
+    <value>Er is een fout opgetreden tijdens het downloaden van de update. U kunt het nieuwste installatieprogramma handmatig downloaden vanuit uw browser.</value>
   </data>
   <data name="UpdateDialog_OpenBrowser" xml:space="preserve">
-    <value>Open Browser</value>
+    <value>Browser openen</value>
   </data>
-  <!-- Added Keys Sync -->
+  
   <data name="Nav_Section_Tools" xml:space="preserve">
     <value>GEREEDSCHAPPEN</value>
   </data>
@@ -2229,51 +2229,51 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Voorgestelde onderwerpen:</value>
   </data>
   <data name="Settings_Subtitle" xml:space="preserve">
-    <value>Manage BaoTools preferences</value>
+    <value>Beheer BaoTools-voorkeuren</value>
   </data>
   <data name="Home_Discord_Title" xml:space="preserve">
-    <value>Discord Community</value>
+    <value>Discord-gemeenschap</value>
   </data>
   <data name="Home_Discord_Desc" xml:space="preserve">
-    <value>Join the BaoTools Discord server for announcements, fresh updates, and technical support.</value>
+    <value>Sluit u aan bij de BaoTools Discord-server voor aankondigingen, nieuwe updates en technische ondersteuning.</value>
   </data>
   <data name="Home_Discord_Join" xml:space="preserve">
-    <value>Join Discord</value>
+    <value>Sluit je aan bij Discord</value>
   </data>
   <data name="Settings_AiAssistant_LocalOffline" xml:space="preserve">
-    <value>Local / Offline</value>
+    <value>Lokaal/offline</value>
   </data>
   <data name="Settings_AiAssistant_CardDesc" xml:space="preserve">
-    <value>Diagnose games, explain errors and help fix common problems.</value>
+    <value>Diagnose stellen bij games, fouten uitleggen en veelvoorkomende problemen helpen oplossen.</value>
   </data>
   <data name="Settings_AiAssistant_Key" xml:space="preserve">
-    <value>Google Gemini API Key</value>
+    <value>Google Gemini API-sleutel</value>
   </data>
   <data name="Settings_AiAssistant_Key_Hint" xml:space="preserve">
-    <value>Free API key from Google AI Studio. Used by the assistant for deeper reasoning.</value>
+    <value>Gratis API-sleutel van Google AI Studio. Gebruikt door de assistent voor diepere redenering.</value>
   </data>
   <data name="Settings_AiAssistant_KeyPlaceholder" xml:space="preserve">
-    <value>Paste your Gemini API key (AIzaSy...)</value>
+    <value>Plak uw Gemini API-sleutel (AIzaSy...)</value>
   </data>
   <data name="Settings_AiAssistant_GetKey" xml:space="preserve">
-    <value>Get Free API Key</value>
+    <value>Ontvang een gratis API-sleutel</value>
   </data>
   <data name="AiChat_CopyMessage" xml:space="preserve">
-    <value>Copy message</value>
+    <value>Kopieer bericht</value>
   </data>
   <data name="AiChat_Copied" xml:space="preserve">
-    <value>Copied!</value>
+    <value>Gekopieerd!</value>
   </data>
   <data name="AiChat_Regenerate" xml:space="preserve">
-    <value>Regenerate response</value>
+    <value>Reactie opnieuw genereren</value>
   </data>
   <data name="AiChat_InspectingGame" xml:space="preserve">
-    <value>Inspecting: {0}</value>
+    <value>Inspecteren: {0}</value>
   </data>
   <data name="AiChat_ClearGameContext" xml:space="preserve">
-    <value>Clear game context</value>
+    <value>Duidelijke spelcontext</value>
   </data>
-  <!-- Assistant Rotating Discovery Messages -->
+  
   <data name="AssistantAskAnything" xml:space="preserve">
     <value>Vraag me wat dan ook...</value>
   </data>
@@ -2287,28 +2287,28 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Oplossing nodig?</value>
   </data>
   <data name="Downloads_Search_Placeholder" xml:space="preserve">
-    <value>Search downloaded games...</value>
+    <value>Gedownloade games zoeken...</value>
   </data>
   <data name="Manage_Filter_Source" xml:space="preserve">
-    <value>Source</value>
+    <value>Bron</value>
   </data>
   <data name="Downloads_Stats_TotalData" xml:space="preserve">
-    <value>Total Downloaded</value>
+    <value>Totaal gedownload</value>
   </data>
   <data name="Downloads_Stats_DiskFree" xml:space="preserve">
     <value>Drive {0} Â· Free {1}</value>
   </data>
   <data name="Downloads_Shortcut_Failed" xml:space="preserve">
-    <value>Failed to create Desktop shortcut: {0}</value>
+    <value>Kan bureaubladsnelkoppeling niet maken: {0}</value>
   </data>
   <data name="Launcher_MinimizingDueToDownloads" xml:space="preserve">
-    <value>Active downloads in progress. BaoTools minimized to keep downloading.</value>
+    <value>Actieve downloads bezig. BaoTools geminimaliseerd om te blijven downloaden.</value>
   </data>
   <data name="Downloads_Uninstall_Title" xml:space="preserve">
-    <value>Uninstall Game</value>
+    <value>Spel verwijderen</value>
   </data>
   <data name="Settings_CreateDesktopShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut on download</value>
+    <value>Maak een snelkoppeling op het bureaublad tijdens het downloaden</value>
   </data>
   <data name="Downloads_Action_Play" xml:space="preserve">
     <value>Play</value>
@@ -2317,91 +2317,91 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Idle</value>
   </data>
   <data name="Downloads_Empty_Desc" xml:space="preserve">
-    <value>Your download queue is empty. Find and download games, DLCs, or fixes to get started.</value>
+    <value>Uw downloadwachtrij is leeg. Zoek en download games, DLC's of fixes om aan de slag te gaan.</value>
   </data>
   <data name="Downloads_Uninstall_Success" xml:space="preserve">
-    <value>Successfully uninstalled '{0}'.</value>
+    <value>'{0}' is succesvol verwijderd.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Body" xml:space="preserve">
     <value>{0} is downloaded and ready to play.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Title" xml:space="preserve">
-    <value>Download Complete</value>
+    <value>Downloaden voltooid</value>
   </data>
   <data name="Downloads_Stats_Active" xml:space="preserve">
-    <value>Active Queue</value>
+    <value>Actieve wachtrij</value>
   </data>
   <data name="Settings_ExitOnPlay" xml:space="preserve">
-    <value>Close app when launching game</value>
+    <value>Sluit de app bij het starten van het spel</value>
   </data>
   <data name="Launcher_StartingSteam" xml:space="preserve">
-    <value>Game with Online Fix requires Steam. Opening Steam, please wait until signed in and press Play again!</value>
+    <value>Voor games met Online Fix is ​​Steam vereist. Open Steam, wacht tot je bent ingelogd en druk opnieuw op Play!</value>
   </data>
   <data name="Settings_ExitOnPlay_Hint" xml:space="preserve">
-    <value>Automatically exit BaoTools when launching a game. If downloads are active, BaoTools minimizes instead to keep downloading.</value>
+    <value>Sluit BaoTools automatisch af bij het starten van een game. Als downloads actief zijn, minimaliseert BaoTools in plaats daarvan om door te gaan met downloaden.</value>
   </data>
   <data name="Downloads_Stats_Completed_Desc" xml:space="preserve">
-    <value>Installed games</value>
+    <value>Geïnstalleerde spellen</value>
   </data>
   <data name="Launcher_LaunchFailed" xml:space="preserve">
-    <value>Failed to launch game: {0}</value>
+    <value>Kan het spel niet starten: {0}</value>
   </data>
   <data name="Downloads_Stats_Active_Tooltip" xml:space="preserve">
-    <value>Click to view active downloads</value>
+    <value>Klik om actieve downloads te bekijken</value>
   </data>
   <data name="Manage_Filter_Source_Steam" xml:space="preserve">
-    <value>Steam Unlock</value>
+    <value>Stoom ontgrendelen</value>
   </data>
   <data name="Manage_Badge_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>Ruw depot</value>
   </data>
   <data name="Launcher_GameStarted" xml:space="preserve">
-    <value>Launched {0}.</value>
+    <value>Gelanceerd op {0}.</value>
   </data>
   <data name="Downloads_Stats_Completed" xml:space="preserve">
-    <value>Completed</value>
+    <value>Voltooid</value>
   </data>
   <data name="Downloads_Action_CreateShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut</value>
+    <value>Maak een snelkoppeling op het bureaublad</value>
   </data>
   <data name="Downloads_Stats_OpenFolder_Tooltip" xml:space="preserve">
-    <value>Click to open download folder in File Explorer</value>
+    <value>Klik om de downloadmap in Verkenner te openen</value>
   </data>
   <data name="Downloads_Search_NoResults" xml:space="preserve">
-    <value>No games match your search.</value>
+    <value>Er zijn geen games die overeenkomen met uw zoekopdracht.</value>
   </data>
   <data name="Downloads_Action_Uninstall" xml:space="preserve">
-    <value>Uninstall</value>
+    <value>Verwijderen</value>
   </data>
   <data name="Launcher_ExeNotFound" xml:space="preserve">
-    <value>Cannot find a runnable game executable for {0}. Opened folder for manual check.</value>
+    <value>Kan geen uitvoerbaar spel vinden voor {0}. Map geopend voor handmatige controle.</value>
   </data>
   <data name="Launcher_ConfiguredOfflineEmulator" xml:space="preserve">
     <value>Configured offline mode for {0}. Launching gameâ€¦</value>
   </data>
   <data name="Downloads_Shortcut_Created" xml:space="preserve">
-    <value>Created Desktop shortcut for '{0}'.</value>
+    <value>Snelkoppeling op het bureaublad gemaakt voor '{0}'.</value>
   </data>
   <data name="Settings_CreateDesktopShortcut_Hint" xml:space="preserve">
-    <value>Automatically create a desktop shortcut (.lnk) so you can launch the game directly without opening BaoTools.</value>
+    <value>Maak automatisch een snelkoppeling op het bureaublad (.lnk) zodat je de game direct kunt starten zonder BaoTools te openen.</value>
   </data>
   <data name="Manage_Action_PlayGame" xml:space="preserve">
-    <value>Play Game</value>
+    <value>Speel spel</value>
   </data>
   <data name="Downloads_Uninstall_Confirm" xml:space="preserve">
-    <value>Are you sure you want to uninstall '{0}'? All downloaded files at '{1}' will be deleted.</value>
+    <value>Weet u zeker dat u '{0}' wilt verwijderen? Alle gedownloade bestanden op '{1}' worden verwijderd.</value>
   </data>
   <data name="Downloads_Stats_Completed_Tooltip" xml:space="preserve">
-    <value>Click to view installed games</value>
+    <value>Klik om geïnstalleerde games te bekijken</value>
   </data>
   <data name="Manage_Filter_Source_All" xml:space="preserve">
-    <value>All sources</value>
+    <value>Alle bronnen</value>
   </data>
   <data name="Downloads_Uninstall_Failed" xml:space="preserve">
-    <value>Failed to uninstall '{0}': {1}</value>
+    <value>Kan '{0}' niet verwijderen: {1}</value>
   </data>
   <data name="Downloads_Action_BrowseGames" xml:space="preserve">
-    <value>Browse &amp; Download Games</value>
+    <value>Bladeren en downloaden van games</value>
   </data>
   <data name="Launcher_DownloadingFix" xml:space="preserve">
     <value>Downloading and installing {0} for {1}â€¦</value>
@@ -2410,9 +2410,132 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Successfully applied {0}! Launching gameâ€¦</value>
   </data>
   <data name="Manage_Filter_Source_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>Ruw depot</value>
   </data>
   <data name="Downloads_Action_OpenFolder" xml:space="preserve">
-    <value>Open Folder</value>
+    <value>Map openen</value>
   </data>
-</root>
+  <data name="Downloads_Filter_All" xml:space="preserve">
+    <value>Alles</value>
+  </data>
+  <data name="Downloads_Filter_Games" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="Downloads_Filter_Lua" xml:space="preserve">
+    <value>Lua / Ontgrendelingen</value>
+  </data>
+  <data name="Downloads_Badge_Game" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="Downloads_Badge_Lua" xml:space="preserve">
+    <value>Lua-ontgrendeling</value>
+  </data>
+  <data name="Launcher_GameStarted_Online" xml:space="preserve">
+    <value>Spelen in de onlinemodus (Online-Fix): {0}</value>
+  </data>
+  <data name="Launcher_GameStarted_Offline" xml:space="preserve">
+    <value>Geen online oplossing gevonden. Spelen in de offlinemodus: {0}</value>
+  </data>
+  <data name="Launcher_RestoredOnlineFix" xml:space="preserve">
+    <value>Automatisch hersteld OnlineFix64.dll verwijderd door Windows Defender en toegevoegd aan uitsluitingen.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion" xml:space="preserve">
+    <value>Voorkom verwijdering van Defender</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_Success" xml:space="preserve">
+    <value>{0} toegevoegd aan Windows Defender-uitsluitingen.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All" xml:space="preserve">
+    <value>Bescherm alle games tegen Defender</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All_Success" xml:space="preserve">
+    <value>Uitsluitingen van Windows Defender aangevraagd voor alle geïnstalleerde gamemappen.</value>
+  </data>
+  <data name="OnlineFixes_Filter_All" xml:space="preserve">
+    <value>Alles ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Online" xml:space="preserve">
+    <value>ðŸŸ¢ Online Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Offline" xml:space="preserve">
+    <value>âšª Offline / No Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Badge_Online" xml:space="preserve">
+    <value>Online oplossing</value>
+  </data>
+  <data name="OnlineFixes_Badge_Offline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="GameDoctor_Title" xml:space="preserve">
+    <value>Speldokter</value>
+  </data>
+  <data name="Settings_AutoGameDoctor" xml:space="preserve">
+    <value>Auto Game Doctor (looptijden automatisch herstellen)</value>
+  </data>
+  <data name="Settings_AutoGameDoctor_Hint" xml:space="preserve">
+    <value>Diagnose en installeer automatisch ontbrekende Visual C++- en DirectX-runtimes bij het downloaden en starten van games om 0xc000007b-fouten of startcrashes te voorkomen.</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes" xml:space="preserve">
+    <value>Installeer alles-in-één gameruntimes (VC++ en DirectX)</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes_Hint" xml:space="preserve">
+    <value>Download en installeer Microsoft Visual C++ en DirectX-runtimes die vereist zijn voor games.</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealing" xml:space="preserve">
+    <value>Game Doctor: Automatisch herstel van {0} ontbrekende runtime-pakket(ten)...</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealSuccess" xml:space="preserve">
+    <value>Game Doctor: Alle runtime-bibliotheken zijn succesvol geïnstalleerd. Spel is klaar!</value>
+  </data>
+  <data name="GameDoctor_Toast_AllRuntimesInstalled" xml:space="preserve">
+    <value>Visual C++ en DirectX runtimes zijn succesvol geïnstalleerd!</value>
+  </data>
+  <data name="GameDoctor_Status_Installing" xml:space="preserve">
+    <value>Runtimes installeren...</value>
+  </data>
+  <data name="GameDoctor_Status_Failed" xml:space="preserve">
+    <value>Installatie mislukt.</value>
+  </data>
+  <data name="Manage_Action_GameDoctor" xml:space="preserve">
+    <value>Gamedokter (diagnose)</value>
+  </data>
+  <data name="GameDoctor_Healthy" xml:space="preserve">
+    <value>De spelomgeving is gezond. Alle afhankelijkheden geverifieerd!</value>
+  </data>
+  <data name="GameDoctor_MissingDllCount" xml:space="preserve">
+    <value>Gedetecteerd dat {0} ontbrekende afhankelijkheidsbestanden of architectuur niet overeenkomen.</value>
+  </data>
+  <data name="GameDoctor_ArchitectureMismatch" xml:space="preserve">
+    <value>Architectuur-mismatch (32-bit / 64-bit-mismatch veroorzaakt 0xc000007b-fout)</value>
+  </data>
+  <data name="GameDoctor_FixNow" xml:space="preserve">
+    <value>Automatisch herstellen met 1 klik</value>
+  </data>
+  <data name="GameDoctor_ChooseExe" xml:space="preserve">
+    <value>Diagnose van andere .exe</value>
+  </data>
+  <data name="Common_Install" xml:space="preserve">
+    <value>Installeren</value>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Splash_Subtitle" xml:space="preserve">
+    <value>De ultieme game-assistent</value>
+  </data>
+  <data name="Splash_Initializing" xml:space="preserve">
+    <value>Systeem initialiseren...</value>
+  </data>
+  <data name="Splash_CheckingEnv" xml:space="preserve">
+    <value>Game-omgeving controleren...</value>
+  </data>
+  <data name="Splash_Preparing" xml:space="preserve">
+    <value>Interface voorbereiden...</value>
+  </data>
+  <data name="Splash_WelcomeGuest" xml:space="preserve">
+    <value>Welkom bij BaoTools!</value>
+  </data>
+  <data name="Splash_WelcomeUser" xml:space="preserve">
+    <value>Welkom terug, {0}! Veel gameplezier!</value>
+  </data>
+<data name="Auth_Err_PortBusy" xml:space="preserve"><value>Verbindingspoort ({0}) is bezet of wacht op Windows-release. Wacht een paar seconden en probeer het opnieuw!</value></data><data name="Auth_Err_Denied" xml:space="preserve"><value>De aanmelding is geweigerd of geannuleerd.</value></data><data name="Status_SteamOnline" xml:space="preserve"><value>Stoom: online</value></data><data name="Status_SteamOffline" xml:space="preserve"><value>Stoom: offline</value></data><data name="Status_PluginActive" xml:space="preserve"><value>Plug-in: Actief</value></data><data name="Status_PluginMissing" xml:space="preserve"><value>Plug-in: ontbreekt</value></data><data name="GameDoctor_ExeNotFound_Title" xml:space="preserve"><value>Uitvoerbaar bestand niet gevonden</value></data><data name="GameDoctor_ExeNotFound_Status" xml:space="preserve"><value>Kan geen uitvoerbaar uitvoerbaar bestand vinden</value></data><data name="GameDoctor_AllPeImportsValid" xml:space="preserve"><value>{0} PE-bibliotheken gecontroleerd, ze zijn allemaal geldig en compatibel.</value></data><data name="GameDoctor_NeedsRuntimePackages" xml:space="preserve"><value>Je moet {0} runtimepakket(ten) (Visual C++ / DirectX) installeren om dit spel te kunnen spelen.</value></data><data name="GameDoctor_PeImportsHeader" xml:space="preserve"><value>GEKOPPELDE PE-BIBLIOTHEKEN (INVOER)</value></data><data name="GameDoctor_Status_Missing" xml:space="preserve"><value>Ontbreekt</value></data><data name="GameDoctor_Status_Ok" xml:space="preserve"><value>Geïnstalleerd</value></data><data name="GameDoctor_Status_Mismatch" xml:space="preserve"><value>Boog komt niet overeen (x86/x64)</value></data><data name="Settings_Gemini_KeyDeleted" xml:space="preserve"><value>Gemini API-sleutel verwijderd. AI-assistent werkt in de offline lokale modus.</value></data><data name="Settings_Gemini_KeyActivated" xml:space="preserve"><value>✓ Google Gemini AI succesvol geactiveerd!</value></data><data name="Update_DownloadError" xml:space="preserve"><value>Er is een fout opgetreden tijdens het downloaden van de update.</value></data></root>

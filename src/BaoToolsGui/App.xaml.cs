@@ -59,6 +59,7 @@ public partial class App : Application
                 services.AddSingleton<PluginInstallerService>();
                 services.AddSingleton<SteamStartupService>();
                 services.AddSingleton<GameLauncherService>();
+                services.AddSingleton<GameDoctorService>();
                 services.AddSingleton<ThemeService>();
                 services.AddTransient<DropInstallViewModel>(); // one per page (Home, Add)
                 services.AddSingleton<AuthService>();
@@ -479,8 +480,42 @@ public partial class App : Application
         }
         else
         {
-            window.Show();
-            _host.Services.GetRequiredService<ThemeService>().ApplyCurrentTheme(window);
+            Services.PluginLog.Log("[App.OnStartup] Normal launch branch entered. Preparing SplashWindow...");
+            var auth = _host.Services.GetRequiredService<AuthService>();
+            var steam = _host.Services.GetRequiredService<SteamService>();
+            var splash = new Views.SplashWindow(auth, steam);
+            Services.PluginLog.Log("[App.OnStartup] Calling splash.Show()...");
+            splash.Show();
+            Services.PluginLog.Log("[App.OnStartup] Calling splash.WaitForCompletionAsync()...");
+            try
+            {
+                var splashTask = splash.WaitForCompletionAsync();
+                var completed = await Task.WhenAny(splashTask, Task.Delay(4000));
+                if (completed != splashTask)
+                {
+                    Services.PluginLog.Log("[App.OnStartup] SplashWindow timed out after 4s. Force closing splash.");
+                    try { splash.Close(); } catch { }
+                }
+                Services.PluginLog.Log("[App.OnStartup] splash.WaitForCompletionAsync() finished.");
+            }
+            catch (Exception ex)
+            {
+                Services.PluginLog.Log($"[App.OnStartup] ERROR in splash.WaitForCompletionAsync: {ex}");
+                try { splash.Close(); } catch { }
+            }
+
+            Services.PluginLog.Log("[App.OnStartup] Calling window.Show()...");
+            try
+            {
+                window.Show();
+                Services.PluginLog.Log("[App.OnStartup] window.Show() succeeded.");
+                _host.Services.GetRequiredService<ThemeService>().ApplyCurrentTheme(window);
+                Services.PluginLog.Log("[App.OnStartup] Theme applied to window.");
+            }
+            catch (Exception ex)
+            {
+                Services.PluginLog.Log($"[App.OnStartup] ERROR showing MainWindow: {ex}");
+            }
 
             // First-run onboarding: show the welcome overlay on a fresh install. Skip it (and mark done)
             // when the user is already set up (a managed mode selected AND the plugin installed), so
@@ -524,6 +559,21 @@ public partial class App : Application
         // idempotent, and costs nothing once the folder is gone. See DepotCacheMigrationService.
         _ = _host.Services.GetRequiredService<DepotCacheMigrationService>().RunAsync();
 
+        // Silent startup system environment auto-healer (Zero-touch Game Doctor)
+        _ = Task.Run(async () =>
+        {
+            try
+            {
+                await Task.Delay(2500); // Yield UI startup
+                var doctor = _host.Services.GetService<GameDoctorService>();
+                if (doctor is not null)
+                {
+                    await doctor.CheckAndAutoHealSystemEnvironmentAsync();
+                }
+            }
+            catch { /* silent */ }
+        });
+
         // Check for new BaoTools release on startup (non-blocking)
         _ = System.Threading.Tasks.Task.Run(async () =>
         {
@@ -535,10 +585,13 @@ public partial class App : Application
             }
             catch { }
         });
+
+        Services.PluginLog.Log("[App.OnStartup] OnStartup method reached the end!");
     }
 
     protected override async void OnExit(ExitEventArgs e)
     {
+        Services.PluginLog.Log($"[App.OnExit] OnExit triggered! ExitCode={e.ApplicationExitCode}");
         // If an update was downloaded but not yet applied, stage it for after exit.
         if (Updates.HasStagedUpdate)
             Updates.ApplyOnExit();
@@ -546,6 +599,7 @@ public partial class App : Application
         await _host.StopAsync();
         _host.Dispose();
         base.OnExit(e);
+        Services.PluginLog.Log("[App.OnExit] base.OnExit completed.");
     }
 
     /// <summary>Relaunch the app (used after a language change). The single-instance mutex is released

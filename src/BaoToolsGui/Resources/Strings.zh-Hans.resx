@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:schema id="root">
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -158,7 +158,7 @@
     <value>在以下网站管理你的 Hubcap API 密钥和个人资料：</value>
   </data>
   <data name="Settings_Section_Hubcap" xml:space="preserve">
-    <value>HUBCAP</value>
+    <value>轮毂盖</value>
   </data>
   <data name="Settings_HubcapKey" xml:space="preserve">
     <value>Hubcap API 密钥</value>
@@ -863,7 +863,7 @@
     <value>显示</value>
   </data>
   <data name="Add_Supporter" xml:space="preserve">
-    <value>Supporter</value>
+    <value>支持者</value>
   </data>
   <data name="Add_Unlimited" xml:space="preserve">
     <value>无限制</value>
@@ -1613,7 +1613,7 @@
     <value>工具</value>
   </data>
   <data name="Downloads_SteamAutoCrack" xml:space="preserve">
-    <value>SteamAutoCrack</value>
+    <value>Steam自动破解</value>
   </data>
   <data name="Downloads_SAC_GettingRuntime" xml:space="preserve">
     <value>正在检查 .NET 运行时</value>
@@ -1687,20 +1687,20 @@
     <value>要从下载历史中移除全部 {0} 条记录吗？已下载的文件不会受影响。</value>
   </data>
   <data name="Nav_OnlineFixes" xml:space="preserve">
-    <value>Online Fix</value>
+    <value>在线修复</value>
   </data>
   <data name="OnlineFixes_Download" xml:space="preserve">
-    <value>Download Fix</value>
+    <value>下载修复</value>
   </data>
   <data name="OnlineFixes_Install" xml:space="preserve">
-    <value>Install Fix</value>
+    <value>安装修复</value>
   </data>
   <data name="OnlineFixes_Search" xml:space="preserve">
-    <value>Search installed games...</value>
+    <value>搜索已安装的游戏...</value>
   </data>
   <data name="OnlineFixes_Help" xml:space="preserve">
-    <value>Step 1: Click "Download Fix" to search and download the ZIP file from online-fix.me.
-Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically extract it into the game folder.</value>
+    <value>步骤1：点击“下载修复”从online-fix.me搜索并下载ZIP文件。
+步骤2：点击“Install Fix”并选择下载的ZIP文件，自动将其解压到游戏文件夹中。</value>
   </data>
   <data name="Nav_Tickets" xml:space="preserve">
     <value>凭证</value>
@@ -1784,7 +1784,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Denuvo 允许每个游戏许可证每天最多进行 5 次唯一的 PC 激活。 24 小时内与超过 5 台机器共享将暂时锁定新的激活，直到第二天。</value>
   </data>
   <data name="Tickets_Note_Limit_Title" xml:space="preserve">
-    <value>Denuvo 5 Activations / 24 Hours Limit</value>
+    <value>Denuvo 5 次激活/24 小时限制</value>
   </data>
   <data name="Tickets_Note_Ownership_Desc" xml:space="preserve">
     <value>仅当当前登录的 Steam 帐户真正拥有游戏许可证或具有活跃的家庭共享时，才能生成门票。</value>
@@ -1838,7 +1838,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>蒸汽未运行</value>
   </data>
   <data name="Tickets_SteamReadyHint" xml:space="preserve">
-    <value>Steam client detected. Make sure the signed-in account owns the game.</value>
+    <value>检测到 Steam 客户端。确保登录的帐户拥有该游戏。</value>
   </data>
   <data name="Tickets_SteamRunning" xml:space="preserve">
     <value>蒸汽正在运行</value>
@@ -1994,52 +1994,52 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>在 Steam 启动时自动在系统托盘静默运行 BaoTools。</value>
   </data>
   <data name="Theme_Default" xml:space="preserve">
-    <value>BaoTools Classic</value>
+    <value>BaoTools经典版</value>
   </data>
   <data name="Theme_Dracula" xml:space="preserve">
-    <value>Dracula</value>
+    <value>德古拉</value>
   </data>
   <data name="Theme_Nord" xml:space="preserve">
     <value>Nord</value>
   </data>
   <data name="Theme_Catppuccin" xml:space="preserve">
-    <value>Catppuccin Mocha</value>
+    <value>卡布奇诺摩卡</value>
   </data>
   <data name="Theme_Cyberpunk" xml:space="preserve">
-    <value>Cyberpunk</value>
+    <value>赛博朋克</value>
   </data>
   <data name="Theme_Midnight" xml:space="preserve">
-    <value>Midnight OLED</value>
+    <value>午夜OLED</value>
   </data>
   <data name="Theme_TokyoNight" xml:space="preserve">
-    <value>Tokyo Night</value>
+    <value>东京之夜</value>
   </data>
   <data name="Theme_Synthwave" xml:space="preserve">
-    <value>Synthwave '84</value>
+    <value>合成波'84</value>
   </data>
   <data name="Theme_RosePine" xml:space="preserve">
-    <value>Rosé Pine</value>
+    <value>玫瑰松</value>
   </data>
   <data name="Theme_Sakura" xml:space="preserve">
-    <value>Sakura Blossom</value>
+    <value>樱花盛开</value>
   </data>
   <data name="Theme_Emerald" xml:space="preserve">
-    <value>Emerald Matrix</value>
+    <value>翡翠矩阵</value>
   </data>
   <data name="Theme_AmberSunset" xml:space="preserve">
-    <value>Amber Horizon</value>
+    <value>琥珀地平线</value>
   </data>
   <data name="Theme_Amethyst" xml:space="preserve">
-    <value>Amethyst Neon</value>
+    <value>紫水晶霓虹灯</value>
   </data>
   <data name="Theme_AbyssalOcean" xml:space="preserve">
-    <value>Abyssal Ocean</value>
+    <value>深渊海洋</value>
   </data>
   <data name="Theme_OneDark" xml:space="preserve">
-    <value>One Dark Pro</value>
+    <value>一暗专业版</value>
   </data>
   <data name="Theme_Gruvbox" xml:space="preserve">
-    <value>Gruvbox Retro</value>
+    <value>Gruvbox 复古</value>
   </data>
   <data name="UpdateDialog_Title" xml:space="preserve">
     <value>软件更新</value>
@@ -2083,7 +2083,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
   <data name="UpdateDialog_OpenBrowser" xml:space="preserve">
     <value>打开浏览器</value>
   </data>
-  <!-- Added Keys Sync -->
+  
   <data name="Nav_Section_Tools" xml:space="preserve">
     <value>工具</value>
   </data>
@@ -2238,25 +2238,25 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>建议话题：</value>
   </data>
   <data name="Settings_Subtitle" xml:space="preserve">
-    <value>Manage BaoTools preferences</value>
+    <value>管理 BaoTools 首选项</value>
   </data>
   <data name="Settings_AiAssistant_LocalOffline" xml:space="preserve">
-    <value>Local / Offline</value>
+    <value>本地/离线</value>
   </data>
   <data name="Settings_AiAssistant_CardDesc" xml:space="preserve">
-    <value>Diagnose games, explain errors and help fix common problems.</value>
+    <value>诊断游戏、解释错误并帮助解决常见问题。</value>
   </data>
   <data name="Settings_AiAssistant_Key" xml:space="preserve">
-    <value>Google Gemini API Key</value>
+    <value>谷歌双子座 API 密钥</value>
   </data>
   <data name="Settings_AiAssistant_Key_Hint" xml:space="preserve">
-    <value>Free API key from Google AI Studio. Used by the assistant for deeper reasoning.</value>
+    <value>来自 Google AI Studio 的免费 API 密钥。助理用来进行更深入的推理。</value>
   </data>
   <data name="Settings_AiAssistant_KeyPlaceholder" xml:space="preserve">
-    <value>Paste your Gemini API key (AIzaSy...)</value>
+    <value>粘贴您的 Gemini API 密钥 (AIzaSy...)</value>
   </data>
   <data name="Settings_AiAssistant_GetKey" xml:space="preserve">
-    <value>Get Free API Key</value>
+    <value>获取免费 API 密钥</value>
   </data>
   <data name="AiChat_CopyMessage" xml:space="preserve">
     <value>复制消息</value>
@@ -2273,7 +2273,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
   <data name="AiChat_ClearGameContext" xml:space="preserve">
     <value>取消固定游戏上下文</value>
   </data>
-  <!-- Assistant Rotating Discovery Messages -->
+  
   <data name="AssistantAskAnything" xml:space="preserve">
     <value>随时问我...</value>
   </data>
@@ -2287,28 +2287,28 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>需要修复吗？</value>
   </data>
   <data name="Downloads_Search_Placeholder" xml:space="preserve">
-    <value>Search downloaded games...</value>
+    <value>搜索下载的游戏...</value>
   </data>
   <data name="Manage_Filter_Source" xml:space="preserve">
-    <value>Source</value>
+    <value>来源</value>
   </data>
   <data name="Downloads_Stats_TotalData" xml:space="preserve">
-    <value>Total Downloaded</value>
+    <value>总下载量</value>
   </data>
   <data name="Downloads_Stats_DiskFree" xml:space="preserve">
     <value>Drive {0} Â· Free {1}</value>
   </data>
   <data name="Downloads_Shortcut_Failed" xml:space="preserve">
-    <value>Failed to create Desktop shortcut: {0}</value>
+    <value>无法创建桌面快捷方式：{0}</value>
   </data>
   <data name="Launcher_MinimizingDueToDownloads" xml:space="preserve">
-    <value>Active downloads in progress. BaoTools minimized to keep downloading.</value>
+    <value>正在进行主动下载。 BaoTools最小化以继续下载。</value>
   </data>
   <data name="Downloads_Uninstall_Title" xml:space="preserve">
-    <value>Uninstall Game</value>
+    <value>卸载游戏</value>
   </data>
   <data name="Settings_CreateDesktopShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut on download</value>
+    <value>下载时创建桌面快捷方式</value>
   </data>
   <data name="Downloads_Action_Play" xml:space="preserve">
     <value>Play</value>
@@ -2317,91 +2317,91 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Idle</value>
   </data>
   <data name="Downloads_Empty_Desc" xml:space="preserve">
-    <value>Your download queue is empty. Find and download games, DLCs, or fixes to get started.</value>
+    <value>您的下载队列为空。查找并下载游戏、DLC 或修复程序以开始使用。</value>
   </data>
   <data name="Downloads_Uninstall_Success" xml:space="preserve">
-    <value>Successfully uninstalled '{0}'.</value>
+    <value>已成功卸载“{0}”。</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Body" xml:space="preserve">
     <value>{0} is downloaded and ready to play.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Title" xml:space="preserve">
-    <value>Download Complete</value>
+    <value>下载完成</value>
   </data>
   <data name="Downloads_Stats_Active" xml:space="preserve">
-    <value>Active Queue</value>
+    <value>活动队列</value>
   </data>
   <data name="Settings_ExitOnPlay" xml:space="preserve">
-    <value>Close app when launching game</value>
+    <value>启动游戏时关闭应用程序</value>
   </data>
   <data name="Launcher_StartingSteam" xml:space="preserve">
-    <value>Game with Online Fix requires Steam. Opening Steam, please wait until signed in and press Play again!</value>
+    <value>带有在线修复功能的游戏需要 Steam。打开 Steam，请等待登录并再次按“播放”！</value>
   </data>
   <data name="Settings_ExitOnPlay_Hint" xml:space="preserve">
-    <value>Automatically exit BaoTools when launching a game. If downloads are active, BaoTools minimizes instead to keep downloading.</value>
+    <value>启动游戏时自动退出BaoTools。如果下载处于活动状态，BaoTools 会最小化而不是继续下载。</value>
   </data>
   <data name="Downloads_Stats_Completed_Desc" xml:space="preserve">
-    <value>Installed games</value>
+    <value>已安装的游戏</value>
   </data>
   <data name="Launcher_LaunchFailed" xml:space="preserve">
-    <value>Failed to launch game: {0}</value>
+    <value>无法启动游戏：{0}</value>
   </data>
   <data name="Downloads_Stats_Active_Tooltip" xml:space="preserve">
-    <value>Click to view active downloads</value>
+    <value>单击查看活跃下载</value>
   </data>
   <data name="Manage_Filter_Source_Steam" xml:space="preserve">
-    <value>Steam Unlock</value>
+    <value>蒸汽解锁</value>
   </data>
   <data name="Manage_Badge_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>原料仓库</value>
   </data>
   <data name="Launcher_GameStarted" xml:space="preserve">
-    <value>Launched {0}.</value>
+    <value>推出{0}。</value>
   </data>
   <data name="Downloads_Stats_Completed" xml:space="preserve">
-    <value>Completed</value>
+    <value>完全的</value>
   </data>
   <data name="Downloads_Action_CreateShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut</value>
+    <value>创建桌面快捷方式</value>
   </data>
   <data name="Downloads_Stats_OpenFolder_Tooltip" xml:space="preserve">
-    <value>Click to open download folder in File Explorer</value>
+    <value>单击以在文件资源管理器中打开下载文件夹</value>
   </data>
   <data name="Downloads_Search_NoResults" xml:space="preserve">
-    <value>No games match your search.</value>
+    <value>没有游戏符合您的搜索。</value>
   </data>
   <data name="Downloads_Action_Uninstall" xml:space="preserve">
-    <value>Uninstall</value>
+    <value>卸载</value>
   </data>
   <data name="Launcher_ExeNotFound" xml:space="preserve">
-    <value>Cannot find a runnable game executable for {0}. Opened folder for manual check.</value>
+    <value>找不到 {0} 的可运行游戏可执行文件。打开文件夹进行手动检查。</value>
   </data>
   <data name="Launcher_ConfiguredOfflineEmulator" xml:space="preserve">
     <value>Configured offline mode for {0}. Launching gameâ€¦</value>
   </data>
   <data name="Downloads_Shortcut_Created" xml:space="preserve">
-    <value>Created Desktop shortcut for '{0}'.</value>
+    <value>为“{0}”创建了桌面快捷方式。</value>
   </data>
   <data name="Settings_CreateDesktopShortcut_Hint" xml:space="preserve">
-    <value>Automatically create a desktop shortcut (.lnk) so you can launch the game directly without opening BaoTools.</value>
+    <value>自动创建桌面快捷方式（.lnk），这样您无需打开BaoTools即可直接启动游戏。</value>
   </data>
   <data name="Manage_Action_PlayGame" xml:space="preserve">
-    <value>Play Game</value>
+    <value>玩游戏</value>
   </data>
   <data name="Downloads_Uninstall_Confirm" xml:space="preserve">
-    <value>Are you sure you want to uninstall '{0}'? All downloaded files at '{1}' will be deleted.</value>
+    <value>您确定要卸载“{0}”吗？ “{1}”处的所有下载文件都将被删除。</value>
   </data>
   <data name="Downloads_Stats_Completed_Tooltip" xml:space="preserve">
-    <value>Click to view installed games</value>
+    <value>点击查看已安装的游戏</value>
   </data>
   <data name="Manage_Filter_Source_All" xml:space="preserve">
-    <value>All sources</value>
+    <value>所有来源</value>
   </data>
   <data name="Downloads_Uninstall_Failed" xml:space="preserve">
-    <value>Failed to uninstall '{0}': {1}</value>
+    <value>无法卸载“{0}”：{1}</value>
   </data>
   <data name="Downloads_Action_BrowseGames" xml:space="preserve">
-    <value>Browse &amp; Download Games</value>
+    <value>浏览和下载游戏</value>
   </data>
   <data name="Launcher_DownloadingFix" xml:space="preserve">
     <value>Downloading and installing {0} for {1}â€¦</value>
@@ -2410,9 +2410,132 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Successfully applied {0}! Launching gameâ€¦</value>
   </data>
   <data name="Manage_Filter_Source_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>原料仓库</value>
   </data>
   <data name="Downloads_Action_OpenFolder" xml:space="preserve">
-    <value>Open Folder</value>
+    <value>打开文件夹</value>
   </data>
-</root>
+  <data name="Downloads_Filter_All" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="Downloads_Filter_Games" xml:space="preserve">
+    <value>已下载游戏</value>
+  </data>
+  <data name="Downloads_Filter_Lua" xml:space="preserve">
+    <value>Lua 解锁</value>
+  </data>
+  <data name="Downloads_Badge_Game" xml:space="preserve">
+    <value>游戏</value>
+  </data>
+  <data name="Downloads_Badge_Lua" xml:space="preserve">
+    <value>Lua 解锁</value>
+  </data>
+  <data name="Launcher_GameStarted_Online" xml:space="preserve">
+    <value>在在线模式下玩（在线修复）：{0}</value>
+  </data>
+  <data name="Launcher_GameStarted_Offline" xml:space="preserve">
+    <value>未找到在线修复。在离线模式下玩：{0}</value>
+  </data>
+  <data name="Launcher_RestoredOnlineFix" xml:space="preserve">
+    <value>自动恢复由 Windows Defender 删除并添加到排除项的 OnlineFix64.dll。</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion" xml:space="preserve">
+    <value>防止 Defender 删除</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_Success" xml:space="preserve">
+    <value>将 {0} 添加到 Windows Defender 排除项。</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All" xml:space="preserve">
+    <value>保护所有游戏免受 Defender 攻击</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All_Success" xml:space="preserve">
+    <value>请求将所有已安装的游戏目录排除在 Windows Defender 之外。</value>
+  </data>
+  <data name="OnlineFixes_Filter_All" xml:space="preserve">
+    <value>全部 ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Online" xml:space="preserve">
+    <value>ðŸŸ¢ Online Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Offline" xml:space="preserve">
+    <value>âšª Offline / No Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Badge_Online" xml:space="preserve">
+    <value>在线修复</value>
+  </data>
+  <data name="OnlineFixes_Badge_Offline" xml:space="preserve">
+    <value>离线</value>
+  </data>
+  <data name="GameDoctor_Title" xml:space="preserve">
+    <value>游戏医生</value>
+  </data>
+  <data name="Settings_AutoGameDoctor" xml:space="preserve">
+    <value>自动游戏医生（自动修复运行时）</value>
+  </data>
+  <data name="Settings_AutoGameDoctor_Hint" xml:space="preserve">
+    <value>下载和启动游戏时自动诊断并安装缺少的 Visual C++ 和 DirectX 运行时，以防止 0xc000007b 错误或启动崩溃。</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes" xml:space="preserve">
+    <value>安装一体化游戏运行时（VC++ 和 DirectX）</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes_Hint" xml:space="preserve">
+    <value>下载并安装游戏所需的 Microsoft Visual C++ 和 DirectX 运行时。</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealing" xml:space="preserve">
+    <value>游戏医生：自动修复 {0} 缺少运行时包...</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealSuccess" xml:space="preserve">
+    <value>游戏医生：所有运行时库均已成功安装。游戏准备好了！</value>
+  </data>
+  <data name="GameDoctor_Toast_AllRuntimesInstalled" xml:space="preserve">
+    <value>Visual C++ 和 DirectX 运行时安装成功！</value>
+  </data>
+  <data name="GameDoctor_Status_Installing" xml:space="preserve">
+    <value>正在安装运行时...</value>
+  </data>
+  <data name="GameDoctor_Status_Failed" xml:space="preserve">
+    <value>安装失败。</value>
+  </data>
+  <data name="Manage_Action_GameDoctor" xml:space="preserve">
+    <value>游戏医生（诊断）</value>
+  </data>
+  <data name="GameDoctor_Healthy" xml:space="preserve">
+    <value>游戏环境健康。所有依赖项均已验证！</value>
+  </data>
+  <data name="GameDoctor_MissingDllCount" xml:space="preserve">
+    <value>检测到 {0} 缺少依赖文件或体系结构不匹配。</value>
+  </data>
+  <data name="GameDoctor_ArchitectureMismatch" xml:space="preserve">
+    <value>架构不匹配（32位/64位不匹配导致0xc000007b错误）</value>
+  </data>
+  <data name="GameDoctor_FixNow" xml:space="preserve">
+    <value>一键自动修复</value>
+  </data>
+  <data name="GameDoctor_ChooseExe" xml:space="preserve">
+    <value>诊断其他.exe</value>
+  </data>
+  <data name="Common_Install" xml:space="preserve">
+    <value>安装</value>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Splash_Subtitle" xml:space="preserve">
+    <value>终极游戏助手</value>
+  </data>
+  <data name="Splash_Initializing" xml:space="preserve">
+    <value>正在初始化系统...</value>
+  </data>
+  <data name="Splash_CheckingEnv" xml:space="preserve">
+    <value>检查游戏环境与运行库...</value>
+  </data>
+  <data name="Splash_Preparing" xml:space="preserve">
+    <value>准备启动界面...</value>
+  </data>
+  <data name="Splash_WelcomeGuest" xml:space="preserve">
+    <value>欢迎使用 BaoTools！</value>
+  </data>
+  <data name="Splash_WelcomeUser" xml:space="preserve">
+    <value>欢迎回来，{0}！祝你游戏愉快！</value>
+  </data>
+<data name="Auth_Err_PortBusy" xml:space="preserve"><value>连接端口 ({0}) 正忙或等待 Windows 释放。请等待几秒钟，然后重试！</value></data><data name="Auth_Err_Denied" xml:space="preserve"><value>登录被拒绝或取消。</value></data><data name="Status_SteamOnline" xml:space="preserve"><value>蒸汽：在线</value></data><data name="Status_SteamOffline" xml:space="preserve"><value>Steam：离线</value></data><data name="Status_PluginActive" xml:space="preserve"><value>插件：活跃</value></data><data name="Status_PluginMissing" xml:space="preserve"><value>插件：缺失</value></data><data name="GameDoctor_ExeNotFound_Title" xml:space="preserve"><value>找不到可执行文件</value></data><data name="GameDoctor_ExeNotFound_Status" xml:space="preserve"><value>找不到可运行的可执行文件</value></data><data name="GameDoctor_AllPeImportsValid" xml:space="preserve"><value>检查了 {0} PE 库，全部有效且兼容。</value></data><data name="GameDoctor_NeedsRuntimePackages" xml:space="preserve"><value>需要安装 {0} 运行时包 (Visual C++ / DirectX) 才能运行此游戏。</value></data><data name="GameDoctor_PeImportsHeader" xml:space="preserve"><value>链接的 PE 库（导入）</value></data><data name="GameDoctor_Status_Missing" xml:space="preserve"><value>丢失的</value></data><data name="GameDoctor_Status_Ok" xml:space="preserve"><value>已安装</value></data><data name="GameDoctor_Status_Mismatch" xml:space="preserve"><value>拱门不匹配 (x86/x64)</value></data><data name="Settings_Gemini_KeyDeleted" xml:space="preserve"><value>Gemini API 密钥已删除。 AI助手将以离线本地模式运行。</value></data><data name="Settings_Gemini_KeyActivated" xml:space="preserve"><value>✓ Google Gemini AI 激活成功！</value></data><data name="Update_DownloadError" xml:space="preserve"><value>下载更新时出错。</value></data></root>

@@ -52,10 +52,14 @@ public partial class MainWindow : Wpf.Ui.Controls.FluentWindow
 
         Loaded += async (_, _) =>
         {
+            PluginLog.Log("[MainWindow.Loaded] MainWindow loaded start");
             themeService.ApplyCurrentTheme(this);
+            PluginLog.Log("[MainWindow.Loaded] Navigating to HomeView...");
             RootNavigation.Navigate(typeof(HomeView));
+            PluginLog.Log("[MainWindow.Loaded] RootNavigation to HomeView finished");
             try { await viewModel.InitializeAsync(); }
             catch { /* auth restore failed (e.g. offline). UI still loads as guest */ }
+            PluginLog.Log("[MainWindow.Loaded] viewModel.InitializeAsync completed");
         };
     }
 
@@ -85,6 +89,7 @@ public partial class MainWindow : Wpf.Ui.Controls.FluentWindow
     /// "Exit" item (which sets _reallyExiting) actually closes the app.</summary>
     private void OnWindowClosing(object? sender, System.ComponentModel.CancelEventArgs e)
     {
+        PluginLog.Log($"[MainWindow.OnWindowClosing] Closing event fired. reallyExiting={_reallyExiting}, MinimizeToTray={_settings.MinimizeToTray}, SessionTrayLock={Program.SessionTrayLock}");
         if (!_reallyExiting && (_settings.MinimizeToTray || Program.SessionTrayLock))
         {
             e.Cancel = true;
@@ -97,12 +102,14 @@ public partial class MainWindow : Wpf.Ui.Controls.FluentWindow
         // ShutdownMode is OnExplicitShutdown (a silent/--minimized launch never shows a window, so
         // OnLastWindowClose would otherwise tear the app down before it does anything), so a real
         // window close has to ask for shutdown itself instead of relying on the window count.
+        PluginLog.Log("[MainWindow.OnWindowClosing] Calling Application.Current.Shutdown()");
         Application.Current.Shutdown();
     }
 
     /// <summary>Allows graceful, non-blocking shutdown for auto-updates (bypasses minimize-to-tray).</summary>
     public void PrepareForShutdown()
     {
+        PluginLog.Log("[MainWindow.PrepareForShutdown] PrepareForShutdown called");
         _reallyExiting = true;
         if (_trayIcon is not null)
         {
@@ -181,6 +188,9 @@ public partial class MainWindow : Wpf.Ui.Controls.FluentWindow
 
     /// <summary>Switch to Mode (used by Home's mode status row).</summary>
     public void NavigateToMode() => RootNavigation.Navigate(typeof(ModeView));
+
+    /// <summary>Switch to Online Fixes.</summary>
+    public void NavigateToOnlineFixes() => RootNavigation.Navigate(typeof(OnlineFixesView));
 
     // "Restart Steam" is an action, not a page: run the command, don't leave it selected.
     private void RestartSteam_Click(object sender, RoutedEventArgs e)

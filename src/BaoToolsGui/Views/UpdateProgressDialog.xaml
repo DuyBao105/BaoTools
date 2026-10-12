@@ -279,7 +279,7 @@
                                     <TextBlock
                                         x:Name="FailedMessageBlock"
                                         Margin="0,3,0,0"
-                                        Text="Đã xảy ra lỗi trong quá trình tải bản cập nhật."
+                                        Text="{x:Static res:Strings.Update_DownloadError}"
                                         FontSize="12"
                                         Foreground="#fca5a5"
                                         TextWrapping="Wrap" />

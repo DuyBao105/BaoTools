@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:schema id="root">
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -524,7 +524,7 @@
     <value>Indlæser…</value>
   </data>
   <data name="Common_AppId" xml:space="preserve">
-    <value>App ID: {0}</value>
+    <value>App-id: {0}</value>
   </data>
   <data name="Common_AppFallback" xml:space="preserve">
     <value>App {0}</value>
@@ -656,7 +656,7 @@
     <value>Udgivelsesdato (nyeste)</value>
   </data>
   <data name="Manage_Sort_Metacritic" xml:space="preserve">
-    <value>Metacritic</value>
+    <value>Metakritisk</value>
   </data>
   <data name="Manage_Sort_MostReviewed" xml:space="preserve">
     <value>Mest anmeldt</value>
@@ -758,7 +758,7 @@ Dette sletter .lua-filerne fra Steam\config\stplug-in.</value>
     <value>Indlæser rettelser…</value>
   </data>
   <data name="Fixes_Build" xml:space="preserve">
-    <value>Build {0}</value>
+    <value>Byg {0}</value>
   </data>
   <data name="Fixes_Manifest" xml:space="preserve">
     <value>Manifest</value>
@@ -1151,7 +1151,7 @@ Dette sletter .lua-filerne fra Steam\config\stplug-in.</value>
     <value>Standard</value>
   </data>
   <data name="Builds_Variant_Build" xml:space="preserve">
-    <value>Build {0}</value>
+    <value>Byg {0}</value>
   </data>
   <data name="Builds_Variant_Preset" xml:space="preserve">
     <value>Gemt · {0}</value>
@@ -1678,32 +1678,32 @@ Annuller - fortsæt download</value>
     <value>Fjern alle {0} poster fra downloadhistorikken? Hentede filer påvirkes ikke.</value>
   </data>
   <data name="Nav_OnlineFixes" xml:space="preserve">
-    <value>Online Fix</value>
+    <value>Online rettelse</value>
   </data>
   <data name="OnlineFixes_Download" xml:space="preserve">
-    <value>Download Fix</value>
+    <value>Download rettelse</value>
   </data>
   <data name="OnlineFixes_Install" xml:space="preserve">
-    <value>Install Fix</value>
+    <value>Installer Fix</value>
   </data>
   <data name="OnlineFixes_Search" xml:space="preserve">
-    <value>Search installed games...</value>
+    <value>Søg efter installerede spil...</value>
   </data>
   <data name="OnlineFixes_Help" xml:space="preserve">
-    <value>Step 1: Click "Download Fix" to search and download the ZIP file from online-fix.me.
-Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically extract it into the game folder.</value>
+    <value>Trin 1: Klik på "Download Fix" for at søge og downloade ZIP-filen fra online-fix.me.
+Trin 2: Klik på "Install Fix" og vælg den downloadede ZIP-fil for automatisk at udpakke den til spilmappen.</value>
   </data>
   <data name="Nav_Tickets" xml:space="preserve">
-    <value>Tickets</value>
+    <value>Billetter</value>
   </data>
   <data name="Tickets_CopyHex" xml:space="preserve">
-    <value>Copy Hex</value>
+    <value>Kopier Hex</value>
   </data>
   <data name="Manage_Action_ExtractTickets" xml:space="preserve">
     <value>Uddrag billetter</value>
   </data>
   <data name="OnlineFixes_EmptyLibrary" xml:space="preserve">
-    <value>No installed games found in your Steam library.</value>
+    <value>Ingen installerede spil fundet i dit Steam-bibliotek.</value>
   </data>
   <data name="OnlineFixes_EmptySearch" xml:space="preserve">
     <value>Ingen installerede spil matcher din søgeforespørgsel.</value>
@@ -1742,7 +1742,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Kopier Lua Snippet</value>
   </data>
   <data name="Tickets_ExportSuccess" xml:space="preserve">
-    <value>Exported {0} to Desktop successfully!</value>
+    <value>Eksporteret {0} til skrivebordet med succes!</value>
   </data>
   <data name="Tickets_ExportZip" xml:space="preserve">
     <value>Eksporter postnummer (BaoTools_ticket)</value>
@@ -1781,7 +1781,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Billetter kan kun genereres, hvis den aktuelt loggede Steam-konto virkelig ejer spillicensen eller har aktiv familiedeling.</value>
   </data>
   <data name="Tickets_Note_Ownership_Title" xml:space="preserve">
-    <value>Account Ownership Required</value>
+    <value>Kontoejerskab påkrævet</value>
   </data>
   <data name="Tickets_Note_Validity_Desc" xml:space="preserve">
     <value>Denuvo-autorisationsbilletter (EncryptedAppTicket) udløber om ~30 minutter. Når du deler, skal du råde modtageren til at køre installationsprogrammet og starte spillet med det samme for at etablere offlineaktivering.</value>
@@ -1844,7 +1844,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Daglige downloads:</value>
   </data>
   <data name="Download_DailyQuota_GuestBadge" xml:space="preserve">
-    <value>Sign in for 10 downloads/day</value>
+    <value>Log ind for 10 downloads/dag</value>
   </data>
   <data name="Download_DailyQuota_LimitReached" xml:space="preserve">
     <value>Du har nået din daglige grænse på 10 downloads. Prøv venligst igen i morgen.</value>
@@ -1862,13 +1862,13 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Daglige downloads: 10/dag (aktiv)</value>
   </data>
   <data name="Tickets_AppTicket_Title" xml:space="preserve">
-    <value>App Ownership Ticket</value>
+    <value>App ejerskabsbillet</value>
   </data>
   <data name="Tickets_ETicket_Title" xml:space="preserve">
     <value>Krypteret appbillet (Denuvo)</value>
   </data>
   <data name="Common_NotAvailable" xml:space="preserve">
-    <value>Not available</value>
+    <value>Ikke tilgængelig</value>
   </data>
   <data name="Nav_Plugin" xml:space="preserve">
     <value>Plugin</value>
@@ -1994,22 +1994,22 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Nord</value>
   </data>
   <data name="Theme_Catppuccin" xml:space="preserve">
-    <value>Catppuccin Mocha</value>
+    <value>Catppuccin Mokka</value>
   </data>
   <data name="Theme_Cyberpunk" xml:space="preserve">
     <value>Cyberpunk</value>
   </data>
   <data name="Theme_Midnight" xml:space="preserve">
-    <value>Midnight OLED</value>
+    <value>Midnat OLED</value>
   </data>
   <data name="Theme_TokyoNight" xml:space="preserve">
-    <value>Tokyo Night</value>
+    <value>Tokyo aften</value>
   </data>
   <data name="Theme_Synthwave" xml:space="preserve">
     <value>Synthwave '84</value>
   </data>
   <data name="Theme_RosePine" xml:space="preserve">
-    <value>Rosé Pine</value>
+    <value>Rosé Fyr</value>
   </data>
   <data name="Theme_Sakura" xml:space="preserve">
     <value>Sakura Blossom</value>
@@ -2021,7 +2021,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Amber Horizon</value>
   </data>
   <data name="Theme_Amethyst" xml:space="preserve">
-    <value>Amethyst Neon</value>
+    <value>Ametyst Neon</value>
   </data>
   <data name="Theme_AbyssalOcean" xml:space="preserve">
     <value>Abyssal Ocean</value>
@@ -2033,48 +2033,48 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Gruvbox Retro</value>
   </data>
   <data name="UpdateDialog_Title" xml:space="preserve">
-    <value>Software Update</value>
+    <value>Softwareopdatering</value>
   </data>
   <data name="UpdateDialog_DownloadingHeader" xml:space="preserve">
-    <value>Downloading Update</value>
+    <value>Downloader opdatering</value>
   </data>
   <data name="UpdateDialog_DownloadingSub" xml:space="preserve">
-    <value>Downloading update package for {0}... Please keep BaoTools open.</value>
+    <value>Downloader opdateringspakke til {0}... Hold venligst BaoTools åbent.</value>
   </data>
   <data name="UpdateDialog_DownloadingStatus" xml:space="preserve">
-    <value>Downloading</value>
+    <value>Downloader</value>
   </data>
   <data name="UpdateDialog_ReadyHeader" xml:space="preserve">
-    <value>Update Ready to Install</value>
+    <value>Opdatering klar til installation</value>
   </data>
   <data name="UpdateDialog_ReadySub" xml:space="preserve">
-    <value>BaoTools {0} has been downloaded. Click Restart Now to apply the update and start using the new version.</value>
+    <value>BaoTools {0} er blevet downloadet. Klik på Genstart nu for at anvende opdateringen og begynde at bruge den nye version.</value>
   </data>
   <data name="UpdateDialog_ReadyStatus" xml:space="preserve">
-    <value>Ready to install</value>
+    <value>Klar til at installere</value>
   </data>
   <data name="UpdateDialog_RestartNow" xml:space="preserve">
-    <value>Restart Now</value>
+    <value>Genstart nu</value>
   </data>
   <data name="UpdateDialog_Restarting" xml:space="preserve">
-    <value>Restarting...</value>
+    <value>Genstarter...</value>
   </data>
   <data name="UpdateDialog_Later" xml:space="preserve">
     <value>Later</value>
   </data>
   <data name="UpdateDialog_Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Ophæve</value>
   </data>
   <data name="UpdateDialog_FailedHeader" xml:space="preserve">
-    <value>Download Failed</value>
+    <value>Download mislykkedes</value>
   </data>
   <data name="UpdateDialog_FailedSub" xml:space="preserve">
-    <value>An error occurred while downloading the update. You can download the latest installer manually from your browser.</value>
+    <value>Der opstod en fejl under download af opdateringen. Du kan downloade det seneste installationsprogram manuelt fra din browser.</value>
   </data>
   <data name="UpdateDialog_OpenBrowser" xml:space="preserve">
-    <value>Open Browser</value>
+    <value>Åbn Browser</value>
   </data>
-  <!-- Added Keys Sync -->
+  
   <data name="Nav_Section_Tools" xml:space="preserve">
     <value>VÆRKTØJER</value>
   </data>
@@ -2229,51 +2229,51 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Foreslåede emner:</value>
   </data>
   <data name="Settings_Subtitle" xml:space="preserve">
-    <value>Manage BaoTools preferences</value>
+    <value>Administrer BaoTools præferencer</value>
   </data>
   <data name="Home_Discord_Title" xml:space="preserve">
-    <value>Discord Community</value>
+    <value>Discord-fællesskab</value>
   </data>
   <data name="Home_Discord_Desc" xml:space="preserve">
-    <value>Join the BaoTools Discord server for announcements, fresh updates, and technical support.</value>
+    <value>Tilmeld dig BaoTools Discord-serveren for meddelelser, nye opdateringer og teknisk support.</value>
   </data>
   <data name="Home_Discord_Join" xml:space="preserve">
-    <value>Join Discord</value>
+    <value>Tilmeld dig Discord</value>
   </data>
   <data name="Settings_AiAssistant_LocalOffline" xml:space="preserve">
-    <value>Local / Offline</value>
+    <value>Lokal / Offline</value>
   </data>
   <data name="Settings_AiAssistant_CardDesc" xml:space="preserve">
-    <value>Diagnose games, explain errors and help fix common problems.</value>
+    <value>Diagnosticer spil, forklar fejl og hjælp med at løse almindelige problemer.</value>
   </data>
   <data name="Settings_AiAssistant_Key" xml:space="preserve">
-    <value>Google Gemini API Key</value>
+    <value>Google Gemini API-nøgle</value>
   </data>
   <data name="Settings_AiAssistant_Key_Hint" xml:space="preserve">
-    <value>Free API key from Google AI Studio. Used by the assistant for deeper reasoning.</value>
+    <value>Gratis API-nøgle fra Google AI Studio. Brugt af assistenten til dybere ræsonnement.</value>
   </data>
   <data name="Settings_AiAssistant_KeyPlaceholder" xml:space="preserve">
-    <value>Paste your Gemini API key (AIzaSy...)</value>
+    <value>Indsæt din Gemini API-nøgle (AIzaSy...)</value>
   </data>
   <data name="Settings_AiAssistant_GetKey" xml:space="preserve">
-    <value>Get Free API Key</value>
+    <value>Få gratis API-nøgle</value>
   </data>
   <data name="AiChat_CopyMessage" xml:space="preserve">
-    <value>Copy message</value>
+    <value>Kopiér besked</value>
   </data>
   <data name="AiChat_Copied" xml:space="preserve">
-    <value>Copied!</value>
+    <value>Kopieret!</value>
   </data>
   <data name="AiChat_Regenerate" xml:space="preserve">
-    <value>Regenerate response</value>
+    <value>Gendan respons</value>
   </data>
   <data name="AiChat_InspectingGame" xml:space="preserve">
-    <value>Inspecting: {0}</value>
+    <value>Inspicerer: {0}</value>
   </data>
   <data name="AiChat_ClearGameContext" xml:space="preserve">
-    <value>Clear game context</value>
+    <value>Klar spilkontekst</value>
   </data>
-  <!-- Assistant Rotating Discovery Messages -->
+  
   <data name="AssistantAskAnything" xml:space="preserve">
     <value>Spørg mig om hvad som helst...</value>
   </data>
@@ -2287,28 +2287,28 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Brug for en rettelse?</value>
   </data>
   <data name="Downloads_Search_Placeholder" xml:space="preserve">
-    <value>Search downloaded games...</value>
+    <value>Søg efter downloadede spil...</value>
   </data>
   <data name="Manage_Filter_Source" xml:space="preserve">
-    <value>Source</value>
+    <value>Kilde</value>
   </data>
   <data name="Downloads_Stats_TotalData" xml:space="preserve">
-    <value>Total Downloaded</value>
+    <value>Samlet downloadet</value>
   </data>
   <data name="Downloads_Stats_DiskFree" xml:space="preserve">
     <value>Drive {0} Â· Free {1}</value>
   </data>
   <data name="Downloads_Shortcut_Failed" xml:space="preserve">
-    <value>Failed to create Desktop shortcut: {0}</value>
+    <value>Kunne ikke oprette skrivebordsgenvej: {0}</value>
   </data>
   <data name="Launcher_MinimizingDueToDownloads" xml:space="preserve">
-    <value>Active downloads in progress. BaoTools minimized to keep downloading.</value>
+    <value>Aktive downloads i gang. BaoTools minimeret for at fortsætte med at downloade.</value>
   </data>
   <data name="Downloads_Uninstall_Title" xml:space="preserve">
-    <value>Uninstall Game</value>
+    <value>Afinstaller spil</value>
   </data>
   <data name="Settings_CreateDesktopShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut on download</value>
+    <value>Opret skrivebordsgenvej ved download</value>
   </data>
   <data name="Downloads_Action_Play" xml:space="preserve">
     <value>Play</value>
@@ -2317,91 +2317,91 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Idle</value>
   </data>
   <data name="Downloads_Empty_Desc" xml:space="preserve">
-    <value>Your download queue is empty. Find and download games, DLCs, or fixes to get started.</value>
+    <value>Din downloadkø er tom. Find og download spil, DLC'er eller rettelser for at komme i gang.</value>
   </data>
   <data name="Downloads_Uninstall_Success" xml:space="preserve">
-    <value>Successfully uninstalled '{0}'.</value>
+    <value>Afinstalleret '{0}'.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Body" xml:space="preserve">
     <value>{0} is downloaded and ready to play.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Title" xml:space="preserve">
-    <value>Download Complete</value>
+    <value>Download fuldført</value>
   </data>
   <data name="Downloads_Stats_Active" xml:space="preserve">
-    <value>Active Queue</value>
+    <value>Aktiv kø</value>
   </data>
   <data name="Settings_ExitOnPlay" xml:space="preserve">
-    <value>Close app when launching game</value>
+    <value>Luk app, når du starter spillet</value>
   </data>
   <data name="Launcher_StartingSteam" xml:space="preserve">
-    <value>Game with Online Fix requires Steam. Opening Steam, please wait until signed in and press Play again!</value>
+    <value>Spil med Online Fix kræver Steam. Åbner Steam, vent venligst, indtil du er logget ind, og tryk på Afspil igen!</value>
   </data>
   <data name="Settings_ExitOnPlay_Hint" xml:space="preserve">
-    <value>Automatically exit BaoTools when launching a game. If downloads are active, BaoTools minimizes instead to keep downloading.</value>
+    <value>Afslut automatisk BaoTools, når du starter et spil. Hvis downloads er aktive, minimerer BaoTools i stedet for at fortsætte med at downloade.</value>
   </data>
   <data name="Downloads_Stats_Completed_Desc" xml:space="preserve">
-    <value>Installed games</value>
+    <value>Installerede spil</value>
   </data>
   <data name="Launcher_LaunchFailed" xml:space="preserve">
-    <value>Failed to launch game: {0}</value>
+    <value>Kunne ikke starte spillet: {0}</value>
   </data>
   <data name="Downloads_Stats_Active_Tooltip" xml:space="preserve">
-    <value>Click to view active downloads</value>
+    <value>Klik for at se aktive downloads</value>
   </data>
   <data name="Manage_Filter_Source_Steam" xml:space="preserve">
-    <value>Steam Unlock</value>
+    <value>Steam Lås op</value>
   </data>
   <data name="Manage_Badge_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>Rå Depot</value>
   </data>
   <data name="Launcher_GameStarted" xml:space="preserve">
-    <value>Launched {0}.</value>
+    <value>Lanceret {0}.</value>
   </data>
   <data name="Downloads_Stats_Completed" xml:space="preserve">
-    <value>Completed</value>
+    <value>Afsluttet</value>
   </data>
   <data name="Downloads_Action_CreateShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut</value>
+    <value>Opret skrivebordsgenvej</value>
   </data>
   <data name="Downloads_Stats_OpenFolder_Tooltip" xml:space="preserve">
-    <value>Click to open download folder in File Explorer</value>
+    <value>Klik for at åbne download-mappen i File Explorer</value>
   </data>
   <data name="Downloads_Search_NoResults" xml:space="preserve">
-    <value>No games match your search.</value>
+    <value>Ingen spil matcher din søgning.</value>
   </data>
   <data name="Downloads_Action_Uninstall" xml:space="preserve">
-    <value>Uninstall</value>
+    <value>Afinstaller</value>
   </data>
   <data name="Launcher_ExeNotFound" xml:space="preserve">
-    <value>Cannot find a runnable game executable for {0}. Opened folder for manual check.</value>
+    <value>Kan ikke finde en kørebar spil eksekverbar til {0}. Åbnet mappe til manuel kontrol.</value>
   </data>
   <data name="Launcher_ConfiguredOfflineEmulator" xml:space="preserve">
     <value>Configured offline mode for {0}. Launching gameâ€¦</value>
   </data>
   <data name="Downloads_Shortcut_Created" xml:space="preserve">
-    <value>Created Desktop shortcut for '{0}'.</value>
+    <value>Oprettet skrivebordsgenvej til '{0}'.</value>
   </data>
   <data name="Settings_CreateDesktopShortcut_Hint" xml:space="preserve">
-    <value>Automatically create a desktop shortcut (.lnk) so you can launch the game directly without opening BaoTools.</value>
+    <value>Opret automatisk en skrivebordsgenvej (.lnk), så du kan starte spillet direkte uden at åbne BaoTools.</value>
   </data>
   <data name="Manage_Action_PlayGame" xml:space="preserve">
-    <value>Play Game</value>
+    <value>Spil spil</value>
   </data>
   <data name="Downloads_Uninstall_Confirm" xml:space="preserve">
-    <value>Are you sure you want to uninstall '{0}'? All downloaded files at '{1}' will be deleted.</value>
+    <value>Er du sikker på, at du vil afinstallere '{0}'? Alle downloadede filer på '{1}' vil blive slettet.</value>
   </data>
   <data name="Downloads_Stats_Completed_Tooltip" xml:space="preserve">
-    <value>Click to view installed games</value>
+    <value>Klik for at se installerede spil</value>
   </data>
   <data name="Manage_Filter_Source_All" xml:space="preserve">
-    <value>All sources</value>
+    <value>Alle kilder</value>
   </data>
   <data name="Downloads_Uninstall_Failed" xml:space="preserve">
-    <value>Failed to uninstall '{0}': {1}</value>
+    <value>Kunne ikke afinstallere '{0}': {1}</value>
   </data>
   <data name="Downloads_Action_BrowseGames" xml:space="preserve">
-    <value>Browse &amp; Download Games</value>
+    <value>Gennemse og download spil</value>
   </data>
   <data name="Launcher_DownloadingFix" xml:space="preserve">
     <value>Downloading and installing {0} for {1}â€¦</value>
@@ -2410,9 +2410,132 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Successfully applied {0}! Launching gameâ€¦</value>
   </data>
   <data name="Manage_Filter_Source_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>Rå Depot</value>
   </data>
   <data name="Downloads_Action_OpenFolder" xml:space="preserve">
-    <value>Open Folder</value>
+    <value>Åbn mappe</value>
   </data>
-</root>
+  <data name="Downloads_Filter_All" xml:space="preserve">
+    <value>Alle</value>
+  </data>
+  <data name="Downloads_Filter_Games" xml:space="preserve">
+    <value>Spil</value>
+  </data>
+  <data name="Downloads_Filter_Lua" xml:space="preserve">
+    <value>Lua / Oplåsninger</value>
+  </data>
+  <data name="Downloads_Badge_Game" xml:space="preserve">
+    <value>Spil</value>
+  </data>
+  <data name="Downloads_Badge_Lua" xml:space="preserve">
+    <value>Lua-oplåsning</value>
+  </data>
+  <data name="Launcher_GameStarted_Online" xml:space="preserve">
+    <value>Afspilning i onlinetilstand (Online-Fix): {0}</value>
+  </data>
+  <data name="Launcher_GameStarted_Offline" xml:space="preserve">
+    <value>Ingen online rettelse fundet. Afspilning i offlinetilstand: {0}</value>
+  </data>
+  <data name="Launcher_RestoredOnlineFix" xml:space="preserve">
+    <value>Automatisk gendannet OnlineFix64.dll slettet af Windows Defender og tilføjet til undtagelser.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion" xml:space="preserve">
+    <value>Forhindr Defender sletning</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_Success" xml:space="preserve">
+    <value>Tilføjet {0} til Windows Defender-ekskluderinger.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All" xml:space="preserve">
+    <value>Beskyt alle spil fra Defender</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All_Success" xml:space="preserve">
+    <value>Anmodede Windows Defender-ekskluderinger for alle installerede spilmapper.</value>
+  </data>
+  <data name="OnlineFixes_Filter_All" xml:space="preserve">
+    <value>Alle ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Online" xml:space="preserve">
+    <value>ðŸŸ¢ Online Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Offline" xml:space="preserve">
+    <value>âšª Offline / No Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Badge_Online" xml:space="preserve">
+    <value>Online rettelse</value>
+  </data>
+  <data name="OnlineFixes_Badge_Offline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="GameDoctor_Title" xml:space="preserve">
+    <value>Spil Doktor</value>
+  </data>
+  <data name="Settings_AutoGameDoctor" xml:space="preserve">
+    <value>Auto Game Doctor (Auto-heal runtimes)</value>
+  </data>
+  <data name="Settings_AutoGameDoctor_Hint" xml:space="preserve">
+    <value>Diagnosticer og installer automatisk manglende Visual C++ og DirectX runtime, når du downloader og starter spil for at forhindre 0xc000007b fejl eller startnedbrud.</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes" xml:space="preserve">
+    <value>Installer All-in-One Game Runtimes (VC++ &amp; DirectX)</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes_Hint" xml:space="preserve">
+    <value>Download og installer Microsoft Visual C++ og DirectX runtime, der kræves af spil.</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealing" xml:space="preserve">
+    <value>Game Doctor: Auto-healing {0} manglende runtime-pakke(r)...</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealSuccess" xml:space="preserve">
+    <value>Game Doctor: Alle runtime-biblioteker er installeret. Spillet er klar!</value>
+  </data>
+  <data name="GameDoctor_Toast_AllRuntimesInstalled" xml:space="preserve">
+    <value>Visual C++ og DirectX runtimes installeret med succes!</value>
+  </data>
+  <data name="GameDoctor_Status_Installing" xml:space="preserve">
+    <value>Installerer runtimes...</value>
+  </data>
+  <data name="GameDoctor_Status_Failed" xml:space="preserve">
+    <value>Installationen mislykkedes.</value>
+  </data>
+  <data name="Manage_Action_GameDoctor" xml:space="preserve">
+    <value>Spillæge (diagnose)</value>
+  </data>
+  <data name="GameDoctor_Healthy" xml:space="preserve">
+    <value>Spillemiljøet er sundt. Alle afhængigheder bekræftet!</value>
+  </data>
+  <data name="GameDoctor_MissingDllCount" xml:space="preserve">
+    <value>Detekteret {0} manglende afhængighedsfil(er) eller arkitektur uoverensstemmelse.</value>
+  </data>
+  <data name="GameDoctor_ArchitectureMismatch" xml:space="preserve">
+    <value>Arkitektur uoverensstemmelse (32-bit / 64-bit uoverensstemmelse forårsager 0xc000007b fejl)</value>
+  </data>
+  <data name="GameDoctor_FixNow" xml:space="preserve">
+    <value>Auto-fix 1-klik</value>
+  </data>
+  <data name="GameDoctor_ChooseExe" xml:space="preserve">
+    <value>Diagnostiser anden .exe</value>
+  </data>
+  <data name="Common_Install" xml:space="preserve">
+    <value>Installere</value>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Splash_Subtitle" xml:space="preserve">
+    <value>Den ultimative spilassistent</value>
+  </data>
+  <data name="Splash_Initializing" xml:space="preserve">
+    <value>Initialiserer systemet...</value>
+  </data>
+  <data name="Splash_CheckingEnv" xml:space="preserve">
+    <value>Kontrollerar spilmiljøet...</value>
+  </data>
+  <data name="Splash_Preparing" xml:space="preserve">
+    <value>Klargør grænsefladen...</value>
+  </data>
+  <data name="Splash_WelcomeGuest" xml:space="preserve">
+    <value>Velkommen til BaoTools!</value>
+  </data>
+  <data name="Splash_WelcomeUser" xml:space="preserve">
+    <value>Velkommen tilbage, {0}! God spillelyst!</value>
+  </data>
+<data name="Auth_Err_PortBusy" xml:space="preserve"><value>Forbindelsesporten ({0}) er optaget eller venter på Windows-udgivelse. Vent et par sekunder og prøv igen!</value></data><data name="Auth_Err_Denied" xml:space="preserve"><value>Login blev nægtet eller annulleret.</value></data><data name="Status_SteamOnline" xml:space="preserve"><value /></data><data name="Status_SteamOffline" xml:space="preserve"><value /></data><data name="Status_PluginActive" xml:space="preserve"><value>Plugin: Aktiv</value></data><data name="Status_PluginMissing" xml:space="preserve"><value>Plugin: Mangler</value></data><data name="GameDoctor_ExeNotFound_Title" xml:space="preserve"><value>Eksekverbar fil blev ikke fundet</value></data><data name="GameDoctor_ExeNotFound_Status" xml:space="preserve"><value>Kan ikke finde en kørebar eksekverbar</value></data><data name="GameDoctor_AllPeImportsValid" xml:space="preserve"><value>Markerede {0} PE-biblioteker, alle er gyldige og kompatible.</value></data><data name="GameDoctor_NeedsRuntimePackages" xml:space="preserve"><value>Skal installere {0} runtime-pakke(r) (Visual C++ / DirectX) for at køre dette spil.</value></data><data name="GameDoctor_PeImportsHeader" xml:space="preserve"><value>TILKNYTTEDE PE-BIBLIOTEKER (IMPORT)</value></data><data name="GameDoctor_Status_Missing" xml:space="preserve"><value>Manglende</value></data><data name="GameDoctor_Status_Ok" xml:space="preserve"><value>Installeret</value></data><data name="GameDoctor_Status_Mismatch" xml:space="preserve"><value>Bue-mismatch (x86/x64)</value></data><data name="Settings_Gemini_KeyDeleted" xml:space="preserve"><value>Gemini API-nøgle fjernet. AI-assistent vil fungere i offline lokal tilstand.</value></data><data name="Settings_Gemini_KeyActivated" xml:space="preserve"><value>✓ Google Gemini AI blev aktiveret med succes!</value></data><data name="Update_DownloadError" xml:space="preserve"><value>Der opstod en fejl under download af opdateringen.</value></data></root>

@@ -16,33 +16,23 @@ if ($LASTEXITCODE -ne 0) {
     }
 }
 
-# 2. Build Portable Directory
-Write-Host "`n[2/4] Building portable folder (out_portable)..." -ForegroundColor Yellow
+# 2. Build Portable Directory & Zip
+Write-Host "`n[2/4] Building portable folder & zip..." -ForegroundColor Yellow
 dotnet publish src/BaoToolsGui/BaoToolsGui.csproj -c Release -o out_portable --nologo -v q
-
-# 3. Compile Inno Setup Installer
-Write-Host "`n[3/4] Compiling Inno Setup installer..." -ForegroundColor Yellow
-$iscc = "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
-if (Test-Path $iscc) {
-    & $iscc setup.iss | Out-Null
-} else {
-    Write-Warning "Inno Setup compiler (ISCC.exe) not found. Skipping installer generation."
-}
-
-# 4. Build Single-File Self-Contained Portable Executable
-Write-Host "`n[4/4] Building standalone single-file BaoTools.exe (self-contained)..." -ForegroundColor Yellow
-dotnet publish src/BaoToolsGui/BaoToolsGui.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -o out_single_standalone --nologo -v q
-
-# 5. Assemble to release_v10.5
-Write-Host "`nAssembling release assets to release_v10.5/ ..." -ForegroundColor Green
 New-Item -ItemType Directory -Force -Path "release_v10.5" | Out-Null
-Copy-Item "out_single_standalone\BaoTools.exe" "release_v10.5\BaoTools.exe" -Force
+Compress-Archive -Path "out_portable\*" -DestinationPath "release_v10.5\BaoTools_v10.5_Portable.zip" -Force
+
+# 3. Build Modern Gaming WPF Installer (1-Click, Borderless, Cyber Aesthetics)
+Write-Host "`n[3/4] Building modern gaming installer (BaoTools_v10.5_Setup.exe)..." -ForegroundColor Yellow
+dotnet publish src/BaoToolsInstaller/BaoToolsInstaller.csproj -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true -o out_setup --nologo -v q
 if (Test-Path "out_setup\BaoTools_v10.5_Setup.exe") {
     Copy-Item "out_setup\BaoTools_v10.5_Setup.exe" "release_v10.5\BaoTools_v10.5_Setup.exe" -Force
-} elseif (Test-Path "out_setup\BaoTools_Setup.exe") {
-    Copy-Item "out_setup\BaoTools_Setup.exe" "release_v10.5\BaoTools_v10.5_Setup.exe" -Force
 }
-Compress-Archive -Path "out_portable\*" -DestinationPath "release_v10.5\BaoTools_v10.5_Portable.zip" -Force
+
+# 4. Build Standalone Single-File Executable
+Write-Host "`n[4/4] Building standalone single-file BaoTools.exe (self-contained)..." -ForegroundColor Yellow
+dotnet publish src/BaoToolsGui/BaoToolsGui.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -o out_single_standalone --nologo -v q
+Copy-Item "out_single_standalone\BaoTools.exe" "release_v10.5\BaoTools.exe" -Force
 
 Write-Host "`nAll release assets successfully created in release_v10.5/:" -ForegroundColor Green
 Get-ChildItem "release_v10.5" | Select-Object Name, Length, LastWriteTime | Format-Table -AutoSize

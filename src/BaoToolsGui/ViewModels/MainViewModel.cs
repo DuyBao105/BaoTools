@@ -16,6 +16,7 @@ public partial class MainViewModel : ObservableObject
     private readonly ToastService _toast;
     private readonly BaoToolsApiClient _api;
     private readonly PluginInstallerService _pluginInstaller;
+    private readonly SettingsService _settings;
 
     /// <summary>The first-run welcome overlay VM (hosted at the window root, shown via its IsOpen).</summary>
     public OnboardingViewModel Onboarding { get; }
@@ -135,7 +136,8 @@ public partial class MainViewModel : ObservableObject
         ToastService toast,
         AiChatViewModel aiChat,
         BaoToolsApiClient api,
-        PluginInstallerService pluginInstaller)
+        PluginInstallerService pluginInstaller,
+        SettingsService settings)
     {
         _auth = auth;
         _steam = steam;
@@ -146,6 +148,7 @@ public partial class MainViewModel : ObservableObject
         AiChat = aiChat;
         _api = api;
         _pluginInstaller = pluginInstaller;
+        _settings = settings;
         _auth.AuthStateChanged += RefreshAccount;
         SettingsViewModel.LanguageChanged += OnLanguageChanged;
 
@@ -253,17 +256,8 @@ public partial class MainViewModel : ObservableObject
 
     private void UpdateSystemStatusStrings()
     {
-        var lang = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
-        if (lang == "vi")
-        {
-            SteamStatusText = IsSteamOnline ? "Steam: Đang chạy" : "Steam: Chưa mở";
-            PluginStatusText = IsPluginOnline ? "Plugin: Đã cài" : "Plugin: Chưa cài";
-        }
-        else
-        {
-            SteamStatusText = IsSteamOnline ? "Steam: Online" : "Steam: Offline";
-            PluginStatusText = IsPluginOnline ? "Plugin: Active" : "Plugin: Missing";
-        }
+        SteamStatusText = IsSteamOnline ? Resources.Strings.Status_SteamOnline : Resources.Strings.Status_SteamOffline;
+        PluginStatusText = IsPluginOnline ? Resources.Strings.Status_PluginActive : Resources.Strings.Status_PluginMissing;
     }
 
     [RelayCommand]
@@ -328,6 +322,11 @@ public partial class MainViewModel : ObservableObject
                 UpdateHistory.Add(it);
             }
             HasUpdateHistory = UpdateHistory.Count > 0;
+
+            if (_settings != null && !string.Equals(_settings.LastSeenUpdateVersion, VersionLabel, StringComparison.OrdinalIgnoreCase))
+            {
+                HasUnreadNotification = true;
+            }
         }
         catch { }
     }
@@ -386,6 +385,14 @@ public partial class MainViewModel : ObservableObject
         if (IsNotificationOpen)
         {
             HasUnreadNotification = false;
+            try
+            {
+                if (_settings != null && !string.Equals(_settings.LastSeenUpdateVersion, VersionLabel, StringComparison.OrdinalIgnoreCase))
+                {
+                    _settings.LastSeenUpdateVersion = VersionLabel;
+                }
+            }
+            catch { }
         }
     }
 

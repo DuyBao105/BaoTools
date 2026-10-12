@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:schema id="root">
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -2074,7 +2074,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
   <data name="UpdateDialog_OpenBrowser" xml:space="preserve">
     <value>Open Browser</value>
   </data>
-  <!-- Added Keys Sync -->
+  
   <data name="Nav_Section_Tools" xml:space="preserve">
     <value>INSTRUMENTE</value>
   </data>
@@ -2273,7 +2273,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
   <data name="AiChat_ClearGameContext" xml:space="preserve">
     <value>Clear game context</value>
   </data>
-  <!-- Assistant Rotating Discovery Messages -->
+  
   <data name="AssistantAskAnything" xml:space="preserve">
     <value>Întreabă-mă orice...</value>
   </data>
@@ -2415,4 +2415,127 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
   <data name="Downloads_Action_OpenFolder" xml:space="preserve">
     <value>Open Folder</value>
   </data>
-</root>
+  <data name="Downloads_Filter_All" xml:space="preserve">
+    <value>Toate</value>
+  </data>
+  <data name="Downloads_Filter_Games" xml:space="preserve">
+    <value>Jocuri</value>
+  </data>
+  <data name="Downloads_Filter_Lua" xml:space="preserve">
+    <value>Lua / Deblocări</value>
+  </data>
+  <data name="Downloads_Badge_Game" xml:space="preserve">
+    <value>Joc</value>
+  </data>
+  <data name="Downloads_Badge_Lua" xml:space="preserve">
+    <value>Deblocare Lua</value>
+  </data>
+  <data name="Launcher_GameStarted_Online" xml:space="preserve">
+    <value>Playing in Online mode (Online-Fix): {0}</value>
+  </data>
+  <data name="Launcher_GameStarted_Offline" xml:space="preserve">
+    <value>No online fix found. Playing in Offline mode: {0}</value>
+  </data>
+  <data name="Launcher_RestoredOnlineFix" xml:space="preserve">
+    <value>Automatically restored OnlineFix64.dll deleted by Windows Defender and added to exclusions.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion" xml:space="preserve">
+    <value>Prevent Defender deletion</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_Success" xml:space="preserve">
+    <value>Added {0} to Windows Defender exclusions.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All" xml:space="preserve">
+    <value>Protect all games from Defender</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All_Success" xml:space="preserve">
+    <value>Requested Windows Defender exclusions for all installed game directories.</value>
+  </data>
+  <data name="OnlineFixes_Filter_All" xml:space="preserve">
+    <value>All ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Online" xml:space="preserve">
+    <value>ðŸŸ¢ Online Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Offline" xml:space="preserve">
+    <value>âšª Offline / No Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Badge_Online" xml:space="preserve">
+    <value>Online Fix</value>
+  </data>
+  <data name="OnlineFixes_Badge_Offline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="GameDoctor_Title" xml:space="preserve">
+    <value>Game Doctor</value>
+  </data>
+  <data name="Settings_AutoGameDoctor" xml:space="preserve">
+    <value>Auto Game Doctor (Auto-heal runtimes)</value>
+  </data>
+  <data name="Settings_AutoGameDoctor_Hint" xml:space="preserve">
+    <value>Automatically diagnose and install missing Visual C++ and DirectX runtimes when downloading and launching games to prevent 0xc000007b errors or launch crashes.</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes" xml:space="preserve">
+    <value>Install All-in-One Game Runtimes (VC++ &amp; DirectX)</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes_Hint" xml:space="preserve">
+    <value>Download and install Microsoft Visual C++ and DirectX runtimes required by games.</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealing" xml:space="preserve">
+    <value>Game Doctor: Auto-healing {0} missing runtime package(s)...</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealSuccess" xml:space="preserve">
+    <value>Game Doctor: All runtime libraries installed successfully. Game is ready!</value>
+  </data>
+  <data name="GameDoctor_Toast_AllRuntimesInstalled" xml:space="preserve">
+    <value>Visual C++ and DirectX runtimes installed successfully!</value>
+  </data>
+  <data name="GameDoctor_Status_Installing" xml:space="preserve">
+    <value>Installing runtimes...</value>
+  </data>
+  <data name="GameDoctor_Status_Failed" xml:space="preserve">
+    <value>Installation failed.</value>
+  </data>
+  <data name="Manage_Action_GameDoctor" xml:space="preserve">
+    <value>Game Doctor (Diagnose)</value>
+  </data>
+  <data name="GameDoctor_Healthy" xml:space="preserve">
+    <value>Game environment is healthy. All dependencies verified!</value>
+  </data>
+  <data name="GameDoctor_MissingDllCount" xml:space="preserve">
+    <value>Detected {0} missing dependency file(s) or architecture mismatch.</value>
+  </data>
+  <data name="GameDoctor_ArchitectureMismatch" xml:space="preserve">
+    <value>Architecture mismatch (32-bit / 64-bit mismatch causes 0xc000007b error)</value>
+  </data>
+  <data name="GameDoctor_FixNow" xml:space="preserve">
+    <value>Auto-Fix 1-Click</value>
+  </data>
+  <data name="GameDoctor_ChooseExe" xml:space="preserve">
+    <value>Diagnose other .exe</value>
+  </data>
+  <data name="Common_Install" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Splash_Subtitle" xml:space="preserve">
+    <value>Asistentul suprem pentru jocuri</value>
+  </data>
+  <data name="Splash_Initializing" xml:space="preserve">
+    <value>Se inițializează sistemul...</value>
+  </data>
+  <data name="Splash_CheckingEnv" xml:space="preserve">
+    <value>Se verifică mediul jocului...</value>
+  </data>
+  <data name="Splash_Preparing" xml:space="preserve">
+    <value>Se pregătește interfața...</value>
+  </data>
+  <data name="Splash_WelcomeGuest" xml:space="preserve">
+    <value>Bun venit la BaoTools!</value>
+  </data>
+  <data name="Splash_WelcomeUser" xml:space="preserve">
+    <value>Bine ai revenit, {0}! Spor la joc!</value>
+  </data>
+<data name="Auth_Err_PortBusy" xml:space="preserve"><value /></data><data name="Auth_Err_Denied" xml:space="preserve"><value /></data><data name="Status_SteamOnline" xml:space="preserve"><value /></data><data name="Status_SteamOffline" xml:space="preserve"><value /></data><data name="Status_PluginActive" xml:space="preserve"><value /></data><data name="Status_PluginMissing" xml:space="preserve"><value /></data><data name="GameDoctor_ExeNotFound_Title" xml:space="preserve"><value /></data><data name="GameDoctor_ExeNotFound_Status" xml:space="preserve"><value /></data><data name="GameDoctor_AllPeImportsValid" xml:space="preserve"><value /></data><data name="GameDoctor_NeedsRuntimePackages" xml:space="preserve"><value /></data><data name="GameDoctor_PeImportsHeader" xml:space="preserve"><value /></data><data name="GameDoctor_Status_Missing" xml:space="preserve"><value /></data><data name="GameDoctor_Status_Ok" xml:space="preserve"><value /></data><data name="GameDoctor_Status_Mismatch" xml:space="preserve"><value /></data><data name="Settings_Gemini_KeyDeleted" xml:space="preserve"><value /></data><data name="Settings_Gemini_KeyActivated" xml:space="preserve"><value /></data><data name="Update_DownloadError" xml:space="preserve"><value /></data></root>

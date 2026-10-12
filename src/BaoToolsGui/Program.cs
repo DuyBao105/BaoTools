@@ -177,7 +177,9 @@ public static class Program
 
         var app = new App();
         app.InitializeComponent();
+        Services.PluginLog.Log("[Program.Main] Calling app.Run()...");
         app.Run();
+        Services.PluginLog.Log("[Program.Main] app.Run() has RETURNED! The application is exiting.");
 
         ShowWindowSignal.Dispose();
         EnableTrayLockSignal.Dispose();

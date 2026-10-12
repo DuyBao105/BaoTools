@@ -17,6 +17,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -44,13 +45,21 @@
                 </Border>
             </StackPanel>
 
-            <ui:Button
-                Grid.Column="1"
-                VerticalAlignment="Center"
-                Command="{Binding RefreshCommand}"
-                Content="{x:Static res:Strings.Manage_Refresh}"
-                Icon="{ui:SymbolIcon ArrowSync24}"
-                Appearance="Secondary" />
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                <ui:Button
+                    Margin="0,0,8,0"
+                    VerticalAlignment="Center"
+                    Command="{Binding AddAllDefenderExclusionsCommand}"
+                    Content="{x:Static res:Strings.OnlineFixes_DefenderExclusion}"
+                    Icon="{ui:SymbolIcon ShieldCheckmark24}"
+                    Appearance="Secondary" />
+                <ui:Button
+                    VerticalAlignment="Center"
+                    Command="{Binding RefreshCommand}"
+                    Content="{x:Static res:Strings.Manage_Refresh}"
+                    Icon="{ui:SymbolIcon ArrowSync24}"
+                    Appearance="Secondary" />
+            </StackPanel>
         </Grid>
 
         <!-- Search Bar -->
@@ -62,9 +71,129 @@
             Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
             ClearButtonEnabled="True" />
 
+        <!-- Filter Tabs / Pills -->
+        <StackPanel
+            Grid.Row="2"
+            Margin="0,12,0,0"
+            Orientation="Horizontal">
+
+            <!-- All Games -->
+            <RadioButton
+                GroupName="OnlineFixFilterGroup"
+                IsChecked="{Binding IsFilterAll, Mode=OneWay}"
+                Command="{Binding SelectFilterCommand}"
+                CommandParameter="All"
+                Cursor="Hand"
+                Margin="0,0,8,0">
+                <RadioButton.Template>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border
+                            x:Name="Pill"
+                            Padding="12,5"
+                            Background="#1438bdf8"
+                            BorderBrush="#4038bdf8"
+                            BorderThickness="1"
+                            CornerRadius="6">
+                            <TextBlock
+                                x:Name="PillText"
+                                FontSize="12"
+                                FontWeight="SemiBold"
+                                Foreground="#38bdf8"
+                                Text="{Binding DataContext.FilterAllLabel, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Pill" Property="Background" Value="#38bdf8" />
+                                <Setter TargetName="Pill" Property="BorderBrush" Value="#38bdf8" />
+                                <Setter TargetName="PillText" Property="Foreground" Value="#0f172a" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Pill" Property="Background" Value="#2538bdf8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </RadioButton.Template>
+            </RadioButton>
+
+            <!-- Online Only -->
+            <RadioButton
+                GroupName="OnlineFixFilterGroup"
+                IsChecked="{Binding IsFilterOnline, Mode=OneWay}"
+                Command="{Binding SelectFilterCommand}"
+                CommandParameter="OnlineOnly"
+                Cursor="Hand"
+                Margin="0,0,8,0">
+                <RadioButton.Template>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border
+                            x:Name="Pill"
+                            Padding="12,5"
+                            Background="#1410b981"
+                            BorderBrush="#4010b981"
+                            BorderThickness="1"
+                            CornerRadius="6">
+                            <TextBlock
+                                x:Name="PillText"
+                                FontSize="12"
+                                FontWeight="SemiBold"
+                                Foreground="#10b981"
+                                Text="{Binding DataContext.FilterOnlineLabel, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Pill" Property="Background" Value="#10b981" />
+                                <Setter TargetName="Pill" Property="BorderBrush" Value="#10b981" />
+                                <Setter TargetName="PillText" Property="Foreground" Value="#ffffff" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Pill" Property="Background" Value="#2510b981" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </RadioButton.Template>
+            </RadioButton>
+
+            <!-- Offline Only -->
+            <RadioButton
+                GroupName="OnlineFixFilterGroup"
+                IsChecked="{Binding IsFilterOffline, Mode=OneWay}"
+                Command="{Binding SelectFilterCommand}"
+                CommandParameter="OfflineOnly"
+                Cursor="Hand">
+                <RadioButton.Template>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border
+                            x:Name="Pill"
+                            Padding="12,5"
+                            Background="#1494a3b8"
+                            BorderBrush="#4094a3b8"
+                            BorderThickness="1"
+                            CornerRadius="6">
+                            <TextBlock
+                                x:Name="PillText"
+                                FontSize="12"
+                                FontWeight="SemiBold"
+                                Foreground="#94a3b8"
+                                Text="{Binding DataContext.FilterOfflineLabel, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Pill" Property="Background" Value="#64748b" />
+                                <Setter TargetName="Pill" Property="BorderBrush" Value="#64748b" />
+                                <Setter TargetName="PillText" Property="Foreground" Value="#ffffff" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Pill" Property="Background" Value="#2594a3b8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </RadioButton.Template>
+            </RadioButton>
+        </StackPanel>
+
         <!-- 2-Step Guide Banner (Glassmorphic Card) -->
         <Border
-            Grid.Row="2"
+            Grid.Row="3"
             Margin="0,12,0,0"
             Padding="16,12"
             Background="#0AFFFFFF"
@@ -163,7 +292,7 @@
 
         <!-- Loading State -->
         <StackPanel
-            Grid.Row="3"
+            Grid.Row="4"
             Margin="0,60,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
@@ -175,7 +304,7 @@
 
         <!-- Empty State -->
         <StackPanel
-            Grid.Row="3"
+            Grid.Row="4"
             Margin="0,60,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
@@ -191,7 +320,7 @@
 
         <!-- Game Cards Grid -->
         <vwp:VirtualizingItemsControl
-            Grid.Row="3"
+            Grid.Row="4"
             Margin="0,14,0,0"
             ItemsSource="{Binding Games}"
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -229,6 +358,13 @@
                                     Header="{x:Static res:Strings.OnlineFixes_Download}"
                                     Icon="{ui:SymbolIcon Globe24}"
                                     Command="{Binding PlacementTarget.DataContext.DownloadFixCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
+                                    CommandParameter="{Binding}"
+                                    Visibility="{Binding HasOnlineFix, Converter={StaticResource BoolToVis}}" />
+                                <Separator />
+                                <MenuItem
+                                    Header="{x:Static res:Strings.OnlineFixes_DefenderExclusion}"
+                                    Icon="{ui:SymbolIcon ShieldCheckmark24}"
+                                    Command="{Binding PlacementTarget.DataContext.AddDefenderExclusionCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
                                     CommandParameter="{Binding}" />
                             </ContextMenu>
                         </Border.ContextMenu>
@@ -257,7 +393,7 @@
                                         </Border.Background>
                                     </Border>
 
-                                    <!-- Installed Badge -->
+                                    <!-- Installed Badge (Top Left) -->
                                     <Border
                                         HorizontalAlignment="Left"
                                         VerticalAlignment="Top"
@@ -268,6 +404,39 @@
                                         <StackPanel Orientation="Horizontal">
                                             <ui:SymbolIcon Symbol="Checkmark12" Foreground="#10b981" FontSize="10" Margin="0,0,4,0" />
                                             <TextBlock Text="{x:Static res:Strings.OnlineFixes_InstalledBadge}" FontSize="10.5" FontWeight="SemiBold" Foreground="#e2e8f0" />
+                                        </StackPanel>
+                                    </Border>
+
+                                    <!-- Online Fix Status Badge (Top Right) -->
+                                    <Border
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Top"
+                                        Margin="8"
+                                        Padding="7,2"
+                                        Background="#D0064e3b"
+                                        BorderBrush="#8010b981"
+                                        BorderThickness="1"
+                                        CornerRadius="4"
+                                        Visibility="{Binding HasOnlineFix, Converter={StaticResource BoolToVis}}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <ui:SymbolIcon Symbol="Globe16" Foreground="#34d399" FontSize="11" Margin="0,0,4,0" />
+                                            <TextBlock Text="{x:Static res:Strings.OnlineFixes_Badge_Online}" FontSize="10.5" FontWeight="Bold" Foreground="#a7f3d0" />
+                                        </StackPanel>
+                                    </Border>
+
+                                    <Border
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Top"
+                                        Margin="8"
+                                        Padding="7,2"
+                                        Background="#D01e293b"
+                                        BorderBrush="#5064748b"
+                                        BorderThickness="1"
+                                        CornerRadius="4"
+                                        Visibility="{Binding HasOnlineFix, Converter={StaticResource InverseBoolToVis}}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <ui:SymbolIcon Symbol="Games16" Foreground="#94a3b8" FontSize="11" Margin="0,0,4,0" />
+                                            <TextBlock Text="{x:Static res:Strings.OnlineFixes_Badge_Offline}" FontSize="10.5" FontWeight="SemiBold" Foreground="#cbd5e1" />
                                         </StackPanel>
                                     </Border>
                                 </Grid>
@@ -289,7 +458,8 @@
                                     Margin="0,3,0,10" />
 
                                 <!-- Action Buttons -->
-                                <Grid>
+                                <!-- For Online Fix Games: Both Download Fix and Install Fix -->
+                                <Grid Visibility="{Binding HasOnlineFix, Converter={StaticResource BoolToVis}}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="8" />
@@ -314,6 +484,16 @@
                                         Command="{Binding DataContext.InstallFixCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                         CommandParameter="{Binding}" />
                                 </Grid>
+
+                                <!-- For Offline Games: Download Fix is hidden, only Install button is displayed full-width -->
+                                <ui:Button
+                                    Visibility="{Binding HasOnlineFix, Converter={StaticResource InverseBoolToVis}}"
+                                    Content="{x:Static res:Strings.OnlineFixes_Install}"
+                                    Appearance="Secondary"
+                                    Icon="{ui:SymbolIcon FolderZip20}"
+                                    HorizontalAlignment="Stretch"
+                                    Command="{Binding DataContext.InstallFixCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                    CommandParameter="{Binding}" />
                             </StackPanel>
                         </Grid>
                     </Border>

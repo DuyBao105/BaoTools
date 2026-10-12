@@ -245,7 +245,7 @@
   <data name="Drop_Result_Failed" xml:space="preserve"><value> {0} tệp thất bại — đóng Steam và thử lại.</value></data>
   <data name="Common_SearchPlaceholder" xml:space="preserve"><value>Tìm theo tên hoặc App ID...</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Đang tải…</value></data>
-  <data name="Common_AppId" xml:space="preserve"><value>App ID: {0}</value></data>
+  <data name="Common_AppId" xml:space="preserve"><value>ID ứng dụng: {0}</value></data>
   <data name="Common_AppFallback" xml:space="preserve"><value>Ứng dụng {0}</value></data>
   <data name="Manage_Title" xml:space="preserve"><value>Quản lý</value></data>
   <data name="Manage_Refresh" xml:space="preserve"><value>Làm mới</value></data>
@@ -346,7 +346,7 @@ Thao tác này xóa các tệp .lua khỏi Steam\config\stplug-in.</value></data
   <data name="Fixes_Title" xml:space="preserve"><value>Bản sửa lỗi</value></data>
   <data name="Fixes_Loading" xml:space="preserve"><value>Đang tải bản sửa lỗi…</value></data>
   <data name="Fixes_Build" xml:space="preserve"><value>Bản dựng {0}</value></data>
-  <data name="Fixes_Manifest" xml:space="preserve"><value>Manifest</value></data>
+  <data name="Fixes_Manifest" xml:space="preserve"><value>Bản kê khai</value></data>
   <data name="Fixes_Fix" xml:space="preserve"><value>Bản sửa lỗi</value></data>
   <data name="Fixes_Count" xml:space="preserve"><value>{0} bản sửa lỗi</value></data>
   <data name="Fixes_Err_Load" xml:space="preserve"><value>Không thể tải bản sửa lỗi — kiểm tra kết nối của bạn.</value></data>
@@ -377,7 +377,7 @@ Thao tác này xóa các tệp .lua khỏi Steam\config\stplug-in.</value></data
   <data name="Add_Fetch" xml:space="preserve"><value>Lấy</value></data>
   <data name="Add_Checking" xml:space="preserve"><value>Đang kiểm tra…</value></data>
   <data name="Add_Reveal" xml:space="preserve"><value>Hiển thị</value></data>
-  <data name="Add_Supporter" xml:space="preserve"><value>Supporter</value></data>
+  <data name="Add_Supporter" xml:space="preserve"><value>Người ủng hộ</value></data>
   <data name="Add_Unlimited" xml:space="preserve"><value>Không giới hạn</value></data>
   <data name="Add_RequiresOwnKey" xml:space="preserve"><value>Yêu cầu khóa API của riêng bạn</value></data>
   <data name="Add_Discord" xml:space="preserve"><value>Discord</value></data>
@@ -425,13 +425,13 @@ Thao tác này xóa các tệp .lua khỏi Steam\config\stplug-in.</value></data
   <data name="Add_FastFetch_Hint" xml:space="preserve"><value>Tự động tải xuống từ nguồn có sẵn đầu tiên</value></data>
   <data name="Add_FastFetch_NoSource" xml:space="preserve"><value>Không tìm thấy nguồn khả dụng cho trò chơi này</value></data>
   <data name="Add_FastFetch_Via" xml:space="preserve"><value>· qua {0}</value></data>
-  <data name="Plugin_Title" xml:space="preserve"><value>Plugin</value></data>
+  <data name="Plugin_Title" xml:space="preserve"><value>Trình cắm</value></data>
   <data name="Plugin_Subtitle" xml:space="preserve"><value>Plugin cho Steam! — Giờ đây dùng LuaLoader thay cho Shittenium</value></data>
   <data name="Plugin_CardTitle" xml:space="preserve"><value>Trạng thái</value></data>
   <data name="Plugin_Badge_UpdateAvailable" xml:space="preserve"><value>Có bản cập nhật</value></data>
   <data name="Plugin_Row_InstalledVersion" xml:space="preserve"><value>Phiên bản đã cài</value></data>
   <data name="Plugin_Row_LatestVersion" xml:space="preserve"><value>Phiên bản mới nhất</value></data>
-  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>Frontend</value></data>
+  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>Giao diện người dùng</value></data>
   <data name="Plugin_Row_Loader" xml:space="preserve"><value>Trình tải (winmm.dll)</value></data>
   <data name="Plugin_Millennium_Coexisting" xml:space="preserve"><value>Đã phát hiện Millennium — BaoTools chạy song song với nó. Việc cài đặt sẽ tắt bản sao plugin này của Millennium để chỉ LuaLoader chèn.</value></data>
   <data name="Plugin_Footer" xml:space="preserve"><value>LuaLoader được cài vào thư mục Steam của bạn. Ứng dụng này hoạt động như backend — nếu bạn đóng nó từ khay hệ thống, plugin sẽ ngừng hoạt động!</value></data>
@@ -451,7 +451,7 @@ Thao tác này xóa các tệp .lua khỏi Steam\config\stplug-in.</value></data
   <data name="Plugin_Status_Port8080Busy" xml:space="preserve"><value>Một chương trình khác đang sử dụng cổng 8080 — cầu nối trình duyệt của plugin có thể không hoạt động. Đóng chương trình đang dùng cổng đó rồi cài lại hoặc khởi động lại Steam.</value></data>
   <data name="Plugin_Confirm_RestartBody" xml:space="preserve"><value>Thao tác này sẽ đóng và khởi động lại Steam để áp dụng trình tải. Tiếp tục?</value></data>
   <data name="Plugin_Confirm_RestartCaption" xml:space="preserve"><value>Khởi động lại Steam</value></data>
-  <data name="Plugin_Toast_Title" xml:space="preserve"><value>Plugin</value></data>
+  <data name="Plugin_Toast_Title" xml:space="preserve"><value>Trình cắm</value></data>
   <data name="Plugin_Toast_Installed" xml:space="preserve"><value>Đã cài plugin. Steam đang khởi động lại để tải nó.</value></data>
   <data name="Plugin_Toast_InstallFailed" xml:space="preserve"><value>Cài đặt thất bại: {0}</value></data>
   <data name="Plugin_Toast_Removed" xml:space="preserve"><value>Đã gỡ plugin. Steam đang khởi động lại.</value></data>
@@ -484,7 +484,7 @@ Thao tác này xóa các tệp .lua khỏi Steam\config\stplug-in.</value></data
   <data name="Builds_Pinned" xml:space="preserve"><value>Đã ghim</value></data>
   <data name="Builds_AutoUpdating" xml:space="preserve"><value>Tự động cập nhật</value></data>
   <data name="Builds_LatestBuild" xml:space="preserve"><value>Bản dựng mới nhất trên Steam: {0}</value></data>
-  <data name="Builds_Manifest" xml:space="preserve"><value>manifest {0}</value></data>
+  <data name="Builds_Manifest" xml:space="preserve"><value>bảng kê khai {0}</value></data>
   <data name="Builds_ManifestLatest" xml:space="preserve"><value>mới nhất là {0}</value></data>
   <data name="Builds_PinDisabled" xml:space="preserve"><value>đã tắt ghim (tự động cập nhật)</value></data>
   <data name="Builds_Meta_Depots" xml:space="preserve"><value>{0} depot · {1} DLC</value></data>
@@ -597,6 +597,11 @@ Thao tác này xóa các tệp .lua khỏi Steam\config\stplug-in.</value></data
   <data name="Downloads_Search_NoResults" xml:space="preserve"><value>Không tìm thấy game phù hợp.</value></data>
   <data name="Downloads_Section_Active" xml:space="preserve"><value>Hàng đợi</value></data>
   <data name="Downloads_Section_History" xml:space="preserve"><value>Lịch sử</value></data>
+  <data name="Downloads_Filter_All" xml:space="preserve"><value>Tất cả</value></data>
+  <data name="Downloads_Filter_Games" xml:space="preserve"><value>Game đã tải</value></data>
+  <data name="Downloads_Filter_Lua" xml:space="preserve"><value>Mở khóa Lua</value></data>
+  <data name="Downloads_Badge_Game" xml:space="preserve"><value>Game</value></data>
+  <data name="Downloads_Badge_Lua" xml:space="preserve"><value>Mở khóa Lua</value></data>
   <data name="Downloads_Status_Queued" xml:space="preserve"><value>Đang chờ</value></data>
   <data name="Downloads_Status_Downloading" xml:space="preserve"><value>Đang tải</value></data>
   <data name="Downloads_Status_AwaitingConfirm" xml:space="preserve"><value>Đang chờ bạn</value></data>
@@ -635,6 +640,13 @@ Thao tác này xóa các tệp .lua khỏi Steam\config\stplug-in.</value></data
   <data name="Launcher_ExeNotFound" xml:space="preserve"><value>Không tìm thấy file chạy game cho {0}. Đã mở thư mục để bạn kiểm tra.</value></data>
   <data name="Launcher_StartingSteam" xml:space="preserve"><value>Game có Online Fix yêu cầu Steam. Đang mở Steam, bạn vui lòng đợi Steam đăng nhập xong rồi bấm Play lại nhé!</value></data>
   <data name="Launcher_GameStarted" xml:space="preserve"><value>Đã khởi chạy {0}.</value></data>
+  <data name="Launcher_GameStarted_Online" xml:space="preserve"><value>Đang chơi bản Online (Online-Fix): {0}</value></data>
+  <data name="Launcher_GameStarted_Offline" xml:space="preserve"><value>Game chưa có bản fix online. Đang chơi bản Offline: {0}</value></data>
+  <data name="Launcher_RestoredOnlineFix" xml:space="preserve"><value>Đã tự động khôi phục OnlineFix64.dll bị Windows Defender xóa và thêm vào loại trừ.</value></data>
+  <data name="OnlineFixes_DefenderExclusion" xml:space="preserve"><value>Chống Defender xóa file</value></data>
+  <data name="OnlineFixes_DefenderExclusion_Success" xml:space="preserve"><value>Đã thêm thư mục {0} vào danh sách loại trừ Windows Defender.</value></data>
+  <data name="OnlineFixes_DefenderExclusion_All" xml:space="preserve"><value>Bảo vệ Defender cho tất cả game</value></data>
+  <data name="OnlineFixes_DefenderExclusion_All_Success" xml:space="preserve"><value>Đã gửi yêu cầu thêm toàn bộ thư mục game cài đặt vào danh sách loại trừ Windows Defender.</value></data>
   <data name="Launcher_LaunchFailed" xml:space="preserve"><value>Không thể khởi chạy game: {0}</value></data>
   <data name="Launcher_DownloadingFix" xml:space="preserve"><value>Đang tự động tải &amp; cài đặt {0} cho {1}…</value></data>
   <data name="Launcher_FixApplied" xml:space="preserve"><value>Đã tự động cài đặt {0} thành công! Đang khởi chạy game…</value></data>
@@ -642,11 +654,11 @@ Thao tác này xóa các tệp .lua khỏi Steam\config\stplug-in.</value></data
   <data name="Downloads_Toast_Depot_Done_Title" xml:space="preserve"><value>Tải xong Game</value></data>
   <data name="Downloads_Toast_Depot_Done_Body" xml:space="preserve"><value>{0} đã tải xong và sẵn sàng để chơi.</value></data>
   <data name="Manage_Action_PlayGame" xml:space="preserve"><value>Chơi Game</value></data>
-  <data name="Manage_Badge_Depot" xml:space="preserve"><value>Raw Depot</value></data>
+  <data name="Manage_Badge_Depot" xml:space="preserve"><value>Kho thô</value></data>
   <data name="Manage_Filter_Source" xml:space="preserve"><value>Nguồn tải</value></data>
   <data name="Manage_Filter_Source_All" xml:space="preserve"><value>Tất cả nguồn</value></data>
-  <data name="Manage_Filter_Source_Steam" xml:space="preserve"><value>Steam Unlock</value></data>
-  <data name="Manage_Filter_Source_Depot" xml:space="preserve"><value>Raw Depot</value></data>
+  <data name="Manage_Filter_Source_Steam" xml:space="preserve"><value>Mở khóa hơi nước</value></data>
+  <data name="Manage_Filter_Source_Depot" xml:space="preserve"><value>Kho thô</value></data>
   <data name="Settings_ExitOnPlay" xml:space="preserve"><value>Đóng ứng dụng khi mở game</value></data>
   <data name="Settings_ExitOnPlay_Hint" xml:space="preserve"><value>Tự động thoát BaoTools khi khởi chạy game. Nếu đang có lượt tải chạy ngầm, ứng dụng sẽ tự động thu nhỏ để tiếp tục tải.</value></data>
   <data name="Launcher_MinimizingDueToDownloads" xml:space="preserve"><value>Đang có lượt tải chạy ngầm. BaoTools đã tự động thu nhỏ để tiếp tục tải.</value></data>
@@ -673,7 +685,7 @@ Thao tác này xóa các tệp .lua khỏi Steam\config\stplug-in.</value></data
   <data name="Downloads_Depots_Preparing" xml:space="preserve"><value>Đang chuẩn bị · {0} trên {1}</value></data>
   <data name="Downloads_Depots_GettingTool" xml:space="preserve"><value>Đang lấy trình tải</value></data>
   <data name="Downloads_Kind_Tool" xml:space="preserve"><value>Công cụ</value></data>
-  <data name="Downloads_SteamAutoCrack" xml:space="preserve"><value>SteamAutoCrack</value></data>
+  <data name="Downloads_SteamAutoCrack" xml:space="preserve"><value>Hơi NướcTự ĐộngCrack</value></data>
   <data name="Downloads_SAC_GettingRuntime" xml:space="preserve"><value>Đang kiểm tra .NET runtime</value></data>
   <data name="Downloads_SAC_GettingTool" xml:space="preserve"><value>Đang lấy SteamAutoCrack</value></data>
   <data name="Downloads_SAC_Launched" xml:space="preserve"><value>Đã mở SteamAutoCrack.</value></data>
@@ -701,7 +713,7 @@ Hủy - tiếp tục tải</value></data>
   <data name="Depot_Err_NoKeyFor" xml:space="preserve"><value>Không có khóa giải mã trong Lua cho depot {0}.</value></data>
   <data name="Builds_Select_SharedHint" xml:space="preserve"><value>Runtime dùng chung — thường đã được cài. Đánh dấu để vẫn tải xuống.</value></data>
   <data name="Downloads_ClearHistory_Confirm" xml:space="preserve"><value>Xóa tất cả {0} mục khỏi lịch sử tải xuống? Các tệp đã tải không bị ảnh hưởng.</value></data>
-<data name="Nav_OnlineFixes" xml:space="preserve"><value>Online Fix</value></data>
+<data name="Nav_OnlineFixes" xml:space="preserve"><value>Sửa chữa trực tuyến</value></data>
   <data name="OnlineFixes_Download" xml:space="preserve"><value>Tải Fix</value></data>
   <data name="OnlineFixes_Install" xml:space="preserve"><value>Cài đặt</value></data>
   <data name="OnlineFixes_Search" xml:space="preserve"><value>Tìm game đã cài...</value></data>
@@ -709,7 +721,7 @@ Hủy - tiếp tục tải</value></data>
 B2: Bấm "Cài đặt" và chọn file ZIP vừa tải về để app tự giải nén chép đè vào thư mục game.</value></data>
   
   <data name="Manage_Action_ExtractTickets" xml:space="preserve"><value>Trích xuất vé</value></data>
-  <data name="Nav_Tickets" xml:space="preserve"><value>Tickets</value></data>
+  <data name="Nav_Tickets" xml:space="preserve"><value>Vé</value></data>
   <data name="OnlineFixes_EmptyLibrary" xml:space="preserve"><value>Chưa phát hiện thấy game nào được cài đặt trong thư viện Steam.</value></data>
   <data name="OnlineFixes_EmptySearch" xml:space="preserve"><value>Không tìm thấy game đã cài nào phù hợp với tìm kiếm.</value></data>
   <data name="OnlineFixes_InstalledBadge" xml:space="preserve"><value>Đã cài đặt</value></data>
@@ -719,6 +731,11 @@ B2: Bấm "Cài đặt" và chọn file ZIP vừa tải về để app tự gi�
   <data name="OnlineFixes_Step1_Title" xml:space="preserve"><value>1. Tìm &amp; Tải Fix</value></data>
   <data name="OnlineFixes_Step2_Desc" xml:space="preserve"><value>Bấm 'Cài đặt Fix' và chọn file ZIP vừa tải về để tự động giải nén đè vào thư mục game.</value></data>
   <data name="OnlineFixes_Step2_Title" xml:space="preserve"><value>2. Cài đặt tự động</value></data>
+  <data name="OnlineFixes_Filter_All" xml:space="preserve"><value>Tất cả ({0})</value></data>
+  <data name="OnlineFixes_Filter_Online" xml:space="preserve"><value>🟢 Đã cài Online Fix ({0})</value></data>
+  <data name="OnlineFixes_Filter_Offline" xml:space="preserve"><value>⚪ Chưa cài fix / Offline ({0})</value></data>
+  <data name="OnlineFixes_Badge_Online" xml:space="preserve"><value>Sửa chữa trực tuyến</value></data>
+  <data name="OnlineFixes_Badge_Offline" xml:space="preserve"><value>Ngoại tuyến</value></data>
   <data name="Tickets_CopiedAppTicket" xml:space="preserve"><value>Đã sao chép chuỗi AppTicket vào clipboard.</value></data>
   <data name="Tickets_CopiedETicket" xml:space="preserve"><value>Đã sao chép chuỗi ETicket vào clipboard.</value></data>
   <data name="Tickets_CopiedLua" xml:space="preserve"><value>Đã sao chép đoạn mã Lua vào clipboard.</value></data>
@@ -768,7 +785,7 @@ B2: Bấm "Cài đặt" và chọn file ZIP vừa tải về để app tự gi�
   <data name="Tickets_AppTicket_Title" xml:space="preserve"><value>Vé sở hữu ứng dụng (AppTicket)</value></data>
   <data name="Tickets_ETicket_Title" xml:space="preserve"><value>Vé mã hóa Denuvo (ETicket)</value></data>
   <data name="Common_NotAvailable" xml:space="preserve"><value>Chưa có sẵn</value></data>
-  <data name="Nav_Plugin" xml:space="preserve"><value>Plugin</value></data>
+  <data name="Nav_Plugin" xml:space="preserve"><value>Trình cắm</value></data>
 
   <data name="Fixes_Applied_Hint" xml:space="preserve">
     <value>Bản sửa lỗi này đã được áp dụng. Hoàn tác nếu bạn muốn cài bản khác.</value>
@@ -789,7 +806,7 @@ B2: Bấm "Cài đặt" và chọn file ZIP vừa tải về để app tự gi�
     <value>Hủy</value>
   </data>
   <data name="Fixes_Revert_Confirm_Body" xml:space="preserve">
-    <value>Hoàn tác &quot;{0}&quot;? Các tệp đã sửa đổi sẽ được khôi phục từ bản sao lưu và các tệp do bản sửa lỗi thêm vào sẽ bị xóa.</value>
+    <value>Hoàn tác "{0}"? Các tệp đã sửa đổi sẽ được khôi phục từ bản sao lưu và các tệp do bản sửa lỗi thêm vào sẽ bị xóa.</value>
   </data>
   <data name="Fixes_Revert_Confirm_Title" xml:space="preserve">
     <value>Hoàn tác bản sửa lỗi cho {0}?</value>
@@ -909,31 +926,31 @@ B2: Bấm "Cài đặt" và chọn file ZIP vừa tải về để app tự gi�
     <value>Mở trình duyệt</value>
   </data>
 
-  <data name="Theme_Default" xml:space="preserve"><value>BaoTools Classic</value></data>
+  <data name="Theme_Default" xml:space="preserve"><value>BaoTools cổ điển</value></data>
   <data name="Theme_Dracula" xml:space="preserve"><value>Dracula</value></data>
   <data name="Theme_Nord" xml:space="preserve"><value>Nord</value></data>
-  <data name="Theme_Catppuccin" xml:space="preserve"><value>Catppuccin Mocha</value></data>
+  <data name="Theme_Catppuccin" xml:space="preserve"><value>Mocha Catppuccin</value></data>
   <data name="Theme_Cyberpunk" xml:space="preserve"><value>Cyberpunk</value></data>
-  <data name="Theme_Midnight" xml:space="preserve"><value>Midnight OLED</value></data>
+  <data name="Theme_Midnight" xml:space="preserve"><value>OLED nửa đêm</value></data>
 
-  <data name="Theme_TokyoNight" xml:space="preserve"><value>Tokyo Night</value></data>
+  <data name="Theme_TokyoNight" xml:space="preserve"><value>Đêm Tokyo</value></data>
   <data name="Theme_Synthwave" xml:space="preserve"><value>Synthwave '84</value></data>
-  <data name="Theme_RosePine" xml:space="preserve"><value>Rosé Pine</value></data>
-  <data name="Theme_Sakura" xml:space="preserve"><value>Sakura Blossom</value></data>
-  <data name="Theme_Emerald" xml:space="preserve"><value>Emerald Matrix</value></data>
-  <data name="Theme_AmberSunset" xml:space="preserve"><value>Amber Horizon</value></data>
-  <data name="Theme_Amethyst" xml:space="preserve"><value>Amethyst Neon</value></data>
-  <data name="Theme_AbyssalOcean" xml:space="preserve"><value>Abyssal Ocean</value></data>
-  <data name="Theme_OneDark" xml:space="preserve"><value>One Dark Pro</value></data>
-  <data name="Theme_Gruvbox" xml:space="preserve"><value>Gruvbox Retro</value></data>
+  <data name="Theme_RosePine" xml:space="preserve"><value>Thông Hồng</value></data>
+  <data name="Theme_Sakura" xml:space="preserve"><value>hoa anh đào</value></data>
+  <data name="Theme_Emerald" xml:space="preserve"><value>Ma trận ngọc lục bảo</value></data>
+  <data name="Theme_AmberSunset" xml:space="preserve"><value>Chân trời hổ phách</value></data>
+  <data name="Theme_Amethyst" xml:space="preserve"><value>Thạch anh tím neon</value></data>
+  <data name="Theme_AbyssalOcean" xml:space="preserve"><value>đại dương thẳm sâu</value></data>
+  <data name="Theme_OneDark" xml:space="preserve"><value>Một bóng tối chuyên nghiệp</value></data>
+  <data name="Theme_Gruvbox" xml:space="preserve"><value>Gruvbox cổ điển</value></data>
 
-  <!-- AI Assistant -->
+  
   <data name="Settings_Section_AiAssistant" xml:space="preserve"><value>Trợ lý Hỗ trợ &amp; Chẩn đoán</value></data>
   <data name="Settings_AiAssistant_Enable" xml:space="preserve"><value>Bật Trợ lý hỗ trợ &amp; chẩn đoán</value></data>
   <data name="Settings_AiAssistant_Enable_Hint" xml:space="preserve"><value>Hiển thị nút trợ lý nổi để chẩn đoán hệ thống, hướng dẫn thêm game và sửa lỗi tự động.</value></data>
   <data name="Settings_AiAssistant_LocalOffline" xml:space="preserve"><value>Cục bộ / Ngoại tuyến</value></data>
   <data name="Settings_AiAssistant_CardDesc" xml:space="preserve"><value>Chẩn đoán game, giải thích mã lỗi và hỗ trợ xử lý sự cố thường gặp.</value></data>
-  <data name="Settings_AiAssistant_Key" xml:space="preserve"><value>Google Gemini API Key</value></data>
+  <data name="Settings_AiAssistant_Key" xml:space="preserve"><value>Khóa API Google Gemini</value></data>
   <data name="Settings_AiAssistant_Key_Hint" xml:space="preserve"><value>Khóa API miễn phí từ Google AI Studio để chatbot phản hồi nâng cao.</value></data>
   <data name="Settings_AiAssistant_KeyPlaceholder" xml:space="preserve"><value>Dán mã API key Gemini (AIzaSy...)</value></data>
   <data name="Settings_AiAssistant_GetKey" xml:space="preserve"><value>Lấy API Key Miễn Phí</value></data>
@@ -951,9 +968,60 @@ B2: Bấm "Cài đặt" và chọn file ZIP vừa tải về để app tự gi�
   <data name="AiChat_InspectingGame" xml:space="preserve"><value>Đang xem: {0}</value></data>
   <data name="AiChat_ClearGameContext" xml:space="preserve"><value>Bỏ ghim ngữ cảnh game</value></data>
 
-  <!-- Assistant Rotating Discovery Messages -->
+  
   <data name="AssistantAskAnything" xml:space="preserve"><value>Hỏi tôi bất cứ điều gì...</value></data>
   <data name="AssistantNeedHelp" xml:space="preserve"><value>Cần trợ giúp?</value></data>
   <data name="AssistantGameNotWorking" xml:space="preserve"><value>Game bị lỗi?</value></data>
   <data name="AssistantNeedFix" xml:space="preserve"><value>Cần sửa lỗi?</value></data>
+
+  
+  <data name="GameDoctor_Title" xml:space="preserve"><value>Bác sĩ Game</value></data>
+  <data name="Settings_AutoGameDoctor" xml:space="preserve"><value>Tự động sửa lỗi Runtime (Auto Game Doctor)</value></data>
+  <data name="Settings_AutoGameDoctor_Hint" xml:space="preserve"><value>Tự động chẩn đoán và cài đặt các gói Visual C++ và DirectX bị thiếu khi tải và chơi game để ngăn chặn lỗi 0xc000007b hoặc crash.</value></data>
+  <data name="Settings_InstallAllRuntimes" xml:space="preserve"><value>Cài đặt trọn bộ Runtime All-in-One (VC++ &amp; DirectX)</value></data>
+  <data name="Settings_InstallAllRuntimes_Hint" xml:space="preserve"><value>Tải và cài đặt đầy đủ các gói Microsoft Visual C++ và DirectX cần thiết cho mọi game.</value></data>
+  <data name="GameDoctor_Toast_AutoHealing" xml:space="preserve"><value>Bác sĩ Game: Đang tự động nạp {0} gói thư viện còn thiếu cho game...</value></data>
+  <data name="GameDoctor_Toast_AutoHealSuccess" xml:space="preserve"><value>Bác sĩ Game: Đã nạp đầy đủ thư viện Runtime. Game sẵn sàng khởi chạy!</value></data>
+  <data name="GameDoctor_Toast_AllRuntimesInstalled" xml:space="preserve"><value>Đã cài đặt thành công trọn bộ Visual C++ và DirectX!</value></data>
+  <data name="GameDoctor_Status_Installing" xml:space="preserve"><value>Đang cài đặt thư viện...</value></data>
+  <data name="GameDoctor_Status_Failed" xml:space="preserve"><value>Cài đặt thất bại.</value></data>
+  <data name="Manage_Action_GameDoctor" xml:space="preserve"><value>Bác sĩ Game (Khám bệnh)</value></data>
+  <data name="GameDoctor_Healthy" xml:space="preserve"><value>Môi trường game hoàn toàn khỏe mạnh, không thiếu DLL nào.</value></data>
+  <data name="GameDoctor_MissingDllCount" xml:space="preserve"><value>Phát hiện thiếu {0} tệp phụ thuộc hoặc lệch kiến trúc.</value></data>
+  <data name="GameDoctor_ArchitectureMismatch" xml:space="preserve"><value>Lệch kiến trúc 32-bit / 64-bit (nguyên nhân gây lỗi 0xc000007b)</value></data>
+  <data name="GameDoctor_FixNow" xml:space="preserve"><value>Sửa tự động 1-Click</value></data>
+  <data name="GameDoctor_ChooseExe" xml:space="preserve"><value>Khám tệp .exe khác</value></data>
+  <data name="Common_Install" xml:space="preserve"><value>Cài đặt</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Đóng</value></data>
+
+  
+  <data name="Splash_Subtitle" xml:space="preserve"><value>Trợ lý game toàn diện</value></data>
+  <data name="Splash_Initializing" xml:space="preserve"><value>Đang khởi tạo hệ thống...</value></data>
+  <data name="Splash_CheckingEnv" xml:space="preserve"><value>Kiểm tra tài nguyên &amp; môi trường game...</value></data>
+  <data name="Splash_Preparing" xml:space="preserve"><value>Chuẩn bị giao diện...</value></data>
+  <data name="Splash_WelcomeGuest" xml:space="preserve"><value>Chào mừng đến với BaoTools!</value></data>
+  <data name="Splash_WelcomeUser" xml:space="preserve"><value>Chào mừng {0}, chúc bạn chơi game vui vẻ!</value></data>
+
+  
+  <data name="Auth_Err_PortBusy" xml:space="preserve"><value>Cổng kết nối ({0}) đang bận hoặc đang chờ Windows giải phóng. Vui lòng thử lại sau vài giây!</value></data>
+  <data name="Auth_Err_Denied" xml:space="preserve"><value>Đăng nhập bị từ chối hoặc đã hủy.</value></data>
+  <data name="Status_SteamOnline" xml:space="preserve"><value>Steam: Đang chạy</value></data>
+  <data name="Status_SteamOffline" xml:space="preserve"><value>Steam: Chưa mở</value></data>
+  <data name="Status_PluginActive" xml:space="preserve"><value>Plugin: Đã cài</value></data>
+  <data name="Status_PluginMissing" xml:space="preserve"><value>Plugin: Chưa cài</value></data>
+
+  
+  <data name="GameDoctor_ExeNotFound_Title" xml:space="preserve"><value>Không tìm thấy tệp .exe</value></data>
+  <data name="GameDoctor_ExeNotFound_Status" xml:space="preserve"><value>Không tìm thấy tệp thực thi</value></data>
+  <data name="GameDoctor_AllPeImportsValid" xml:space="preserve"><value>Đã kiểm tra {0} thư viện PE, tất cả đều hợp lệ và tương thích.</value></data>
+  <data name="GameDoctor_NeedsRuntimePackages" xml:space="preserve"><value>Cần nạp {0} gói Runtime (Visual C++ / DirectX) để chơi được game.</value></data>
+  <data name="GameDoctor_PeImportsHeader" xml:space="preserve"><value>DANH SÁCH THƯ VIỆN LIÊN KẾT (PE IMPORTS)</value></data>
+  <data name="GameDoctor_Status_Missing" xml:space="preserve"><value>Thiếu</value></data>
+  <data name="GameDoctor_Status_Ok" xml:space="preserve"><value>Đã có</value></data>
+  <data name="GameDoctor_Status_Mismatch" xml:space="preserve"><value>Lệch x86/x64</value></data>
+
+  
+  <data name="Settings_Gemini_KeyDeleted" xml:space="preserve"><value>Đã xóa Gemini API key. Bot sẽ hoạt động ở chế độ cục bộ offline.</value></data>
+  <data name="Settings_Gemini_KeyActivated" xml:space="preserve"><value>✓ Đã kích hoạt Google Gemini AI thành công!</value></data>
+  <data name="Update_DownloadError" xml:space="preserve"><value>Đã xảy ra lỗi trong quá trình tải bản cập nhật.</value></data>
 </root>

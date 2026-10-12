@@ -216,7 +216,7 @@ public class GameLauncherService
         return score;
     }
 
-    private static bool IsExcludedExe(string fileName)
+    public static bool IsExcludedExe(string fileName)
     {
         foreach (string sub in ExcludedExeSubstrings)
         {
@@ -340,7 +340,7 @@ public class GameLauncherService
     }
 
     /// <summary>
-    /// Apply Goldberg Steam emulator to crack a game for offline play.
+    /// Apply Goldberg Steam emulator for offline compatibility.
     /// Backs up original steam_api(64).dll and creates steam_appid.txt.
     /// </summary>
     public static (bool Success, string? Message) ApplyGoldbergEmulator(string folderPath, long appId)
@@ -400,8 +400,8 @@ public class GameLauncherService
     }
 
     /// <summary>
-    /// Ensures a game has a working fix or crack before launching.
-    /// If uncracked, checks for an Online Fix / Denuvo Fix on the server and automatically downloads & applies it.
+    /// Ensures a game has a working fix or offline patch before launching.
+    /// If unpatched, checks for an Online Fix on the server and automatically downloads & applies it.
     /// If no online fix is found or user is guest, falls back to applying Goldberg emulator for offline play.
     /// </summary>
     public async Task<bool> EnsureFixOrCrackAppliedAsync(
@@ -426,9 +426,22 @@ public class GameLauncherService
             _log?.LogDebug(ex, "Steamless DRM check skipped or failed for {AppId}", appId);
         }
 
+        // Try restoring any OnlineFix files that may have been quarantined by Windows Defender
+        if (WindowsDefenderService.TryRestoreOnlineFixFiles(appId, gameRoot))
+        {
+            toast?.Show(
+                Resources.Strings.Fixes_Title,
+                Resources.Strings.Launcher_RestoredOnlineFix);
+        }
+
         var info = InspectFolder(gameRoot, gameName);
         if (info.HasOnlineFix || info.HasDenuvoFix)
         {
+            if (info.HasOnlineFix)
+            {
+                WindowsDefenderService.UnblockDirectory(gameRoot);
+                WindowsDefenderService.BackupOnlineFixFiles(appId, gameRoot);
+            }
             return true;
         }
 
@@ -482,6 +495,10 @@ public class GameLauncherService
                     var completedTask = await Task.WhenAny(tcs.Task, Task.Delay(60000));
                     if (completedTask == tcs.Task && await tcs.Task)
                     {
+                        WindowsDefenderService.UnblockDirectory(gameRoot);
+                        WindowsDefenderService.BackupOnlineFixFiles(appId, gameRoot);
+                        _ = WindowsDefenderService.AddFolderExclusionAsync(gameRoot);
+
                         toast?.Show(
                             Resources.Strings.Fixes_Title,
                             string.Format(Resources.Strings.Launcher_FixApplied, tagName));
@@ -557,6 +574,23 @@ public class GameLauncherService
                     _log?.LogInformation("Online fix detected. Steam is not running. Starting Steam and waiting for user to relaunch...");
                     _steam.StartSteam();
                     return (false, Resources.Strings.Launcher_StartingSteam);
+                }
+            }
+
+            // Auto Game Doctor: Pre-flight check and heal missing dependencies if enabled (default ON)
+            if (_settings is null || _settings.AutoGameDoctor)
+            {
+                try
+                {
+                    var doctor = _services?.GetService<GameDoctorService>();
+                    if (doctor is not null)
+                    {
+                        await doctor.AutoHealExeAsync(exePath);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _log?.LogDebug(ex, "Game Doctor pre-flight check skipped on error");
                 }
             }
 
@@ -652,6 +686,11 @@ public class GameLauncherService
             string safeName = SanitizeFileName(gameName);
             string shortcutPath = Path.Combine(desktop, $"{safeName}.lnk");
 
+            string exeDir = Path.GetDirectoryName(info.ExecutablePath)!;
+            string vbsPath = EnsureSmartLauncherVbs(info.ExecutablePath, exeDir);
+            string wscriptExe = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "wscript.exe");
+            if (!File.Exists(wscriptExe)) wscriptExe = "wscript.exe";
+
             bool created = false;
             try
             {
@@ -660,8 +699,9 @@ public class GameLauncherService
                 {
                     dynamic shell = Activator.CreateInstance(shellType)!;
                     dynamic shortcut = shell.CreateShortcut(shortcutPath);
-                    shortcut.TargetPath = info.ExecutablePath;
-                    shortcut.WorkingDirectory = Path.GetDirectoryName(info.ExecutablePath);
+                    shortcut.TargetPath = wscriptExe;
+                    shortcut.Arguments = $"\"{vbsPath}\"";
+                    shortcut.WorkingDirectory = exeDir;
                     shortcut.Description = gameName;
                     shortcut.IconLocation = $"{info.ExecutablePath},0";
                     shortcut.Save();
@@ -677,10 +717,12 @@ public class GameLauncherService
             {
                 // Fallback via PowerShell
                 string escapedLnk = shortcutPath.Replace("'", "''");
-                string escapedTarget = info.ExecutablePath.Replace("'", "''");
-                string escapedDir = Path.GetDirectoryName(info.ExecutablePath)!.Replace("'", "''");
+                string escapedTarget = wscriptExe.Replace("'", "''");
+                string escapedArgs = $"\"{vbsPath}\"".Replace("'", "''");
+                string escapedDir = exeDir.Replace("'", "''");
                 string escapedDesc = gameName.Replace("'", "''");
-                string script = $"$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('{escapedLnk}'); $s.TargetPath = '{escapedTarget}'; $s.WorkingDirectory = '{escapedDir}'; $s.Description = '{escapedDesc}'; $s.IconLocation = '{escapedTarget},0'; $s.Save()";
+                string escapedIcon = $"{info.ExecutablePath},0".Replace("'", "''");
+                string script = $"$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('{escapedLnk}'); $s.TargetPath = '{escapedTarget}'; $s.Arguments = '{escapedArgs}'; $s.WorkingDirectory = '{escapedDir}'; $s.Description = '{escapedDesc}'; $s.IconLocation = '{escapedIcon}'; $s.Save()";
 
                 var psi = new ProcessStartInfo("powershell", $"-NoProfile -NonInteractive -Command \"{script}\"")
                 {
@@ -719,6 +761,36 @@ public class GameLauncherService
             {
                 _log?.LogInformation("Auto-created desktop shortcut for {GameName} at {Path}", gameName, path);
             }
+        }
+    }
+
+    /// <summary>
+    /// If AutoGameDoctor is enabled in settings (default ON), checks and heals missing runtime dependencies.
+    /// </summary>
+    public void TryAutoHealGameEnvironment(string folderPath, string gameName)
+    {
+        if (_settings is null || _settings.AutoGameDoctor)
+        {
+            _ = Task.Run(async () =>
+            {
+                try
+                {
+                    var doctor = _services?.GetService<GameDoctorService>();
+                    if (doctor is not null)
+                    {
+                        string gameRoot = SteamLibraryService.ResolveGameRootFolder(folderPath);
+                        string? exe = FindGameExecutable(gameRoot, gameName);
+                        if (!string.IsNullOrEmpty(exe))
+                        {
+                            await doctor.AutoHealExeAsync(exe);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _log?.LogDebug(ex, "Background AutoGameDoctor on download completion failed for {GameName}", gameName);
+                }
+            });
         }
     }
 
@@ -776,6 +848,69 @@ public class GameLauncherService
         var chars = name.Select(c => invalid.Contains(c) ? '_' : c).ToArray();
         string clean = new string(chars).Trim();
         return string.IsNullOrWhiteSpace(clean) ? "Game" : clean;
+    }
+
+    /// <summary>
+    /// Creates or updates a silent VBS launcher in the game directory.
+    /// It dynamically checks at launch time whether the game has Online-Fix:
+    /// - If Online-Fix is present: checks and auto-starts Steam if needed before launching game.
+    /// - If game is Offline: skips Steam completely and launches the game instantly!
+    /// </summary>
+    public static string EnsureSmartLauncherVbs(string exePath, string workingDir)
+    {
+        string vbsPath = Path.Combine(workingDir, "LaunchGame.vbs");
+        string exeName = Path.GetFileName(exePath);
+
+        string vbsContent =
+            "Option Explicit\r\n" +
+            "Dim WshShell, fso, scriptDir, hasOnlineFix, service, procs, appData, backupDir\r\n" +
+            "Set WshShell = CreateObject(\"WScript.Shell\")\r\n" +
+            "Set fso = CreateObject(\"Scripting.FileSystemObject\")\r\n" +
+            "scriptDir = fso.GetParentFolderName(WScript.ScriptFullName)\r\n\r\n" +
+            "' Auto-recovery: If OnlineFix64.dll was eaten by Defender, restore from BaoTools backup\r\n" +
+            "appData = WshShell.ExpandEnvironmentStrings(\"%APPDATA%\")\r\n" +
+            "backupDir = appData & \"\\BaoToolsGui\\OnlineFixBackup\"\r\n" +
+            "If fso.FileExists(scriptDir & \"\\OnlineFix.ini\") And Not fso.FileExists(scriptDir & \"\\OnlineFix64.dll\") Then\r\n" +
+            "    If fso.FolderExists(backupDir) Then\r\n" +
+            "        On Error Resume Next\r\n" +
+            "        Dim subFolder, candidate\r\n" +
+            "        For Each subFolder In fso.GetFolder(backupDir).SubFolders\r\n" +
+            "            candidate = subFolder.Path & \"\\OnlineFix64.dll\"\r\n" +
+            "            If fso.FileExists(candidate) Then\r\n" +
+            "                fso.CopyFile candidate, scriptDir & \"\\OnlineFix64.dll\", True\r\n" +
+            "                Exit For\r\n" +
+            "            End If\r\n" +
+            "        Next\r\n" +
+            "        On Error GoTo 0\r\n" +
+            "    End If\r\n" +
+            "End If\r\n\r\n" +
+            "' Check if game has Online-Fix installed\r\n" +
+            "hasOnlineFix = False\r\n" +
+            "If fso.FileExists(scriptDir & \"\\OnlineFix64.dll\") Or fso.FileExists(scriptDir & \"\\OnlineFix.dll\") Or fso.FileExists(scriptDir & \"\\OnlineFix.ini\") Then\r\n" +
+            "    hasOnlineFix = True\r\n" +
+            "End If\r\n\r\n" +
+            "' Only start Steam if this game requires Steam (Online Fix)\r\n" +
+            "If hasOnlineFix Then\r\n" +
+            "    On Error Resume Next\r\n" +
+            "    Set service = GetObject(\"winmgmts:\")\r\n" +
+            "    Set procs = service.ExecQuery(\"Select * from Win32_Process Where Name = 'steam.exe'\")\r\n" +
+            "    If procs.Count = 0 Then\r\n" +
+            "        WshShell.Run \"steam://open/main\", 0, False\r\n" +
+            "        WScript.Sleep 3500\r\n" +
+            "    End If\r\n" +
+            "    On Error GoTo 0\r\n" +
+            "End If\r\n\r\n" +
+            "' Launch the game executable\r\n" +
+            "WshShell.CurrentDirectory = scriptDir\r\n" +
+            $"WshShell.Run Chr(34) & scriptDir & \"\\{exeName}\" & Chr(34), 1, False\r\n";
+
+        try
+        {
+            File.WriteAllText(vbsPath, vbsContent);
+        }
+        catch { }
+
+        return vbsPath;
     }
 }
 

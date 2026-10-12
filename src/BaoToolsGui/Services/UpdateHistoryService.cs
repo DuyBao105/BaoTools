@@ -21,7 +21,7 @@ public class UpdateHistoryService
         PropertyNameCaseInsensitive = true
     };
 
-    private static readonly string[] DefaultTagList = ["v105.5", "v105.4", "v105.3", "v105.2", "v105.1", "v1005", "1005"];
+    private static readonly string[] DefaultTagList = ["v10.5", "10.5"];
 
     public static bool IsDefaultTag(string? tag)
     {
@@ -44,51 +44,11 @@ public class UpdateHistoryService
             {
                 new()
                 {
-                    TagName = "v105.5",
-                    Title = "BaoTools v105.5 - Cập nhật Giao diện (Themes), Sửa hiển thị Trang Add & Chạy nền Steam",
-                    Body = "• 6 Bộ chủ đề màu sắc cao cấp: Default Slate, Dracula, Cyberpunk, Forest Emerald, Nord Frost, Sunset Amber với hiệu ứng tức thì.\n• Sửa lỗi trang Add lúc hiện game lúc không: Lưu cache cục bộ và danh mục dự phòng 26+ game hot, đảm bảo hiển thị game 100% ngay cả khi mạng Việt Nam chặn Steam Store.\n• Chế độ chạy ngầm Steam Backend: BaoTools chỉ ẩn dưới khay hệ thống khi được Steam gọi, không tự hiện cửa sổ giao diện.\n• Nút Clear và Đóng chi tiết: Dễ dàng quay lại danh mục game nổi bật bất kỳ lúc nào.",
-                    PublishedAt = "14/09/2026",
+                    TagName = "v10.5",
+                    Title = "BaoTools v10.5 - Phân loại Tải xuống (Game & Lua), Gỡ cài đặt an toàn & Đồng bộ 29 Ngôn ngữ",
+                    Body = "• Phân loại Lịch sử tải xuống (Downloads History): Tách biệt trực quan giữa Game đã tải (Depot download) và Cấu hình Lua (Lua / Sadie / Hubcap / Manifest).\n• Bộ lọc Segmented Pills & Huy hiệu: Thanh lọc Tất cả, Game đã tải, Cấu hình Lua kèm số lượng đếm động thời gian thực và huy hiệu trực quan [Game] & [Cấu hình Lua].\n• Đổi Favicon Tổng đã tải: Cập nhật icon thư mục tải xuống FolderOpenDown chuẩn Fluent Design.\n• Cơ chế gỡ cài đặt an toàn: Sửa lỗi Uninstall chỉ gỡ bỏ thư mục game tải về trong Downloads/BaoTools Depots, tuyệt đối KHÔNG xóa file .lua cấu hình Steam.\n• Đồng bộ toàn diện 29 ngôn ngữ: Hoàn thiện 100% bản dịch và đồng bộ toàn bộ tài nguyên cho tất cả 29 ngôn ngữ trong dự án.",
+                    PublishedAt = "05/10/2026",
                     HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/latest"
-                },
-                new()
-                {
-                    TagName = "v105.4",
-                    Title = "BaoTools v105.4 - Tự động khởi động lại sau Cập nhật & Đồng bộ Chuông thông báo Đa ngôn ngữ",
-                    Body = "• Tự động khởi động lại sau cập nhật (Auto-restart): Sau khi nhấn 'Cập nhật ngay', ứng dụng tự tải, cài đặt và mở lại bản mới ngay lập tức (hỗ trợ cả Setup, Portable và Single-File exe).\n• Đồng bộ chuông thông báo 29 ngôn ngữ: Nút chuông, trạng thái và nội dung cập nhật tự chuyển đổi theo thời gian thực khi đổi ngôn ngữ trong Cài đặt.\n• Bảo vệ nội dung bản địa: Khóa ghi đè nội dung tiếng Anh từ GitHub vào các bản cập nhật gốc.\n• Sửa lỗi thoát sạch khi bật chế độ Thu nhỏ vào khay hệ thống (Minimize to Tray).",
-                    PublishedAt = "10/09/2026",
-                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.4"
-                },
-                new()
-                {
-                    TagName = "v105.3",
-                    Title = "BaoTools v105.3 - Gỡ Fix sạch sẽ, Bộ lọc Trò chơi của tôi & Di chuyển DepotCache",
-                    Body = "• Hỗ trợ gỡ Fix sạch sẽ (Revert fixes cleanly): tính hash SHA-256 đối chiếu an toàn, tự động khôi phục file gốc khi gỡ fix.\n• Bộ lọc 'My games' (Trò chơi của tôi) trong trang Fixes.\n• Tự động di chuyển thư mục depotcache chuẩn theo Steam.\n• Cập nhật thông báo và lưu trữ lịch sử phiên bản ngay trong chuông thông báo.",
-                    PublishedAt = "10/09/2026",
-                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.3"
-                },
-                new()
-                {
-                    TagName = "v105.2",
-                    Title = "BaoTools v105.2 - Trích xuất Ticket Steam & Denuvo, Thiết kế lại Online Fixes",
-                    Body = "• Trích xuất Steam & Denuvo Tickets trực tiếp từ Steam Client Interface.\n• Thiết kế lại trang Online Fixes với giao diện hiện đại và trực quan hơn.",
-                    PublishedAt = "07/09/2026",
-                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.2"
-                },
-                new()
-                {
-                    TagName = "v105.1",
-                    Title = "BaoTools v105.1 - Chuông thông báo cập nhật & Tối ưu tải về",
-                    Body = "• Bổ sung chuông thông báo và kiểm tra cập nhật tự động.\n• Tối ưu hóa tải manifest và cơ chế dự phòng download.",
-                    PublishedAt = "05/09/2026",
-                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.1"
-                },
-                new()
-                {
-                    TagName = "v1005",
-                    Title = "BaoTools v1005 - Bản cập nhật Trình tải xuống (DOWNLOADER)",
-                    Body = "• Ra mắt tính năng tải trực tiếp và quản lý game Steam.\n• Tích hợp hệ thống đa ngôn ngữ 30 quốc gia.",
-                    PublishedAt = "01/09/2026",
-                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v1005"
                 }
             };
         }
@@ -99,51 +59,11 @@ public class UpdateHistoryService
             {
                 new()
                 {
-                    TagName = "v105.5",
-                    Title = "BaoTools v105.5 - 主题切换、Add 页面显示修复与 Steam 后台模式",
-                    Body = "• 6 套精美色彩主题：Default Slate、Dracula、Cyberpunk、Forest Emerald、Nord Frost、Sunset Amber，即选即换。\n• 修复 Add 页面游戏偶尔消失问题：本地持久化缓存与 26+ 热门游戏离线目录，网络受阻也能 100% 秒开展示。\n• Steam 后台转发运行模式：由 Steam 调起时仅常驻系统托盘，不弹出前台主窗口。\n• 清空与关闭详情按钮：随时轻松返回热门游戏列表。",
-                    PublishedAt = "2026-09-14",
+                    TagName = "v10.5",
+                    Title = "BaoTools v10.5 - 下载历史智能分类（游戏与Lua配置）、安全卸载机制与全语言同步",
+                    Body = "• 下载历史智能分类（Downloads History）：清晰分离游戏完整下载（Depot下载）与 Lua 配置文件（Lua / Sadie / Hubcap / Manifest）。\n• 分段药丸筛选与专属徽章：提供“全部”、“已下载游戏”、“Lua 配置”分类筛选，支持实时动态计数及专属 [游戏]、[Lua 配置] 视觉徽章。\n• 升级“总已下载”图标：换用符合 Fluent Design 规范的 FolderOpenDown 文件夹图标。\n• 安全卸载机制：修复卸载逻辑，卸载游戏仅安全移除 Downloads/BaoTools Depots 中的游戏文件，绝不误删 Steam 的 .lua 配置文件。\n• 29 种语言全面同步：补齐所有新增键值并 100% 同步全语言资源字典。",
+                    PublishedAt = "2026-10-05",
                     HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/latest"
-                },
-                new()
-                {
-                    TagName = "v105.4",
-                    Title = "BaoTools v105.4 - 更新后自动重启 & 通知铃铛多语言即时同步",
-                    Body = "• 更新后自动重启应用：点击“立即更新”后，自动完成下载、覆盖更新并立即重新启动应用（支持安装版、便携版和单文件版）。\n• 通知铃铛多语言即时同步：通知铃铛、版本日志及按钮文本完全支持 29 种语言，切换语言无需重启即可即时更新。\n• 保护本地化更新日志：防止 GitHub 远程英文日志覆盖本地中文版本日志。\n• 修复托盘最小化冲突：解决更新时因最小化到托盘导致进程无法退出的问题。",
-                    PublishedAt = "2026-09-10",
-                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.4"
-                },
-                new()
-                {
-                    TagName = "v105.3",
-                    Title = "BaoTools v105.3 - 纯净还原 Fix、我的游戏筛选与 DepotCache 迁移",
-                    Body = "• 支持纯净还原 Fix (Revert fixes cleanly)：基于 SHA-256 哈希比对确保安全，还原时自动恢复原始文件。\n• Fixes 页面新增“我的游戏”筛选。\n• 自动将 depotcache 文件夹迁移至 Steam 标准路径。\n• 通知铃铛内置更新通知与版本历史记录。",
-                    PublishedAt = "2026-09-10",
-                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.3"
-                },
-                new()
-                {
-                    TagName = "v105.2",
-                    Title = "BaoTools v105.2 - Steam & Denuvo Ticket 提取器、Online Fixes 全新设计",
-                    Body = "• 直接从 Steam 客户端接口提取 Steam 与 Denuvo Ticket。\n• 全新现代化设计 Online Fixes 页面，更加直观易用。",
-                    PublishedAt = "2026-09-07",
-                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.2"
-                },
-                new()
-                {
-                    TagName = "v105.1",
-                    Title = "BaoTools v105.1 - 更新通知铃铛与下载优化",
-                    Body = "• 新增更新通知铃铛与自动检查更新机制。\n• 优化 manifest 下载与备用下载策略。",
-                    PublishedAt = "2026-09-05",
-                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.1"
-                },
-                new()
-                {
-                    TagName = "v1005",
-                    Title = "BaoTools v1005 - 下载器全新发布 (DOWNLOADER)",
-                    Body = "• 推出直接下载与 Steam 游戏管理功能。\n• 全面集成 30 种语言的多语言系统。",
-                    PublishedAt = "2026-09-01",
-                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v1005"
                 }
             };
         }
@@ -154,51 +74,11 @@ public class UpdateHistoryService
             {
                 new()
                 {
-                    TagName = "v105.5",
-                    Title = "BaoTools v105.5 - Темы оформления, фикс страницы Add и фоновый режим Steam",
-                    Body = "• 6 премиальных тем оформления: Default Slate, Dracula, Cyberpunk, Forest Emerald, Nord Frost, Sunset Amber.\n• Устранена проблема с отображением игр на странице Add: локальный кэш и 26+ игр в резервном каталоге.\n• Фоновый режим бэкенда Steam: при запуске через Steam приложение скрывается в трей.\n• Кнопки сброса и закрытия деталей: быстрый возврат к списку игр.",
-                    PublishedAt = "14.09.2026",
+                    TagName = "v10.5",
+                    Title = "BaoTools v10.5 - Категоризация загрузок (Игры и конфигурации Lua), безопасное удаление и синхронизация 29 языков",
+                    Body = "• Категоризация истории загрузок (Downloads History): чёткое разделение между загрузками игр (Depot download) и конфигурационными файлами Lua (Lua / Sadie / Hubcap / Manifest).\n• Сегментированные фильтры и бейджи: фильтры «Все», «Загруженные игры», «Конфигурации Lua» с динамическим счетчиком и бейджами [Игра] и [Конфигурация Lua].\n• Новая иконка «Всего загружено»: обновлена на стильную папку FolderOpenDown в концепции Fluent Design.\n• Безопасный деинсталлятор: исправление удаления — деинсталляция удаляет только файлы загруженной игры в Downloads/BaoTools Depots и НИКОГДА не затрагивает файлы конфигурации .lua Steam.\n• Полная синхронизация 29 языков: добавлены и согласованы все недостающие ключи для всех 29 локализаций проекта.",
+                    PublishedAt = "05.10.2026",
                     HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/latest"
-                },
-                new()
-                {
-                    TagName = "v105.4",
-                    Title = "BaoTools v105.4 - Автоперезапуск после обновления и синхронизация языков уведомлений",
-                    Body = "• Автоматический перезапуск после обновления: скачивание, установка и мгновенный перезапуск новой версии (Setup, Portable и Standalone).\n• Мгновенная синхронизация 29 языков: колокольчик, история релизов и кнопки обновляются на лету при смене языка в настройках.\n• Защита локализованных описаний: описания релизов защищены от перезаписи английским текстом с GitHub.\n• Чистый выход при сворачивании в трей: устранено зависание обновления при включенном сворачивании в трей.",
-                    PublishedAt = "10.09.2026",
-                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.4"
-                },
-                new()
-                {
-                    TagName = "v105.3",
-                    Title = "BaoTools v105.3 - Чистый откат фиксов, фильтр Мои игры и миграция DepotCache",
-                    Body = "• Чистый откат фиксов (Revert fixes cleanly): безопасное сравнение SHA-256 хэшей, автоматическое восстановление оригинальных файлов.\n• Фильтр «Мои игры» на странице фиксов.\n• Автоматическая миграция папки depotcache в стандартную папку Steam.\n• Уведомления об обновлениях и история версий в колокольчике.",
-                    PublishedAt = "10.09.2026",
-                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.3"
-                },
-                new()
-                {
-                    TagName = "v105.2",
-                    Title = "BaoTools v105.2 - Извлечение тикетов Steam и Denuvo, редизайн Online Fixes",
-                    Body = "• Извлечение тикетов Steam и Denuvo напрямую из интерфейса клиента Steam.\n• Обновлённый современный интерфейс страницы Online Fixes.",
-                    PublishedAt = "07.09.2026",
-                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.2"
-                },
-                new()
-                {
-                    TagName = "v105.1",
-                    Title = "BaoTools v105.1 - Колокольчик уведомлений и оптимизация загрузки",
-                    Body = "• Добавлен колокольчик уведомлений и автоматическая проверка обновлений.\n• Оптимизация загрузки манифестов и резервные каналы скачивания.",
-                    PublishedAt = "05.09.2026",
-                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.1"
-                },
-                new()
-                {
-                    TagName = "v1005",
-                    Title = "BaoTools v1005 - Обновление загрузчика (DOWNLOADER)",
-                    Body = "• Запуск прямой загрузки и управления играми Steam.\n• Интеграция мультиязычной системы на 30 языков.",
-                    PublishedAt = "01.09.2026",
-                    HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v1005"
                 }
             };
         }
@@ -207,51 +87,11 @@ public class UpdateHistoryService
         {
             new()
             {
-                TagName = "v105.5",
-                Title = "BaoTools v105.5 - Theme Switcher, Add Page Display Fix & Steam Background Mode",
-                Body = "• 6 curated color themes: Default Slate, Dracula, Cyberpunk, Forest Emerald, Nord Frost, Sunset Amber with instant switching.\n• Add page game display fix: persistent disk cache and curated 26+ fallback catalog ensure games always render instantly even when Steam store is ISP-blocked.\n• Steam headless backend mode: BaoTools stays hidden in system tray when invoked by Steam.\n• Search clear & dismiss buttons: easily return to featured game lists at any time.",
-                PublishedAt = "Sep 14, 2026",
+                TagName = "v10.5",
+                Title = "BaoTools v10.5 - Download Categorization (Games & Lua), Safe Uninstall & 29-Language Parity",
+                Body = "• Download History Categorization: Clear distinction between full game downloads (Depot downloads) and Lua configurations (Lua / Sadie / Hubcap / Manifest).\n• Segmented Filter Pills & Visual Badges: Filter by All, Downloaded Games, and Lua Configurations with real-time dynamic item counts and dedicated [Game] & [Lua Config] badges.\n• Total Downloaded Favicon: Updated to modern Fluent Design FolderOpenDown icon.\n• Safe Uninstall Engine: Fixed uninstall to remove only downloaded game files in Downloads/BaoTools Depots, strictly NEVER deleting Steam .lua configuration files.\n• Comprehensive 29-Language Parity: 100% resource synchronization and translation across all 29 supported project languages.",
+                PublishedAt = "Oct 05, 2026",
                 HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/latest"
-            },
-            new()
-            {
-                TagName = "v105.4",
-                Title = "BaoTools v105.4 - Auto-restart After Update & Multi-language Notification Sync",
-                Body = "• Auto-restart after update: Clicking 'Update Now' automatically downloads, installs, and relaunches the app seamlessly across Setup, Portable, and Single-File exe modes.\n• Multi-language real-time notification sync: Full 29-language support for notification bell, status text, and release history with instant UI culture updates.\n• Protected local changelogs: Prevents remote GitHub English releases from overwriting curated localized release notes.\n• Clean update termination: Eliminates process hang caused by the 'Minimize to Tray' background setting.",
-                PublishedAt = "Sep 10, 2026",
-                HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.4"
-            },
-            new()
-            {
-                TagName = "v105.3",
-                Title = "BaoTools v105.3 - Reverting Fixes Cleanly, My Games Filter & DepotCache Migration",
-                Body = "• Clean fix reversion: safe SHA-256 hash comparison, automatically restores original files when reverting fixes.\n• 'My games' filter in Fixes page.\n• Automatic depotcache folder migration to standard Steam location.\n• Persistent update notifications and update history in notification bell.",
-                PublishedAt = "Sep 10, 2026",
-                HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.3"
-            },
-            new()
-            {
-                TagName = "v105.2",
-                Title = "BaoTools v105.2 - Steam & Denuvo Tickets Extractor, Online Fixes Redesign",
-                Body = "• Extract Steam & Denuvo Tickets directly from Steam Client Interface.\n• Redesigned Online Fixes page with a modern and intuitive interface.",
-                PublishedAt = "Sep 07, 2026",
-                HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.2"
-            },
-            new()
-            {
-                TagName = "v105.1",
-                Title = "BaoTools v105.1 - Update Notification & Download Optimizations",
-                Body = "• Added notification bell and automatic update checks.\n• Optimized manifest downloads and download fallback mechanism.",
-                PublishedAt = "Sep 05, 2026",
-                HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v105.1"
-            },
-            new()
-            {
-                TagName = "v1005",
-                Title = "BaoTools v1005 - The DOWNLOADER Update",
-                Body = "• Direct downloads and Steam game management launched.\n• Integrated multi-language system supporting 30 languages.",
-                PublishedAt = "Sep 01, 2026",
-                HtmlUrl = "https://github.com/DevBaor/BaoTools_1005/releases/tag/v1005"
             }
         };
     }
@@ -300,11 +140,16 @@ public class UpdateHistoryService
             }
         }
 
-        // Deduplicate items with the same normalized tag (e.g. "1005" and "v1005")
+        // Deduplicate and filter out obsolete/legacy releases prior to v10.5
         var deduped = new List<UpdateHistoryItem>();
         var seenTags = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         foreach (var it in items)
         {
+            if (UpdateService.GetVersionScore(it.TagName) < UpdateService.GetVersionScore("v10.5"))
+            {
+                continue;
+            }
+
             string norm = it.TagName.Trim().TrimStart('v', 'V');
             if (seenTags.Add(norm))
             {
@@ -354,6 +199,8 @@ public class UpdateHistoryService
         foreach (var remote in remoteReleases)
         {
             if (string.IsNullOrWhiteSpace(remote.TagName)) continue;
+            if (UpdateService.GetVersionScore(remote.TagName) < UpdateService.GetVersionScore("v10.5")) continue;
+
             string key = remote.TagName.Trim().TrimStart('v', 'V').ToLowerInvariant();
 
             string dateStr = remote.PublishedAt?.ToString("MMM dd, yyyy") ?? "";
@@ -402,28 +249,6 @@ public class UpdateHistoryService
 
     private static List<UpdateHistoryItem> SortItems(List<UpdateHistoryItem> items)
     {
-        return items.OrderByDescending(x =>
-        {
-            // Try sorting by version components
-            string v = x.TagName.Trim().TrimStart('v', 'V');
-            if (v.Contains('.'))
-            {
-                var parts = v.Split('.');
-                long score = 0;
-                foreach (var p in parts)
-                {
-                    if (long.TryParse(new string(p.Where(char.IsDigit).ToArray()), out var n))
-                    {
-                        score = score * 1000 + n;
-                    }
-                }
-                return score;
-            }
-            if (long.TryParse(new string(v.Where(char.IsDigit).ToArray()), out var legacyScore))
-            {
-                return legacyScore;
-            }
-            return 0L;
-        }).ToList();
+        return items.OrderByDescending(x => UpdateService.GetVersionScore(x.TagName)).ToList();
     }
 }

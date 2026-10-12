@@ -21,3 +21,6 @@ out_single_selfcontained/
 out_single_standalone/
 release_*/
 release_v105.3/
+
+.gemini/
+scratch/

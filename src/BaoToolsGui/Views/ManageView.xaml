@@ -320,6 +320,50 @@
                         <TextBlock Text="{x:Static res:Strings.Home_AddGame}" FontWeight="SemiBold" FontSize="11.5" Foreground="#FFFFFF" VerticalAlignment="Center" />
                     </StackPanel>
                 </Button>
+
+                <!-- 🩺 Game Doctor Header Button -->
+                <Button
+                    Margin="8,0,0,0"
+                    Padding="10,0"
+                    Height="32"
+                    Cursor="Hand"
+                    Command="{Binding OpenGenericDoctorCommand}"
+                    ToolTip="{x:Static res:Strings.GameDoctor_Title}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="{DynamicResource CardBackgroundFillColorDefaultBrush}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultBrush}" />
+                            <Setter Property="BorderThickness" Value="1" />
+                            <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border
+                                            x:Name="B"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            CornerRadius="6"
+                                            Padding="{TemplateBinding Padding}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="B" Property="Background" Value="{DynamicResource ControlFillColorSecondaryBrush}" />
+                                                <Setter TargetName="B" Property="BorderBrush" Value="{DynamicResource SystemAccentColorPrimaryBrush}" />
+                                                <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <ui:SymbolIcon Symbol="Stethoscope24" FontSize="13" Margin="0,0,6,0" Foreground="{DynamicResource SystemAccentColorPrimaryBrush}" VerticalAlignment="Center" />
+                        <TextBlock Text="{x:Static res:Strings.GameDoctor_Title}" FontSize="11.5" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button>
             </StackPanel>
         </Grid>
 
@@ -650,6 +694,11 @@
                                             CommandParameter="{Binding}"
                                             Header="{x:Static res:Strings.Manage_Action_ExtractTickets}"
                                             Icon="{ui:SymbolIcon Key24}" />
+                                        <MenuItem
+                                            Command="{Binding PlacementTarget.Tag.DiagnoseGameCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
+                                            CommandParameter="{Binding}"
+                                            Header="{x:Static res:Strings.Manage_Action_GameDoctor}"
+                                            Icon="{ui:SymbolIcon Stethoscope24}" />
                                         <Separator />
                                         <MenuItem
                                             Command="{Binding PlacementTarget.Tag.OpenStorePageCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
@@ -1680,6 +1729,13 @@
                                 Content="{x:Static res:Strings.Manage_Action_RemoveDrm}"
                                 Icon="{ui:SymbolIcon WrenchScrewdriver24}"
                                 IsEnabled="{Binding DataContext.NotBusy, ElementName=Root}" />
+                            <ui:Button
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Stretch"
+                                Command="{Binding DataContext.DiagnoseGameCommand, ElementName=Root}"
+                                CommandParameter="{Binding}"
+                                Content="{x:Static res:Strings.Manage_Action_GameDoctor}"
+                                Icon="{ui:SymbolIcon Stethoscope24}" />
                             <UniformGrid Margin="0,8,0,0" Columns="2" Rows="2">
                                 <ui:Button
                                     Margin="0,0,4,4"

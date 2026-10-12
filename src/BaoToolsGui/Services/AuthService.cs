@@ -93,33 +93,61 @@ public class AuthService
             $"&redirect_to={Uri.EscapeDataString(AppConfig.OAuthCallbackUrl)}" +
             $"&code_challenge={challenge}&code_challenge_method=s256";
 
-        using var listener = new HttpListener();
-        try
+        HttpListener? listener = null;
+        HttpListenerException? lastEx = null;
+
+        for (int attempt = 1; attempt <= 3; attempt++)
         {
-            listener.Prefixes.Add($"http://localhost:{AppConfig.OAuthCallbackPort}/");
-            listener.Start();
+            // Try localhost first, then 127.0.0.1 (bypasses Windows IPv6 TimeWait conflicts)
+            foreach (var prefix in new[] { $"http://localhost:{AppConfig.OAuthCallbackPort}/", $"http://127.0.0.1:{AppConfig.OAuthCallbackPort}/" })
+            {
+                var candidate = new HttpListener();
+                try
+                {
+                    candidate.Prefixes.Add(prefix);
+                    candidate.Start();
+                    listener = candidate;
+                    break;
+                }
+                catch (HttpListenerException hex)
+                {
+                    lastEx = hex;
+                    try { candidate.Close(); } catch { }
+                }
+            }
+
+            if (listener != null) break;
+
+            if (attempt < 3)
+            {
+                await Task.Delay(800, ct);
+            }
         }
-        catch (HttpListenerException hex)
+
+        if (listener == null)
         {
             throw new AuthException(
-                $"Cổng kết nối ({AppConfig.OAuthCallbackPort}) đang bị một tiến trình khác chiếm dụng. Vui lòng thử bấm 'Khởi động lại Steam' rồi thử đăng nhập lại! ({hex.Message})");
+                string.Format(Resources.Strings.Auth_Err_PortBusy, AppConfig.OAuthCallbackPort));
         }
 
-        Process.Start(new ProcessStartInfo(authorizeUrl) { UseShellExecute = true });
-
-        string code;
-        try
+        using (listener)
         {
-            code = await WaitForCallbackAsync(listener, ct);
-        }
-        finally
-        {
-            listener.Stop();
-        }
+            Process.Start(new ProcessStartInfo(authorizeUrl) { UseShellExecute = true });
 
-        var session = await ExchangeCodeAsync(code, verifier, ct);
-        ApplySession(session);
-        AuthStateChanged?.Invoke();
+            string code;
+            try
+            {
+                code = await WaitForCallbackAsync(listener, ct);
+            }
+            finally
+            {
+                listener.Stop();
+            }
+
+            var session = await ExchangeCodeAsync(code, verifier, ct);
+            ApplySession(session);
+            AuthStateChanged?.Invoke();
+        }
     }
 
     // ── Discord bot code sign-in ────────────────────────────────────
@@ -214,7 +242,7 @@ public class AuthService
             await ctx.Response.OutputStream.WriteAsync(page, timeout.Token);
             ctx.Response.Close();
 
-            if (!ok) throw new AuthException(error ?? "Sign-in was denied.");
+            if (!ok) throw new AuthException(error ?? Resources.Strings.Auth_Err_Denied);
             return code!;
         }
     }

@@ -283,6 +283,7 @@ public partial class ManageViewModel : PagedListViewModel<LuaTileViewModel>
     private readonly SteamLibraryService _library;
     private readonly CacheService _cache;
     private readonly GameLauncherService _launcher;
+    private readonly GameDoctorService? _doctor;
 
     private List<LuaTileViewModel> _all = [];
     private CancellationTokenSource? _prefetchCts;
@@ -524,7 +525,7 @@ public partial class ManageViewModel : PagedListViewModel<LuaTileViewModel>
     public ManageViewModel(SteamService steam, SteamAppListCache appList, SteamAppInfoCache appInfo,
         CoverCache covers, ToastService toast, SettingsService settings,
         SteamlessService steamless, SteamTicketService tickets, SteamLibraryService library,
-        CacheService cache, GameLauncherService launcher)
+        CacheService cache, GameLauncherService launcher, GameDoctorService? doctor = null)
     {
         _steam = steam;
         _appList = appList;
@@ -537,6 +538,7 @@ public partial class ManageViewModel : PagedListViewModel<LuaTileViewModel>
         _library = library;
         _cache = cache;
         _launcher = launcher;
+        _doctor = doctor;
         InitPageSize(settings.ManagePageSize);
         SettingsViewModel.LanguageChanged += OnLanguageChanged;
     }
@@ -747,6 +749,37 @@ public partial class ManageViewModel : PagedListViewModel<LuaTileViewModel>
 
     [RelayCommand]
     private void Update(LuaTileViewModel tile) => NavigateToAdd?.Invoke(tile.AppId);
+
+    /// <summary>Opens the Game Doctor dialog for a specific game tile.</summary>
+    [RelayCommand]
+    private void DiagnoseGame(LuaTileViewModel? tile)
+    {
+        if (tile is null || _doctor is null) return;
+        string? folder = _library.GetInstallDir(tile.AppId);
+        string? exe = null;
+        if (!string.IsNullOrEmpty(folder))
+        {
+            exe = _launcher.FindGameExecutable(folder, tile.Name);
+        }
+
+        var dlg = new Views.GameDoctorDialog(_doctor, exe ?? "", tile.Name, _toast)
+        {
+            Owner = System.Windows.Application.Current?.MainWindow
+        };
+        dlg.ShowDialog();
+    }
+
+    /// <summary>Opens the Game Doctor dialog allowing user to pick any executable on disk.</summary>
+    [RelayCommand]
+    private void OpenGenericDoctor()
+    {
+        if (_doctor is null) return;
+        var dlg = new Views.GameDoctorDialog(_doctor, "", null, _toast)
+        {
+            Owner = System.Windows.Application.Current?.MainWindow
+        };
+        dlg.ShowDialog();
+    }
 
     // ── Steamless: remove SteamStub DRM ──────────────────────────────
     [ObservableProperty]
@@ -1117,7 +1150,7 @@ public partial class ManageViewModel : PagedListViewModel<LuaTileViewModel>
 
         string gameRoot = SteamLibraryService.ResolveGameRootFolder(dir);
 
-        // Auto-apply Online Fix from server or Goldberg offline crack if game is not yet patched
+        // Auto-apply Online Fix from server or Goldberg offline emulator if game is not yet patched
         await _launcher.EnsureFixOrCrackAppliedAsync(tile.AppId, tile.Name, gameRoot, _toast);
 
         var info = _launcher.InspectFolder(gameRoot, tile.Name);
@@ -1143,9 +1176,13 @@ public partial class ManageViewModel : PagedListViewModel<LuaTileViewModel>
         var (success, error) = await _launcher.LaunchGameAsync(info.ExecutablePath);
         if (success)
         {
+            string notice = info.HasOnlineFix
+                ? string.Format(Resources.Strings.Launcher_GameStarted_Online, tile.Name)
+                : string.Format(Resources.Strings.Launcher_GameStarted_Offline, tile.Name);
+
             _toast.Show(
                 Resources.Strings.Manage_Action_PlayGame,
-                string.Format(Resources.Strings.Launcher_GameStarted, tile.Name));
+                notice);
 
             await _launcher.HandlePostLaunchExitAsync(_toast);
         }

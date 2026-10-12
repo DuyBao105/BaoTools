@@ -256,6 +256,68 @@
             </Border>
         </DataTemplate>
 
+        <!-- History Category Filter Pill Styles -->
+        <Style x:Key="HistoryFilterPillBase" TargetType="Button">
+            <Setter Property="Height" Value="32" />
+            <Setter Property="Padding" Value="12,4" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Background" Value="{DynamicResource ControlFillColorSecondaryBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            x:Name="B"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="6"
+                            Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="B" Property="Background" Value="{DynamicResource ControlFillColorTertiaryBrush}" />
+                                <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="HistoryFilterPillAll" TargetType="Button" BasedOn="{StaticResource HistoryFilterPillBase}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsCategoryAll}" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource SystemAccentColorPrimaryBrush}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColorPrimaryBrush}" />
+                    <Setter Property="Foreground" Value="#FFFFFF" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="HistoryFilterPillGames" TargetType="Button" BasedOn="{StaticResource HistoryFilterPillBase}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsCategoryGames}" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource SystemAccentColorPrimaryBrush}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColorPrimaryBrush}" />
+                    <Setter Property="Foreground" Value="#FFFFFF" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="HistoryFilterPillLua" TargetType="Button" BasedOn="{StaticResource HistoryFilterPillBase}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsCategoryLua}" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource SystemAccentColorPrimaryBrush}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColorPrimaryBrush}" />
+                    <Setter Property="Foreground" Value="#FFFFFF" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
         <!--  One history row: modern card, cover art, badges, and quick actions.  -->
         <DataTemplate x:Key="HistoryItemTemplate" DataType="{x:Type downloads:DownloadHistoryEntry}">
             <Border
@@ -353,6 +415,51 @@
                         </StackPanel>
 
                         <StackPanel Margin="0,4,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+                            <!-- Category Badge: Game vs Lua -->
+                            <Border
+                                Margin="0,0,6,0"
+                                Padding="6,1.5"
+                                Background="#1F9333EA"
+                                BorderBrush="#559333EA"
+                                BorderThickness="1"
+                                CornerRadius="{StaticResource RadiusXS}"
+                                Visibility="{Binding IsGameDownload, Converter={StaticResource BoolToVis}}">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <ui:SymbolIcon
+                                        FontSize="11"
+                                        Foreground="#C084FC"
+                                        Symbol="Games24" />
+                                    <TextBlock
+                                        Margin="4,0,0,0"
+                                        FontSize="10.5"
+                                        FontWeight="SemiBold"
+                                        Foreground="#C084FC"
+                                        Text="{x:Static res:Strings.Downloads_Badge_Game}" />
+                                </StackPanel>
+                            </Border>
+
+                            <Border
+                                Margin="0,0,6,0"
+                                Padding="6,1.5"
+                                Background="#1A0284C7"
+                                BorderBrush="#500284C7"
+                                BorderThickness="1"
+                                CornerRadius="{StaticResource RadiusXS}"
+                                Visibility="{Binding IsLuaUnlock, Converter={StaticResource BoolToVis}}">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <ui:SymbolIcon
+                                        FontSize="11"
+                                        Foreground="#38BDF8"
+                                        Symbol="Code24" />
+                                    <TextBlock
+                                        Margin="4,0,0,0"
+                                        FontSize="10.5"
+                                        FontWeight="SemiBold"
+                                        Foreground="#38BDF8"
+                                        Text="{x:Static res:Strings.Downloads_Badge_Lua}" />
+                                </StackPanel>
+                            </Border>
+
                             <!-- Status Chip: Success or Error -->
                             <Border
                                 Padding="6,1.5"
@@ -572,7 +679,7 @@
                         <TextBlock FontSize="11" Margin="0,2,0,0" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding DiskSpaceLabel}" />
                     </StackPanel>
                     <Border Grid.Column="1" Width="38" Height="38" CornerRadius="{StaticResource RadiusMD}" Background="{StaticResource StatusInfoBackgroundBrush}">
-                        <ui:SymbolIcon Symbol="HardDrive24" FontSize="18" Foreground="{StaticResource StatusInfoBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <ui:SymbolIcon Symbol="FolderOpenDown24" FontSize="18" Foreground="{StaticResource StatusInfoBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                 </Grid>
             </Border>
@@ -649,6 +756,10 @@
                     x:Name="HistorySectionHeader"
                     Margin="0,14,0,10"
                     Visibility="{Binding HasHistory, Converter={StaticResource BoolToVis}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
@@ -692,6 +803,92 @@
                         Command="{Binding ClearHistoryCommand}"
                         Content="{x:Static res:Strings.Downloads_Action_ClearHistory}"
                         Icon="{ui:SymbolIcon Delete24}" />
+
+                    <!-- Category Filter Segmented Pills -->
+                    <StackPanel
+                        Grid.Row="1"
+                        Grid.ColumnSpan="3"
+                        Margin="0,10,0,0"
+                        Orientation="Horizontal">
+                        <!-- All Pill -->
+                        <Button
+                            Margin="0,0,8,0"
+                            Command="{Binding SelectCategoryCommand}"
+                            CommandParameter="All"
+                            Style="{StaticResource HistoryFilterPillAll}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <TextBlock
+                                    FontSize="12"
+                                    FontWeight="SemiBold"
+                                    Text="{x:Static res:Strings.Downloads_Filter_All}" />
+                                <Border
+                                    Margin="6,0,0,0"
+                                    Padding="5,1"
+                                    Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                                    CornerRadius="{StaticResource RadiusXS}">
+                                    <TextBlock
+                                        FontSize="10.5"
+                                        FontWeight="SemiBold"
+                                        Text="{Binding HistoryAllCount}" />
+                                </Border>
+                            </StackPanel>
+                        </Button>
+
+                        <!-- Games Pill -->
+                        <Button
+                            Margin="0,0,8,0"
+                            Command="{Binding SelectCategoryCommand}"
+                            CommandParameter="Games"
+                            Style="{StaticResource HistoryFilterPillGames}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <ui:SymbolIcon
+                                    Margin="0,0,6,0"
+                                    FontSize="13"
+                                    Symbol="Games24" />
+                                <TextBlock
+                                    FontSize="12"
+                                    FontWeight="SemiBold"
+                                    Text="{x:Static res:Strings.Downloads_Filter_Games}" />
+                                <Border
+                                    Margin="6,0,0,0"
+                                    Padding="5,1"
+                                    Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                                    CornerRadius="{StaticResource RadiusXS}">
+                                    <TextBlock
+                                        FontSize="10.5"
+                                        FontWeight="SemiBold"
+                                        Text="{Binding HistoryGamesCount}" />
+                                </Border>
+                            </StackPanel>
+                        </Button>
+
+                        <!-- Lua / Unlocks Pill -->
+                        <Button
+                            Command="{Binding SelectCategoryCommand}"
+                            CommandParameter="Lua"
+                            Style="{StaticResource HistoryFilterPillLua}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <ui:SymbolIcon
+                                    Margin="0,0,6,0"
+                                    FontSize="13"
+                                    Symbol="Code24" />
+                                <TextBlock
+                                    FontSize="12"
+                                    FontWeight="SemiBold"
+                                    Text="{x:Static res:Strings.Downloads_Filter_Lua}" />
+                                <Border
+                                    Margin="6,0,0,0"
+                                    Padding="5,1"
+                                    Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                                    CornerRadius="{StaticResource RadiusXS}">
+                                    <TextBlock
+                                        FontSize="10.5"
+                                        FontWeight="SemiBold"
+                                        Text="{Binding HistoryLuaCount}" />
+                                </Border>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
                 </Grid>
 
                 <!-- Empty Search Filter Hint -->

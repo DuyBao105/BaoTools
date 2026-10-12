@@ -141,6 +141,36 @@ public partial class DownloadsViewModel : ObservableObject
     [ObservableProperty]
     private string _historySearchText = "";
 
+    [ObservableProperty]
+    private HistoryCategoryFilter _selectedCategory = HistoryCategoryFilter.All;
+
+    public bool IsCategoryAll => SelectedCategory == HistoryCategoryFilter.All;
+    public bool IsCategoryGames => SelectedCategory == HistoryCategoryFilter.Games;
+    public bool IsCategoryLua => SelectedCategory == HistoryCategoryFilter.Lua;
+
+    public int HistoryAllCount => _queue.History.Count;
+    public int HistoryGamesCount => _queue.History.Count(h => h.IsGameDownload);
+    public int HistoryLuaCount => _queue.History.Count(h => h.IsLuaUnlock);
+
+    [RelayCommand]
+    private void SelectCategory(string category)
+    {
+        if (Enum.TryParse<HistoryCategoryFilter>(category, true, out var filter))
+        {
+            SelectedCategory = filter;
+        }
+    }
+
+    partial void OnSelectedCategoryChanged(HistoryCategoryFilter value)
+    {
+        OnPropertyChanged(nameof(IsCategoryAll));
+        OnPropertyChanged(nameof(IsCategoryGames));
+        OnPropertyChanged(nameof(IsCategoryLua));
+        OnPropertyChanged(nameof(FilteredHistory));
+        OnPropertyChanged(nameof(HasFilteredHistory));
+        OnPropertyChanged(nameof(IsSearchEmpty));
+    }
+
     partial void OnHistorySearchTextChanged(string value)
     {
         OnPropertyChanged(nameof(FilteredHistory));
@@ -152,14 +182,27 @@ public partial class DownloadsViewModel : ObservableObject
     {
         get
         {
-            if (string.IsNullOrWhiteSpace(HistorySearchText))
-                return _queue.History;
+            IEnumerable<DownloadHistoryEntry> query = _queue.History;
 
-            string query = HistorySearchText.Trim();
-            return _queue.History.Where(h =>
-                (!string.IsNullOrEmpty(h.Title) && h.Title.Contains(query, StringComparison.OrdinalIgnoreCase)) ||
-                (h.AppId > 0 && h.AppId.ToString().Contains(query, StringComparison.OrdinalIgnoreCase)) ||
-                (!string.IsNullOrEmpty(h.SubTitle) && h.SubTitle.Contains(query, StringComparison.OrdinalIgnoreCase)));
+            if (SelectedCategory == HistoryCategoryFilter.Games)
+            {
+                query = query.Where(h => h.IsGameDownload);
+            }
+            else if (SelectedCategory == HistoryCategoryFilter.Lua)
+            {
+                query = query.Where(h => h.IsLuaUnlock);
+            }
+
+            if (!string.IsNullOrWhiteSpace(HistorySearchText))
+            {
+                string search = HistorySearchText.Trim();
+                query = query.Where(h =>
+                    (!string.IsNullOrEmpty(h.Title) && h.Title.Contains(search, StringComparison.OrdinalIgnoreCase)) ||
+                    (h.AppId > 0 && h.AppId.ToString().Contains(search, StringComparison.OrdinalIgnoreCase)) ||
+                    (!string.IsNullOrEmpty(h.SubTitle) && h.SubTitle.Contains(search, StringComparison.OrdinalIgnoreCase)));
+            }
+
+            return query;
         }
     }
 
@@ -240,6 +283,9 @@ public partial class DownloadsViewModel : ObservableObject
         OnPropertyChanged(nameof(TotalSpeedLabel));
         OnPropertyChanged(nameof(ActiveSubLabel));
         OnPropertyChanged(nameof(DiskSpaceLabel));
+        OnPropertyChanged(nameof(HistoryAllCount));
+        OnPropertyChanged(nameof(HistoryGamesCount));
+        OnPropertyChanged(nameof(HistoryLuaCount));
         OnPropertyChanged(nameof(FilteredHistory));
         OnPropertyChanged(nameof(HasFilteredHistory));
         OnPropertyChanged(nameof(IsSearchEmpty));
@@ -594,7 +640,7 @@ public partial class DownloadsViewModel : ObservableObject
             return;
         }
 
-        // Auto-apply Online Fix from server or Goldberg offline crack if game is not yet patched
+        // Auto-apply Online Fix from server or Goldberg offline emulator if game is not yet patched
         await _launcher.EnsureFixOrCrackAppliedAsync(appId, gameName, gameRoot, _toast);
 
         var info = _launcher.InspectFolder(gameRoot, gameName);
@@ -620,9 +666,13 @@ public partial class DownloadsViewModel : ObservableObject
         var (success, error) = await _launcher.LaunchGameAsync(info.ExecutablePath);
         if (success)
         {
+            string notice = info.HasOnlineFix
+                ? string.Format(Resources.Strings.Launcher_GameStarted_Online, gameName)
+                : string.Format(Resources.Strings.Launcher_GameStarted_Offline, gameName);
+
             _toast.Show(
                 Resources.Strings.Downloads_Action_Play,
-                string.Format(Resources.Strings.Launcher_GameStarted, gameName));
+                notice);
 
             await _launcher.HandlePostLaunchExitAsync(_toast);
         }
@@ -687,4 +737,11 @@ public partial class DownloadsViewModel : ObservableObject
         item.Job.OnReveal?.Invoke();
         RevealItem?.Invoke(item);
     }
+}
+
+public enum HistoryCategoryFilter
+{
+    All,
+    Games,
+    Lua
 }

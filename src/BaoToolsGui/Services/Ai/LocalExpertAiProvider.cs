@@ -79,15 +79,22 @@ public class LocalExpertAiProvider : IAiProvider
         if (q.Contains("gemini") || q.Contains("key gemini") || q.Contains("api gemini"))
         {
             message.Text = isVi
-                ? "**Trợ lý AI BaoTools chạy 100% Cục bộ & Offline:**\n\n" +
-                  "• BaoTools hiện **không cần và không sử dụng Google Gemini hay API key ngoài**.\n" +
-                  "• Mọi câu trả lời, kiến thức hướng dẫn và công cụ chẩn đoán đều được tích hợp sẵn trực tiếp bên trong ứng dụng, bảo đảm tối đa tính riêng tư và hoạt động mượt mà kể cả khi không có mạng.\n" +
-                  "• Bạn có thể bật / tắt Trợ lý AI bất cứ lúc nào trong mục **Cài đặt (Settings)**."
-                : "**BaoTools AI Assistant is 100% Local & Offline:**\n\n" +
-                  "• BaoTools **no longer requires or uses Google Gemini or external cloud API keys**.\n" +
-                  "• All answers, system knowledge, and diagnostic capabilities run entirely on-device for maximum privacy and zero latency, even without an internet connection.\n" +
-                  "• You can enable or disable the AI Assistant anytime in **Settings**.";
-            AttachGeneralActions(message, isVi);
+                ? "**Tích hợp Google Gemini AI trong BaoTools:**\n\n" +
+                  "• BaoTools hiện **hỗ trợ kết nối trực tiếp với Google Gemini AI** để phản hồi thông minh, sâu sắc và tự nhiên hơn!\n" +
+                  "• Bạn có thể vào tab **Cài đặt (Settings)** -> mục **Trợ lý Hỗ trợ & Chẩn đoán** và dán mã **Google Gemini API Key** của bạn.\n" +
+                  "• Bạn có thể lấy API Key hoàn toàn miễn phí tại [Google AI Studio](https://aistudio.google.com/app/apikey).\n" +
+                  "• Nếu không có API Key hoặc khi mất mạng, trợ lý sẽ tự động chuyển về **Local Expert Engine** (hoạt động 100% cục bộ và ngoại tuyến)."
+                : "**Google Gemini AI Integration in BaoTools:**\n\n" +
+                  "• BaoTools now **supports direct integration with Google Gemini AI** for deeper, more natural reasoning!\n" +
+                  "• Open **Settings** -> **Support & Diagnostics** section and paste your **Google Gemini API Key**.\n" +
+                  "• You can obtain a free API key at [Google AI Studio](https://aistudio.google.com/app/apikey).\n" +
+                  "• If no key is set or when offline, the assistant automatically runs on the **Local Expert Engine** (100% on-device).";
+            message.ActionButtons.Add(new AiChatAction
+            {
+                Label = isVi ? "⚙️ Cài đặt Gemini Key" : "⚙️ Configure Gemini Key",
+                ToolName = "navigate_settings",
+                IconSymbol = "Settings24"
+            });
             return message;
         }
 
@@ -119,6 +126,40 @@ public class LocalExpertAiProvider : IAiProvider
                 });
                 return message;
             }
+        }
+
+        // 2.25 Online-Fix & Multiplayer inquiry (e.g., "chơi online", "online-fix", "tải fix", "cài fix online", "app fix", "multiplayer", "coop")
+        if (q.Contains("online-fix") || q.Contains("online fix") || q.Contains("chơi online") || q.Contains("choi online") ||
+            q.Contains("coop") || q.Contains("co-op") || q.Contains("multiplayer") || q.Contains("chơi chung") ||
+            ((q.Contains("fix") || q.Contains("patch")) && (q.Contains("online") || q.Contains("tải") || q.Contains("tai") || q.Contains("cài") || q.Contains("cai") || q.Contains("app"))))
+        {
+            message.Text = isVi
+                ? "**Hướng dẫn tải và cài đặt Online-Fix (Chơi Co-op / Multiplayer qua Steam):**\n\n" +
+                  "1. Vào tab **Chơi Online (Online-Fix)** trên thanh menu bên trái của BaoTools.\n" +
+                  "2. Danh sách sẽ hiển thị các game Steam đã cài đặt trên máy. Tìm tựa game bạn muốn chơi online.\n" +
+                  "3. Bấm nút **Tải Fix (Download Fix)** -> Trình duyệt sẽ mở trực tiếp trang tải bản patch Online-Fix (file `.zip`) của game đó trên Online-Fix.me.\n" +
+                  "4. Sau khi tải file `.zip` về máy, quay lại BaoTools và bấm **Cài đặt Fix (Install Fix)** -> Chọn file `.zip` vừa tải về. BaoTools sẽ tự động giải nén và nạp trực tiếp toàn bộ file patch vào thư mục cài đặt của game.\n" +
+                  "5. Mở Steam lên (khuyến khích dùng tài khoản Steam phụ / clone) -> Vào game -> Bấm **Shift + Tab** (Steam Overlay) để mời bạn bè (game thường giả lập Spacewar AppId 480).\n\n" +
+                  "⚠️ **Lưu ý quan trọng:**\n" +
+                  "• Cần thêm thư mục game vào danh sách loại trừ (Exclusion) của **Windows Defender / Antivirus** vì file `OnlineFix64.dll` rất hay bị nhận nhầm là virus.\n" +
+                  "• Bạn và bạn bè phải cùng cài đặt chung một phiên bản game và cùng bản patch Online-Fix thì mới thấy phòng nhau."
+                : "**How to download and apply Online-Fix (Co-op / Multiplayer via Steam):**\n\n" +
+                  "1. Go to the **Online Fixes** tab on the left sidebar in BaoTools.\n" +
+                  "2. Find your installed Steam game in the list.\n" +
+                  "3. Click **Download Fix** to open Online-Fix.me and download the patch `.zip` file.\n" +
+                  "4. Click **Install Fix** -> Select the downloaded `.zip` file. BaoTools will automatically extract and patch the game files.\n" +
+                  "5. Launch Steam (recommended to use a secondary/alt account) -> Launch game -> Press **Shift + Tab** to invite your friends (via Spacewar).\n\n" +
+                  "⚠️ **Important Notes:**\n" +
+                  "• Whitelist the game directory in **Windows Defender / Antivirus** as `OnlineFix64.dll` is often falsely flagged.\n" +
+                  "• Both you and your friends must have the exact same game version and patch to connect.";
+
+            message.ActionButtons.Add(new AiChatAction
+            {
+                Label = isVi ? "🌐 Mở Chơi Online (Online-Fix)" : "🌐 Open Online Fixes",
+                ToolName = "navigate_online_fixes",
+                IconSymbol = "Globe24"
+            });
+            return message;
         }
 
         // 2.3 Screen & Tab location inquiry (e.g., "tab Manage ở đâu", "tab Fixes dùng làm gì", "tab Mode là gì")

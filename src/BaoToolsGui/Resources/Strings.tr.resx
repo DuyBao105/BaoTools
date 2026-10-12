@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:schema id="root">
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -524,7 +524,7 @@
     <value>Yükleniyor…</value>
   </data>
   <data name="Common_AppId" xml:space="preserve">
-    <value>App ID: {0}</value>
+    <value>Uygulama Kimliği: {0}</value>
   </data>
   <data name="Common_AppFallback" xml:space="preserve">
     <value>Uygulama {0}</value>
@@ -656,7 +656,7 @@
     <value>Çıkış tarihi (en yeni)</value>
   </data>
   <data name="Manage_Sort_Metacritic" xml:space="preserve">
-    <value>Metacritic</value>
+    <value>Metakritik</value>
   </data>
   <data name="Manage_Sort_MostReviewed" xml:space="preserve">
     <value>En çok değerlendirilen</value>
@@ -854,7 +854,7 @@ Bu, .lua dosyalarını Steam\config\stplug-in konumundan siler.</value>
     <value>Göster</value>
   </data>
   <data name="Add_Supporter" xml:space="preserve">
-    <value>Supporter</value>
+    <value>Destekçi</value>
   </data>
   <data name="Add_Unlimited" xml:space="preserve">
     <value>Sınırsız</value>
@@ -1678,26 +1678,26 @@ Hayır - durdur ama dosyaları koru
     <value>İndirme geçmişindeki {0} kaydın tümü kaldırılsın mı? İndirilen dosyalar etkilenmez.</value>
   </data>
   <data name="Nav_OnlineFixes" xml:space="preserve">
-    <value>Online Fix</value>
+    <value>Çevrimiçi Düzeltme</value>
   </data>
   <data name="OnlineFixes_Download" xml:space="preserve">
-    <value>Download Fix</value>
+    <value>Düzeltmeyi İndir</value>
   </data>
   <data name="OnlineFixes_Install" xml:space="preserve">
-    <value>Install Fix</value>
+    <value>Düzeltmeyi Yükle</value>
   </data>
   <data name="OnlineFixes_Search" xml:space="preserve">
-    <value>Search installed games...</value>
+    <value>Yüklü oyunları ara...</value>
   </data>
   <data name="OnlineFixes_Help" xml:space="preserve">
-    <value>Step 1: Click "Download Fix" to search and download the ZIP file from online-fix.me.
-Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically extract it into the game folder.</value>
+    <value>Adım 1: ZIP dosyasını online-fix.me'de aramak ve indirmek için "Düzeltmeyi İndir"e tıklayın.
+Adım 2: "Düzeltmeyi Yükle"ye tıklayın ve indirilen ZIP dosyasını seçerek onu otomatik olarak oyun klasörüne çıkarın.</value>
   </data>
   <data name="Nav_Tickets" xml:space="preserve">
-    <value>Tickets</value>
+    <value>Biletler</value>
   </data>
   <data name="Tickets_CopyHex" xml:space="preserve">
-    <value>Copy Hex</value>
+    <value>Hex'i kopyala</value>
   </data>
   <data name="Manage_Action_ExtractTickets" xml:space="preserve">
     <value>Biletleri Çıkar</value>
@@ -1775,7 +1775,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Denuvo, oyun lisansı başına günde en fazla 5 benzersiz bilgisayar aktivasyonuna izin verir. 24 saat içinde 5'ten fazla makineyle paylaşmak, yeni etkinleştirmeleri bir sonraki güne kadar geçici olarak kilitleyecektir.</value>
   </data>
   <data name="Tickets_Note_Limit_Title" xml:space="preserve">
-    <value>Denuvo 5 Activations / 24 Hours Limit</value>
+    <value>Denuvo 5 Aktivasyon / 24 Saat Limiti</value>
   </data>
   <data name="Tickets_Note_Ownership_Desc" xml:space="preserve">
     <value>Biletler yalnızca halihazırda oturum açmış olan Steam hesabının gerçekten oyun lisansına sahip olması veya etkin Aile Paylaşımı olması durumunda oluşturulabilir.</value>
@@ -1793,7 +1793,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Biletler yalnızca oyuna gerçekten sahip olan veya geçerli Aile Paylaşımına sahip bir hesaptan alınabilir. Denuvo yetkilendirme biletlerinin yenilenmeden önce yaklaşık 30 dakikalık bir geçerlilik süresi vardır.</value>
   </data>
   <data name="Tickets_NoticeHeader" xml:space="preserve">
-    <value>Important Notes for Denuvo</value>
+    <value>Denuvo İçin Önemli Notlar</value>
   </data>
   <data name="Tickets_OpenFolder" xml:space="preserve">
     <value>Klasörü Aç</value>
@@ -1835,16 +1835,16 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Steam çalışıyor</value>
   </data>
   <data name="Tickets_Subtitle" xml:space="preserve">
-    <value>Extract AppOwnershipTicket and EncryptedAppTicket (Denuvo) directly from your active Steam session.</value>
+    <value>AppOwnershipTicket ve EncryptedAppTicket'i (Denuvo) doğrudan aktif Steam oturumunuzdan çıkarın.</value>
   </data>
   <data name="Tickets_Title" xml:space="preserve">
     <value>Steam ve Denuvo Biletleri</value>
   </data>
   <data name="Download_DailyQuota_Label" xml:space="preserve">
-    <value>Daily downloads: </value>
+    <value>Günlük indirmeler:</value>
   </data>
   <data name="Download_DailyQuota_GuestBadge" xml:space="preserve">
-    <value>Sign in for 10 downloads/day</value>
+    <value>Günde 10 indirme için oturum açın</value>
   </data>
   <data name="Download_DailyQuota_LimitReached" xml:space="preserve">
     <value>Günlük 10 indirme sınırınıza ulaştınız. Lütfen yarın tekrar deneyin.</value>
@@ -1853,25 +1853,25 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Günlük indirmeler: Günde 10 indirme için Discord'da oturum açın</value>
   </data>
   <data name="Home_DailyQuota_Supporter" xml:space="preserve">
-    <value>Daily downloads: {0} / Unlimited (Supporter)</value>
+    <value>Günlük indirmeler: {0} / Sınırsız (Destekçi)</value>
   </data>
   <data name="Home_DailyQuota_Used" xml:space="preserve">
-    <value>Daily downloads: {0}/{1} used today</value>
+    <value>Günlük indirmeler: Bugün kullanılan {0}/{1}</value>
   </data>
   <data name="Home_DailyQuota_Active" xml:space="preserve">
-    <value>Daily downloads: 10/day (Active)</value>
+    <value>Günlük indirme sayısı: 10/gün (Aktif)</value>
   </data>
   <data name="Tickets_AppTicket_Title" xml:space="preserve">
     <value>Uygulama Sahipliği Bileti</value>
   </data>
   <data name="Tickets_ETicket_Title" xml:space="preserve">
-    <value>Encrypted App Ticket (Denuvo)</value>
+    <value>Şifreli Uygulama Bileti (Denuvo)</value>
   </data>
   <data name="Common_NotAvailable" xml:space="preserve">
     <value>Müsait değil</value>
   </data>
   <data name="Nav_Plugin" xml:space="preserve">
-    <value>Plugin</value>
+    <value>Eklenti</value>
   </data>
   <data name="Fixes_Applied_Hint" xml:space="preserve">
     <value>Bu düzeltme zaten uygulanmış. Başka birini kurmak için geri alın.</value>
@@ -1985,96 +1985,96 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Steam başladığında BaoTools'u sistem tepsisinde sessizce otomatik olarak başlat.</value>
   </data>
   <data name="Theme_Default" xml:space="preserve">
-    <value>BaoTools Classic</value>
+    <value>BaoTools Klasik</value>
   </data>
   <data name="Theme_Dracula" xml:space="preserve">
-    <value>Dracula</value>
+    <value>Drakula</value>
   </data>
   <data name="Theme_Nord" xml:space="preserve">
     <value>Nord</value>
   </data>
   <data name="Theme_Catppuccin" xml:space="preserve">
-    <value>Catppuccin Mocha</value>
+    <value>Catpuccin Mocha</value>
   </data>
   <data name="Theme_Cyberpunk" xml:space="preserve">
-    <value>Cyberpunk</value>
+    <value>Siberpunk</value>
   </data>
   <data name="Theme_Midnight" xml:space="preserve">
-    <value>Midnight OLED</value>
+    <value>Gece yarısı OLED'i</value>
   </data>
   <data name="Theme_TokyoNight" xml:space="preserve">
-    <value>Tokyo Night</value>
+    <value>Tokyo Gecesi</value>
   </data>
   <data name="Theme_Synthwave" xml:space="preserve">
     <value>Synthwave '84</value>
   </data>
   <data name="Theme_RosePine" xml:space="preserve">
-    <value>Rosé Pine</value>
+    <value>Gül Çamı</value>
   </data>
   <data name="Theme_Sakura" xml:space="preserve">
-    <value>Sakura Blossom</value>
+    <value>Sakura Çiçeği</value>
   </data>
   <data name="Theme_Emerald" xml:space="preserve">
-    <value>Emerald Matrix</value>
+    <value>Zümrüt Matris</value>
   </data>
   <data name="Theme_AmberSunset" xml:space="preserve">
-    <value>Amber Horizon</value>
+    <value>Kehribar Ufuk</value>
   </data>
   <data name="Theme_Amethyst" xml:space="preserve">
-    <value>Amethyst Neon</value>
+    <value>Ametist Neon</value>
   </data>
   <data name="Theme_AbyssalOcean" xml:space="preserve">
-    <value>Abyssal Ocean</value>
+    <value>Abisal Okyanus</value>
   </data>
   <data name="Theme_OneDark" xml:space="preserve">
-    <value>One Dark Pro</value>
+    <value>Bir Karanlık Pro</value>
   </data>
   <data name="Theme_Gruvbox" xml:space="preserve">
     <value>Gruvbox Retro</value>
   </data>
   <data name="UpdateDialog_Title" xml:space="preserve">
-    <value>Software Update</value>
+    <value>Yazılım Güncellemesi</value>
   </data>
   <data name="UpdateDialog_DownloadingHeader" xml:space="preserve">
-    <value>Downloading Update</value>
+    <value>Güncelleme İndiriliyor</value>
   </data>
   <data name="UpdateDialog_DownloadingSub" xml:space="preserve">
-    <value>Downloading update package for {0}... Please keep BaoTools open.</value>
+    <value>{0} için güncelleme paketi indiriliyor... Lütfen BaoTools'u açık tutun.</value>
   </data>
   <data name="UpdateDialog_DownloadingStatus" xml:space="preserve">
-    <value>Downloading</value>
+    <value>İndiriliyor</value>
   </data>
   <data name="UpdateDialog_ReadyHeader" xml:space="preserve">
-    <value>Update Ready to Install</value>
+    <value>Güncelleme Kuruluma Hazır</value>
   </data>
   <data name="UpdateDialog_ReadySub" xml:space="preserve">
-    <value>BaoTools {0} has been downloaded. Click Restart Now to apply the update and start using the new version.</value>
+    <value>BaoTools {0} indirildi. Güncellemeyi uygulamak ve yeni sürümü kullanmaya başlamak için Şimdi Yeniden Başlat'a tıklayın.</value>
   </data>
   <data name="UpdateDialog_ReadyStatus" xml:space="preserve">
-    <value>Ready to install</value>
+    <value>Kuruluma hazır</value>
   </data>
   <data name="UpdateDialog_RestartNow" xml:space="preserve">
-    <value>Restart Now</value>
+    <value>Şimdi Yeniden Başlat</value>
   </data>
   <data name="UpdateDialog_Restarting" xml:space="preserve">
-    <value>Restarting...</value>
+    <value>Yeniden başlatılıyor...</value>
   </data>
   <data name="UpdateDialog_Later" xml:space="preserve">
     <value>Later</value>
   </data>
   <data name="UpdateDialog_Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>İptal etmek</value>
   </data>
   <data name="UpdateDialog_FailedHeader" xml:space="preserve">
-    <value>Download Failed</value>
+    <value>İndirme Başarısız Oldu</value>
   </data>
   <data name="UpdateDialog_FailedSub" xml:space="preserve">
-    <value>An error occurred while downloading the update. You can download the latest installer manually from your browser.</value>
+    <value>Güncelleme indirilirken bir hata oluştu. En son yükleyiciyi tarayıcınızdan manuel olarak indirebilirsiniz.</value>
   </data>
   <data name="UpdateDialog_OpenBrowser" xml:space="preserve">
-    <value>Open Browser</value>
+    <value>Tarayıcıyı Aç</value>
   </data>
-  <!-- Added Keys Sync -->
+  
   <data name="Nav_Section_Tools" xml:space="preserve">
     <value>ARAÇLAR</value>
   </data>
@@ -2229,51 +2229,51 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Önerilen konular:</value>
   </data>
   <data name="Settings_Subtitle" xml:space="preserve">
-    <value>Manage BaoTools preferences</value>
+    <value>BaoTools tercihlerini yönetin</value>
   </data>
   <data name="Home_Discord_Title" xml:space="preserve">
-    <value>Discord Community</value>
+    <value>Discord Topluluğu</value>
   </data>
   <data name="Home_Discord_Desc" xml:space="preserve">
-    <value>Join the BaoTools Discord server for announcements, fresh updates, and technical support.</value>
+    <value>Duyurular, yeni güncellemeler ve teknik destek için BaoTools Discord sunucusuna katılın.</value>
   </data>
   <data name="Home_Discord_Join" xml:space="preserve">
-    <value>Join Discord</value>
+    <value>Discord'a Katılın</value>
   </data>
   <data name="Settings_AiAssistant_LocalOffline" xml:space="preserve">
-    <value>Local / Offline</value>
+    <value>Yerel / Çevrimdışı</value>
   </data>
   <data name="Settings_AiAssistant_CardDesc" xml:space="preserve">
-    <value>Diagnose games, explain errors and help fix common problems.</value>
+    <value>Oyunları teşhis edin, hataları açıklayın ve sık karşılaşılan sorunların çözülmesine yardımcı olun.</value>
   </data>
   <data name="Settings_AiAssistant_Key" xml:space="preserve">
-    <value>Google Gemini API Key</value>
+    <value>Google Gemini API Anahtarı</value>
   </data>
   <data name="Settings_AiAssistant_Key_Hint" xml:space="preserve">
-    <value>Free API key from Google AI Studio. Used by the assistant for deeper reasoning.</value>
+    <value>Google AI Studio'dan ücretsiz API anahtarı. Asistan tarafından daha derin akıl yürütme için kullanılır.</value>
   </data>
   <data name="Settings_AiAssistant_KeyPlaceholder" xml:space="preserve">
-    <value>Paste your Gemini API key (AIzaSy...)</value>
+    <value>Gemini API anahtarınızı yapıştırın (AIzaSy...)</value>
   </data>
   <data name="Settings_AiAssistant_GetKey" xml:space="preserve">
-    <value>Get Free API Key</value>
+    <value>Ücretsiz API Anahtarını Alın</value>
   </data>
   <data name="AiChat_CopyMessage" xml:space="preserve">
-    <value>Copy message</value>
+    <value>Mesajı kopyala</value>
   </data>
   <data name="AiChat_Copied" xml:space="preserve">
-    <value>Copied!</value>
+    <value>Kopyalandı!</value>
   </data>
   <data name="AiChat_Regenerate" xml:space="preserve">
-    <value>Regenerate response</value>
+    <value>Yanıtı yeniden oluştur</value>
   </data>
   <data name="AiChat_InspectingGame" xml:space="preserve">
-    <value>Inspecting: {0}</value>
+    <value>İnceleniyor: {0}</value>
   </data>
   <data name="AiChat_ClearGameContext" xml:space="preserve">
-    <value>Clear game context</value>
+    <value>Oyun içeriğini temizle</value>
   </data>
-  <!-- Assistant Rotating Discovery Messages -->
+  
   <data name="AssistantAskAnything" xml:space="preserve">
     <value>Bana her şeyi sorabilirsin...</value>
   </data>
@@ -2287,28 +2287,28 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Çözüm mü lazım?</value>
   </data>
   <data name="Downloads_Search_Placeholder" xml:space="preserve">
-    <value>Search downloaded games...</value>
+    <value>İndirilen oyunları ara...</value>
   </data>
   <data name="Manage_Filter_Source" xml:space="preserve">
-    <value>Source</value>
+    <value>Kaynak</value>
   </data>
   <data name="Downloads_Stats_TotalData" xml:space="preserve">
-    <value>Total Downloaded</value>
+    <value>Toplam İndirilenler</value>
   </data>
   <data name="Downloads_Stats_DiskFree" xml:space="preserve">
     <value>Drive {0} Â· Free {1}</value>
   </data>
   <data name="Downloads_Shortcut_Failed" xml:space="preserve">
-    <value>Failed to create Desktop shortcut: {0}</value>
+    <value>Masaüstü kısayolu oluşturulamadı: {0}</value>
   </data>
   <data name="Launcher_MinimizingDueToDownloads" xml:space="preserve">
-    <value>Active downloads in progress. BaoTools minimized to keep downloading.</value>
+    <value>Aktif indirmeler devam ediyor. BaoTools indirmeye devam etmek için simge durumuna küçültüldü.</value>
   </data>
   <data name="Downloads_Uninstall_Title" xml:space="preserve">
-    <value>Uninstall Game</value>
+    <value>Oyunu Kaldır</value>
   </data>
   <data name="Settings_CreateDesktopShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut on download</value>
+    <value>İndirirken Masaüstü kısayolu oluştur</value>
   </data>
   <data name="Downloads_Action_Play" xml:space="preserve">
     <value>Play</value>
@@ -2317,91 +2317,91 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Idle</value>
   </data>
   <data name="Downloads_Empty_Desc" xml:space="preserve">
-    <value>Your download queue is empty. Find and download games, DLCs, or fixes to get started.</value>
+    <value>İndirme sıranız boş. Başlamak için oyunları, DLC'leri veya düzeltmeleri bulun ve indirin.</value>
   </data>
   <data name="Downloads_Uninstall_Success" xml:space="preserve">
-    <value>Successfully uninstalled '{0}'.</value>
+    <value>'{0}' başarıyla kaldırıldı.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Body" xml:space="preserve">
     <value>{0} is downloaded and ready to play.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Title" xml:space="preserve">
-    <value>Download Complete</value>
+    <value>İndirme Tamamlandı</value>
   </data>
   <data name="Downloads_Stats_Active" xml:space="preserve">
-    <value>Active Queue</value>
+    <value>Aktif Sıra</value>
   </data>
   <data name="Settings_ExitOnPlay" xml:space="preserve">
-    <value>Close app when launching game</value>
+    <value>Oyunu başlatırken uygulamayı kapat</value>
   </data>
   <data name="Launcher_StartingSteam" xml:space="preserve">
-    <value>Game with Online Fix requires Steam. Opening Steam, please wait until signed in and press Play again!</value>
+    <value>Çevrimiçi Düzeltmeli oyun Steam gerektirir. Steam açılıyor, lütfen oturum açana kadar bekleyin ve tekrar Oynat'a basın!</value>
   </data>
   <data name="Settings_ExitOnPlay_Hint" xml:space="preserve">
-    <value>Automatically exit BaoTools when launching a game. If downloads are active, BaoTools minimizes instead to keep downloading.</value>
+    <value>Bir oyunu başlatırken BaoTools'tan otomatik olarak çıkın. İndirmeler etkinse, BaoTools indirmeyi sürdürmek için simge durumuna küçültür.</value>
   </data>
   <data name="Downloads_Stats_Completed_Desc" xml:space="preserve">
-    <value>Installed games</value>
+    <value>Yüklü oyunlar</value>
   </data>
   <data name="Launcher_LaunchFailed" xml:space="preserve">
-    <value>Failed to launch game: {0}</value>
+    <value>Oyun başlatılamadı: {0}</value>
   </data>
   <data name="Downloads_Stats_Active_Tooltip" xml:space="preserve">
-    <value>Click to view active downloads</value>
+    <value>Etkin indirmeleri görüntülemek için tıklayın</value>
   </data>
   <data name="Manage_Filter_Source_Steam" xml:space="preserve">
-    <value>Steam Unlock</value>
+    <value>Steam Kilidini Aç</value>
   </data>
   <data name="Manage_Badge_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>Ham Depo</value>
   </data>
   <data name="Launcher_GameStarted" xml:space="preserve">
-    <value>Launched {0}.</value>
+    <value>{0} başlatıldı.</value>
   </data>
   <data name="Downloads_Stats_Completed" xml:space="preserve">
-    <value>Completed</value>
+    <value>Tamamlanmış</value>
   </data>
   <data name="Downloads_Action_CreateShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut</value>
+    <value>Masaüstü kısayolu oluştur</value>
   </data>
   <data name="Downloads_Stats_OpenFolder_Tooltip" xml:space="preserve">
-    <value>Click to open download folder in File Explorer</value>
+    <value>İndirme klasörünü Dosya Gezgini'nde açmak için tıklayın</value>
   </data>
   <data name="Downloads_Search_NoResults" xml:space="preserve">
-    <value>No games match your search.</value>
+    <value>Aramanızla eşleşen oyun yok.</value>
   </data>
   <data name="Downloads_Action_Uninstall" xml:space="preserve">
-    <value>Uninstall</value>
+    <value>Kaldır</value>
   </data>
   <data name="Launcher_ExeNotFound" xml:space="preserve">
-    <value>Cannot find a runnable game executable for {0}. Opened folder for manual check.</value>
+    <value>{0} için çalıştırılabilir bir oyun yürütülebilir dosyası bulunamıyor. Manuel kontrol için açılan klasör.</value>
   </data>
   <data name="Launcher_ConfiguredOfflineEmulator" xml:space="preserve">
     <value>Configured offline mode for {0}. Launching gameâ€¦</value>
   </data>
   <data name="Downloads_Shortcut_Created" xml:space="preserve">
-    <value>Created Desktop shortcut for '{0}'.</value>
+    <value>'{0}' için Masaüstü kısayolu oluşturuldu.</value>
   </data>
   <data name="Settings_CreateDesktopShortcut_Hint" xml:space="preserve">
-    <value>Automatically create a desktop shortcut (.lnk) so you can launch the game directly without opening BaoTools.</value>
+    <value>BaoTools'u açmadan oyunu doğrudan başlatabilmeniz için otomatik olarak bir masaüstü kısayolu (.lnk) oluşturun.</value>
   </data>
   <data name="Manage_Action_PlayGame" xml:space="preserve">
-    <value>Play Game</value>
+    <value>Oyun Oyna</value>
   </data>
   <data name="Downloads_Uninstall_Confirm" xml:space="preserve">
-    <value>Are you sure you want to uninstall '{0}'? All downloaded files at '{1}' will be deleted.</value>
+    <value>'{0}' uygulamasını kaldırmak istediğinizden emin misiniz? '{1}' konumuna indirilen tüm dosyalar silinecek.</value>
   </data>
   <data name="Downloads_Stats_Completed_Tooltip" xml:space="preserve">
-    <value>Click to view installed games</value>
+    <value>Yüklü oyunları görüntülemek için tıklayın</value>
   </data>
   <data name="Manage_Filter_Source_All" xml:space="preserve">
-    <value>All sources</value>
+    <value>Tüm kaynaklar</value>
   </data>
   <data name="Downloads_Uninstall_Failed" xml:space="preserve">
-    <value>Failed to uninstall '{0}': {1}</value>
+    <value>'{0}' kaldırılamadı: {1}</value>
   </data>
   <data name="Downloads_Action_BrowseGames" xml:space="preserve">
-    <value>Browse &amp; Download Games</value>
+    <value>Oyunlara Göz Atın ve İndirin</value>
   </data>
   <data name="Launcher_DownloadingFix" xml:space="preserve">
     <value>Downloading and installing {0} for {1}â€¦</value>
@@ -2410,9 +2410,132 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Successfully applied {0}! Launching gameâ€¦</value>
   </data>
   <data name="Manage_Filter_Source_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>Ham Depo</value>
   </data>
   <data name="Downloads_Action_OpenFolder" xml:space="preserve">
-    <value>Open Folder</value>
+    <value>Klasörü Aç</value>
   </data>
-</root>
+  <data name="Downloads_Filter_All" xml:space="preserve">
+    <value>Tümü</value>
+  </data>
+  <data name="Downloads_Filter_Games" xml:space="preserve">
+    <value>Oyunlar</value>
+  </data>
+  <data name="Downloads_Filter_Lua" xml:space="preserve">
+    <value>Lua / Kilit Açmalar</value>
+  </data>
+  <data name="Downloads_Badge_Game" xml:space="preserve">
+    <value>Oyun</value>
+  </data>
+  <data name="Downloads_Badge_Lua" xml:space="preserve">
+    <value>Lua Kilit Açma</value>
+  </data>
+  <data name="Launcher_GameStarted_Online" xml:space="preserve">
+    <value>Çevrimiçi modda oynatma (Çevrimiçi Düzeltme): {0}</value>
+  </data>
+  <data name="Launcher_GameStarted_Offline" xml:space="preserve">
+    <value>Çevrimiçi düzeltme bulunamadı. Çevrimdışı modda oynatılıyor: {0}</value>
+  </data>
+  <data name="Launcher_RestoredOnlineFix" xml:space="preserve">
+    <value>Otomatik olarak geri yüklenen OnlineFix64.dll, Windows Defender tarafından silindi ve istisnalara eklendi.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion" xml:space="preserve">
+    <value>Defender'ın silinmesini önle</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_Success" xml:space="preserve">
+    <value>Windows Defender dışlamalarına {0} eklendi.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All" xml:space="preserve">
+    <value>Tüm oyunları Defender'dan koruyun</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All_Success" xml:space="preserve">
+    <value>Yüklü tüm oyun dizinleri için Windows Defender hariç tutmaları istendi.</value>
+  </data>
+  <data name="OnlineFixes_Filter_All" xml:space="preserve">
+    <value>Hepsi ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Online" xml:space="preserve">
+    <value>ðŸŸ¢ Online Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Offline" xml:space="preserve">
+    <value>âšª Offline / No Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Badge_Online" xml:space="preserve">
+    <value>Çevrimiçi Düzeltme</value>
+  </data>
+  <data name="OnlineFixes_Badge_Offline" xml:space="preserve">
+    <value>Çevrimdışı</value>
+  </data>
+  <data name="GameDoctor_Title" xml:space="preserve">
+    <value>Oyun Doktoru</value>
+  </data>
+  <data name="Settings_AutoGameDoctor" xml:space="preserve">
+    <value>Auto Game Doctor (Çalışma sürelerini otomatik iyileştirme)</value>
+  </data>
+  <data name="Settings_AutoGameDoctor_Hint" xml:space="preserve">
+    <value>0xc000007b hatalarını veya başlatma çökmelerini önlemek için oyunları indirirken ve başlatırken eksik Visual C++ ve DirectX çalışma zamanlarını otomatik olarak tanılayın ve yükleyin.</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes" xml:space="preserve">
+    <value>Hepsi Bir Arada Oyun Çalışma Zamanlarını Yükleyin (VC++ ve DirectX)</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes_Hint" xml:space="preserve">
+    <value>Oyunların gerektirdiği Microsoft Visual C++ ve DirectX çalışma zamanlarını indirip yükleyin.</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealing" xml:space="preserve">
+    <value>Game Doctor: {0} eksik çalışma zamanı paket(ler)i otomatik olarak iyileştiriliyor...</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealSuccess" xml:space="preserve">
+    <value>Game Doctor: Tüm çalışma zamanı kitaplıkları başarıyla yüklendi. Oyun hazır!</value>
+  </data>
+  <data name="GameDoctor_Toast_AllRuntimesInstalled" xml:space="preserve">
+    <value>Visual C++ ve DirectX çalışma zamanları başarıyla yüklendi!</value>
+  </data>
+  <data name="GameDoctor_Status_Installing" xml:space="preserve">
+    <value>Çalışma zamanları yükleniyor...</value>
+  </data>
+  <data name="GameDoctor_Status_Failed" xml:space="preserve">
+    <value>Kurulum başarısız oldu.</value>
+  </data>
+  <data name="Manage_Action_GameDoctor" xml:space="preserve">
+    <value>Oyun Doktoru (Teşhis Et)</value>
+  </data>
+  <data name="GameDoctor_Healthy" xml:space="preserve">
+    <value>Oyun ortamı sağlıklıdır. Tüm bağımlılıklar doğrulandı!</value>
+  </data>
+  <data name="GameDoctor_MissingDllCount" xml:space="preserve">
+    <value>{0} eksik bağımlılık dosyası/dosyaları veya mimari uyumsuzluğu algılandı.</value>
+  </data>
+  <data name="GameDoctor_ArchitectureMismatch" xml:space="preserve">
+    <value>Mimari uyumsuzluğu (32 bit / 64 bit uyumsuzluğu 0xc000007b hatasına neden olur)</value>
+  </data>
+  <data name="GameDoctor_FixNow" xml:space="preserve">
+    <value>Tek Tıklamayla Otomatik Düzeltme</value>
+  </data>
+  <data name="GameDoctor_ChooseExe" xml:space="preserve">
+    <value>Diğer .exe'yi teşhis edin</value>
+  </data>
+  <data name="Common_Install" xml:space="preserve">
+    <value>Düzenlemek</value>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Splash_Subtitle" xml:space="preserve">
+    <value>Nihai Oyun Asistanı</value>
+  </data>
+  <data name="Splash_Initializing" xml:space="preserve">
+    <value>Sistem başlatılıyor...</value>
+  </data>
+  <data name="Splash_CheckingEnv" xml:space="preserve">
+    <value>Oyun ortamı kontrol ediliyor...</value>
+  </data>
+  <data name="Splash_Preparing" xml:space="preserve">
+    <value>Arayüz hazırlanıyor...</value>
+  </data>
+  <data name="Splash_WelcomeGuest" xml:space="preserve">
+    <value>BaoTools'a hoş geldiniz!</value>
+  </data>
+  <data name="Splash_WelcomeUser" xml:space="preserve">
+    <value>Tekrar hoş geldin, {0}! İyi oyunlar!</value>
+  </data>
+<data name="Auth_Err_PortBusy" xml:space="preserve"><value>Bağlantı noktası ({0}) meşgul veya Windows'un yayınlanmasını bekliyor. Lütfen birkaç saniye bekleyip tekrar deneyin!</value></data><data name="Auth_Err_Denied" xml:space="preserve"><value>Oturum açma reddedildi veya iptal edildi.</value></data><data name="Status_SteamOnline" xml:space="preserve"><value>Buhar: Çevrimiçi</value></data><data name="Status_SteamOffline" xml:space="preserve"><value>Steam: Çevrimdışı</value></data><data name="Status_PluginActive" xml:space="preserve"><value>Eklenti: Aktif</value></data><data name="Status_PluginMissing" xml:space="preserve"><value>Eklenti: Eksik</value></data><data name="GameDoctor_ExeNotFound_Title" xml:space="preserve"><value>Yürütülebilir dosya bulunamadı</value></data><data name="GameDoctor_ExeNotFound_Status" xml:space="preserve"><value>Çalıştırılabilir bir yürütülebilir dosya bulunamıyor</value></data><data name="GameDoctor_AllPeImportsValid" xml:space="preserve"><value>Kontrol edilen {0} PE kitaplıkları, tümü geçerli ve uyumludur.</value></data><data name="GameDoctor_NeedsRuntimePackages" xml:space="preserve"><value>Bu oyunu çalıştırmak için {0} çalışma zamanı paketlerini (Visual C++ / DirectX) kurmanız gerekiyor.</value></data><data name="GameDoctor_PeImportsHeader" xml:space="preserve"><value>BAĞLANTILI PE KÜTÜPHANELERİ (İTHALAT)</value></data><data name="GameDoctor_Status_Missing" xml:space="preserve"><value>Eksik</value></data><data name="GameDoctor_Status_Ok" xml:space="preserve"><value>Yüklendi</value></data><data name="GameDoctor_Status_Mismatch" xml:space="preserve"><value>Arch Uyuşmazlığı (x86/x64)</value></data><data name="Settings_Gemini_KeyDeleted" xml:space="preserve"><value>Gemini API anahtarı kaldırıldı. AI asistanı çevrimdışı yerel modda çalışacaktır.</value></data><data name="Settings_Gemini_KeyActivated" xml:space="preserve"><value>✓ Google Gemini AI başarıyla etkinleştirildi!</value></data><data name="Update_DownloadError" xml:space="preserve"><value>Güncelleme indirilirken bir hata oluştu.</value></data></root>

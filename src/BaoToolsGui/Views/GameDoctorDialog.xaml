@@ -1,0 +1,324 @@
+<Window
+    x:Class="BaoToolsGui.Views.GameDoctorDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:res="clr-namespace:BaoToolsGui.Resources"
+    Title="BaoTools - Game Doctor"
+    Width="560"
+    Height="620"
+    WindowStyle="None"
+    AllowsTransparency="True"
+    Background="Transparent"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterOwner"
+    ShowInTaskbar="False">
+
+    <Grid Margin="20">
+        <Border
+            Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+            BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+            BorderThickness="1"
+            CornerRadius="12"
+            Padding="22,20,22,20"
+            MouseLeftButtonDown="Window_MouseLeftButtonDown">
+            <Border.Effect>
+                <DropShadowEffect
+                    BlurRadius="28"
+                    ShadowDepth="6"
+                    Direction="270"
+                    Opacity="0.5"
+                    Color="#000000" />
+            </Border.Effect>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Row 0: Header with Stethoscope Icon, Title, and Close Button -->
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Border
+                        Grid.Column="0"
+                        Width="38"
+                        Height="38"
+                        Margin="0,0,12,0"
+                        VerticalAlignment="Center"
+                        CornerRadius="9"
+                        Background="#203B82F6"
+                        BorderBrush="#3B82F6"
+                        BorderThickness="1">
+                        <ui:SymbolIcon
+                            Symbol="Stethoscope24"
+                            FontSize="18"
+                            Foreground="#3B82F6"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                    </Border>
+
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock
+                            Text="{x:Static res:Strings.GameDoctor_Title}"
+                            FontSize="16"
+                            FontWeight="SemiBold"
+                            Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                        <TextBlock
+                            x:Name="TxtSubTitle"
+                            FontSize="11.5"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextTrimming="CharacterEllipsis"
+                            Margin="0,2,0,0" />
+                    </StackPanel>
+
+                    <Button
+                        Grid.Column="2"
+                        Width="28"
+                        Height="28"
+                        Padding="0"
+                        Cursor="Hand"
+                        Click="CloseButton_Click"
+                        Background="Transparent"
+                        BorderThickness="0">
+                        <ui:SymbolIcon Symbol="Dismiss24" FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                    </Button>
+                </Grid>
+
+                <!-- Row 1: Diagnosis Health Card & Arch Badge -->
+                <Border
+                    x:Name="HealthCard"
+                    Grid.Row="1"
+                    Margin="0,16,0,12"
+                    Padding="14,12"
+                    CornerRadius="8"
+                    Background="#1810B981"
+                    BorderBrush="#10B981"
+                    BorderThickness="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <ui:SymbolIcon
+                            x:Name="HealthIcon"
+                            Grid.Column="0"
+                            Symbol="CheckmarkCircle24"
+                            FontSize="20"
+                            Foreground="#10B981"
+                            VerticalAlignment="Center"
+                            Margin="0,0,10,0" />
+
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock
+                                x:Name="TxtHealthStatus"
+                                Text="{x:Static res:Strings.GameDoctor_Healthy}"
+                                FontWeight="SemiBold"
+                                FontSize="12.5"
+                                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                            <TextBlock
+                                x:Name="TxtHealthDetails"
+                                FontSize="11"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Margin="0,2,0,0" />
+                        </StackPanel>
+
+                        <!-- Arch Badge -->
+                        <Border
+                            x:Name="ArchBadge"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Padding="8,3"
+                            CornerRadius="5"
+                            Background="#25FFFFFF"
+                            BorderBrush="#40FFFFFF"
+                            BorderThickness="1">
+                            <TextBlock
+                                x:Name="TxtArch"
+                                Text="x64"
+                                FontSize="10.5"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <!-- Row 2: Dependencies List -->
+                <Grid Grid.Row="2" Margin="0,0,0,12">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Grid.Row="0"
+                        Text="{x:Static res:Strings.GameDoctor_PeImportsHeader}"
+                        FontSize="10"
+                        FontWeight="Bold"
+                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                        Margin="2,0,0,6" />
+
+                    <Border
+                        Grid.Row="1"
+                        Background="{DynamicResource CardBackgroundFillColorSecondaryBrush}"
+                        BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        CornerRadius="8"
+                        ClipToBounds="True">
+                        <ListView
+                            x:Name="ListDependencies"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                            ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="4,4,4,4">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                                            <TextBlock
+                                                Text="{Binding DllName}"
+                                                FontWeight="SemiBold"
+                                                FontSize="11.5"
+                                                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                                            <TextBlock
+                                                Text="{Binding RequiredPackage}"
+                                                FontSize="10"
+                                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                                Visibility="{Binding RequiredPackage, Converter={StaticResource StringNotEmptyToVis}}" />
+                                        </StackPanel>
+
+                                        <!-- Status Badge -->
+                                        <Border
+                                            Grid.Column="1"
+                                            VerticalAlignment="Center"
+                                            Padding="6,2"
+                                            CornerRadius="4">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Background" Value="#20EF4444" />
+                                                    <Setter Property="BorderBrush" Value="#EF4444" />
+                                                    <Setter Property="BorderThickness" Value="1" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsPresent}" Value="True">
+                                                            <Setter Property="Background" Value="#1510B981" />
+                                                            <Setter Property="BorderBrush" Value="#10B981" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding ArchitectureMismatch}" Value="True">
+                                                            <Setter Property="Background" Value="#25F59E0B" />
+                                                            <Setter Property="BorderBrush" Value="#F59E0B" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <TextBlock FontSize="9.5" FontWeight="Bold">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="Text" Value="{x:Static res:Strings.GameDoctor_Status_Missing}" />
+                                                        <Setter Property="Foreground" Value="#EF4444" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding IsPresent}" Value="True">
+                                                                <Setter Property="Text" Value="{x:Static res:Strings.GameDoctor_Status_Ok}" />
+                                                                <Setter Property="Foreground" Value="#10B981" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding ArchitectureMismatch}" Value="True">
+                                                                <Setter Property="Text" Value="{x:Static res:Strings.GameDoctor_Status_Mismatch}" />
+                                                                <Setter Property="Foreground" Value="#F59E0B" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Border>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Border>
+                </Grid>
+
+                <!-- Row 3: Action Buttons (Fix 1-Click, Choose Other Exe, Close) -->
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Pick Other Exe Button -->
+                    <Button
+                        Grid.Column="0"
+                        Padding="12,6"
+                        Height="32"
+                        Cursor="Hand"
+                        Click="ChooseExeButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <ui:SymbolIcon Symbol="FolderOpen24" FontSize="13" Margin="0,0,6,0" VerticalAlignment="Center" />
+                            <TextBlock Text="{x:Static res:Strings.GameDoctor_ChooseExe}" FontSize="11.5" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+
+                    <StackPanel Grid.Column="2" Orientation="Horizontal">
+                        <!-- Auto-Fix Button (visible only when missing packages exist) -->
+                        <Button
+                            x:Name="BtnAutoFix"
+                            Padding="16,6"
+                            Height="32"
+                            Margin="0,0,8,0"
+                            Cursor="Hand"
+                            Background="{DynamicResource SystemAccentColorPrimaryBrush}"
+                            BorderThickness="0"
+                            Foreground="#FFFFFF"
+                            Click="AutoFixButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <ui:ProgressRing
+                                    x:Name="ProgressFix"
+                                    Width="14"
+                                    Height="14"
+                                    Margin="0,0,6,0"
+                                    IsIndeterminate="True"
+                                    Visibility="Collapsed"
+                                    VerticalAlignment="Center" />
+                                <ui:SymbolIcon
+                                    x:Name="IconFix"
+                                    Symbol="WrenchScrewdriver24"
+                                    FontSize="13"
+                                    Margin="0,0,6,0"
+                                    Foreground="#FFFFFF"
+                                    VerticalAlignment="Center" />
+                                <TextBlock
+                                    x:Name="TxtFix"
+                                    Text="{x:Static res:Strings.GameDoctor_FixNow}"
+                                    FontWeight="SemiBold"
+                                    FontSize="12"
+                                    VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+
+                        <!-- Close Button -->
+                        <Button
+                            Padding="14,6"
+                            Height="32"
+                            Cursor="Hand"
+                            Click="CloseButton_Click">
+                            <TextBlock Text="{x:Static res:Strings.Common_Close}" FontSize="11.5" VerticalAlignment="Center" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

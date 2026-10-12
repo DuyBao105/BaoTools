@@ -273,6 +273,20 @@ public static class CodebaseScanner
             },
             new()
             {
+                Id = "setting_gemini_api_key",
+                Property = "GeminiApiKey",
+                NameVi = "Mã Google Gemini API Key",
+                NameEn = "Google Gemini API Key",
+                PurposeVi = "Khóa API miễn phí từ Google AI Studio để kích hoạt mô hình Gemini 2.0 Flash / 1.5 Flash cho trợ lý AI.",
+                PurposeEn = "Free API key from Google AI Studio to power the AI Assistant with Gemini 2.0 Flash / 1.5 Flash.",
+                Type = "string?",
+                DefaultValue = "null",
+                LocationVi = "Cài đặt (Settings) -> Mục Trợ lý Hỗ trợ & Chẩn đoán",
+                LocationEn = "Settings -> Support & Diagnostics Section",
+                AvailableValues = new() { "AIzaSy..." }
+            },
+            new()
+            {
                 Id = "setting_hubcap_api_key",
                 Property = "HubcapApiKey",
                 NameVi = "Mã API Hubcap Manifest",
@@ -583,6 +597,43 @@ public static class CodebaseScanner
                 RelatedTools = new() { "diagnose_game", "get_system_info", "check_game_files" },
                 RelatedServices = new() { "AiChatService", "AiToolExecutor" },
                 SourceReferences = new() { new() { File = "AiChatWidget.xaml" }, new() { File = "AiChatService.cs" } }
+            },
+            new()
+            {
+                Id = "downloads_categorization",
+                NameVi = "Phân loại Lịch sử tải xuống (Game & Cấu hình Lua)",
+                NameEn = "Download History Categorization (Games & Lua)",
+                DescriptionVi = "Phân tách rõ ràng giữa Game đã tải (Depot download) và Cấu hình Lua (Lua / Sadie / Hubcap / Manifest), kèm bộ lọc Segmented Pills đếm động và huy hiệu trực quan.",
+                DescriptionEn = "Visual separation between full Game Depot downloads and Lua Configurations, with dynamic counting filter pills and badges.",
+                Keywords = new() { "lịch sử tải", "downloads history", "phân loại", "game đã tải", "cấu hình lua", "bộ lọc" },
+                RelatedScreens = new() { "screen_downloads" },
+                RelatedCommands = new() { "SetFilterCommand", "OpenFolderCommand", "UninstallGameCommand" },
+                SourceReferences = new() { new() { File = "DownloadsView.xaml" }, new() { File = "DownloadsViewModel.cs" } }
+            },
+            new()
+            {
+                Id = "safe_uninstall",
+                NameVi = "Cơ chế Gỡ cài đặt an toàn (Safe Uninstall)",
+                NameEn = "Safe Uninstall Engine",
+                DescriptionVi = "Gỡ cài đặt chỉ xóa thư mục game đã tải về trong Downloads/BaoTools Depots, tuyệt đối KHÔNG xóa file .lua cấu hình Steam.",
+                DescriptionEn = "Uninstalls only downloaded game files in Downloads/BaoTools Depots without touching Steam .lua configuration files.",
+                Keywords = new() { "gỡ cài đặt", "uninstall", "gỡ game", "an toàn", "không xóa lua", "safe uninstall" },
+                RelatedScreens = new() { "screen_downloads" },
+                RelatedCommands = new() { "UninstallGameCommand" },
+                SourceReferences = new() { new() { File = "DownloadsViewModel.cs" } }
+            },
+            new()
+            {
+                Id = "gemini_ai_assistant",
+                NameVi = "Tích hợp Google Gemini AI Nâng cao",
+                NameEn = "Google Gemini Advanced AI Integration",
+                DescriptionVi = "Kết nối Google Gemini AI (Gemini 2.0 Flash / 1.5 Flash) với toàn bộ tri thức tính năng BaoTools, suy luận sâu sắc, tư vấn kỹ thuật chính xác và tự động chuyển về Local Expert khi offline.",
+                DescriptionEn = "Integrates Google Gemini AI with full BaoTools feature knowledge, deep technical reasoning, and automatic offline fallback.",
+                Keywords = new() { "gemini", "google gemini", "api key", "ai", "trợ lý thông minh", "chat ai" },
+                RelatedScreens = new() { "screen_settings", "screen_ai_assistant" },
+                RelatedCommands = new() { "SaveGeminiKeyCommand", "ClearGeminiKeyCommand", "OpenGeminiPortalCommand" },
+                RelatedServices = new() { "GeminiAiProvider", "AiChatService" },
+                SourceReferences = new() { new() { File = "GeminiAiProvider.cs" }, new() { File = "AiChatService.cs" } }
             }
         };
     }

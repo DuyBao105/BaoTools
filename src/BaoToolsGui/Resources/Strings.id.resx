@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:schema id="root">
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -158,7 +158,7 @@
     <value>Kelola kunci API Hubcap dan profil Anda di</value>
   </data>
   <data name="Settings_Section_Hubcap" xml:space="preserve">
-    <value>HUBCAP</value>
+    <value>DOP</value>
   </data>
   <data name="Settings_HubcapKey" xml:space="preserve">
     <value>Kunci API Hubcap</value>
@@ -311,7 +311,7 @@
     <value>Tidak ada mode yang dipilih</value>
   </data>
   <data name="Home_ModeIs" xml:space="preserve">
-    <value>Mode · {0}</value>
+    <value>Modus · {0}</value>
   </data>
   <data name="Mode_Title" xml:space="preserve">
     <value>Mode</value>
@@ -524,7 +524,7 @@
     <value>Memuat…</value>
   </data>
   <data name="Common_AppId" xml:space="preserve">
-    <value>App ID: {0}</value>
+    <value>ID Aplikasi: {0}</value>
   </data>
   <data name="Common_AppFallback" xml:space="preserve">
     <value>Aplikasi {0}</value>
@@ -656,7 +656,7 @@
     <value>Tanggal rilis (terbaru)</value>
   </data>
   <data name="Manage_Sort_Metacritic" xml:space="preserve">
-    <value>Metacritic</value>
+    <value>Metakritik</value>
   </data>
   <data name="Manage_Sort_MostReviewed" xml:space="preserve">
     <value>Paling banyak diulas</value>
@@ -758,10 +758,10 @@ Ini menghapus berkas .lua dari Steam\config\stplug-in.</value>
     <value>Memuat perbaikan…</value>
   </data>
   <data name="Fixes_Build" xml:space="preserve">
-    <value>Build {0}</value>
+    <value>Bangun {0}</value>
   </data>
   <data name="Fixes_Manifest" xml:space="preserve">
-    <value>Manifest</value>
+    <value>Tampak</value>
   </data>
   <data name="Fixes_Fix" xml:space="preserve">
     <value>Perbaikan</value>
@@ -854,7 +854,7 @@ Ini menghapus berkas .lua dari Steam\config\stplug-in.</value>
     <value>Tampilkan</value>
   </data>
   <data name="Add_Supporter" xml:space="preserve">
-    <value>Supporter</value>
+    <value>Pendukung</value>
   </data>
   <data name="Add_Unlimited" xml:space="preserve">
     <value>Tak terbatas</value>
@@ -989,7 +989,7 @@ Ini menghapus berkas .lua dari Steam\config\stplug-in.</value>
     <value>· melalui {0}</value>
   </data>
   <data name="Plugin_Title" xml:space="preserve">
-    <value>Plugin</value>
+    <value>Pengaya</value>
   </data>
   <data name="Plugin_Subtitle" xml:space="preserve">
     <value>Plugin untuk Steam! — Kini memakai LuaLoader alih-alih Shittenium</value>
@@ -1007,7 +1007,7 @@ Ini menghapus berkas .lua dari Steam\config\stplug-in.</value>
     <value>Versi terbaru</value>
   </data>
   <data name="Plugin_Row_Frontend" xml:space="preserve">
-    <value>Frontend</value>
+    <value>Bagian depan</value>
   </data>
   <data name="Plugin_Row_Loader" xml:space="preserve">
     <value>Pemuat (winmm.dll)</value>
@@ -1067,7 +1067,7 @@ Ini menghapus berkas .lua dari Steam\config\stplug-in.</value>
     <value>Mulai ulang Steam</value>
   </data>
   <data name="Plugin_Toast_Title" xml:space="preserve">
-    <value>Plugin</value>
+    <value>Pengaya</value>
   </data>
   <data name="Plugin_Toast_Installed" xml:space="preserve">
     <value>Plugin terpasang. Steam sedang dimulai ulang untuk memuatnya.</value>
@@ -1151,7 +1151,7 @@ Ini menghapus berkas .lua dari Steam\config\stplug-in.</value>
     <value>Bawaan</value>
   </data>
   <data name="Builds_Variant_Build" xml:space="preserve">
-    <value>Build {0}</value>
+    <value>Bangun {0}</value>
   </data>
   <data name="Builds_Variant_Preset" xml:space="preserve">
     <value>Tersimpan · {0}</value>
@@ -1166,7 +1166,7 @@ Ini menghapus berkas .lua dari Steam\config\stplug-in.</value>
     <value>Build terbaru di Steam: {0}</value>
   </data>
   <data name="Builds_Manifest" xml:space="preserve">
-    <value>manifest {0}</value>
+    <value>manifes {0}</value>
   </data>
   <data name="Builds_ManifestLatest" xml:space="preserve">
     <value>terbaru adalah {0}</value>
@@ -1678,26 +1678,26 @@ Batal - lanjutkan mengunduh</value>
     <value>Hapus semua {0} entri dari riwayat unduhan? Berkas yang sudah diunduh tidak terpengaruh.</value>
   </data>
   <data name="Nav_OnlineFixes" xml:space="preserve">
-    <value>Online Fix</value>
+    <value>Perbaikan Daring</value>
   </data>
   <data name="OnlineFixes_Download" xml:space="preserve">
-    <value>Download Fix</value>
+    <value>Unduh Perbaiki</value>
   </data>
   <data name="OnlineFixes_Install" xml:space="preserve">
-    <value>Install Fix</value>
+    <value>Instal Perbaiki</value>
   </data>
   <data name="OnlineFixes_Search" xml:space="preserve">
-    <value>Search installed games...</value>
+    <value>Cari game yang diinstal...</value>
   </data>
   <data name="OnlineFixes_Help" xml:space="preserve">
-    <value>Step 1: Click "Download Fix" to search and download the ZIP file from online-fix.me.
-Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically extract it into the game folder.</value>
+    <value>Langkah 1: Klik "Unduh Perbaikan" untuk mencari dan mengunduh file ZIP dari online-fix.me.
+Langkah 2: Klik "Instal Perbaikan" dan pilih file ZIP yang diunduh untuk mengekstraknya secara otomatis ke dalam folder game.</value>
   </data>
   <data name="Nav_Tickets" xml:space="preserve">
-    <value>Tickets</value>
+    <value>Tiket</value>
   </data>
   <data name="Tickets_CopyHex" xml:space="preserve">
-    <value>Copy Hex</value>
+    <value>Salin Hex</value>
   </data>
   <data name="Manage_Action_ExtractTickets" xml:space="preserve">
     <value>Ekstrak Tiket</value>
@@ -1766,7 +1766,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Atau Masukkan AppID Secara Manual</value>
   </data>
   <data name="Tickets_Note_Client_Desc" xml:space="preserve">
-    <value>Steam must be active and logged in during extraction, as tickets are requested directly in-memory from the official Steam client interface.</value>
+    <value>Steam harus aktif dan masuk selama ekstraksi, karena tiket diminta langsung di memori dari antarmuka klien Steam resmi.</value>
   </data>
   <data name="Tickets_Note_Client_Title" xml:space="preserve">
     <value>Jaga agar Klien Steam Tetap Berjalan</value>
@@ -1814,7 +1814,7 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Pindai ulang game Denuvo yang diinstal</value>
   </data>
   <data name="Tickets_ResultsHeader" xml:space="preserve">
-    <value>Extracted Tickets</value>
+    <value>Tiket yang Diekstraksi</value>
   </data>
   <data name="Tickets_SelectDenuvoGame" xml:space="preserve">
     <value>Pilih Game Denuvo yang Terinstal</value>
@@ -1841,16 +1841,16 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Tiket Steam &amp; Denuvo</value>
   </data>
   <data name="Download_DailyQuota_Label" xml:space="preserve">
-    <value>Daily downloads: </value>
+    <value>Unduhan harian:</value>
   </data>
   <data name="Download_DailyQuota_GuestBadge" xml:space="preserve">
-    <value>Sign in for 10 downloads/day</value>
+    <value>Masuk untuk 10 unduhan/hari</value>
   </data>
   <data name="Download_DailyQuota_LimitReached" xml:space="preserve">
     <value>Anda telah mencapai batas harian 10 unduhan. Silakan coba lagi besok.</value>
   </data>
   <data name="Home_DailyQuota_Guest" xml:space="preserve">
-    <value>Daily downloads: Sign in with Discord for 10 downloads/day</value>
+    <value>Unduhan harian: Masuk dengan Discord untuk 10 unduhan/hari</value>
   </data>
   <data name="Home_DailyQuota_Supporter" xml:space="preserve">
     <value>Unduhan harian: {0} / Tidak Terbatas (Pendukung)</value>
@@ -1862,16 +1862,16 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Unduhan harian: 10/hari (Aktif)</value>
   </data>
   <data name="Tickets_AppTicket_Title" xml:space="preserve">
-    <value>App Ownership Ticket</value>
+    <value>Tiket Kepemilikan Aplikasi</value>
   </data>
   <data name="Tickets_ETicket_Title" xml:space="preserve">
-    <value>Encrypted App Ticket (Denuvo)</value>
+    <value>Tiket Aplikasi Terenkripsi (Denuvo)</value>
   </data>
   <data name="Common_NotAvailable" xml:space="preserve">
-    <value>Not available</value>
+    <value>Tidak tersedia</value>
   </data>
   <data name="Nav_Plugin" xml:space="preserve">
-    <value>Plugin</value>
+    <value>Pengaya</value>
   </data>
   <data name="Fixes_Applied_Hint" xml:space="preserve">
     <value>Perbaikan ini sudah diterapkan. Kembalikan dulu jika ingin memasang yang lain.</value>
@@ -1985,96 +1985,96 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Jalankan BaoTools secara otomatis di latar belakang baki sistem saat Steam dimulai.</value>
   </data>
   <data name="Theme_Default" xml:space="preserve">
-    <value>BaoTools Classic</value>
+    <value>BaoTools Klasik</value>
   </data>
   <data name="Theme_Dracula" xml:space="preserve">
-    <value>Dracula</value>
+    <value>Drakula</value>
   </data>
   <data name="Theme_Nord" xml:space="preserve">
     <value>Nord</value>
   </data>
   <data name="Theme_Catppuccin" xml:space="preserve">
-    <value>Catppuccin Mocha</value>
+    <value>Moka Catpucin</value>
   </data>
   <data name="Theme_Cyberpunk" xml:space="preserve">
-    <value>Cyberpunk</value>
+    <value>dunia maya</value>
   </data>
   <data name="Theme_Midnight" xml:space="preserve">
-    <value>Midnight OLED</value>
+    <value>OLED tengah malam</value>
   </data>
   <data name="Theme_TokyoNight" xml:space="preserve">
-    <value>Tokyo Night</value>
+    <value>Malam Tokyo</value>
   </data>
   <data name="Theme_Synthwave" xml:space="preserve">
-    <value>Synthwave '84</value>
+    <value>Sintwave '84</value>
   </data>
   <data name="Theme_RosePine" xml:space="preserve">
     <value>Rosé Pine</value>
   </data>
   <data name="Theme_Sakura" xml:space="preserve">
-    <value>Sakura Blossom</value>
+    <value>Bunga Sakura</value>
   </data>
   <data name="Theme_Emerald" xml:space="preserve">
-    <value>Emerald Matrix</value>
+    <value>Matriks Zamrud</value>
   </data>
   <data name="Theme_AmberSunset" xml:space="preserve">
-    <value>Amber Horizon</value>
+    <value>Cakrawala Kuning</value>
   </data>
   <data name="Theme_Amethyst" xml:space="preserve">
-    <value>Amethyst Neon</value>
+    <value>Neon Kecubung</value>
   </data>
   <data name="Theme_AbyssalOcean" xml:space="preserve">
-    <value>Abyssal Ocean</value>
+    <value>Samudera Neraka</value>
   </data>
   <data name="Theme_OneDark" xml:space="preserve">
-    <value>One Dark Pro</value>
+    <value>Satu Pro Gelap</value>
   </data>
   <data name="Theme_Gruvbox" xml:space="preserve">
     <value>Gruvbox Retro</value>
   </data>
   <data name="UpdateDialog_Title" xml:space="preserve">
-    <value>Software Update</value>
+    <value>Pembaruan Perangkat Lunak</value>
   </data>
   <data name="UpdateDialog_DownloadingHeader" xml:space="preserve">
-    <value>Downloading Update</value>
+    <value>Mengunduh Pembaruan</value>
   </data>
   <data name="UpdateDialog_DownloadingSub" xml:space="preserve">
-    <value>Downloading update package for {0}... Please keep BaoTools open.</value>
+    <value>Mengunduh paket pembaruan untuk {0}... Harap tetap membuka BaoTools.</value>
   </data>
   <data name="UpdateDialog_DownloadingStatus" xml:space="preserve">
-    <value>Downloading</value>
+    <value>Mengunduh</value>
   </data>
   <data name="UpdateDialog_ReadyHeader" xml:space="preserve">
-    <value>Update Ready to Install</value>
+    <value>Pembaruan Siap Diinstal</value>
   </data>
   <data name="UpdateDialog_ReadySub" xml:space="preserve">
-    <value>BaoTools {0} has been downloaded. Click Restart Now to apply the update and start using the new version.</value>
+    <value>BaoTools {0} telah diunduh. Klik Mulai Ulang Sekarang untuk menerapkan pembaruan dan mulai menggunakan versi baru.</value>
   </data>
   <data name="UpdateDialog_ReadyStatus" xml:space="preserve">
-    <value>Ready to install</value>
+    <value>Siap dipasang</value>
   </data>
   <data name="UpdateDialog_RestartNow" xml:space="preserve">
-    <value>Restart Now</value>
+    <value>Mulai Ulang Sekarang</value>
   </data>
   <data name="UpdateDialog_Restarting" xml:space="preserve">
-    <value>Restarting...</value>
+    <value>Memulai ulang...</value>
   </data>
   <data name="UpdateDialog_Later" xml:space="preserve">
     <value>Later</value>
   </data>
   <data name="UpdateDialog_Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Membatalkan</value>
   </data>
   <data name="UpdateDialog_FailedHeader" xml:space="preserve">
-    <value>Download Failed</value>
+    <value>Pengunduhan Gagal</value>
   </data>
   <data name="UpdateDialog_FailedSub" xml:space="preserve">
-    <value>An error occurred while downloading the update. You can download the latest installer manually from your browser.</value>
+    <value>Terjadi kesalahan saat mengunduh pembaruan. Anda dapat mengunduh penginstal terbaru secara manual dari browser Anda.</value>
   </data>
   <data name="UpdateDialog_OpenBrowser" xml:space="preserve">
-    <value>Open Browser</value>
+    <value>Buka Peramban</value>
   </data>
-  <!-- Added Keys Sync -->
+  
   <data name="Nav_Section_Tools" xml:space="preserve">
     <value>ALAT</value>
   </data>
@@ -2229,51 +2229,51 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Topik yang disarankan:</value>
   </data>
   <data name="Settings_Subtitle" xml:space="preserve">
-    <value>Manage BaoTools preferences</value>
+    <value>Kelola preferensi BaoTools</value>
   </data>
   <data name="Home_Discord_Title" xml:space="preserve">
-    <value>Discord Community</value>
+    <value>Komunitas Perselisihan</value>
   </data>
   <data name="Home_Discord_Desc" xml:space="preserve">
-    <value>Join the BaoTools Discord server for announcements, fresh updates, and technical support.</value>
+    <value>Bergabunglah dengan server BaoTools Discord untuk pengumuman, pembaruan terkini, dan dukungan teknis.</value>
   </data>
   <data name="Home_Discord_Join" xml:space="preserve">
-    <value>Join Discord</value>
+    <value>Bergabunglah dengan Perselisihan</value>
   </data>
   <data name="Settings_AiAssistant_LocalOffline" xml:space="preserve">
-    <value>Local / Offline</value>
+    <value>Lokal / Offline</value>
   </data>
   <data name="Settings_AiAssistant_CardDesc" xml:space="preserve">
-    <value>Diagnose games, explain errors and help fix common problems.</value>
+    <value>Diagnosis game, jelaskan kesalahan, dan bantu perbaiki masalah umum.</value>
   </data>
   <data name="Settings_AiAssistant_Key" xml:space="preserve">
-    <value>Google Gemini API Key</value>
+    <value>Kunci API Google Gemini</value>
   </data>
   <data name="Settings_AiAssistant_Key_Hint" xml:space="preserve">
-    <value>Free API key from Google AI Studio. Used by the assistant for deeper reasoning.</value>
+    <value>Kunci API gratis dari Google AI Studio. Digunakan oleh asisten untuk penalaran yang lebih dalam.</value>
   </data>
   <data name="Settings_AiAssistant_KeyPlaceholder" xml:space="preserve">
-    <value>Paste your Gemini API key (AIzaSy...)</value>
+    <value>Tempelkan kunci API Gemini Anda (AIzaSy...)</value>
   </data>
   <data name="Settings_AiAssistant_GetKey" xml:space="preserve">
-    <value>Get Free API Key</value>
+    <value>Dapatkan Kunci API Gratis</value>
   </data>
   <data name="AiChat_CopyMessage" xml:space="preserve">
-    <value>Copy message</value>
+    <value>Salin pesan</value>
   </data>
   <data name="AiChat_Copied" xml:space="preserve">
-    <value>Copied!</value>
+    <value>Disalin!</value>
   </data>
   <data name="AiChat_Regenerate" xml:space="preserve">
-    <value>Regenerate response</value>
+    <value>Meregenerasi respons</value>
   </data>
   <data name="AiChat_InspectingGame" xml:space="preserve">
-    <value>Inspecting: {0}</value>
+    <value>Memeriksa: {0}</value>
   </data>
   <data name="AiChat_ClearGameContext" xml:space="preserve">
-    <value>Clear game context</value>
+    <value>Hapus konteks permainan</value>
   </data>
-  <!-- Assistant Rotating Discovery Messages -->
+  
   <data name="AssistantAskAnything" xml:space="preserve">
     <value>Tanya apa saja...</value>
   </data>
@@ -2287,28 +2287,28 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Butuh perbaikan?</value>
   </data>
   <data name="Downloads_Search_Placeholder" xml:space="preserve">
-    <value>Search downloaded games...</value>
+    <value>Cari game yang diunduh...</value>
   </data>
   <data name="Manage_Filter_Source" xml:space="preserve">
-    <value>Source</value>
+    <value>Sumber</value>
   </data>
   <data name="Downloads_Stats_TotalData" xml:space="preserve">
-    <value>Total Downloaded</value>
+    <value>Jumlah yang Diunduh</value>
   </data>
   <data name="Downloads_Stats_DiskFree" xml:space="preserve">
     <value>Drive {0} Â· Free {1}</value>
   </data>
   <data name="Downloads_Shortcut_Failed" xml:space="preserve">
-    <value>Failed to create Desktop shortcut: {0}</value>
+    <value>Gagal membuat pintasan Desktop: {0}</value>
   </data>
   <data name="Launcher_MinimizingDueToDownloads" xml:space="preserve">
-    <value>Active downloads in progress. BaoTools minimized to keep downloading.</value>
+    <value>Pengunduhan aktif sedang berlangsung. BaoTools diminimalkan untuk terus mengunduh.</value>
   </data>
   <data name="Downloads_Uninstall_Title" xml:space="preserve">
-    <value>Uninstall Game</value>
+    <value>Copot Permainan</value>
   </data>
   <data name="Settings_CreateDesktopShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut on download</value>
+    <value>Buat pintasan Desktop saat diunduh</value>
   </data>
   <data name="Downloads_Action_Play" xml:space="preserve">
     <value>Play</value>
@@ -2317,91 +2317,91 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Idle</value>
   </data>
   <data name="Downloads_Empty_Desc" xml:space="preserve">
-    <value>Your download queue is empty. Find and download games, DLCs, or fixes to get started.</value>
+    <value>Antrean unduhan Anda kosong. Temukan dan unduh game, DLC, atau perbaikan untuk memulai.</value>
   </data>
   <data name="Downloads_Uninstall_Success" xml:space="preserve">
-    <value>Successfully uninstalled '{0}'.</value>
+    <value>Berhasil menghapus instalasi '{0}'.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Body" xml:space="preserve">
     <value>{0} is downloaded and ready to play.</value>
   </data>
   <data name="Downloads_Toast_Depot_Done_Title" xml:space="preserve">
-    <value>Download Complete</value>
+    <value>Unduh Selesai</value>
   </data>
   <data name="Downloads_Stats_Active" xml:space="preserve">
-    <value>Active Queue</value>
+    <value>Antrian Aktif</value>
   </data>
   <data name="Settings_ExitOnPlay" xml:space="preserve">
-    <value>Close app when launching game</value>
+    <value>Tutup aplikasi saat meluncurkan game</value>
   </data>
   <data name="Launcher_StartingSteam" xml:space="preserve">
-    <value>Game with Online Fix requires Steam. Opening Steam, please wait until signed in and press Play again!</value>
+    <value>Game dengan Perbaikan Online membutuhkan Steam. Membuka Steam, harap tunggu hingga masuk dan tekan Mainkan lagi!</value>
   </data>
   <data name="Settings_ExitOnPlay_Hint" xml:space="preserve">
-    <value>Automatically exit BaoTools when launching a game. If downloads are active, BaoTools minimizes instead to keep downloading.</value>
+    <value>Keluar dari BaoTools secara otomatis saat meluncurkan game. Jika unduhan aktif, BaoTools malah meminimalkannya untuk terus mengunduh.</value>
   </data>
   <data name="Downloads_Stats_Completed_Desc" xml:space="preserve">
-    <value>Installed games</value>
+    <value>Game yang diinstal</value>
   </data>
   <data name="Launcher_LaunchFailed" xml:space="preserve">
-    <value>Failed to launch game: {0}</value>
+    <value>Gagal meluncurkan game: {0}</value>
   </data>
   <data name="Downloads_Stats_Active_Tooltip" xml:space="preserve">
-    <value>Click to view active downloads</value>
+    <value>Klik untuk melihat unduhan aktif</value>
   </data>
   <data name="Manage_Filter_Source_Steam" xml:space="preserve">
-    <value>Steam Unlock</value>
+    <value>Buka Kunci Uap</value>
   </data>
   <data name="Manage_Badge_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>Depo Mentah</value>
   </data>
   <data name="Launcher_GameStarted" xml:space="preserve">
-    <value>Launched {0}.</value>
+    <value>Diluncurkan {0}.</value>
   </data>
   <data name="Downloads_Stats_Completed" xml:space="preserve">
-    <value>Completed</value>
+    <value>Selesai</value>
   </data>
   <data name="Downloads_Action_CreateShortcut" xml:space="preserve">
-    <value>Create Desktop shortcut</value>
+    <value>Buat pintasan Desktop</value>
   </data>
   <data name="Downloads_Stats_OpenFolder_Tooltip" xml:space="preserve">
-    <value>Click to open download folder in File Explorer</value>
+    <value>Klik untuk membuka folder unduhan di File Explorer</value>
   </data>
   <data name="Downloads_Search_NoResults" xml:space="preserve">
-    <value>No games match your search.</value>
+    <value>Tidak ada game yang cocok dengan pencarian Anda.</value>
   </data>
   <data name="Downloads_Action_Uninstall" xml:space="preserve">
-    <value>Uninstall</value>
+    <value>Copot pemasangan</value>
   </data>
   <data name="Launcher_ExeNotFound" xml:space="preserve">
-    <value>Cannot find a runnable game executable for {0}. Opened folder for manual check.</value>
+    <value>Tidak dapat menemukan game runnable yang dapat dieksekusi untuk {0}. Folder terbuka untuk pemeriksaan manual.</value>
   </data>
   <data name="Launcher_ConfiguredOfflineEmulator" xml:space="preserve">
     <value>Configured offline mode for {0}. Launching gameâ€¦</value>
   </data>
   <data name="Downloads_Shortcut_Created" xml:space="preserve">
-    <value>Created Desktop shortcut for '{0}'.</value>
+    <value>Membuat pintasan Desktop untuk '{0}'.</value>
   </data>
   <data name="Settings_CreateDesktopShortcut_Hint" xml:space="preserve">
-    <value>Automatically create a desktop shortcut (.lnk) so you can launch the game directly without opening BaoTools.</value>
+    <value>Buat pintasan desktop (.lnk) secara otomatis sehingga Anda dapat meluncurkan game secara langsung tanpa membuka BaoTools.</value>
   </data>
   <data name="Manage_Action_PlayGame" xml:space="preserve">
-    <value>Play Game</value>
+    <value>Mainkan Permainan</value>
   </data>
   <data name="Downloads_Uninstall_Confirm" xml:space="preserve">
-    <value>Are you sure you want to uninstall '{0}'? All downloaded files at '{1}' will be deleted.</value>
+    <value>Apakah Anda yakin ingin menghapus instalasi '{0}'? Semua file yang diunduh di '{1}' akan dihapus.</value>
   </data>
   <data name="Downloads_Stats_Completed_Tooltip" xml:space="preserve">
-    <value>Click to view installed games</value>
+    <value>Klik untuk melihat game yang diinstal</value>
   </data>
   <data name="Manage_Filter_Source_All" xml:space="preserve">
-    <value>All sources</value>
+    <value>Semua sumber</value>
   </data>
   <data name="Downloads_Uninstall_Failed" xml:space="preserve">
-    <value>Failed to uninstall '{0}': {1}</value>
+    <value>Gagal menghapus instalasi '{0}': {1}</value>
   </data>
   <data name="Downloads_Action_BrowseGames" xml:space="preserve">
-    <value>Browse &amp; Download Games</value>
+    <value>Jelajahi &amp; Unduh Game</value>
   </data>
   <data name="Launcher_DownloadingFix" xml:space="preserve">
     <value>Downloading and installing {0} for {1}â€¦</value>
@@ -2410,9 +2410,132 @@ Step 2: Click "Install Fix" and select the downloaded ZIP file to automatically 
     <value>Successfully applied {0}! Launching gameâ€¦</value>
   </data>
   <data name="Manage_Filter_Source_Depot" xml:space="preserve">
-    <value>Raw Depot</value>
+    <value>Depo Mentah</value>
   </data>
   <data name="Downloads_Action_OpenFolder" xml:space="preserve">
-    <value>Open Folder</value>
+    <value>Buka Folder</value>
   </data>
-</root>
+  <data name="Downloads_Filter_All" xml:space="preserve">
+    <value>Semua</value>
+  </data>
+  <data name="Downloads_Filter_Games" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="Downloads_Filter_Lua" xml:space="preserve">
+    <value>Lua / Buka Kunci</value>
+  </data>
+  <data name="Downloads_Badge_Game" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="Downloads_Badge_Lua" xml:space="preserve">
+    <value>Buka Kunci Lua</value>
+  </data>
+  <data name="Launcher_GameStarted_Online" xml:space="preserve">
+    <value>Memutar dalam mode Online (Perbaikan Online): {0}</value>
+  </data>
+  <data name="Launcher_GameStarted_Offline" xml:space="preserve">
+    <value>Tidak ada perbaikan online yang ditemukan. Memutar dalam mode Offline: {0}</value>
+  </data>
+  <data name="Launcher_RestoredOnlineFix" xml:space="preserve">
+    <value>Secara otomatis memulihkan OnlineFix64.dll yang dihapus oleh Windows Defender dan ditambahkan ke pengecualian.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion" xml:space="preserve">
+    <value>Cegah penghapusan Defender</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_Success" xml:space="preserve">
+    <value>Menambahkan {0} ke pengecualian Windows Defender.</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All" xml:space="preserve">
+    <value>Lindungi semua game dari Defender</value>
+  </data>
+  <data name="OnlineFixes_DefenderExclusion_All_Success" xml:space="preserve">
+    <value>Meminta pengecualian Windows Defender untuk semua direktori game yang diinstal.</value>
+  </data>
+  <data name="OnlineFixes_Filter_All" xml:space="preserve">
+    <value>Semua ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Online" xml:space="preserve">
+    <value>ðŸŸ¢ Online Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Filter_Offline" xml:space="preserve">
+    <value>âšª Offline / No Fix ({0})</value>
+  </data>
+  <data name="OnlineFixes_Badge_Online" xml:space="preserve">
+    <value>Perbaikan Daring</value>
+  </data>
+  <data name="OnlineFixes_Badge_Offline" xml:space="preserve">
+    <value>Luring</value>
+  </data>
+  <data name="GameDoctor_Title" xml:space="preserve">
+    <value>Dokter Permainan</value>
+  </data>
+  <data name="Settings_AutoGameDoctor" xml:space="preserve">
+    <value>Dokter Game Otomatis (waktu proses penyembuhan otomatis)</value>
+  </data>
+  <data name="Settings_AutoGameDoctor_Hint" xml:space="preserve">
+    <value>Secara otomatis mendiagnosis dan menginstal runtime Visual C++ dan DirectX yang hilang saat mengunduh dan meluncurkan game untuk mencegah kesalahan 0xc000007b atau peluncuran crash.</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes" xml:space="preserve">
+    <value>Instal Runtime Game All-in-One (VC++ &amp; DirectX)</value>
+  </data>
+  <data name="Settings_InstallAllRuntimes_Hint" xml:space="preserve">
+    <value>Unduh dan instal runtime Microsoft Visual C++ dan DirectX yang diperlukan oleh game.</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealing" xml:space="preserve">
+    <value>Game Doctor: Penyembuhan otomatis {0} paket runtime yang hilang...</value>
+  </data>
+  <data name="GameDoctor_Toast_AutoHealSuccess" xml:space="preserve">
+    <value>Game Doctor: Semua perpustakaan runtime berhasil diinstal. Permainan sudah siap!</value>
+  </data>
+  <data name="GameDoctor_Toast_AllRuntimesInstalled" xml:space="preserve">
+    <value>Runtime Visual C++ dan DirectX berhasil diinstal!</value>
+  </data>
+  <data name="GameDoctor_Status_Installing" xml:space="preserve">
+    <value>Menginstal runtime...</value>
+  </data>
+  <data name="GameDoctor_Status_Failed" xml:space="preserve">
+    <value>Instalasi gagal.</value>
+  </data>
+  <data name="Manage_Action_GameDoctor" xml:space="preserve">
+    <value>Game Dokter (Diagnosis)</value>
+  </data>
+  <data name="GameDoctor_Healthy" xml:space="preserve">
+    <value>Lingkungan permainan sehat. Semua dependensi diverifikasi!</value>
+  </data>
+  <data name="GameDoctor_MissingDllCount" xml:space="preserve">
+    <value>Terdeteksi {0} file ketergantungan yang hilang atau ketidakcocokan arsitektur.</value>
+  </data>
+  <data name="GameDoctor_ArchitectureMismatch" xml:space="preserve">
+    <value>Ketidakcocokan arsitektur (ketidakcocokan 32-bit / 64-bit menyebabkan kesalahan 0xc000007b)</value>
+  </data>
+  <data name="GameDoctor_FixNow" xml:space="preserve">
+    <value>Perbaiki Otomatis 1-Klik</value>
+  </data>
+  <data name="GameDoctor_ChooseExe" xml:space="preserve">
+    <value>Diagnosis .exe lainnya</value>
+  </data>
+  <data name="Common_Install" xml:space="preserve">
+    <value>Memasang</value>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Splash_Subtitle" xml:space="preserve">
+    <value>Asisten Game Terbaik</value>
+  </data>
+  <data name="Splash_Initializing" xml:space="preserve">
+    <value>Menginisialisasi sistem...</value>
+  </data>
+  <data name="Splash_CheckingEnv" xml:space="preserve">
+    <value>Memeriksa lingkungan game...</value>
+  </data>
+  <data name="Splash_Preparing" xml:space="preserve">
+    <value>Menyiapkan antarmuka...</value>
+  </data>
+  <data name="Splash_WelcomeGuest" xml:space="preserve">
+    <value>Selamat datang di BaoTools!</value>
+  </data>
+  <data name="Splash_WelcomeUser" xml:space="preserve">
+    <value>Selamat datang kembali, {0}! Selamat bermain!</value>
+  </data>
+<data name="Auth_Err_PortBusy" xml:space="preserve"><value>Port koneksi ({0}) sedang sibuk atau menunggu rilis Windows. Harap tunggu beberapa detik dan coba lagi!</value></data><data name="Auth_Err_Denied" xml:space="preserve"><value>Proses masuk ditolak atau dibatalkan.</value></data><data name="Status_SteamOnline" xml:space="preserve"><value>Uap: Daring</value></data><data name="Status_SteamOffline" xml:space="preserve"><value>Uap: Offline</value></data><data name="Status_PluginActive" xml:space="preserve"><value>Plugin: Aktif</value></data><data name="Status_PluginMissing" xml:space="preserve"><value>Plugin: Hilang</value></data><data name="GameDoctor_ExeNotFound_Title" xml:space="preserve"><value>Eksekusi tidak ditemukan</value></data><data name="GameDoctor_ExeNotFound_Status" xml:space="preserve"><value>Tidak dapat menemukan executable yang dapat dijalankan</value></data><data name="GameDoctor_AllPeImportsValid" xml:space="preserve"><value>Memeriksa perpustakaan {0} PE, semuanya valid dan kompatibel.</value></data><data name="GameDoctor_NeedsRuntimePackages" xml:space="preserve"><value>Perlu menginstal paket runtime {0} (Visual C++ / DirectX) untuk menjalankan game ini.</value></data><data name="GameDoctor_PeImportsHeader" xml:space="preserve"><value>PERPUSTAKAAN PE TERKAIT (IMPOR)</value></data><data name="GameDoctor_Status_Missing" xml:space="preserve"><value>Hilang</value></data><data name="GameDoctor_Status_Ok" xml:space="preserve"><value>Dipasang</value></data><data name="GameDoctor_Status_Mismatch" xml:space="preserve"><value>Ketidakcocokan Lengkungan (x86/x64)</value></data><data name="Settings_Gemini_KeyDeleted" xml:space="preserve"><value>Kunci API Gemini dihapus. Asisten AI akan beroperasi dalam mode lokal offline.</value></data><data name="Settings_Gemini_KeyActivated" xml:space="preserve"><value>✓ Google Gemini AI berhasil diaktifkan!</value></data><data name="Update_DownloadError" xml:space="preserve"><value>Terjadi kesalahan saat mengunduh pembaruan.</value></data></root>

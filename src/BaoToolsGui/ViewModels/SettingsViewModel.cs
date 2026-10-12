@@ -117,6 +117,7 @@ public partial class SettingsViewModel : ObservableObject
     private readonly BaoToolsApiClient _api;
     private readonly SteamStartupService _steamStartup;
     private readonly ThemeService _themeService;
+    private readonly GameDoctorService? _doctor;
 
     [ObservableProperty] private string? _displayName;
     [ObservableProperty] private string? _email;
@@ -229,6 +230,11 @@ public partial class SettingsViewModel : ObservableObject
     [ObservableProperty] private bool _createDesktopShortcut;
 
     partial void OnCreateDesktopShortcutChanged(bool value) => _settings.CreateDesktopShortcut = value;
+
+    /// <summary>Automatically diagnose and heal missing runtime dependencies for games.</summary>
+    [ObservableProperty] private bool _autoGameDoctor;
+
+    partial void OnAutoGameDoctorChanged(bool value) => _settings.AutoGameDoctor = value;
 
     // ── Language ────────────────────────────────────────────────────
     /// <summary>Available UI languages (native endonyms, matching Steam's list). "System default"
@@ -343,6 +349,12 @@ public partial class SettingsViewModel : ObservableObject
 
     public static event Action? AiAssistantChanged;
 
+    // ── Google Gemini API Key ─────────────────────────────────────────
+    [ObservableProperty] private string _geminiKeyInput = "";
+    [ObservableProperty] private string? _geminiKeyStatus;
+    [ObservableProperty] private string _geminiKeyStatusColor = "#22c55e";
+    [ObservableProperty] private bool _geminiIsKeyConfigured;
+
     // ── Hubcap API key ──────────────────────────────────────────────
     /// <summary>The key the user is typing/pasting. Starts blank. The saved key is never shown back.</summary>
     [ObservableProperty] private string _hubcapKeyInput = "";
@@ -407,7 +419,8 @@ public partial class SettingsViewModel : ObservableObject
     public Action? RequestRestartPrompt { get; set; }
 
     public SettingsViewModel(SettingsService settings, AuthService auth, SteamService steam,
-        HubcapService hubcap, BaoToolsApiClient api, SteamStartupService steamStartup, ThemeService themeService)
+        HubcapService hubcap, BaoToolsApiClient api, SteamStartupService steamStartup, ThemeService themeService,
+        GameDoctorService? doctor = null)
     {
         _settings = settings;
         _auth = auth;
@@ -416,6 +429,7 @@ public partial class SettingsViewModel : ObservableObject
         _api = api;
         _steamStartup = steamStartup;
         _themeService = themeService;
+        _doctor = doctor;
         _auth.AuthStateChanged += RefreshAccount;
         RefreshAccount();
         RefreshSteam();
@@ -427,7 +441,10 @@ public partial class SettingsViewModel : ObservableObject
         _minimizeToTray = settings.MinimizeToTray;
         _exitOnPlay = settings.ExitOnPlay;
         _createDesktopShortcut = settings.CreateDesktopShortcut;
+        _autoGameDoctor = settings.AutoGameDoctor;
         _enableAiAssistant = settings.EnableAiAssistant;
+        _geminiIsKeyConfigured = !string.IsNullOrWhiteSpace(settings.GeminiApiKey);
+        _geminiKeyInput = settings.GeminiApiKey ?? "";
         _hubcapIsKeyConfigured = !string.IsNullOrEmpty(settings.HubcapApiKey);
 
         // Select the saved theme without re-triggering save
@@ -677,5 +694,46 @@ public partial class SettingsViewModel : ObservableObject
             return string.Format(Resources.Strings.Settings_HubcapKeyOkExpiry, stats.DailyUsage, stats.DailyLimit,
                 expiry.ToString("yyyy-MM-dd"));
         return usage;
+    }
+
+    // ── Gemini key management ─────────────────────────────────────────
+
+    [RelayCommand]
+    private void SaveGeminiKey()
+    {
+        string key = GeminiKeyInput.Trim();
+        if (string.IsNullOrWhiteSpace(key))
+        {
+            _settings.GeminiApiKey = null;
+            GeminiIsKeyConfigured = false;
+            GeminiKeyStatus = Resources.Strings.Settings_Gemini_KeyDeleted;
+            GeminiKeyStatusColor = "#94a3b8";
+            return;
+        }
+
+        _settings.GeminiApiKey = key;
+        GeminiIsKeyConfigured = true;
+        GeminiKeyStatus = Resources.Strings.Settings_Gemini_KeyActivated;
+        GeminiKeyStatusColor = "#22c55e";
+    }
+
+    [RelayCommand]
+    private void ClearGeminiKey()
+    {
+        _settings.GeminiApiKey = null;
+        GeminiIsKeyConfigured = false;
+        GeminiKeyInput = "";
+        GeminiKeyStatus = Resources.Strings.Settings_Gemini_KeyDeleted;
+        GeminiKeyStatusColor = "#94a3b8";
+    }
+
+    [RelayCommand]
+    private void OpenGeminiPortal()
+    {
+        try
+        {
+            Process.Start(new ProcessStartInfo("https://aistudio.google.com/app/apikey") { UseShellExecute = true });
+        }
+        catch { }
     }
 }

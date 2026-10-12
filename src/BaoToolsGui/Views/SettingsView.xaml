@@ -665,6 +665,8 @@
                             VerticalAlignment="Center"
                             IsChecked="{Binding CreateDesktopShortcut, Mode=TwoWay}" />
                     </Grid>
+
+
                 </StackPanel>
             </Border>
 
@@ -780,8 +782,6 @@
                             VerticalAlignment="Center"
                             IsChecked="{Binding EnableAiAssistant, Mode=TwoWay}" />
                     </Grid>
-
-
                 </StackPanel>
             </Border>
 

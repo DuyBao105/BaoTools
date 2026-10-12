@@ -674,6 +674,11 @@ public static class Strings
     public static string Settings_ExitOnPlay_Hint => Get(nameof(Settings_ExitOnPlay_Hint));
     public static string Launcher_MinimizingDueToDownloads => Get(nameof(Launcher_MinimizingDueToDownloads));
     public static string Downloads_Kind_Depot => Get(nameof(Downloads_Kind_Depot));
+    public static string Downloads_Filter_All => Get(nameof(Downloads_Filter_All));
+    public static string Downloads_Filter_Games => Get(nameof(Downloads_Filter_Games));
+    public static string Downloads_Filter_Lua => Get(nameof(Downloads_Filter_Lua));
+    public static string Downloads_Badge_Game => Get(nameof(Downloads_Badge_Game));
+    public static string Downloads_Badge_Lua => Get(nameof(Downloads_Badge_Lua));
     public static string Downloads_Depots_Progress => Get(nameof(Downloads_Depots_Progress));
     public static string Depot_Err_Tool => Get(nameof(Depot_Err_Tool));
     public static string Depot_Err_NoKeys => Get(nameof(Depot_Err_NoKeys));
@@ -841,4 +846,67 @@ public static class Strings
     public static string AssistantNeedHelp => Get(nameof(AssistantNeedHelp));
     public static string AssistantGameNotWorking => Get(nameof(AssistantGameNotWorking));
     public static string AssistantNeedFix => Get(nameof(AssistantNeedFix));
+
+    public static string Launcher_GameStarted_Online => Get(nameof(Launcher_GameStarted_Online));
+    public static string Launcher_GameStarted_Offline => Get(nameof(Launcher_GameStarted_Offline));
+    public static string Launcher_RestoredOnlineFix => Get(nameof(Launcher_RestoredOnlineFix));
+    public static string OnlineFixes_DefenderExclusion => Get(nameof(OnlineFixes_DefenderExclusion));
+    public static string OnlineFixes_DefenderExclusion_Success => Get(nameof(OnlineFixes_DefenderExclusion_Success));
+    public static string OnlineFixes_DefenderExclusion_All => Get(nameof(OnlineFixes_DefenderExclusion_All));
+    public static string OnlineFixes_DefenderExclusion_All_Success => Get(nameof(OnlineFixes_DefenderExclusion_All_Success));
+    public static string OnlineFixes_Filter_All => Get(nameof(OnlineFixes_Filter_All));
+    public static string OnlineFixes_Filter_Online => Get(nameof(OnlineFixes_Filter_Online));
+    public static string OnlineFixes_Filter_Offline => Get(nameof(OnlineFixes_Filter_Offline));
+    public static string OnlineFixes_Badge_Online => Get(nameof(OnlineFixes_Badge_Online));
+    public static string OnlineFixes_Badge_Offline => Get(nameof(OnlineFixes_Badge_Offline));
+
+    public static string GameDoctor_Title => Get(nameof(GameDoctor_Title));
+    public static string Settings_AutoGameDoctor => Get(nameof(Settings_AutoGameDoctor));
+    public static string Settings_AutoGameDoctor_Hint => Get(nameof(Settings_AutoGameDoctor_Hint));
+    public static string Settings_InstallAllRuntimes => Get(nameof(Settings_InstallAllRuntimes));
+    public static string Settings_InstallAllRuntimes_Hint => Get(nameof(Settings_InstallAllRuntimes_Hint));
+    public static string GameDoctor_Toast_AutoHealing => Get(nameof(GameDoctor_Toast_AutoHealing));
+    public static string GameDoctor_Toast_AutoHealSuccess => Get(nameof(GameDoctor_Toast_AutoHealSuccess));
+    public static string GameDoctor_Toast_AllRuntimesInstalled => Get(nameof(GameDoctor_Toast_AllRuntimesInstalled));
+    public static string GameDoctor_Status_Installing => Get(nameof(GameDoctor_Status_Installing));
+    public static string GameDoctor_Status_Failed => Get(nameof(GameDoctor_Status_Failed));
+    public static string Manage_Action_GameDoctor => Get(nameof(Manage_Action_GameDoctor));
+    public static string GameDoctor_Healthy => Get(nameof(GameDoctor_Healthy));
+    public static string GameDoctor_MissingDllCount => Get(nameof(GameDoctor_MissingDllCount));
+    public static string GameDoctor_ArchitectureMismatch => Get(nameof(GameDoctor_ArchitectureMismatch));
+    public static string GameDoctor_FixNow => Get(nameof(GameDoctor_FixNow));
+    public static string GameDoctor_ChooseExe => Get(nameof(GameDoctor_ChooseExe));
+    public static string Common_Install => Get(nameof(Common_Install));
+    public static string Common_Close => Get(nameof(Common_Close));
+
+    // -- Splash Screen --
+    public static string Splash_Subtitle => Get(nameof(Splash_Subtitle));
+    public static string Splash_Initializing => Get(nameof(Splash_Initializing));
+    public static string Splash_CheckingEnv => Get(nameof(Splash_CheckingEnv));
+    public static string Splash_Preparing => Get(nameof(Splash_Preparing));
+    public static string Splash_WelcomeGuest => Get(nameof(Splash_WelcomeGuest));
+    public static string Splash_WelcomeUser => Get(nameof(Splash_WelcomeUser));
+
+    // -- Auth and System Status --
+    public static string Auth_Err_PortBusy => Get(nameof(Auth_Err_PortBusy));
+    public static string Auth_Err_Denied => Get(nameof(Auth_Err_Denied));
+    public static string Status_SteamOnline => Get(nameof(Status_SteamOnline));
+    public static string Status_SteamOffline => Get(nameof(Status_SteamOffline));
+    public static string Status_PluginActive => Get(nameof(Status_PluginActive));
+    public static string Status_PluginMissing => Get(nameof(Status_PluginMissing));
+
+    // -- Game Doctor Dialog --
+    public static string GameDoctor_ExeNotFound_Title => Get(nameof(GameDoctor_ExeNotFound_Title));
+    public static string GameDoctor_ExeNotFound_Status => Get(nameof(GameDoctor_ExeNotFound_Status));
+    public static string GameDoctor_AllPeImportsValid => Get(nameof(GameDoctor_AllPeImportsValid));
+    public static string GameDoctor_NeedsRuntimePackages => Get(nameof(GameDoctor_NeedsRuntimePackages));
+    public static string GameDoctor_PeImportsHeader => Get(nameof(GameDoctor_PeImportsHeader));
+    public static string GameDoctor_Status_Missing => Get(nameof(GameDoctor_Status_Missing));
+    public static string GameDoctor_Status_Ok => Get(nameof(GameDoctor_Status_Ok));
+    public static string GameDoctor_Status_Mismatch => Get(nameof(GameDoctor_Status_Mismatch));
+
+    // -- Settings & Update --
+    public static string Settings_Gemini_KeyDeleted => Get(nameof(Settings_Gemini_KeyDeleted));
+    public static string Settings_Gemini_KeyActivated => Get(nameof(Settings_Gemini_KeyActivated));
+    public static string Update_DownloadError => Get(nameof(Update_DownloadError));
 }
