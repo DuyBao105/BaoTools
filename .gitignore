@@ -24,3 +24,5 @@ release_v105.3/
 
 .gemini/
 scratch/
+
+.wrangler/
