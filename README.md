@@ -2,7 +2,7 @@
 <p>
   <img align="right" height="250" alt="hachimi" src="https://github.com/user-attachments/assets/33aa8bb5-df11-4b33-b5d6-9a8350495c8b" />
 
-  [Discord](https://discord.gg/baocobap) • [Website](https://DuyBao105.github.io/BaoTools) • [Git Mirror](https://github.com/DuyBao105/BaoTools)
+  [Discord](https://discord.gg/baocobap) • [Website](https://baotools.baotranduy666666.workers.dev/) • [Git Mirror](https://github.com/DuyBao105/BaoTools)
   
   A Windows desktop client for managing Steam manifest/lua configurations, built with WPF on .NET 8.
     
